@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCg4XK-l40KZD7fLi12pJ1YA"/>
+ <id>yt:channel:g4XK-l40KZD7fLi12pJ1YA</id>
+ <yt:channelId>g4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+ <title>Welyn</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA"/>
+ <author>
+  <name>Welyn</name>
+  <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+ </author>
+ <published>2008-09-01T04:07:09+00:00</published>
+ <entry>
+  <id>yt:video:q9PbQYQKCdY</id>
+  <yt:videoId>q9PbQYQKCdY</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>They Let Me Into the Rust Dev Office…</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/q9PbQYQKCdY"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-04-16T19:45:53+00:00</published>
+  <updated>2026-04-19T08:59:29+00:00</updated>
+  <media:group>
+   <media:title>They Let Me Into the Rust Dev Office…</media:title>
+   <media:content url="https://www.youtube.com/v/q9PbQYQKCdY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/q9PbQYQKCdY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>They let me into the Rust Developer's Office at Facepunch Studios and I got up to some mischief...
+full vlog: https://www.youtube.com/watch?v=dfF6dqFDu78
+follow me: https://www.instagram.com/iamwelyn/</media:description>
+   <media:community>
+    <media:starRating count="17733" average="5.00" min="1" max="5"/>
+    <media:statistics views="352422"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:edMR-sHyWuM</id>
+  <yt:videoId>edMR-sHyWuM</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>i showed burntpeanut the sneakiest trick that can save your life in rust</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/edMR-sHyWuM"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-04-14T16:36:58+00:00</published>
+  <updated>2026-04-22T21:02:58+00:00</updated>
+  <media:group>
+   <media:title>i showed burntpeanut the sneakiest trick that can save your life in rust</media:title>
+   <media:content url="https://www.youtube.com/v/edMR-sHyWuM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/edMR-sHyWuM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>burntpeanut didn't believe that this can actually work...
+I'M LIVE STREAMING: https://www.twitch.tv/welyn
+LIKE and SUBSCRIBE if you enjoyed!
+FOLLOW FOR UPDATES: https://twitter.com/welyn
+GAMER PICS: https://www.instagram.com/iamwelyn/</media:description>
+   <media:community>
+    <media:starRating count="2915" average="5.00" min="1" max="5"/>
+    <media:statistics views="174234"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:B0nXNYyscHw</id>
+  <yt:videoId>B0nXNYyscHw</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>The Raid that Saved EVERYTHING - Rust</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=B0nXNYyscHw"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-04-12T22:46:31+00:00</published>
+  <updated>2026-04-15T10:51:25+00:00</updated>
+  <media:group>
+   <media:title>The Raid that Saved EVERYTHING - Rust</media:title>
+   <media:content url="https://www.youtube.com/v/B0nXNYyscHw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/B0nXNYyscHw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+I visited the Rust Developer's Office: https://www.youtube.com/watch?v=dfF6dqFDu78
+my stream: https://www.twitch.tv/welyn
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+friends:
+@Blooprint 
+@naz_rust 
+@DisfigureYT 
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+Merch: https://welyn.com/
+
+Thumbnail Art: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+edited by: https://x.com/Tricky_Flash and welyn
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="14661" average="5.00" min="1" max="5"/>
+    <media:statistics views="586490"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:oKHavT3NrKY</id>
+  <yt:videoId>oKHavT3NrKY</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>Destroying the MOST OBNOXIOUS Group - Rust</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=oKHavT3NrKY"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-03-20T17:58:16+00:00</published>
+  <updated>2026-05-05T05:18:20+00:00</updated>
+  <media:group>
+   <media:title>Destroying the MOST OBNOXIOUS Group - Rust</media:title>
+   <media:content url="https://www.youtube.com/v/oKHavT3NrKY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/oKHavT3NrKY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+I made a Rust song remix: https://www.youtube.com/watch?v=NzU1jHE7SNI
+my stream: https://www.twitch.tv/welyn
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+friends:
+@potatokai8490 
+@LadyJennifer 
+@kayli_j 
+@moonsrust 
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+Merch: https://welyn.com/
+
+Thumbnail Art: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+edited by: https://x.com/Tricky_Flash and welyn
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="15986" average="5.00" min="1" max="5"/>
+    <media:statistics views="598652"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qIFoYEpu5k8</id>
+  <yt:videoId>qIFoYEpu5k8</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>they tried to camp my boat in Rust...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/qIFoYEpu5k8"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-02-23T19:25:20+00:00</published>
+  <updated>2026-04-29T19:19:38+00:00</updated>
+  <media:group>
+   <media:title>they tried to camp my boat in Rust...</media:title>
+   <media:content url="https://www.youtube.com/v/qIFoYEpu5k8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qIFoYEpu5k8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>these players were camping my boat in rust in the new naval update and I needed them GONE
+I'M LIVE STREAMING: https://www.twitch.tv/welyn
+LIKE and SUBSCRIBE if you enjoyed!
+FOLLOW FOR UPDATES: https://twitter.com/welyn
+GAMER PICS: https://www.instagram.com/iamwelyn/</media:description>
+   <media:community>
+    <media:starRating count="1969" average="5.00" min="1" max="5"/>
+    <media:statistics views="123697"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:2wTy5gGskXY</id>
+  <yt:videoId>2wTy5gGskXY</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>My FIRST Boat Base made me RICH - Rust</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=2wTy5gGskXY"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-02-19T21:15:59+00:00</published>
+  <updated>2026-02-28T05:40:35+00:00</updated>
+  <media:group>
+   <media:title>My FIRST Boat Base made me RICH - Rust</media:title>
+   <media:content url="https://www.youtube.com/v/2wTy5gGskXY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/2wTy5gGskXY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I made a Rust song remix: https://www.youtube.com/watch?v=NzU1jHE7SNI
+my stream: https://www.twitch.tv/welyn
+LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+Kira: @KiraGaming 
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+Merch: https://welyn.com/
+
+Thumbnail Art: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+edited by: welyn and https://x.com/Tricky_Flash
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="18566" average="5.00" min="1" max="5"/>
+    <media:statistics views="626245"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:720BtXGVeow</id>
+  <yt:videoId>720BtXGVeow</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>Cave clan got DESTROYED #rust #rustgame #shorts</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/720BtXGVeow"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-02-14T17:08:32+00:00</published>
+  <updated>2026-04-14T23:08:06+00:00</updated>
+  <media:group>
+   <media:title>Cave clan got DESTROYED #rust #rustgame #shorts</media:title>
+   <media:content url="https://www.youtube.com/v/720BtXGVeow?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/720BtXGVeow/hqdefault.jpg" width="480" height="360"/>
+   <media:description>this rust clan never expected this raiding method...
+full video: https://www.youtube.com/watch?v=bIBsyy-sIHw</media:description>
+   <media:community>
+    <media:starRating count="1276" average="5.00" min="1" max="5"/>
+    <media:statistics views="52505"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:bIBsyy-sIHw</id>
+  <yt:videoId>bIBsyy-sIHw</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>I Found the FATAL FLAW in an UNRAIDABLE BASE - Rust</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=bIBsyy-sIHw"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2026-02-02T21:43:58+00:00</published>
+  <updated>2026-05-04T07:09:09+00:00</updated>
+  <media:group>
+   <media:title>I Found the FATAL FLAW in an UNRAIDABLE BASE - Rust</media:title>
+   <media:content url="https://www.youtube.com/v/bIBsyy-sIHw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/bIBsyy-sIHw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I made a Rust song remix: https://www.youtube.com/watch?v=NzU1jHE7SNI
+my stream: https://www.twitch.tv/welyn
+LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+Friends:
+@ZChum 
+@kayli_j 
+@paddymazz 
+@TeaGuyTom 
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+Merch: https://welyn.com/
+
+Thumbnail Art: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+edited by: https://x.com/Tricky_Flash and welyn
+
+intro cinematics by: https://x.com/OfficialPorgiee
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="24856" average="5.00" min="1" max="5"/>
+    <media:statistics views="988844"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:hYQvPIbJErs</id>
+  <yt:videoId>hYQvPIbJErs</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>do NOT go near lakes in Rust...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/hYQvPIbJErs"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-12-27T23:34:07+00:00</published>
+  <updated>2026-05-05T00:09:22+00:00</updated>
+  <media:group>
+   <media:title>do NOT go near lakes in Rust...</media:title>
+   <media:content url="https://www.youtube.com/v/hYQvPIbJErs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hYQvPIbJErs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Rust Nature is Scary
+
+full video: https://www.youtube.com/watch?v=u7by3ou5478
+
+#rust #rustgame #welyn</media:description>
+   <media:community>
+    <media:starRating count="1753" average="5.00" min="1" max="5"/>
+    <media:statistics views="94420"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:viEBrzTOUYY</id>
+  <yt:videoId>viEBrzTOUYY</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>When you run out of ammo in Tarkov...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/viEBrzTOUYY"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-12-21T18:59:39+00:00</published>
+  <updated>2025-12-22T07:09:42+00:00</updated>
+  <media:group>
+   <media:title>When you run out of ammo in Tarkov...</media:title>
+   <media:content url="https://www.youtube.com/v/viEBrzTOUYY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/viEBrzTOUYY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>no ammo, no problem
+
+full video: https://www.youtube.com/watch?v=nLvGlpFnFBU
+
+#tarkov #welyn</media:description>
+   <media:community>
+    <media:starRating count="881" average="5.00" min="1" max="5"/>
+    <media:statistics views="60409"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:nLvGlpFnFBU</id>
+  <yt:videoId>nLvGlpFnFBU</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>I Played SOLO TARKOV for 30 HOURS and This is What Happened</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=nLvGlpFnFBU"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-12-17T21:17:16+00:00</published>
+  <updated>2026-04-29T19:33:49+00:00</updated>
+  <media:group>
+   <media:title>I Played SOLO TARKOV for 30 HOURS and This is What Happened</media:title>
+   <media:content url="https://www.youtube.com/v/nLvGlpFnFBU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/nLvGlpFnFBU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Aftermath Music Video: https://www.youtube.com/watch?v=1f2YxFZgcuQ
+I'm Live Streaming: https://www.twitch.tv/welyn
+LIKE and SUBSCRIBE if you enjoyed!
+
+Follow for updates: https://twitter.com/welyn
+Gamer Pics: https://www.instagram.com/iamwelyn/
+
+MERCH: https://welyn.com/
+
+THUMBNAIL ARTIST: https://www.instagram.com/reidsintoart/
+
+DISCORD: https://discord.gg/welyn
+
+HIGHLIGHTS CHANNEL: https://www.youtube.com/channel/UC_SBwRk08XZKuYF3hPJrq8g
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+https://open.spotify.com/artist/5P9UwhERJYSoksFZerxzzL?si=SLydb882T3OZxlQlPetJgQ
+
+When I upload Escape From Tarkov Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, fun gameplay, funny voip moments, voip interactions, huge loot raids, boss fights, Funny Moments, and much more!
+
+Escape from Tarkov is a hardcore and realistic online first-person action RPG/Simulator with MMO features and a story-driven walkthrough. Story-driven scenario based walkthrough as one of the multiplayer gamemodes. Complete raids on large scale locations with your friends or alone.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="14292" average="5.00" min="1" max="5"/>
+    <media:statistics views="454576"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:u7by3ou5478</id>
+  <yt:videoId>u7by3ou5478</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>I Bankrupted the RICHEST CLAN with ZERO EXPLOSIVES - Rust</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=u7by3ou5478"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-12-08T01:32:45+00:00</published>
+  <updated>2026-04-22T21:13:12+00:00</updated>
+  <media:group>
+   <media:title>I Bankrupted the RICHEST CLAN with ZERO EXPLOSIVES - Rust</media:title>
+   <media:content url="https://www.youtube.com/v/u7by3ou5478?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/u7by3ou5478/hqdefault.jpg" width="480" height="360"/>
+   <media:description>BUY YOUR WELYN REAPER PLUSHIE: https://youtooz.com/products/welyn-reaper-plush-9-inch
+EXCLUSIVE RUST DROP HERE: https://www.twitch.tv/welyn
+My new vlog: https://www.youtube.com/watch?v=GMMyiAbXB9o
+LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+
+Kira: @KiraGaming 
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+MERCH: https://welyn.com/
+
+THUMBNAIL ARTIST: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+edited by: https://x.com/Tricky_Flash and welyn
+
+intro cinematics by: https://x.com/OfficialPorgiee
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="40294" average="5.00" min="1" max="5"/>
+    <media:statistics views="1863192"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qond4JOkR9g</id>
+  <yt:videoId>qond4JOkR9g</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>I Rebuilt My FIRST RUST BASE 10 Years Later and this is how it went</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=qond4JOkR9g"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-11-13T19:56:35+00:00</published>
+  <updated>2026-02-25T22:41:44+00:00</updated>
+  <media:group>
+   <media:title>I Rebuilt My FIRST RUST BASE 10 Years Later and this is how it went</media:title>
+   <media:content url="https://www.youtube.com/v/qond4JOkR9g?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qond4JOkR9g/hqdefault.jpg" width="480" height="360"/>
+   <media:description>BUY YOUR WELYN REAPER PLUSHIE: https://youtooz.com/products/welyn-reaper-plush-9-inch
+EXCLUSIVE RUST DROP HERE: https://kick.com/welyn
+
+My new vlog: https://www.youtube.com/watch?v=GMMyiAbXB9o
+LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+second gaming channel: @welynhighlights 
+
+Follow for updates: https://x.com/welyn
+
+MERCH: https://welyn.com/
+
+THUMBNAIL ARTIST: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+
+When I upload Rust Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo Survival, Group Survival, Roleplaying, Funny Moments, Trap Bases and much more!
+
+The only aim in Rust is to survive. To do this you will need to overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat. Protect yourself from other players, and kill them for meat. Create alliances with other players and form a town. Do whatever it takes to survive.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="14890" average="5.00" min="1" max="5"/>
+    <media:statistics views="514242"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:WpykH6AGUt8</id>
+  <yt:videoId>WpykH6AGUt8</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>The most TACTICAL move in Arc Raiders</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/WpykH6AGUt8"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-11-11T23:33:36+00:00</published>
+  <updated>2026-04-29T22:41:49+00:00</updated>
+  <media:group>
+   <media:title>The most TACTICAL move in Arc Raiders</media:title>
+   <media:content url="https://www.youtube.com/v/WpykH6AGUt8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/WpykH6AGUt8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>#welyn #arcraiders 
+
+full video: https://www.youtube.com/watch?v=cLpeyi0Sj9Q</media:description>
+   <media:community>
+    <media:starRating count="765" average="5.00" min="1" max="5"/>
+    <media:statistics views="46148"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:cLpeyi0Sj9Q</id>
+  <yt:videoId>cLpeyi0Sj9Q</yt:videoId>
+  <yt:channelId>UCg4XK-l40KZD7fLi12pJ1YA</yt:channelId>
+  <title>THE CRAZIEST SOLO RAID - ARC Raiders</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=cLpeyi0Sj9Q"/>
+  <author>
+   <name>Welyn</name>
+   <uri>https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA</uri>
+  </author>
+  <published>2025-11-06T20:16:50+00:00</published>
+  <updated>2026-05-04T23:43:52+00:00</updated>
+  <media:group>
+   <media:title>THE CRAZIEST SOLO RAID - ARC Raiders</media:title>
+   <media:content url="https://www.youtube.com/v/cLpeyi0Sj9Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/cLpeyi0Sj9Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Check out ARC Raiders out now on Steam! https://sbx.gg/arcraiders-welyn Thank you to Embark Studios for sponsoring this video
+
+exclusive plushie coming sooooon
+
+exclusive rust skin drop nov 13: https://kick.com/welyn
+
+more streams: https://www.twitch.tv/welyn
+
+My new vlog: https://www.youtube.com/watch?v=GMMyiAbXB9o
+LIKE, COMMENT and SUBSCRIBE if you enjoyed!
+
+follow me: https://www.instagram.com/iamwelyn/
+clips channel: https://www.instagram.com/welynclips/
+
+Follow for updates: https://x.com/welyn
+
+MERCH: https://welyn.com/
+
+THUMBNAIL ARTIST: https://www.instagram.com/reidsintoart/
+
+Get some GAMERSUPPS for a discount with code Welyn: https://gamersupps.gg/welyn
+
+DISCORD: https://discord.gg/welyn
+
+TIKTOK: https://www.tiktok.com/@welyn?lang=en
+
+BECOME A MEMBER: https://www.youtube.com/channel/UCg4XK-l40KZD7fLi12pJ1YA/join
+
+Music:
+https://share.epidemicsound.com/welyn
+https://distrokid.com/hyperfollow/welyn/luminous-music
+https://soundcloud.com/luminous-574737538
+
+When I upload ARC Raiders Gameplay Videos, you will find many different things including stories of my adventures, intense PVP highlights and fights, Solo and Group Action, Survival, Roleplaying, Funny Moments, Traps and much more!
+
+ARC Raiders is a multiplayer extraction adventure, set in a lethal future earth, ravaged by a mysterious mechanized threat known as ARC. Enlist as a Raider and scavenge the surface to thrive in a desolate world. But beware of the machines. Beware of Raiders preying on others.
+
+
+Specs:
+
+Processor: AMD Ryzen 9 7950X3D
+RAM: 96GB DDR4-3200 RAM
+Video Card: NVIDIA GeForce GTX 4090
+4 TB M Drive
+20 TB Hard Drive</media:description>
+   <media:community>
+    <media:starRating count="15867" average="5.00" min="1" max="5"/>
+    <media:statistics views="467834"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

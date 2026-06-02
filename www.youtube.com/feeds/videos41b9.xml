@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCt7PIwo9G4g-K-Ji5B1Jc5g"/>
+ <id>yt:channel:t7PIwo9G4g-K-Ji5B1Jc5g</id>
+ <yt:channelId>t7PIwo9G4g-K-Ji5B1Jc5g</yt:channelId>
+ <title>Static</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCt7PIwo9G4g-K-Ji5B1Jc5g"/>
+ <author>
+  <name>Static</name>
+  <uri>https://www.youtube.com/channel/UCt7PIwo9G4g-K-Ji5B1Jc5g</uri>
+ </author>
+ <published>2005-10-19T18:58:02+00:00</published>
+</feed>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCOFrSKpT2CFpv8rxSU4nlQg"/>
+ <id>yt:channel:OFrSKpT2CFpv8rxSU4nlQg</id>
+ <yt:channelId>OFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+ <title>Bahri</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg"/>
+ <author>
+  <name>Bahri</name>
+  <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+ </author>
+ <published>2019-01-24T22:58:08+00:00</published>
+ <entry>
+  <id>yt:video:8ht-KeR_T60</id>
+  <yt:videoId>8ht-KeR_T60</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>How high can you jump in Hytale?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/8ht-KeR_T60"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2026-01-22T19:30:00+00:00</published>
+  <updated>2026-04-28T18:03:19+00:00</updated>
+  <media:group>
+   <media:title>How high can you jump in Hytale?</media:title>
+   <media:content url="https://www.youtube.com/v/8ht-KeR_T60?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8ht-KeR_T60/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="232" average="5.00" min="1" max="5"/>
+    <media:statistics views="32101"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fWY9ytUHGM8</id>
+  <yt:videoId>fWY9ytUHGM8</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Hytale Biome: Drifting Plains</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/fWY9ytUHGM8"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2026-01-21T23:00:00+00:00</published>
+  <updated>2026-02-21T19:10:50+00:00</updated>
+  <media:group>
+   <media:title>Hytale Biome: Drifting Plains</media:title>
+   <media:content url="https://www.youtube.com/v/fWY9ytUHGM8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fWY9ytUHGM8/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="24" average="5.00" min="1" max="5"/>
+    <media:statistics views="2255"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:cqvaQVSNZd4</id>
+  <yt:videoId>cqvaQVSNZd4</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Hytale vs. Minecraft</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/cqvaQVSNZd4"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2026-01-17T00:00:00+00:00</published>
+  <updated>2026-03-12T21:44:24+00:00</updated>
+  <media:group>
+   <media:title>Hytale vs. Minecraft</media:title>
+   <media:content url="https://www.youtube.com/v/cqvaQVSNZd4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/cqvaQVSNZd4/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="285" average="5.00" min="1" max="5"/>
+    <media:statistics views="20385"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:OxcimUR19nk</id>
+  <yt:videoId>OxcimUR19nk</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>These Villagers Made You a Song</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=OxcimUR19nk"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2025-08-06T23:00:24+00:00</published>
+  <updated>2026-05-04T23:52:56+00:00</updated>
+  <media:group>
+   <media:title>These Villagers Made You a Song</media:title>
+   <media:content url="https://www.youtube.com/v/OxcimUR19nk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/OxcimUR19nk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Can we make a house track using sounds from Minecraft and give the minecraft villagers the spotlight they deserve?
+
+Let me know other cool sounds we should use!</media:description>
+   <media:community>
+    <media:starRating count="266" average="5.00" min="1" max="5"/>
+    <media:statistics views="5228"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:neXKNT6QSGw</id>
+  <yt:videoId>neXKNT6QSGw</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Cursed Minecraft Seeds that are 100% Real</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/neXKNT6QSGw"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2023-11-14T18:16:19+00:00</published>
+  <updated>2025-09-04T17:24:57+00:00</updated>
+  <media:group>
+   <media:title>Cursed Minecraft Seeds that are 100% Real</media:title>
+   <media:content url="https://www.youtube.com/v/neXKNT6QSGw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/neXKNT6QSGw/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="615" average="5.00" min="1" max="5"/>
+    <media:statistics views="19004"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:RAYTYlLUAEU</id>
+  <yt:videoId>RAYTYlLUAEU</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>The first Minecraft video ever recorded</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/RAYTYlLUAEU"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2023-11-08T23:38:56+00:00</published>
+  <updated>2025-08-15T05:00:15+00:00</updated>
+  <media:group>
+   <media:title>The first Minecraft video ever recorded</media:title>
+   <media:content url="https://www.youtube.com/v/RAYTYlLUAEU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/RAYTYlLUAEU/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="440" average="5.00" min="1" max="5"/>
+    <media:statistics views="12390"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:lwzWbHh5iCA</id>
+  <yt:videoId>lwzWbHh5iCA</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Original Minecraft was EASY…</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/lwzWbHh5iCA"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2023-11-07T20:48:37+00:00</published>
+  <updated>2026-05-04T23:02:20+00:00</updated>
+  <media:group>
+   <media:title>Original Minecraft was EASY…</media:title>
+   <media:content url="https://www.youtube.com/v/lwzWbHh5iCA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/lwzWbHh5iCA/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="330" average="5.00" min="1" max="5"/>
+    <media:statistics views="11514"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:OE2zx4lGJ7M</id>
+  <yt:videoId>OE2zx4lGJ7M</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Notch wanted Minecraft to be named this??</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/OE2zx4lGJ7M"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2023-11-06T22:00:44+00:00</published>
+  <updated>2026-04-28T20:04:17+00:00</updated>
+  <media:group>
+   <media:title>Notch wanted Minecraft to be named this??</media:title>
+   <media:content url="https://www.youtube.com/v/OE2zx4lGJ7M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/OE2zx4lGJ7M/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="303" average="5.00" min="1" max="5"/>
+    <media:statistics views="7879"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:YsaSZFyk9OM</id>
+  <yt:videoId>YsaSZFyk9OM</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>New Cursed Pickaxe Broke This Minecraft World...</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=YsaSZFyk9OM"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-03-04T21:00:27+00:00</published>
+  <updated>2026-04-22T20:23:24+00:00</updated>
+  <media:group>
+   <media:title>New Cursed Pickaxe Broke This Minecraft World...</media:title>
+   <media:content url="https://www.youtube.com/v/YsaSZFyk9OM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/YsaSZFyk9OM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>New Cursed Pickaxe Broke This Minecraft World...
+
+This normal minecraft world turned out to be the most cursed Minecraft world yet! And a new cursed pickaxe might just save our efforts!
+
+Check out more videos @BahriGaming 
+
+#cursed #minecraft</media:description>
+   <media:community>
+    <media:starRating count="2097" average="5.00" min="1" max="5"/>
+    <media:statistics views="104195"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:e4sJBSrW_OI</id>
+  <yt:videoId>e4sJBSrW_OI</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>So I Made Every Mob Custom TNT In Minecraft...</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=e4sJBSrW_OI"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-03-01T21:00:29+00:00</published>
+  <updated>2026-04-30T04:38:13+00:00</updated>
+  <media:group>
+   <media:title>So I Made Every Mob Custom TNT In Minecraft...</media:title>
+   <media:content url="https://www.youtube.com/v/e4sJBSrW_OI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/e4sJBSrW_OI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>So I Made Every Mob Custom TNT In Minecraft...
+
+We made every mob and item custom TNT in Minecraft! Can we beat a TNT ender dragon?
+
+Check out more content @BahriGaming 
+
+#custom #tnt #minecraft</media:description>
+   <media:community>
+    <media:starRating count="749" average="5.00" min="1" max="5"/>
+    <media:statistics views="25703"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_bBU4vDjs2A</id>
+  <yt:videoId>_bBU4vDjs2A</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>If I Take Damage Minecraft Gets Less Realistic</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_bBU4vDjs2A"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-02-26T17:00:30+00:00</published>
+  <updated>2026-04-13T20:15:38+00:00</updated>
+  <media:group>
+   <media:title>If I Take Damage Minecraft Gets Less Realistic</media:title>
+   <media:content url="https://www.youtube.com/v/_bBU4vDjs2A?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_bBU4vDjs2A/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If I Take Damage Minecraft Gets Less Realistic
+
+If I take damage in this Minecraft world the entire game gets less realistic until Minecraft is virtually unplayable at 1x1 graphics!
+
+Check out more content @BahriGaming 
+
+Thank you for the inspiration @McBirken 
+
+#minecraft #realistic</media:description>
+   <media:community>
+    <media:starRating count="1144" average="5.00" min="1" max="5"/>
+    <media:statistics views="44043"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:sq45NX3zofI</id>
+  <yt:videoId>sq45NX3zofI</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Minecraft But you are Trapped in the Void...</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=sq45NX3zofI"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-02-24T19:00:14+00:00</published>
+  <updated>2026-04-29T22:16:21+00:00</updated>
+  <media:group>
+   <media:title>Minecraft But you are Trapped in the Void...</media:title>
+   <media:content url="https://www.youtube.com/v/sq45NX3zofI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/sq45NX3zofI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Minecraft But you are Trapped in the Void...
+
+We walked through a cursed nether portal in Minecraft and now we are stuck in a void biome and have to figure out our way out!
+
+Check out more content @BahriGaming 
+
+#void #biome #minecraft</media:description>
+   <media:community>
+    <media:starRating count="613" average="5.00" min="1" max="5"/>
+    <media:statistics views="19997"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fkQjuNMl2FM</id>
+  <yt:videoId>fkQjuNMl2FM</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>This Cursed World Broke Minecraft...</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=fkQjuNMl2FM"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-02-19T18:00:12+00:00</published>
+  <updated>2026-05-04T18:41:22+00:00</updated>
+  <media:group>
+   <media:title>This Cursed World Broke Minecraft...</media:title>
+   <media:content url="https://www.youtube.com/v/fkQjuNMl2FM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fkQjuNMl2FM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This Cursed World Broke Minecraft...
+
+This cursed world made it almost impossible to beat Minecraft... at first. We couldn't craft any normal recipes, we could only craft cursed crafting recipes! But then we found the dragon wasn't really a normal dragon anymore!
+
+Check out more content @BahriGaming 
+
+#cursed #minecraft</media:description>
+   <media:community>
+    <media:starRating count="673" average="5.00" min="1" max="5"/>
+    <media:statistics views="27630"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:QXUpJPeE1M8</id>
+  <yt:videoId>QXUpJPeE1M8</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Minecraft But you can Milk YouTubers</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=QXUpJPeE1M8"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-02-15T21:00:09+00:00</published>
+  <updated>2026-04-29T02:17:25+00:00</updated>
+  <media:group>
+   <media:title>Minecraft But you can Milk YouTubers</media:title>
+   <media:content url="https://www.youtube.com/v/QXUpJPeE1M8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QXUpJPeE1M8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Minecraft But you can Milk YouTubers
+
+We found a village full of famous YouTubers inside Minecraft... and we can milk them for unique effects!
+
+Check out more content @BahriGaming 
+
+#milk #anything #minecraft</media:description>
+   <media:community>
+    <media:starRating count="1000" average="5.00" min="1" max="5"/>
+    <media:statistics views="43112"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:gJzQ-6f0FmQ</id>
+  <yt:videoId>gJzQ-6f0FmQ</yt:videoId>
+  <yt:channelId>UCOFrSKpT2CFpv8rxSU4nlQg</yt:channelId>
+  <title>Minecraft But if I take Damage it gets Realistic</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=gJzQ-6f0FmQ"/>
+  <author>
+   <name>Bahri</name>
+   <uri>https://www.youtube.com/channel/UCOFrSKpT2CFpv8rxSU4nlQg</uri>
+  </author>
+  <published>2022-02-12T18:00:27+00:00</published>
+  <updated>2025-06-07T23:57:10+00:00</updated>
+  <media:group>
+   <media:title>Minecraft But if I take Damage it gets Realistic</media:title>
+   <media:content url="https://www.youtube.com/v/gJzQ-6f0FmQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/gJzQ-6f0FmQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Minecraft But if I take Damage it gets Realistic
+
+Every time that we take damage, Minecraft will get more realistic! We'll continue to upgrade our graphics until our computer breaks.
+
+Inspiration for idea from @McBirken 
+
+Check out more content @BahriGaming 
+
+#realistic #minecraft</media:description>
+   <media:community>
+    <media:starRating count="2754" average="5.00" min="1" max="5"/>
+    <media:statistics views="147766"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

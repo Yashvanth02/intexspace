@@ -1,0 +1,167 @@
+127.0.0.1 - - [10/May/2026 23:49:57] "GET /html.awaikenthemes.com/luxine/about.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/about.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.googleapis.com/css2e86a.css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/bootstrap.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/all.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/swiper-bundle.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/slicknav.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/animate.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/magnific-popup.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/mousecursor.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/css/custom.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-phone-white.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/loader.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-mail-white.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/logo.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-asterisk-white.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery.slicknav.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/bootstrap.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/validator.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery.counterup.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery-3.7.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery.waypoints.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/swiper-bundle.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/SmoothScroll.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/parallaxie.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/magiccursor.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/page-header-bg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/arrow-white.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery.magnific-popup.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/SplitText.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTg.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxhTg.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7aUUsj.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/gsap.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAfJthTg.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsj.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAIpthTg.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/ScrollTrigger.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksj.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/jquery.mb.YTPlayer.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/js/wow.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/spacegrotesk/v22/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj42Vksj.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZthTg.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /fonts.gstatic.com/s/dmsans/v17/rP2rp2ywxg089UriCZaSExd86J3t9jz86Mvy4qCRAL19DksVat-JDW3z.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/about-us-image-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/about-us-image-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-about-item-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-about-item-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/author-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-what-we-do-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:04] "GET /html.awaikenthemes.com/luxine/images/icon-what-we-do-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/what-we-do-image-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/js/function.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/what-we-do-image-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/contact-us-circle.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-what-we-do-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-what-we-do-4.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/why-choose-image-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/why-choose-image-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-why-choose-us-item.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/our-features-image.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-our-features-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/watch-our-video-circle.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-our-features-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-how-works-item-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-how-works-item-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-how-works-item-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/author-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-how-works-item-4.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/author-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/author-4.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/author-5.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-cta-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-cta-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/team-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-cta-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/team-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/team-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/team-4.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/our-testimonial-image.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/testimonial-item-quote.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/testimonial-company-logo-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/testimonial-company-logo-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/testimonial-company-logo-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/.about-us-image-bg.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-sub-heading.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/cta-bg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/dark-section-bg-shape.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/section-bg-shape-4.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/icon-asterisk.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:05] "GET /html.awaikenthemes.com/luxine/images/favicon.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:08] "GET /html.awaikenthemes.com/luxine/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/service-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/arrow-primary.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-4.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/intro-video-image.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-4.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-5.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-project-image-6.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/company-slider-logo-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/company-slider-logo-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/hero-bg.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/company-slider-logo-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/company-slider-logo-4.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:09] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/company-slider-logo-5.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-awards-image.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-award-item-image-1.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-award-item-image-2.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-award-item-image-4.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/our-award-item-image-3.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-benefit-1.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-benefit-3.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/icon-pricing-benefit-2.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/post-1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/post-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/post-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/section-bg-shape-1.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/section-bg-shape-2.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:09] "GET /html.awaikenthemes.com/luxine/images/section-bg-shape-3.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/services.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-5.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-8.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-7.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/images/icon-service-item-6.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:50:19] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:19] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:19] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:37] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:37] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:50:37] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:50:37] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:52:25] "GET /html.awaikenthemes.com/luxine/index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/May/2026 23:52:25] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:52:25] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:52:25] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:52:25] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:42] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:42] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:42] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:42] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:44] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:44] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:44] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:44] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:52] "GET /html.awaikenthemes.com/luxine/index.html HTTP/1.1" 304 -
+127.0.0.1 - - [10/May/2026 23:53:52] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:52] code 404, message File not found
+127.0.0.1 - - [10/May/2026 23:53:52] "GET /html.awaikenthemes.com/luxine/webfonts/fa-brands-400.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [10/May/2026 23:53:52] "GET /html.awaikenthemes.com/luxine/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -

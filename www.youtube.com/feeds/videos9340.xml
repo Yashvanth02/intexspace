@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCvjgXvBlbQiydffZU7m1_aw"/>
+ <id>yt:channel:vjgXvBlbQiydffZU7m1_aw</id>
+ <yt:channelId>vjgXvBlbQiydffZU7m1_aw</yt:channelId>
+ <title>The Coding Train</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw"/>
+ <author>
+  <name>The Coding Train</name>
+  <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+ </author>
+ <published>2006-07-03T18:24:29+00:00</published>
+ <entry>
+  <id>yt:video:s2jm2Z22ibA</id>
+  <yt:videoId>s2jm2Z22ibA</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Coding Challenge 188: Voice Chatbot</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=s2jm2Z22ibA"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2026-04-27T16:20:34+00:00</published>
+  <updated>2026-04-29T10:11:58+00:00</updated>
+  <media:group>
+   <media:title>Coding Challenge 188: Voice Chatbot</media:title>
+   <media:content url="https://www.youtube.com/v/s2jm2Z22ibA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/s2jm2Z22ibA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this coding challenge, I build a conversational voice chatbot entirely in the browser with p5.js. I combine three pieces: speech-to-text with OpenAI's Whisper model, text-to-speech with Kokoro TTS, and a &quot;brain&quot; for the bot. I also explore the transformers.js pipeline API and the Web Audio API. For the bot's brain, I start with a simple ELIZA-style therapist, then incorporate a RiveScript number-guessing game, and finally a local LLM. Code: https://thecodingtrain.com/challenges/188-voice-chatbot
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-coding-challenge-188-voice-chatbot
+
+p5.js Web Editor Sketches:
+🕹️ LLM Chatbot: https://editor.p5js.org/codingtrain/sketches/RHhT9I4Nm
+🕹️ Number Guessing Bot: https://editor.p5js.org/codingtrain/sketches/AJw7zMN9q
+🕹️ Therapy Bot: https://editor.p5js.org/codingtrain/sketches/37LFEPUVV
+🕹️ Model Loading Bars: https://editor.p5js.org/codingtrain/sketches/E9Ob3x8eJ
+🕹️ Waveform of Recording: https://editor.p5js.org/codingtrain/sketches/cck49wDub
+🕹️ Real Time Waveform: https://editor.p5js.org/codingtrain/sketches/aaRIT-x6a
+
+🎥 Previous: https://youtu.be/g3-PXyF8U70?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 All: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+
+References:
+📓 p5.2 Reference: https://beta.p5js.org
+📓 Introducing Whisper: https://cdn.openai.com/papers/whisper.pdf
+📓 Model Cards for Model Reporting: https://arxiv.org/abs/1810.03993
+📓 Open Neural Network Exchange: https://onnx.ai
+📓 Onnx-community Whisper-tiny.en model: https://huggingface.co/onnx-community/whisper-tiny.en
+📓 Xenova: https://github.com/xenova
+📓 Transformers.js: https://huggingface.co/docs/transformers.js/installation
+📓 Announcing the new p5.sound.js library!: https://medium.com/processing-foundation/announcing-the-new-p5-sound-js-library-42efc154bed0
+📓 getUserMedia() documentation: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+📓 MediaRecorder() documentation: https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder
+📓 Kokoro Repo: https://github.com/hexgrad/kokoro
+📓 KokoroTTS Model: https://huggingface.co/hexgrad/Kokoro-82M
+📓 ELIZA: https://en.wikipedia.org/wiki/ELIZA
+📓 Rivescript: https://www.rivescript.com
+📓 SmolLM3: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
+📓 Running models on WebGPU: https://huggingface.co/docs/transformers.js/guides/webgpu
+📓 Using quantized models (dtypes): https://huggingface.co/docs/transformers.js/v3.8.1/guides/dtypes
+
+Videos:
+🚂 https://youtu.be/0Ad5Frf8NBM
+🚂 https://youtu.be/KR61bXsPlLU
+
+Live Stream Archives:
+🔴 https://www.youtube.com/watch?v=KRDJAHArqaw
+
+Related Coding Challenges:
+🚂 https://youtu.be/eGFJ8vugIWA
+🚂 https://youtu.be/8Z9FRiW2Jlc
+🚂 https://youtu.be/iFTgphKCP9U
+
+Timestamps:
+0:00:00 Hello!
+0:00:35 Mapping out the pieces: speech-to-text, text-to-speech, and the brain
+0:01:07 Thoughts on AI and creative exploration
+0:02:44 Choosing the tools: Whisper and Kokoro TTS
+0:04:06 Building a push-to-talk UI in p5.js
+0:04:51 Finding models on Hugging Face with Transformers.js
+0:05:36 About the Whisper model and model cards
+0:06:55 Loading the Whisper pipeline in p5.js
+0:09:04 Accessing the microphone with getUserMedia
+0:10:44 Capturing audio with MediaRecorder
+0:12:05 Processing audio chunks into a waveform
+0:15:55 Speech-to-text working!
+0:16:36 Building the chatbot brain (ELIZA-style therapist)
+0:18:50 Setting up Kokoro TTS for text-to-speech
+0:21:07 Playing synthesized audio with AudioBufferSource
+0:23:41 Text-to-speech working!
+0:25:32 Handling playback events
+0:26:56 Swapping in a RiveScript number-guessing brain
+0:31:22 Adding a language model (SmolLM2) as the brain
+0:38:33 Final demo: the random number chatbot
+0:39:03 Goodbye!
+
+Editing by Mathieu Blanchette
+Animations by Jason Heglund
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#texttospeech #speechtotext #chatbot #rivescript #llms #agents #ai #transformersjs #webaudioapi #javascript #p5js</media:description>
+   <media:community>
+    <media:starRating count="790" average="5.00" min="1" max="5"/>
+    <media:statistics views="17351"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:d0GgzjCFWq0</id>
+  <yt:videoId>d0GgzjCFWq0</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>What the font?!?!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=d0GgzjCFWq0"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2026-03-30T14:02:30+00:00</published>
+  <updated>2026-04-25T19:55:10+00:00</updated>
+  <media:group>
+   <media:title>What the font?!?!</media:title>
+   <media:content url="https://www.youtube.com/v/d0GgzjCFWq0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/d0GgzjCFWq0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Let's explore new typography features in p5.js 2.0! In this video, I cover how to work with variable fonts, convert text to 3D models with textModel(), extract contours with textContours(), and control the detail of your typography with sampleFactor and simplifyThreshold. Code: https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-what-the-font
+
+p5.js Web Editor Sketches:
+🕹️ Variable Font Weights: https://editor.p5js.org/codingtrain/sketches/9SZYb2vX3
+🕹️ textContours(): https://editor.p5js.org/codingtrain/sketches/ffDf3LmKi
+🕹️ textModel() - 3D Text: https://editor.p5js.org/codingtrain/sketches/Z4DkmlvyM
+🕹️ Coding Challenge 59 - p5.js 2.0: https://editor.p5js.org/codingtrain/sketches/cetWD9rvY
+🕹️ One Letter, Two Contours: https://editor.p5js.org/codingtrain/sketches/2xr1TAmXK
+🕹️ sampleFactor Diagram: https://editor.p5js.org/codingtrain/sketches/c23YgfIhC
+🕹️ simplifyThreshold Demo: https://editor.p5js.org/codingtrain/sketches/9_CnA7lrl
+
+🎥 Previous: https://youtu.be/25omXt_OjD4
+🎥 Next: https://youtu.be/1KqQeqZ3R9Y
+
+References:
+📖 p5.js 2.0: You Are Here &amp; How to Contribute!: https://discourse.processing.org/t/dev-updates-p5-js-2-0-you-are-here-how-to-contribute/46130
+🔤 Google Fonts: https://fonts.google.com
+🐞 Typography questions and possible bugs (Issue #8177): https://github.com/processing/p5.js/issues/8177
+🐞 Reference errors: textToContours() and textToModel() (Issue #8623): https://github.com/processing/p5.js/issues/8623
+📖 loadFont() Reference: https://beta.p5js.org/reference/p5/loadFont/
+📖 textWeight() Reference: https://beta.p5js.org/reference/p5/textWeight
+📖 textContours() Reference: https://beta.p5js.org/reference/p5/textContours
+📖 textModel() Reference: https://beta.p5js.org/reference/p5/textModel
+
+Videos:
+🎥 https://youtu.be/1KqQeqZ3R9Y
+🚂 https://youtu.be/0Ad5Frf8NBM
+🚂 https://youtu.be/25omXt_OjD4
+🚂 https://youtu.be/o9sgjuh-CBM
+🎯 https://youtu.be/4hA7G3gup-4
+
+Related Coding Challenges:
+🚂 https://youtu.be/4hA7G3gup-4
+
+Timestamps:
+0:00 Welcome!
+0:49 Finding Fonts (Google Fonts)
+1:01 Loading Fonts with Async/Await
+2:30 Variable Fonts
+3:17 textWeight()
+4:03 Animated Text Weight
+4:31 Coding Challenge 59 - Steering Behaviors
+5:15 textContours() Introduction
+6:00 sampleFactor and simplifyThreshold
+9:00 sampleFactor Explained
+12:00 simplifyThreshold Explained
+14:00 Updating Challenge 59 to p5.js 2.0
+15:00 Angle Property of Contours
+17:00 textModel() for 3D Text
+19:00 Extrude Option
+20:11 Goodbye!
+
+Editing by Mathieu Blanchette
+Animations by Jason Heglund
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#typography #fonts #text #p5js2 #variablefonts #3dtext #textcontours #p5js #javascript</media:description>
+   <media:community>
+    <media:starRating count="764" average="5.00" min="1" max="5"/>
+    <media:statistics views="18194"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:KR61bXsPlLU</id>
+  <yt:videoId>KR61bXsPlLU</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>What is Transformers.js?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=KR61bXsPlLU"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-25T16:32:13+00:00</published>
+  <updated>2026-04-21T21:04:32+00:00</updated>
+  <media:group>
+   <media:title>What is Transformers.js?</media:title>
+   <media:content url="https://www.youtube.com/v/KR61bXsPlLU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/KR61bXsPlLU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Welcome to a new series all about working with machine learning models in JavaScript in the browser using the Transformers.js library! In this introduction, I cover what Transformers.js is, how to load it into a p5.js sketch, explain the pipeline API, and demonstrate sentiment analysis and language detection examples. Code: https://thecodingtrain.com/tracks/transformers-js/transformers-js/introduction
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-machine-learning-in-the-browser
+
+p5.js Web Editor Sketches:
+🕹️ Sentiment Analysis: https://editor.p5js.org/codingtrain/sketches/JaXqVSHxM
+🕹️ Language Detection: https://editor.p5js.org/codingtrain/sketches/VmS9V6-0o
+
+
+References:
+💻 Transformers.js Documentation: https://huggingface.co/docs/transformers.js
+🤗 Hugging Face: https://huggingface.co/
+🤗 Hugging Face Models: https://huggingface.co/models?library=transformers.js
+🤗 Xenova on Hugging Face: https://huggingface.co/Xenova
+🤗 Whisper Web: https://huggingface.co/spaces/Xenova/whisper-web
+💻 p5.js 2.0 reference: https://beta.p5js.org/
+📓 ES6 Modules: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+📓 Quantization: https://huggingface.co/docs/optimum/concept_guides/quantization
+
+Videos:
+🚂 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YPSwT06y_AEYTqIwbeam3y
+🚂 https://youtu.be/0Ad5Frf8NBM
+
+Timestamps:
+0:00 Welcome!
+1:53 Why JavaScript and not Python?
+3:01 What is Hugging Face?
+4:03 Transformers.js Documentation
+4:18 Pipeline API
+5:41 import syntax and ES6 modules
+8:34 Object Destructuring
+11:33 Creating a Pipeline
+13:18 Sentiment Analysis Example
+19:04 Tasks and Models on Hugging Face
+20:20 Language Detection Example
+22:27 Device: WebGPU, CPU and more
+24:25 Data Types and Quantization
+27:54 See you next time!
+
+Editing by Mathieu Blanchette
+Animations by Jason Heglund
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#machinelearning #transformersjs #huggingface #sentimentanalysis #languagedetection #naturallanguageprocessing #pipelineapi #asyncawait #es6modules #javascript #p5js #transformersjs</media:description>
+   <media:community>
+    <media:starRating count="1891" average="5.00" min="1" max="5"/>
+    <media:statistics views="48726"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:g3-PXyF8U70</id>
+  <yt:videoId>g3-PXyF8U70</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Coding Challenge 187: Bayes Theorem</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=g3-PXyF8U70"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-12T12:40:16+00:00</published>
+  <updated>2026-04-30T00:46:05+00:00</updated>
+  <media:group>
+   <media:title>Coding Challenge 187: Bayes Theorem</media:title>
+   <media:content url="https://www.youtube.com/v/g3-PXyF8U70?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/g3-PXyF8U70/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this coding challenge, I struggle my way through implementing a Naive Bayes text classifier in JavaScript using p5.js. I explain Bayes' theorem, demonstrate word frequency analysis, implement Laplacian smoothing, and build a working sentiment classifier that runs entirely in the browser. Code: https://thecodingtrain.com/challenges/187-bayesian-text-classification
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-coding-challenge-187-bayes-classifier
+
+p5.js Web Editor Sketches:
+🕹️ Text Classifier - Initial Version: https://editor.p5js.org/codingtrain/sketches/RZ8a1z4DN
+🕹️ Text Classifier - Refactored Version: https://editor.p5js.org/codingtrain/sketches/P3ngrAANX
+🕹️ Text Classifier - File Loading Version: https://editor.p5js.org/codingtrain/sketches/WowR2Q9xg
+
+🎥 Previous: https://youtu.be/5iSAvzU2WYY?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 All: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+
+References:
+📓 Naive Bayes Classifier: https://en.wikipedia.org/wiki/Naive_Bayes_classifier
+📓 Laplacian Smoothing: https://en.wikipedia.org/wiki/Additive_smoothing
+
+Videos:
+🚂 https://youtu.be/unm0BLor8aE
+🚂 https://youtu.be/7DG3kCDx53c?list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w
+📺 https://youtu.be/HZGCoVF3YvM
+🚂 https://youtu.be/0Ad5Frf8NBM
+
+Live Stream Archives:
+🔴 https://youtube.com/live/TsBDm0P0qaA
+
+Related Coding Challenges:
+🚂 https://youtu.be/unm0BLor8aE
+🚂 https://youtu.be/eGFJ8vugIWA
+
+Timestamps:
+0:00:00 Hello!
+0:03:34 Explaining Bayes' Theorem
+0:12:07 What is Naive Bayes?
+0:13:49 Setting up the Classifier in p5.js
+0:15:41 Coding the train() function
+0:22:14 Coding the classify() Function
+0:24:45 Revising the train() function
+0:29:06 Implementing Probability Calculations
+0:33:24 Laplacian (Additive) Smoothing
+0:42:21 Ignoring the enominator (Normalization)
+0:45:36 Quick User Interface
+0:49:42 Final thoughts and next steps.
+
+Editing by Mathieu Blanchette
+Animations by Jason Heglund
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#bayestheorem #textclassification #naivebayes #sentimentanalysis #naturallanguageprocessing #machinelearning #wordfrequency #laplaciansmoothing #javascript #p5js</media:description>
+   <media:community>
+    <media:starRating count="1226" average="5.00" min="1" max="5"/>
+    <media:statistics views="39456"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:KRDJAHArqaw</id>
+  <yt:videoId>KRDJAHArqaw</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Coding Challenge Session: Local Browser Conversational Chatbot (STT, TTS, and more?)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=KRDJAHArqaw"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-06T21:18:44+00:00</published>
+  <updated>2026-04-28T18:42:16+00:00</updated>
+  <media:group>
+   <media:title>Coding Challenge Session: Local Browser Conversational Chatbot (STT, TTS, and more?)</media:title>
+   <media:content url="https://www.youtube.com/v/KRDJAHArqaw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/KRDJAHArqaw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="257" average="5.00" min="1" max="5"/>
+    <media:statistics views="9299"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_bCx__Kczp4</id>
+  <yt:videoId>_bCx__Kczp4</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>new p5.js 2 functions: textWeight, textContours, textModel</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_bCx__Kczp4"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-06T17:50:41+00:00</published>
+  <updated>2026-05-04T15:14:54+00:00</updated>
+  <media:group>
+   <media:title>new p5.js 2 functions: textWeight, textContours, textModel</media:title>
+   <media:content url="https://www.youtube.com/v/_bCx__Kczp4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_bCx__Kczp4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="173" average="5.00" min="1" max="5"/>
+    <media:statistics views="5403"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qhs-xppFRgE</id>
+  <yt:videoId>qhs-xppFRgE</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>What's next?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=qhs-xppFRgE"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-04T20:28:58+00:00</published>
+  <updated>2026-04-30T03:10:54+00:00</updated>
+  <media:group>
+   <media:title>What's next?</media:title>
+   <media:content url="https://www.youtube.com/v/qhs-xppFRgE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qhs-xppFRgE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, I'm sharing my plans for the fall semester, which is broken down into three main categories: updating the p5.js beginner series for version 2.0, exploring new p5.js 2.0 features like variable fonts and splines, and diving deeper into machine learning with transformers.js. I'd love to hear your feedback and ideas in the comments below!
+
+0:00 - Hi!
+1:20 - Next videos
+3:07 - Roadmap
+3:35 - Plans for p5.js 2.0 Features 
+4:04 - Refreshing the p5.js Beginner Series 
+6:38 - Plans for Machine Learning
+7:59 - Let me know what you think!
+
+Editing by Mathieu Blanchette
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org</media:description>
+   <media:community>
+    <media:starRating count="787" average="5.00" min="1" max="5"/>
+    <media:statistics views="16479"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:25omXt_OjD4</id>
+  <yt:videoId>25omXt_OjD4</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>How to Load Data with p5.js (2.0)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=25omXt_OjD4"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-10-03T21:50:11+00:00</published>
+  <updated>2026-04-29T01:55:10+00:00</updated>
+  <media:group>
+   <media:title>How to Load Data with p5.js (2.0)</media:title>
+   <media:content url="https://www.youtube.com/v/25omXt_OjD4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/25omXt_OjD4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This video covers how to load external assets like images, JSON files, and data from APIs into your p5.js 2.0 sketches. Learn the fundamentals of asynchronous operations in p5.js using Promises with async/await. Code: https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/loading-data
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-how-to-load-data-with-p5js-20
+
+p5.js Web Editor Sketches:
+🕹️ Loading a Single Image: https://editor.p5js.org/codingtrain/sketches/NPKPIYhBR
+🕹️ Sequential Loading: https://editor.p5js.org/codingtrain/sketches/lQxT7PTKC
+🕹️ API and Loading Animation: https://editor.p5js.org/codingtrain/sketches/M_NGGyqr4
+🕹️ Parallel Loading with Promise.all: https://editor.p5js.org/codingtrain/sketches/MgrJuSvJt
+🕹️ Loading images with placeholders exercise: https://editor.p5js.org/codingtrain/sketches/Ur6plDyKK
+
+🎥 Previous: https://youtu.be/0Ad5Frf8NBM
+🎥 Next: https://youtu.be/1KqQeqZ3R9Y
+
+References:
+📖 p5.js 2.0 Beta: https://beta.p5js.org/
+📖 Promise.all: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+🎨 Dog API: https://dog.ceo/dog-api/
+
+Videos:
+🚂 https://youtu.be/0Ad5Frf8NBM
+🚂 https://youtu.be/QO4NXhWo_NM
+🚂 https://youtu.be/AwyoVjVXnLk
+
+Timestamps:
+0:00:00 Hello!
+0:00:54 How to Load an Image in p5.js
+0:02:16 Asynchronous Code: promises, async, and await
+0:04:10 Common Mistakes to Avoid
+0:05:51 Loading Data from a Live API
+0:08:21 Loading Multiple Items in a Sequence
+0:09:12 Creating a Custom Loading Animation
+0:13:39 Faster Parallel Loading with Promise.all()
+0:16:48 Challenge for you!
+
+Editing by Mathieu Blanchette
+Animations by Jason Heglund
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#asyncawait #promises #p5js2 #loadingimages #api #json #promiseall #p5js #javascript
+=====================================================</media:description>
+   <media:community>
+    <media:starRating count="383" average="5.00" min="1" max="5"/>
+    <media:statistics views="11040"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0Ad5Frf8NBM</id>
+  <yt:videoId>0Ad5Frf8NBM</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>What's new in p5.js 2!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0Ad5Frf8NBM"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-30T03:00:20+00:00</published>
+  <updated>2026-03-18T05:10:43+00:00</updated>
+  <media:group>
+   <media:title>What's new in p5.js 2!</media:title>
+   <media:content url="https://www.youtube.com/v/0Ad5Frf8NBM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0Ad5Frf8NBM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This video tackles one of the bigger changes in p5.js 2: loading data with async and await! Fear not, I'll cover how to transition from preload and callbacks in p5.js 1.0 to using promises with async/await in 2.0. Code: https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/async-await
+
+🚀 Watch this video ad-free on Nebula https://nebula.tv/videos/codingtrain-p5js-20-async-and-await
+
+p5.js Web Editor Sketches:
+🕹️ p5.js 2 - async and await: https://editor.p5js.org/codingtrain/sketches/Q6S38g0rS
+🕹️ p5.js 2 - loading animation: https://editor.p5js.org/codingtrain/sketches/JLIxyHrkn
+🕹️ p5.js 2 - loading in a sequence: https://editor.p5js.org/codingtrain/sketches/lQxT7PTKC
+
+🎥 Next: https://youtu.be/1KqQeqZ3R9Y
+
+References:
+📖 p5.js 2.0 Beta: https://beta.p5js.org/
+📖 p5.js 2.0: https://github.com/processing/p5.js/issues/7488
+📖 p5.js 2.0: You Are Here &amp; How to Contribute!: https://discourse.processing.org/t/dev-updates-p5-js-2-0-you-are-here-how-to-contribute/46130
+🎨 Dog API: https://dog.ceo/dog-api/
+
+Videos:
+🚂 https://youtu.be/QO4NXhWo_NM
+🚂 https://youtu.be/AwyoVjVXnLk
+
+Timestamps:
+0:00:00 p5.js 2.0!
+0:03:00 Switching versions in the web editor
+0:05:02 Loading with p5.js 1
+0:06:11 Synchronous vs Asynchronous Code
+0:08:37 Promises!
+0:11:29 switching from preload to async setup()
+0:13:57 Loading with callbacks in p5.js 1.0
+0:17:15 Sequencing loading data in p5.js 1.0
+0:19:26 Sequencing with async and await in p5.js 2.0
+0:20:09 Creating a custom Async Function
+0:22:13 Thank you for watching!
+
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#asyncawait #promises #p5js2 #preload #callbacks #p5js #javascript</media:description>
+   <media:community>
+    <media:starRating count="961" average="5.00" min="1" max="5"/>
+    <media:statistics views="27411"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ZfHVlMqJIxY</id>
+  <yt:videoId>ZfHVlMqJIxY</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Upcoming Plans, ML Sampling with softmax and temperature</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ZfHVlMqJIxY"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-29T19:59:27+00:00</published>
+  <updated>2026-04-13T19:15:06+00:00</updated>
+  <media:group>
+   <media:title>Upcoming Plans, ML Sampling with softmax and temperature</media:title>
+   <media:content url="https://www.youtube.com/v/ZfHVlMqJIxY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/ZfHVlMqJIxY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="175" average="5.00" min="1" max="5"/>
+    <media:statistics views="7016"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:lFrpa_JSMRE</id>
+  <yt:videoId>lFrpa_JSMRE</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Introduction to Transformers.js (LIVE RECORDING SESSION ARCHIVE)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=lFrpa_JSMRE"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-22T21:21:00+00:00</published>
+  <updated>2026-04-12T12:29:51+00:00</updated>
+  <media:group>
+   <media:title>Introduction to Transformers.js (LIVE RECORDING SESSION ARCHIVE)</media:title>
+   <media:content url="https://www.youtube.com/v/lFrpa_JSMRE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/lFrpa_JSMRE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="481" average="5.00" min="1" max="5"/>
+    <media:statistics views="16446"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:CBy3RU_8fwk</id>
+  <yt:videoId>CBy3RU_8fwk</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>p5.js 2.0: loading data with async and await (LIVE RECORDING SESSION ARCHIVE)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=CBy3RU_8fwk"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-22T17:39:40+00:00</published>
+  <updated>2026-04-28T20:36:44+00:00</updated>
+  <media:group>
+   <media:title>p5.js 2.0: loading data with async and await (LIVE RECORDING SESSION ARCHIVE)</media:title>
+   <media:content url="https://www.youtube.com/v/CBy3RU_8fwk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/CBy3RU_8fwk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="270" average="5.00" min="1" max="5"/>
+    <media:statistics views="9564"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:TsBDm0P0qaA</id>
+  <yt:videoId>TsBDm0P0qaA</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Coding TRAIN WRECK: Bayesian Text Classification</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=TsBDm0P0qaA"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-15T18:35:01+00:00</published>
+  <updated>2025-09-19T03:40:18+00:00</updated>
+  <media:group>
+   <media:title>Coding TRAIN WRECK: Bayesian Text Classification</media:title>
+   <media:content url="https://www.youtube.com/v/TsBDm0P0qaA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/TsBDm0P0qaA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Warning, this live stream was a mess and is probably unwatchable! But if you choose to continue you'll see me attempt to build a Naive Bayes text classifier from scratch in the p5.js web editor! I start by explaining the core concepts behind Bayes' Theorem (multiple times) before diving into the code. You'll see my raw, unedited process of structuring the data, implementing the algorithm, debugging issues, and finally building a simple interactive sentiment analysis demo.
+
+Code from live: https://editor.p5js.org/codingtrain/sketches/vZQKzBXJT
+Polished code: https://github.com/Programming-from-A-to-Z/bayes-classifier-js
+https://youtu.be/unm0BLor8aE
+https://youtu.be/RPMYV-eb6lI
+https://youtu.be/fxQ0B6BkfKo
+https://youtu.be/HZGCoVF3YvM
+
+00:00:00 Choo choo!
+00:05:35 Welcome &amp; Announcements 
+00:10:49 Fall Plans
+00:14:19 Technical Difficulties: Whiteboard Setup 
+00:23:20 Main Topic: Bayesian Text Classification 
+00:33:03 Whiteboard: Explaining Bayes' Theorem (Attempt 1) 
+00:44:02 Technical Difficulties: Muted Microphone 
+00:45:52 Whiteboard: Explaining Bayes' Theorem (Attempt 2) 
+01:24:54 Live Coding Begins 
+01:32:42 Re-recording the Introduction for Edited Video 
+01:40:13 Technical Difficulties: Camera Overheating 
+02:04:10 Coding Resumes: Building the Classifier 
+02:51:10 Explaining Laplacian (Additive) Smoothing 
+03:12:20 Normalizing the Final Probabilities 
+03:24:12 Coding Challenge Complete! 
+03:24:43 Reviewing a More Polished Version of the Code 
+03:30:35 Good bye!
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="460" average="5.00" min="1" max="5"/>
+    <media:statistics views="15076"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:kYcwOgCyi2w</id>
+  <yt:videoId>kYcwOgCyi2w</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>How Fast Do Robots Think? #robot #coding #p5js #simulation</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/kYcwOgCyi2w"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-09-05T17:14:02+00:00</published>
+  <updated>2026-05-04T20:42:03+00:00</updated>
+  <media:group>
+   <media:title>How Fast Do Robots Think? #robot #coding #p5js #simulation</media:title>
+   <media:content url="https://www.youtube.com/v/kYcwOgCyi2w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/kYcwOgCyi2w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Here's a clip from the most recent live stream about simulating Robot Controllers with p5.js with Dr. Christian Hubicki! @chubicki 
+
+🚂 Website: http://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/Guides/community-contribution-guide.html
+🚩 Suggest Topics: https://github.com/CodingTrain/Rainbow-Topics
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://discord.gg/hPuGy2g
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+📚 Books: https://www.amazon.com/shop/thecodingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 Coding Challenges: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 Intro to Programming: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct</media:description>
+   <media:community>
+    <media:starRating count="527" average="5.00" min="1" max="5"/>
+    <media:statistics views="22721"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:3FeySIv-gFM</id>
+  <yt:videoId>3FeySIv-gFM</yt:videoId>
+  <yt:channelId>UCvjgXvBlbQiydffZU7m1_aw</yt:channelId>
+  <title>Robot Controllers Part 2 with Dr. Christian Hubicki</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=3FeySIv-gFM"/>
+  <author>
+   <name>The Coding Train</name>
+   <uri>https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw</uri>
+  </author>
+  <published>2025-08-23T18:16:10+00:00</published>
+  <updated>2025-09-05T16:38:44+00:00</updated>
+  <media:group>
+   <media:title>Robot Controllers Part 2 with Dr. Christian Hubicki</media:title>
+   <media:content url="https://www.youtube.com/v/3FeySIv-gFM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/3FeySIv-gFM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Only three years later, I'm rejoined by Dr. Christian Hubicki to continue our series on robot controllers. Dr. Hubicki gives a presentation on the history of legged robots (like ASIMO and Boston Dynamics) and the principles behind the Raibert Hopper. Then, we attempt to implement a 1D hopping robot simulation in p5.js using a PID controller. Code: https://thecodingtrain.com/tracks/robot-controllers/robot-controllers/robot-controller-2
+
+p5.js Web Editor Sketches:
+🕹️ 1D Raibert Hopper: https://editor.p5js.org/codingtrain/sketches/CjfAtvdGx
+🕹️ 1D Raibert Hopper: https://editor.p5js.org/codingtrain/sketches/EYOfSWBaF
+🕹️ 1D Spring Simulation: https://editor.p5js.org/codingtrain/sketches/EhhzPIB-h
+🕹️ 2D Hopper: https://editor.p5js.org/codingtrain/sketches/W_hxT-8ST
+💻 Code Example: https://gist.github.com/shiffman/9eea780b9cada3725887d26ed174d49e
+
+🎥 Previous: https://youtu.be/fWQWX9-8_sA
+
+References:
+🔗 Dr. Christian Hubicki: https://www.christianhubicki.com/
+🤖 Optimal Robotics Lab: https://www.optimalroboticslab.com/
+📖 The Nature of Code: https://natureofcode.com/
+
+Videos:
+🚂 https://youtu.be/fWQWX9-8_sA
+🚂 https://youtu.be/P_xJMH8VvAE
+🚂 https://youtu.be/DHPfoqiE4yQ
+
+Related Coding Challenges:
+🚂 https://youtu.be/Rr-5HiXquhw
+
+Timestamps:
+0:00:00 Waiting to Start
+0:05:17 Welcome to The Coding Train
+0:08:35 Revisiting Part 1 from 2022
+0:10:13 Introducing Dr. Christian Hubicki
+0:20:10 Dr. Hubicki's Presentation: How to Make a Robot Hop
+0:24:00 History of Legged Locomotion: Safety vs. Agility
+0:27:09 The 'Safety First' Approach (ZMP, ASIMO)
+0:30:34 The 'Agility First' Approach (Mark Raibert, Boston Dynamics)
+0:38:17 Whiteboard Explanation: PID Controllers
+0:51:30 Whiteboard Explanation: The Raibert Hopper Controller
+0:58:07 Transition to Coding in p5.js
+1:03:04 Connecting to Nature of Code and Steering Behaviors
+1:10:40 Starting with the p5.js Spring Simulation Code
+1:24:27 Implementing Hopping Phases (Stance vs. Flight)
+1:48:01 Implementing the PID Controller for Hopping Height
+2:09:59 Reviewing a Pre-made, Working 1D Hopper Example
+2:16:40 Previewing a 2D Hopper Starter Code
+2:23:04 Where to Find Dr. Christian Hubicki
+2:24:53 What's Next for The Coding Train
+2:29:43 Outro and Goodbyes
+
+Christian Hubicki is an Associate Professor of Mechanical Engineering at the FAMU-FSU College of Engineering.  His group’s research at the Optimal Robotics Laboratory specializes in legged robotics, applied optimal control, biomechanical modeling, and fast algorithms for adaptive robot behaviors. He earned both his bachelor's and master’s degrees in mechanical engineering from Bucknell University, earned his dual-degree PhD in Robotics and Mechanical Engineering at Oregon State University, and completed his postdoctoral work in the Mechanical Engineering and Physics departments at the Georgia Institute of Technology. His research awards include a Best Technical Paper Finalist at ICRA 2016, Best Paper Winner in 2019 from IEEE Robotics and Automation Magazine, Outstanding Locomotion Paper Winner at ICRA 2022, and a Young Faculty Researcher Grant from the Toyota Research Institute in 2021. His work has been featured at the National Academy of Engineering’s Gilbreth Lecture Series, the TEDx lecture series, and in media outlets from the Science Channel to CBS’s “The Late Show with Stephen Colbert.
+
+Music from Epidemic Sound
+
+🚂 Website: https://thecodingtrain.com/
+👾 Share Your Creation! https://thecodingtrain.com/guides/passenger-showcase-guide
+🚩 Suggest Topics: https://github.com/CodingTrain/Suggestion-Box
+💡 GitHub: https://github.com/CodingTrain
+💬 Discord: https://thecodingtrain.com/discord
+💖 Membership: http://youtube.com/thecodingtrain/join
+🛒 Store: https://standard.tv/codingtrain
+🖋️ Twitter: https://twitter.com/thecodingtrain
+📸 Instagram: https://www.instagram.com/the.coding.train/
+
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH
+🎥 https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA
+
+🔗 p5.js: https://p5js.org
+🔗 p5.js Web Editor: https://editor.p5js.org/
+🔗 Processing: https://processing.org
+
+📄 Code of Conduct: https://github.com/CodingTrain/Code-of-Conduct
+
+This description was auto-generated. If you see a problem, please open an issue: https://github.com/CodingTrain/thecodingtrain.com/issues/new
+
+#robotics #p5js #pidcontroller #raiberthopper #simulation #physics #leggedlocomotion #robotcontrol #p5js #matlab</media:description>
+   <media:community>
+    <media:starRating count="377" average="5.00" min="1" max="5"/>
+    <media:statistics views="11599"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

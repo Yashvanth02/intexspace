@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCaURsy4dyscx-4G2aMNKNKw"/>
+ <id>yt:channel:aURsy4dyscx-4G2aMNKNKw</id>
+ <yt:channelId>aURsy4dyscx-4G2aMNKNKw</yt:channelId>
+ <title>Kikis Kitchen</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw"/>
+ <author>
+  <name>Kikis Kitchen</name>
+  <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+ </author>
+ <published>2012-02-09T23:27:45+00:00</published>
+ <entry>
+  <id>yt:video:EN0I1kcDBJI</id>
+  <yt:videoId>EN0I1kcDBJI</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>FROSTIPOPS 🍓 Ich bringe Eispops nach Deutschland 😍🥭</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/EN0I1kcDBJI"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-05-03T20:01:34+00:00</published>
+  <updated>2026-05-07T11:15:50+00:00</updated>
+  <media:group>
+   <media:title>FROSTIPOPS 🍓 Ich bringe Eispops nach Deutschland 😍🥭</media:title>
+   <media:content url="https://www.youtube.com/v/EN0I1kcDBJI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EN0I1kcDBJI/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="717" average="5.00" min="1" max="5"/>
+    <media:statistics views="29709"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fIGbQveknRY</id>
+  <yt:videoId>fIGbQveknRY</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Ersten FROSTIPOPS Deutschlands 😍 hieran arbeiten wir seit letztem Jahr! Mini Eis in Fruchtform 🍓🥭</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/fIGbQveknRY"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-05-03T05:02:39+00:00</published>
+  <updated>2026-05-05T02:08:51+00:00</updated>
+  <media:group>
+   <media:title>Ersten FROSTIPOPS Deutschlands 😍 hieran arbeiten wir seit letztem Jahr! Mini Eis in Fruchtform 🍓🥭</media:title>
+   <media:content url="https://www.youtube.com/v/fIGbQveknRY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fIGbQveknRY/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="2208" average="5.00" min="1" max="5"/>
+    <media:statistics views="100202"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ZhNBFnvfygk</id>
+  <yt:videoId>ZhNBFnvfygk</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Foodtrend 2026 ist offiziell und ich musste es euch verheimlichen 🥲</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/ZhNBFnvfygk"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-05-02T18:11:17+00:00</published>
+  <updated>2026-05-04T23:42:43+00:00</updated>
+  <media:group>
+   <media:title>Foodtrend 2026 ist offiziell und ich musste es euch verheimlichen 🥲</media:title>
+   <media:content url="https://www.youtube.com/v/ZhNBFnvfygk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/ZhNBFnvfygk/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="668" average="5.00" min="1" max="5"/>
+    <media:statistics views="39636"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:jAA3SzzlrjQ</id>
+  <yt:videoId>jAA3SzzlrjQ</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Wenn ich mein eigenes Café hätte... 😍 Matcha Cookies</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/jAA3SzzlrjQ"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-04-23T21:14:27+00:00</published>
+  <updated>2026-04-26T13:40:04+00:00</updated>
+  <media:group>
+   <media:title>Wenn ich mein eigenes Café hätte... 😍 Matcha Cookies</media:title>
+   <media:content url="https://www.youtube.com/v/jAA3SzzlrjQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/jAA3SzzlrjQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="757" average="5.00" min="1" max="5"/>
+    <media:statistics views="42839"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:gqyQJTDf_do</id>
+  <yt:videoId>gqyQJTDf_do</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>4 Zutaten BUENO-EIS (&amp; ein versteckter Hinweis auf etwas Großes im Video 🕵️‍♀️)</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/gqyQJTDf_do"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-04-07T21:52:40+00:00</published>
+  <updated>2026-04-30T05:35:48+00:00</updated>
+  <media:group>
+   <media:title>4 Zutaten BUENO-EIS (&amp; ein versteckter Hinweis auf etwas Großes im Video 🕵️‍♀️)</media:title>
+   <media:content url="https://www.youtube.com/v/gqyQJTDf_do?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/gqyQJTDf_do/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="1490" average="5.00" min="1" max="5"/>
+    <media:statistics views="136686"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:wjJi3Od8KUA</id>
+  <yt:videoId>wjJi3Od8KUA</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Wir müssen schließen... für etwas NEUES! 🔑</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/wjJi3Od8KUA"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-04-05T19:30:31+00:00</published>
+  <updated>2026-05-04T19:39:43+00:00</updated>
+  <media:group>
+   <media:title>Wir müssen schließen... für etwas NEUES! 🔑</media:title>
+   <media:content url="https://www.youtube.com/v/wjJi3Od8KUA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/wjJi3Od8KUA/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="2922" average="5.00" min="1" max="5"/>
+    <media:statistics views="103572"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:NCZD5Qw3MIs</id>
+  <yt:videoId>NCZD5Qw3MIs</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Immer diese Influencer 🫣 ~ Kikis Coffee &amp; Sweets Oberhausen Centro und Bochum Ruhr Park</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/NCZD5Qw3MIs"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-21T22:36:35+00:00</published>
+  <updated>2026-05-05T10:15:23+00:00</updated>
+  <media:group>
+   <media:title>Immer diese Influencer 🫣 ~ Kikis Coffee &amp; Sweets Oberhausen Centro und Bochum Ruhr Park</media:title>
+   <media:content url="https://www.youtube.com/v/NCZD5Qw3MIs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/NCZD5Qw3MIs/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="1278" average="5.00" min="1" max="5"/>
+    <media:statistics views="136156"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qCvMuXzemSs</id>
+  <yt:videoId>qCvMuXzemSs</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Ab heute die NEUHEIT im Supermarktregal 😍 MOCHIS Strawberry-Matcha</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/qCvMuXzemSs"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-16T16:01:40+00:00</published>
+  <updated>2026-03-20T02:27:20+00:00</updated>
+  <media:group>
+   <media:title>Ab heute die NEUHEIT im Supermarktregal 😍 MOCHIS Strawberry-Matcha</media:title>
+   <media:content url="https://www.youtube.com/v/qCvMuXzemSs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qCvMuXzemSs/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="1675" average="5.00" min="1" max="5"/>
+    <media:statistics views="116009"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:TZk6Rb2m2mU</id>
+  <yt:videoId>TZk6Rb2m2mU</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Kikis Crunch Dessert erobert gerade das gesamte Internet 🤯 Food Trend 2026 unlocked 🔓</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/TZk6Rb2m2mU"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-14T23:55:24+00:00</published>
+  <updated>2026-04-28T18:00:06+00:00</updated>
+  <media:group>
+   <media:title>Kikis Crunch Dessert erobert gerade das gesamte Internet 🤯 Food Trend 2026 unlocked 🔓</media:title>
+   <media:content url="https://www.youtube.com/v/TZk6Rb2m2mU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/TZk6Rb2m2mU/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="2184" average="5.00" min="1" max="5"/>
+    <media:statistics views="124385"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_pkbVER_Mgg</id>
+  <yt:videoId>_pkbVER_Mgg</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>TON AN für diese unglaublichen knusprigen panierten Börek aus dem Backofen 😍￼</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/_pkbVER_Mgg"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-13T22:20:26+00:00</published>
+  <updated>2026-04-22T17:53:44+00:00</updated>
+  <media:group>
+   <media:title>TON AN für diese unglaublichen knusprigen panierten Börek aus dem Backofen 😍￼</media:title>
+   <media:content url="https://www.youtube.com/v/_pkbVER_Mgg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_pkbVER_Mgg/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="1312" average="5.00" min="1" max="5"/>
+    <media:statistics views="79003"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:9VwOzyh1PIs</id>
+  <yt:videoId>9VwOzyh1PIs</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Positiver Geburtsbericht mit Höhen und Tiefen | Einleitung im Krankenhaus</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=9VwOzyh1PIs"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-08T09:30:12+00:00</published>
+  <updated>2026-04-14T21:43:26+00:00</updated>
+  <media:group>
+   <media:title>Positiver Geburtsbericht mit Höhen und Tiefen | Einleitung im Krankenhaus</media:title>
+   <media:content url="https://www.youtube.com/v/9VwOzyh1PIs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/9VwOzyh1PIs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Instagram: http://www.instagram.de/KikisKitchen
+Tik Tok: https://www.tiktok.com/@kikiskitchen</media:description>
+   <media:community>
+    <media:starRating count="1762" average="5.00" min="1" max="5"/>
+    <media:statistics views="68053"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:r8gQzBMeKNg</id>
+  <yt:videoId>r8gQzBMeKNg</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Diese zwei Dinge sind mir erst als Mutter klar geworden 😅</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/r8gQzBMeKNg"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-07T13:25:16+00:00</published>
+  <updated>2026-05-05T01:42:46+00:00</updated>
+  <media:group>
+   <media:title>Diese zwei Dinge sind mir erst als Mutter klar geworden 😅</media:title>
+   <media:content url="https://www.youtube.com/v/r8gQzBMeKNg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/r8gQzBMeKNg/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="1808" average="5.00" min="1" max="5"/>
+    <media:statistics views="117130"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:VL88saPIpmc</id>
+  <yt:videoId>VL88saPIpmc</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Kikis LOTUS CRUNCH Dessert - das Beste, was man aus Cornflakes zaubern kann 😍</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/VL88saPIpmc"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-03-02T20:15:30+00:00</published>
+  <updated>2026-03-10T21:39:24+00:00</updated>
+  <media:group>
+   <media:title>Kikis LOTUS CRUNCH Dessert - das Beste, was man aus Cornflakes zaubern kann 😍</media:title>
+   <media:content url="https://www.youtube.com/v/VL88saPIpmc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/VL88saPIpmc/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="4494" average="5.00" min="1" max="5"/>
+    <media:statistics views="253151"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:F6oraCEDsH0</id>
+  <yt:videoId>F6oraCEDsH0</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Meine 3 Ramadan-Specials für euch: Dattel &amp; Choco 😍</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/F6oraCEDsH0"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-02-28T08:11:01+00:00</published>
+  <updated>2026-05-04T20:50:47+00:00</updated>
+  <media:group>
+   <media:title>Meine 3 Ramadan-Specials für euch: Dattel &amp; Choco 😍</media:title>
+   <media:content url="https://www.youtube.com/v/F6oraCEDsH0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/F6oraCEDsH0/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="2178" average="5.00" min="1" max="5"/>
+    <media:statistics views="143637"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:pEf6MKeWWfU</id>
+  <yt:videoId>pEf6MKeWWfU</yt:videoId>
+  <yt:channelId>UCaURsy4dyscx-4G2aMNKNKw</yt:channelId>
+  <title>Fleischlos lecker: Linsen-Dal mit Kartoffeln | vegetarisches Gericht</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/pEf6MKeWWfU"/>
+  <author>
+   <name>Kikis Kitchen</name>
+   <uri>https://www.youtube.com/channel/UCaURsy4dyscx-4G2aMNKNKw</uri>
+  </author>
+  <published>2026-02-23T23:08:12+00:00</published>
+  <updated>2026-05-05T04:37:41+00:00</updated>
+  <media:group>
+   <media:title>Fleischlos lecker: Linsen-Dal mit Kartoffeln | vegetarisches Gericht</media:title>
+   <media:content url="https://www.youtube.com/v/pEf6MKeWWfU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/pEf6MKeWWfU/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="821" average="5.00" min="1" max="5"/>
+    <media:statistics views="54556"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCbKWv2x9t6u8yZoB3KcPtnw"/>
+ <id>yt:channel:bKWv2x9t6u8yZoB3KcPtnw</id>
+ <yt:channelId>bKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+ <title>Alan Becker</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw"/>
+ <author>
+  <name>Alan Becker</name>
+  <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+ </author>
+ <published>2006-07-24T20:46:18+00:00</published>
+ <entry>
+  <id>yt:video:HgWz05AsLxw</id>
+  <yt:videoId>HgWz05AsLxw</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Alan Becker TV - 24/7 Livestream</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=HgWz05AsLxw"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-04-24T19:13:02+00:00</published>
+  <updated>2026-05-09T18:41:50+00:00</updated>
+  <media:group>
+   <media:title>Alan Becker TV - 24/7 Livestream</media:title>
+   <media:content url="https://www.youtube.com/v/HgWz05AsLxw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/HgWz05AsLxw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Welcome to ABTV: a 24/7 Livestream of my videos. Join others from around the world to watch the entire library of animations spanning many years from Animator vs Animation all the way to our latest video. You must be subscribed to chat with others, and please make sure to keep the conversations friendly and read the rules below. 
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames   
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker
+
+
+𝐋𝐢𝐯𝐞𝐬𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐚𝐭 𝐑𝐮𝐥𝐞𝐬:  
+
+- 𝗡𝗼 𝗖𝗵𝗮𝗿𝗮𝗰𝘁𝗲𝗿/𝗖𝗔𝗣𝗦/𝗲𝗺𝗼𝗷𝗶 𝘀𝗽𝗮𝗺𝗺𝗶𝗻𝗴    
+- 𝗡𝗼 𝗰𝗿𝘂𝗱𝗲 𝗼𝗿 𝗽𝗿𝗼𝗳𝗮𝗻𝗲 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗯𝘆𝗽𝗮𝘀𝘀 𝗰𝗵𝗮𝘁 𝗳𝗶𝗹𝘁𝗲𝗿𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗯𝘆𝗽𝗮𝘀𝘀 𝗺𝘂𝘁𝗲𝘀 𝗼𝗿 𝗯𝗮𝗻𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗶𝗺𝗽𝗲𝗿𝘀𝗼𝗻𝗮𝘁𝗲, 𝗔𝗹𝗮𝗻, 𝗵𝗶𝘀 𝘀𝘁𝗮𝗳𝗳 𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗬𝗼𝘂𝗧𝘂𝗯𝗲𝗿𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗮𝗿𝗴𝘂𝗲 𝘄𝗶𝘁𝗵 𝗼𝗿 𝗱𝗶𝘀𝗽𝘂𝘁𝗲 𝗰𝗵𝗮𝘁 𝘀𝘁𝗮𝗳𝗳 𝗲𝗻𝗳𝗼𝗿𝗰𝗶𝗻𝗴 𝘁𝗵𝗲 𝗿𝘂𝗹𝗲𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗽𝗼𝘀𝘁 𝗽𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝘀𝘂𝗰𝗵 𝗮𝘀 𝗮𝗴𝗲 𝗼𝗿 𝗹𝗼𝗰𝗮𝘁𝗶𝗼𝗻    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗮𝗱𝘃𝗲𝗿𝘁𝗶𝘀𝗲 𝗼𝗿 𝘀𝗲𝗹𝗳 𝗽𝗿𝗼𝗺𝗼𝘁𝗲 (𝗶𝗻𝗰𝗹𝘂𝗱𝗶𝗻𝗴 𝗵𝗮𝗻𝗱𝗹𝗲𝘀 𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗰𝗵𝗮𝗻𝗻𝗲𝗹𝘀)    
+- 𝗞𝗲𝗲𝗽 𝗽𝗼𝗹𝗶𝘁𝗶𝗰𝘀 𝗼𝗿 𝗿𝗲𝗹𝗶𝗴𝗶𝗼𝗻 𝗼𝘂𝘁 𝗼𝗳 𝗰𝗵𝗮𝘁    
+- 𝗘𝗻𝘀𝘂𝗿𝗲 𝗰𝗵𝗮𝘁 𝗿𝗲𝗺𝗮𝗶𝗻𝘀 𝗳𝗮𝗺𝗶𝗹𝘆-𝗳𝗿𝗶𝗲𝗻𝗱𝗹𝘆 (𝗡𝗼 𝗱𝗿𝗮𝗺𝗮 𝗼𝗿 𝗳𝗹𝗶𝗿𝘁𝗶𝗻𝗴 𝗮𝗹𝗹𝗼𝘄𝗲𝗱)    
+- 𝗨𝘀𝗲 𝗰𝗼𝗺𝗺𝗼𝗻 𝘀𝗲𝗻𝘀𝗲  
+
+𝗜𝗳 𝘆𝗼𝘂 𝗿𝘂𝗻 𝗶𝗻𝘁𝗼 𝗽𝗲𝗼𝗽𝗹𝗲 𝗰𝗮𝘂𝘀𝗶𝗻𝗴 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀 𝗶𝗻 𝗰𝗵𝗮𝘁 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗰𝗿𝗲𝗮𝘁𝗲 𝗮 𝘀𝘂𝗽𝗽𝗼𝗿𝘁 𝘁𝗶𝗰𝗸𝗲𝘁 𝗼𝗻 𝘁𝗵𝗲 𝗼𝗳𝗳𝗶𝗰𝗶𝗮𝗹 𝗔𝗹𝗮𝗻 𝗕𝗲𝗰𝗸𝗲𝗿 𝗱𝗶𝘀𝗰𝗼𝗿𝗱 (𝗹𝗶𝗻𝗸𝗲𝗱 𝗮𝗯𝗼𝘃𝗲) 𝗮𝗻𝗱 𝗮𝘀𝗸 𝗳𝗼𝗿 𝗮 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 (𝗺𝗼𝗱𝗲𝗿𝗮𝘁𝗼𝗿. 𝗪𝗵𝗲𝗻 𝗺𝗮𝗸𝗶𝗻𝗴 𝗮 𝗿𝗲𝗽𝗼𝗿𝘁 𝗽𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝘀𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁𝘀 &amp; 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝗜𝗗 𝗼𝗳 𝘁𝗵𝗲 𝗽𝗲𝗿𝘀𝗼𝗻 𝗶𝗻 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻.
+
+
+𝗦𝘁𝗿𝗲𝗮𝗺 𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁 𝗢𝗿𝗱𝗲𝗿:
+𝗔𝘃𝗔 𝟭 
+𝗔𝘃𝗔 𝟮 
+𝗔𝘃𝗔 𝟯 
+𝗔𝘃𝗔 𝟰 
+𝗔𝘃 - 𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 
+𝗔𝘃 - 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭 𝗧𝗵𝗲 𝗥𝗲𝗱𝗶𝘀𝗰𝗼𝘃𝗲𝗿𝘆 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟮 𝗧𝗵𝗲 𝗕𝘂𝗶𝗹𝗱𝗶𝗻𝗴 𝗖𝗼𝗻𝘁𝗲𝘀𝘁 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟯 𝗧𝗵𝗲 𝗥𝗼𝗹𝗹𝗲𝗿 𝗖𝗼𝗮𝘀𝘁𝗲𝗿 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟰 𝗣𝗼𝘁𝗶𝗼𝗻𝘀 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟱 𝗡𝗼𝘁𝗲 𝗕𝗹𝗼𝗰𝗸𝘀 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟲 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗕𝗹𝗼𝗰𝗸𝘀 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟳 𝗣𝘃𝗣 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟴 𝗧𝗵𝗲 𝗡𝗲𝘁𝗵𝗲𝗿 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟵 𝗩𝗶𝗹𝗹𝗮𝗴𝗲𝗿𝘀 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭𝟬 𝗧𝗵𝗲 𝗘𝗻𝗱 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭𝟭 𝗦𝗸𝘆𝗯𝗹𝗼𝗰𝗸 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭𝟮 𝗧𝗵𝗲 𝗞𝗶𝗹𝗹𝗲𝗿 𝗕𝘂𝗻𝗻𝘆 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭𝟯 𝗧𝗵𝗲 𝗗𝗼𝗹𝗽𝗵𝗶𝗻 𝗞𝗶𝗻𝗴𝗱𝗼𝗺 
+𝗔𝘃𝗠 𝗦.𝟭 𝗘𝗽.𝟭𝟰 - 𝗖𝗮𝘃𝗲 𝗦𝗽𝗶𝗱𝗲𝗿 𝗥𝗼𝗹𝗹𝗲𝗿 𝗖𝗼𝗮𝘀𝘁𝗲𝗿 
+𝗔𝘃𝗔 𝗘𝗽.𝟱 𝗧𝗵𝗲 𝗩𝗶𝗿𝘂𝘀 
+𝗔𝘃𝗔 𝗘𝗽.𝟲 𝗧𝗵𝗲 𝗖𝗵𝗼𝘀𝗲𝗻 𝗢𝗻𝗲𝘀 𝗥𝗲𝘁𝘂𝗿𝗻 
+𝗔𝘃𝗔 𝗘𝗽.𝟳 𝗧𝗵𝗲 𝗙𝗹𝗮𝘀𝗵𝗯𝗮𝗰𝗸 
+𝗔𝘃𝗔 𝗘𝗽.𝟴 𝗧𝗵𝗲 𝗦𝗵𝗼𝘄𝗱𝗼𝘄𝗻 
+𝗔𝘃 - 𝗟𝗲𝗮𝗴𝘂𝗲 𝗼𝗳 𝗟𝗲𝗴𝗲𝗻𝗱𝘀 
+𝗔𝘃 - 𝗣𝗼𝗸𝗲𝗺𝗼𝗻 
+𝗔𝘃 - 𝗦𝘂𝗽𝗲𝗿 𝗠𝗮𝗿𝗶𝗼 𝗕𝗿𝗼𝘀 
+𝗔𝘃𝗠 𝗦.𝟮 𝗘𝗽.𝟭𝟱 𝗥𝗲𝗱𝘀𝘁𝗼𝗻𝗲 𝗔𝗰𝗮𝗱𝗲𝗺𝘆 
+𝗔𝘃𝗠 𝗦.𝟮 𝗘𝗽.𝟭𝟲 𝗡𝗼𝘁𝗲 𝗕𝗹𝗼𝗰𝗸 𝗕𝗮𝘁𝘁𝗹𝗲 
+𝗔𝘃𝗠 𝗦.𝟮 𝗘𝗽.𝟭𝟳 𝗕𝘂𝗶𝗹𝗱 𝗕𝗮𝘁𝘁𝗹𝗲 
+𝗔𝘃𝗠 𝗦.𝟮 𝗘𝗽.𝟭𝟴 𝗧𝗲𝘅𝘁𝘂𝗿𝗲 𝗣𝗮𝗰𝗸 
+𝗔𝘃𝗠 𝗦.𝟮 𝗘𝗽.𝟭𝟵 𝗟𝘂𝗰𝗸𝘆 𝗕𝗹𝗼𝗰𝗸𝘀 
+𝗔𝘃 - 𝗧𝗲𝗮𝗺 𝗧𝗿𝗲𝗲𝘀 
+𝗔𝘃 - 𝗔𝗿𝗰𝗮𝗱𝗲 𝗚𝗮𝗺𝗲𝘀 
+𝗔𝘃 - 𝗧𝗲𝗮𝗺 𝗦𝗲𝗮𝘀 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟬 𝗧𝗵𝗲 𝗣𝗶𝗴𝗹𝗶𝗻 𝗪𝗮𝗿 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟭 𝗧𝗵𝗲 𝗪𝗶𝘁𝗰𝗵  
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟮 𝗣𝗮𝗿𝗸𝗼𝘂𝗿 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟯 𝗧𝗶𝘁𝗮𝗻 𝗥𝗮𝘃𝗮𝗴𝗲𝗿 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟰 𝗟𝘂𝘀𝗵 𝗖𝗮𝘃𝗲𝘀 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟱 𝗧𝗵𝗲 𝗨𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗪𝗲𝗮𝗽𝗼𝗻 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟲 𝗧𝗵𝗲 𝗪𝗮𝗿𝗱𝗲𝗻 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟳 𝗠𝗼𝗻𝘀𝘁𝗲𝗿 𝗦𝗰𝗵𝗼𝗼𝗹  
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟴 𝗧𝗵𝗲 𝗥𝗮𝗶𝗱 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟮𝟵 𝗡𝗼𝘁𝗲 𝗕𝗹𝗼𝗰𝗸 𝗨𝗻𝗶𝘃𝗲𝗿𝘀𝗲 
+𝗔𝘃𝗠 𝗦.𝟯 𝗘𝗽.𝟯𝟬 𝗧𝗵𝗲 𝗞𝗶𝗻𝗴 
+𝗔𝘃𝗔 𝗘𝗽.𝟵 𝗪𝗮𝗻𝘁𝗲𝗱 
+𝗔𝘃𝗔 𝗘𝗽.𝟭𝟬 𝗧𝗵𝗲 𝗕𝗼𝘅 
+𝗔𝘃 - 𝗠𝗮𝘁𝗵 
+𝗔𝘃 - 𝗣𝗵𝘆𝘀𝗶𝗰𝘀 
+𝗔𝘃 - 𝗚𝗲𝗼𝗺𝗲𝘁𝗿𝘆 
+𝗔𝘃𝗠 𝗦.𝟰 𝗘𝗽.𝟯𝟭 𝗨𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗥𝗮𝗰𝗲 
+𝗔𝘃𝗠 𝗦.𝟰 𝗘𝗽.𝟯𝟮 𝗧𝗵𝗲 𝗖𝗵𝗲𝗳 
+𝗔𝘃𝗠 𝗦.𝟰 𝗘𝗽.𝟯𝟯 𝗟𝘂𝗰𝗸𝘆 𝗕𝗹𝗼𝗰𝗸 𝗦𝘁𝗮𝗳𝗳 
+𝗔𝘃𝗠 𝗦.𝟰 𝗘𝗽.𝟯𝟰 𝗧𝗵𝗲 𝗣𝗿𝗮𝗻𝗸 
+𝗔𝘃𝗠 𝗦.𝟰 𝗘𝗽.𝟯𝟱 𝗡𝗼𝘁𝗲 𝗕𝗹𝗼𝗰𝗸 𝗖𝗼𝗻𝗰𝗲𝗿𝘁 
+𝐀𝐯 - 𝐆𝐞𝐨𝐦𝐞𝐭𝐫𝐲 
+𝐈𝐧𝐟𝐥𝐮𝐞𝐧𝐜𝐞𝐫 𝐀𝐫𝐜 𝐄𝐩.𝟏-𝟑 
+𝐀𝐯𝐀 𝐄𝐩.𝟏𝟏 𝐕𝐢𝐜𝐭𝐢𝐦 
+𝐀𝐯 - 𝐂𝐨𝐝𝐢𝐧𝐠 
+𝐀𝐯 - 𝐀𝐝𝐝𝐢𝐜𝐭𝐢𝐨𝐧 
+𝐀𝐯𝐌 - 𝐄𝐩.𝟑𝟔 𝐁𝐞𝐝𝐰𝐚𝐫𝐬 
+𝐀𝐯 - 𝐀𝐩𝐩 𝐒𝐭𝐚𝐟𝐟 
+𝐀𝐯𝐌 𝐒𝐩𝐞𝐞𝐝𝐫𝐮𝐧 𝐂𝐨𝐦𝐩𝐢𝐥𝐚𝐭𝐢𝐨𝐧
+𝐌𝐞𝐫𝐜𝐞𝐧𝐚𝐫𝐲 𝐓𝐫𝐲𝐨𝐮𝐭𝐬
+𝐀𝐯𝐌 𝐄𝐩.𝟎 𝐁𝐞𝐭𝐚 
+𝐀𝐯𝐀 𝗘𝗽.𝟭𝟮 𝗵𝗮𝗰𝗸𝗲𝐫
+𝐀𝐯𝐌 𝗦.𝟰 𝐄𝐩.𝟯𝟳 𝗵𝗮𝐫𝗱𝗰𝐨𝐫𝗲 𝗠𝗮𝗻𝗵𝐮𝗻𝘁
+𝐀𝐯 - 𝗚𝗮𝗺𝗲 𝗗𝗲𝐬𝐢𝐠𝐧
+𝐀𝐯𝐌 𝗦.𝟱 𝐄𝐩.𝟯𝟴 𝗧𝗵𝗲 𝗙𝗮𝗿 𝗟𝗮𝗻𝗱𝐬
+𝐀𝐯𝐌 𝗦.𝟱 𝐄𝐩.𝟯𝟵 𝗧𝗵𝗲 𝗔𝗲𝘁𝗵𝗲𝐫</media:description>
+   <media:community>
+    <media:starRating count="15057" average="5.00" min="1" max="5"/>
+    <media:statistics views="841025"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:-MV7Hg31usU</id>
+  <yt:videoId>-MV7Hg31usU</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>The Aether - Animation vs. Minecraft Shorts Ep 39</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=-MV7Hg31usU"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-04-18T12:00:06+00:00</published>
+  <updated>2026-05-10T08:42:32+00:00</updated>
+  <media:group>
+   <media:title>The Aether - Animation vs. Minecraft Shorts Ep 39</media:title>
+   <media:content url="https://www.youtube.com/v/-MV7Hg31usU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/-MV7Hg31usU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>YouTooz plushies ► https://youtooz.com/collections/alan-becker 
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames 
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+
+🔹🔶DIRECTOR🔶🔹
+Alan Becker
+🔹🔶WRITER🔶🔹
+Alan Becker
+@its_me_skim 
+🔹🔶ANIMATION🔶🔹
+🔶2D🔶
+@ARCpersona 
+Exceld
+@doumaki4501 
+@robby24anims62 
+@Ellis02Media 
+@SimpleFox1 
+@Mateusilvanimations 
+@effie2095 
+@NotSoProishNoob 
+@n8sterAnimates 
+@Spacedoughnut 
+@efan_04 
+@oxob3000 
+rojackie
+@Shuriken255 
+@Hexalhaxel 
+🔶3D🔶
+@Ellis02Media 
+Skittlq https://skittlq.com/
+@Jaitie018 
+@SunnyIsOnline 
+🔹🔶MINECRAFT BUILDERS🔶🔹
+@RafalSzubaOfficial 
+@snovarh4665 
+https://twitter.com/BeefLeather?mx=1
+https://www.youtube.com/channel/UCz_zPxHteoeB1tE0duala2A
+@StacyBluebird 
+🔹🔶SCRIPTING🔶🔹
+@Shuriken255 
+🔹🔶MOB ASSETS🔶🔹
+Exceld
+@Shuriken255 
+🔹🔶COMPOSITING🔶🔹
+Grace
+🔹🔶SFX🔶🔹
+@dan_loeb 
+https://twitter.com/E_SoundWork 
+🔹🔶MUSIC🔶🔹
+@ScottBuckley 
+🔹🔶EDITORS🔶🔹
+@n8sterAnimates 
+@dan_loeb 
+🔹🔶THUMBNAIL ARTIST🔶🔹
+Exceld
+🔹🔶PRODUCTION COORDINATOR🔶🔹
+@n8sterAnimates 
+🔹🔶CREATIVE COORDINATOR🔶🔹
+@Fabian_Banu 
+🔹🔶PRODUCTION ASSISTANT🔶🔹
+Sammi Alea https://sammialea.com/ 
+🔹🔶LINE PRODUCER🔶🔹 
+ @hatena360
+
+Player Skin based on a Skin by @Nugcon</media:description>
+   <media:community>
+    <media:starRating count="195917" average="5.00" min="1" max="5"/>
+    <media:statistics views="4829366"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4l4rcxxDtPY</id>
+  <yt:videoId>4l4rcxxDtPY</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Would you look at that...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/4l4rcxxDtPY"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-03-21T12:00:16+00:00</published>
+  <updated>2026-04-28T10:40:07+00:00</updated>
+  <media:group>
+   <media:title>Would you look at that...</media:title>
+   <media:content url="https://www.youtube.com/v/4l4rcxxDtPY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4l4rcxxDtPY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Crochet Kit: http://alanbecker.shop/collections/collectibles
+
+Crochet Figures and Kit designed by Heather Michael: https://www.etsy.com/shop/PocketsofWhimsy</media:description>
+   <media:community>
+    <media:starRating count="99619" average="5.00" min="1" max="5"/>
+    <media:statistics views="2019064"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8FWBws2MZf8</id>
+  <yt:videoId>8FWBws2MZf8</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Trial Chamber - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/8FWBws2MZf8"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-01-24T13:00:23+00:00</published>
+  <updated>2026-04-08T00:55:05+00:00</updated>
+  <media:group>
+   <media:title>Trial Chamber - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/8FWBws2MZf8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8FWBws2MZf8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea &amp; Writer:  Krej1
+🔶 Animation: @Lunsar, @SimpleFox1, @Shuriken255, &amp; rojackie
+🔷 Sounds: @hatena360 
+🎵 Music: &quot;Take Off&quot; by STRLGHT</media:description>
+   <media:community>
+    <media:starRating count="164842" average="5.00" min="1" max="5"/>
+    <media:statistics views="4293678"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4XkapJvLDhA</id>
+  <yt:videoId>4XkapJvLDhA</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>An Actual Short Compilation - Season 3 (official)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4XkapJvLDhA"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-01-24T13:00:16+00:00</published>
+  <updated>2026-01-30T17:14:22+00:00</updated>
+  <media:group>
+   <media:title>An Actual Short Compilation - Season 3 (official)</media:title>
+   <media:content url="https://www.youtube.com/v/4XkapJvLDhA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4XkapJvLDhA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>An Actual Short Compilation - Season 3 (official)
+
+Our last batch of vertical shorts from last year!
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames 
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+🔹🔶IDEAS &amp; WRITERS🔶🔹
+@its_me_skim 
+@tjb7345 
+@dan_loeb 
+@hatena360 
+@n8sterAnimates 
+SC
+Krej1
+bookno255
+🔹🔶ANIMATION🔶🔹
+@SimpleFox1 
+@n8sterAnimates 
+@tjb7345 
+@mekatokwa 
+@ablerai 
+@ichasedacrow 
+@ARCpersona 
+@doumaki4501 
+@oxob3000 
+@Fordz 
+@frankyofl 
+@Lunsar 
+@its_me_skim 
+@tetr0mations 
+@Spacedoughnut 
+@effie2095 
+Exceld
+@NotSoProishNoob 
+@DonnieBoots 
+@favfaris4714 
+@Hexalhaxel 
+@hous3776 
+@kayalartwork 
+Rojackie
+@efan_04 
+@Shuriken255 
+@smoilysheep4670 
+🔹🔶SFX🔶🔹
+@dan_loeb 
+https://twitter.com/E_SoundWork 
+🔹🔶MUSIC🔶🔹
+“Allay” by Shuriken255
+&quot;BACK2BACK&quot; by STRLGHT, ROONIN
+&quot;Back on Track&quot; by Ryan James Carr 
+&quot;Break Away&quot; by Fox Marrow
+“Crystal Shards” by Platinum101
+&quot;Drum Circle&quot; by Sage Oursler
+“Electric” by Scoobadive
+“Flare” by Agst
+&quot;From East to West&quot; by El Falco
+“Hide and Geek” by Harry Edvino
+&quot;Main Naruto Theme&quot; by Toshio Masuda
+&quot;otherside&quot; by Lena Raine
+🔹🔶THUMBNAIL ARTIST🔶🔹
+Exceld
+🔹🔶PROJECT LEAD🔶🔹 
+@n8sterAnimates 
+🔹🔶PRODUCTION ASSISTANT🔶🔹
+Sammi Alea https://sammialea.com/ 
+🔹🔶PRODUCTION MANAGER🔶🔹 
+@hatena360</media:description>
+   <media:community>
+    <media:starRating count="55004" average="5.00" min="1" max="5"/>
+    <media:statistics views="5064142"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ajMW2JGJh2U</id>
+  <yt:videoId>ajMW2JGJh2U</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Mission Impossible - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/ajMW2JGJh2U"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2026-01-10T13:00:03+00:00</published>
+  <updated>2026-04-12T17:24:39+00:00</updated>
+  <media:group>
+   <media:title>Mission Impossible - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/ajMW2JGJh2U?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/ajMW2JGJh2U/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea: bookno255
+📝 Writer:  @tjb7345 
+🔶 Animation: @frankyofl &amp; @efan_04
+🔷 Sounds: @dan_loeb</media:description>
+   <media:community>
+    <media:starRating count="299135" average="5.00" min="1" max="5"/>
+    <media:statistics views="6986100"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qzWcVlYAVAM</id>
+  <yt:videoId>qzWcVlYAVAM</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>How To: Survive A Fall - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/qzWcVlYAVAM"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-12-27T13:01:46+00:00</published>
+  <updated>2026-04-22T19:17:49+00:00</updated>
+  <media:group>
+   <media:title>How To: Survive A Fall - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/qzWcVlYAVAM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qzWcVlYAVAM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea &amp; Writer: @its_me_skim 
+🔶 Animation: @ichasedacrow, @ARCpersona, @doumaki4501, @Shuriken255, &amp; @n8sterAnimates 
+🔷 Sounds: https://twitter.com/E_SoundWork</media:description>
+   <media:community>
+    <media:starRating count="237326" average="5.00" min="1" max="5"/>
+    <media:statistics views="5825944"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:q_zX1UdJVcM</id>
+  <yt:videoId>q_zX1UdJVcM</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>The Far Lands - Animation vs. Minecraft Shorts Ep 38</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=q_zX1UdJVcM"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-12-20T13:00:06+00:00</published>
+  <updated>2026-04-29T22:12:02+00:00</updated>
+  <media:group>
+   <media:title>The Far Lands - Animation vs. Minecraft Shorts Ep 38</media:title>
+   <media:content url="https://www.youtube.com/v/q_zX1UdJVcM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/q_zX1UdJVcM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Something lives here...
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames  
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+
+⭐SPECIAL THANKS⭐
+SkipTheTutorial helped with the Far Lands environment for this episode. Special thanks to the following: 
+@skipthetutorial 
+Ash
+Jonah
+Quinten
+
+🔹🔶DIRECTOR / WRITER🔶🔹
+Alan Becker
+@its_me_skim 
+🔹🔶ANIMATION🔶🔹
+🔶2D🔶
+@ARCpersona 
+@Ellis02Media 
+Exceld
+@SimpleFox1 
+@n8sterAnimates 
+@efan_04 
+@doumaki4501 
+@NotSoProishNoob 
+@MateusSilvaAnimations 
+@robby24anims62 
+@Fordz 
+@oxob3000 
+@DaSassyOwl 
+Rojackie
+@Hexalhaxel 
+@Spacedoughnut 
+@eds7236 
+@Shuriken255 
+🔶3D🔶
+https://x.com/magicalotter46 
+@Ellis02Media 
+@st4ticfilms 
+🔹🔶MINECRAFT BUILDERS🔶🔹
+SNovaRH
+The Kaemble
+StacyBluebird
+Waters
+Nikabe
+Raf
+Beef
+🔹🔶MINECRAFT SCRIPTING🔶🔹
+@Onnowhere 
+🔹🔶SFX🔶🔹
+https://twitter.com/E_SoundWork
+@dan_loeb 
+🔹🔶MUSIC🔶🔹
+@ScottBuckley 
+🔹🔶EDITORS🔶🔹
+@n8sterAnimates 
+@dan_loeb 
+🔹🔶THUMBNAIL ARTIST🔶🔹
+Exceld
+🔹🔶PRODUCTION ASSISTANT🔶🔹
+Sammi Alea https://sammialea.com/ 
+🔹🔶PRODUCTION MANAGER🔶🔹 
+@hatena360</media:description>
+   <media:community>
+    <media:starRating count="292616" average="5.00" min="1" max="5"/>
+    <media:statistics views="16032343"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:VQXTekh3Dz8</id>
+  <yt:videoId>VQXTekh3Dz8</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Introducing...</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/VQXTekh3Dz8"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-12-06T13:01:06+00:00</published>
+  <updated>2026-05-04T19:55:13+00:00</updated>
+  <media:group>
+   <media:title>Introducing...</media:title>
+   <media:content url="https://www.youtube.com/v/VQXTekh3Dz8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/VQXTekh3Dz8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Crochet Kit: https://alanbecker.shop/products/custom-crochet-figure-kit-5-characters
+
+There's also an auction to get ALL the characters: https://www.ebay.com/itm/397356776499
+
+Crochet Figures and Kit designed by Heather Michael: https://www.etsy.com/shop/PocketsofWhimsy
+
+🔉SFX:  @dan_loeb 
+🎵Music: &quot;Just Questions&quot; by Mac Taboel</media:description>
+   <media:community>
+    <media:starRating count="364058" average="5.00" min="1" max="5"/>
+    <media:statistics views="7828512"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:XyRFmWZuimk</id>
+  <yt:videoId>XyRFmWZuimk</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Egg - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/XyRFmWZuimk"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-11-22T13:01:17+00:00</published>
+  <updated>2026-03-27T12:55:09+00:00</updated>
+  <media:group>
+   <media:title>Egg - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/XyRFmWZuimk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/XyRFmWZuimk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea &amp; Writer: @its_me_skim 
+🔶 Animation: @its_me_skim ExcelD @ichasedacrow2 
+🔷 Sounds: https://twitter.com/E_SoundWork</media:description>
+   <media:community>
+    <media:starRating count="200139" average="5.00" min="1" max="5"/>
+    <media:statistics views="4656068"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:dz04yXwSkQY</id>
+  <yt:videoId>dz04yXwSkQY</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Animation vs. Game Design</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=dz04yXwSkQY"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-11-15T13:01:20+00:00</published>
+  <updated>2026-05-04T22:06:31+00:00</updated>
+  <media:group>
+   <media:title>Animation vs. Game Design</media:title>
+   <media:content url="https://www.youtube.com/v/dz04yXwSkQY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/dz04yXwSkQY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Get Pixicade Here:  https://www.abacusbrands.com/products/draw-your-own-games-special-animation-edition-alan-becker-pixicade 
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames    
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+🔹🔶DIRECTORS / WRITER🔶🔹
+Alan Becker
+🔹🔶ANIMATION🔶🔹
+@doumaki4501 
+@robby24anims62 
+Acely
+@MateusSilvaAnimations 
+@efan_04 
+@Tokarev_ 
+Rojackie
+@ichasedacrow 
+@Ellis02Media 
+🔹🔶SFX / EDITOR🔶🔹
+@dan_loeb 
+🔹🔶VIDEOGRAPHER🔶🔹
+https://www.instagram.com/graciebeckercam
+🔹🔶PRODUCTION ASSISTANT🔶🔹
+Sammi Alea https://sammialea.com/ 
+🔹🔶EDITOR / PROJECT LEAD / PROJECT MANAGER🔶🔹 
+@hatena360</media:description>
+   <media:community>
+    <media:starRating count="173094" average="5.00" min="1" max="5"/>
+    <media:statistics views="8800050"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:xu0mrfxPhbY</id>
+  <yt:videoId>xu0mrfxPhbY</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Allay - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/xu0mrfxPhbY"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-11-01T12:02:03+00:00</published>
+  <updated>2026-05-04T17:54:43+00:00</updated>
+  <media:group>
+   <media:title>Allay - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/xu0mrfxPhbY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/xu0mrfxPhbY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea: @its_me_skim 
+📝Writer: @tjb7345 
+🔶 Animation: @oxob3000, @ablerai, @n8sterAnimates, &amp; @NotSoProishNoob
+🔷 Sounds: @dan_loeb
+🎵 Music: @Shuriken255</media:description>
+   <media:community>
+    <media:starRating count="199736" average="5.00" min="1" max="5"/>
+    <media:statistics views="4828725"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4dUr6L-dKgo</id>
+  <yt:videoId>4dUr6L-dKgo</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Alan Becker lofi radio - beats to animate to</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4dUr6L-dKgo"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-10-24T18:02:26+00:00</published>
+  <updated>2026-04-24T01:31:39+00:00</updated>
+  <media:group>
+   <media:title>Alan Becker lofi radio - beats to animate to</media:title>
+   <media:content url="https://www.youtube.com/v/4dUr6L-dKgo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4dUr6L-dKgo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Chill out to some lofi versions of Alan Becker's animation soundtracks! 
+
+Also available on:
+Spotify: https://open.spotify.com/album/7oraFz2vY8OsOFF4sPAyKs
+Apple Music: https://music.apple.com/us/album/alan-becker-lofi/1850125813
+iTunes: https://music.apple.com/us/album/alan-becker-lofi/1850125813
+YouTube Music: https://music.youtube.com/playlist?list=OLAK5uy_kyLKoNqyovfxvS1zSpFyzwp0lbhVIgDng
+... and 19 more streaming platforms!
+
+If you want to use the music from this stream for your own videos and streams, please copy &amp; paste the credit below:
+Lofi music from Alan Becker: https://www.youtube.com/watch?v=4dUr6L-dKgo
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames   
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+🔹🔶DIRECTORS / WRITERS🔶🔹
+Alan Becker
+@its_me_skim 
+🔹🔶ANIMATION🔶🔹
+@mekatokwa 
+@n8sterAnimates 
+@doumaki4501 
+@favfaris4714 
+@oxob3000 
+@effie2095 
+@SimpleFox1 
+@frankyofl 
+@NotSoProishNoob 
+@ablerai 
+@DonnieBoots 
+@ichasedacrow 
+@Ellis02Media 
+@Spacedoughnut 
+@eds7236 
+Exceld
+@Nemo0501 
+@Lunsar 
+@tjb7345 
+@efan_04 
+🔹🔶MINECRAFT BUILDERS🔶🔹
+The Kaemble
+🔹🔶TECHNICAL DIRECTOR🔶🔹
+@Shuriken255 
+🔹🔶PRODUCTION ASSISTANTS🔶🔹
+Sammi Alea https://sammialea.com/  
+Gigi 
+🔹🔶EDITOR / PROJECT LEAD / PROJECT MANAGER🔶🔹 
+@hatena360 
+
+🎵TRACK LIST🎵
+1. “Animator vs Animation 4”
+Original by Sarah Eide
+Remixed by Avenza
+
+2. “Jazzy Note Blocks”
+Original by Aaron Grooves
+Remixed by Avenza
+
+3. “Green’s Jam”
+Original by Aaron Grooves
+Remixed by Avenza
+
+4. “Pigstep”
+Original by Lena Raine &amp; Scott Buckley
+Remixed by Avenza
+
+5. “Warden’s Song”
+Original by Scott Buckley
+Remixed by Avenza
+
+6. “Monster School”
+Original by Scott Buckley
+Remixed by Avenza
+
+7. “Zombies”
+Original by Aaron Grooves
+Remixed by Avenza
+
+8. “Villager Big Band”
+Original by Aaron Grooves
+Remixed by Avenza
+
+9. “Wandering Trader”
+Original by Aaron Grooves
+Remixed by Avenza
+
+10. “Green &amp; Purple”
+Original by Scott Buckley
+Remixed by Avenza
+
+11. “Purple’s Theme”
+Original by Scott Buckley
+Remixed by Avenza
+
+12. “Lucky Block Staff”
+Original by Scott Buckley
+Remixed by Avenza
+
+13. “The Prank”
+Original by Scott Buckley
+Remixed by Avenza
+
+14. “Animation vs Math”
+Original by Scott Buckley
+Remixed by Avenza
+
+15. “Influencer Arc”
+Original by LilDeuceDeuce
+Remixed by LilDeuceDeuce
+
+16. “Victim &amp; Mitsi”
+Original by Scott Buckley
+Remixed by Avenza
+
+17. “To Be Continued”
+Original by Kevin MacLeod
+Remixed by Avenza
+
+𝐋𝐢𝐯𝐞𝐬𝐭𝐫𝐞𝐚𝐦 𝐂𝐡𝐚𝐭 𝐑𝐮𝐥𝐞𝐬:  
+
+- 𝗡𝗼 𝗖𝗵𝗮𝗿𝗮𝗰𝘁𝗲𝗿/𝗖𝗔𝗣𝗦/𝗲𝗺𝗼𝗷𝗶 𝘀𝗽𝗮𝗺𝗺𝗶𝗻𝗴    
+- 𝗡𝗼 𝗰𝗿𝘂𝗱𝗲 𝗼𝗿 𝗽𝗿𝗼𝗳𝗮𝗻𝗲 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗯𝘆𝗽𝗮𝘀𝘀 𝗰𝗵𝗮𝘁 𝗳𝗶𝗹𝘁𝗲𝗿𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗯𝘆𝗽𝗮𝘀𝘀 𝗺𝘂𝘁𝗲𝘀 𝗼𝗿 𝗯𝗮𝗻𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗶𝗺𝗽𝗲𝗿𝘀𝗼𝗻𝗮𝘁𝗲, 𝗔𝗹𝗮𝗻, 𝗵𝗶𝘀 𝘀𝘁𝗮𝗳𝗳 𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗬𝗼𝘂𝗧𝘂𝗯𝗲𝗿𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗮𝗿𝗴𝘂𝗲 𝘄𝗶𝘁𝗵 𝗼𝗿 𝗱𝗶𝘀𝗽𝘂𝘁𝗲 𝗰𝗵𝗮𝘁 𝘀𝘁𝗮𝗳𝗳 𝗲𝗻𝗳𝗼𝗿𝗰𝗶𝗻𝗴 𝘁𝗵𝗲 𝗿𝘂𝗹𝗲𝘀    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗽𝗼𝘀𝘁 𝗽𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝘀𝘂𝗰𝗵 𝗮𝘀 𝗮𝗴𝗲 𝗼𝗿 𝗹𝗼𝗰𝗮𝘁𝗶𝗼𝗻    
+- 𝗗𝗼 𝗻𝗼𝘁 𝗮𝗱𝘃𝗲𝗿𝘁𝗶𝘀𝗲 𝗼𝗿 𝘀𝗲𝗹𝗳 𝗽𝗿𝗼𝗺𝗼𝘁𝗲 (𝗶𝗻𝗰𝗹𝘂𝗱𝗶𝗻𝗴 𝗵𝗮𝗻𝗱𝗹𝗲𝘀 𝗼𝗿 𝗼𝘁𝗵𝗲𝗿 𝗰𝗵𝗮𝗻𝗻𝗲𝗹𝘀)    
+- 𝗞𝗲𝗲𝗽 𝗽𝗼𝗹𝗶𝘁𝗶𝗰𝘀 𝗼𝗿 𝗿𝗲𝗹𝗶𝗴𝗶𝗼𝗻 𝗼𝘂𝘁 𝗼𝗳 𝗰𝗵𝗮𝘁    
+- 𝗘𝗻𝘀𝘂𝗿𝗲 𝗰𝗵𝗮𝘁 𝗿𝗲𝗺𝗮𝗶𝗻𝘀 𝗳𝗮𝗺𝗶𝗹𝘆-𝗳𝗿𝗶𝗲𝗻𝗱𝗹𝘆 (𝗡𝗼 𝗱𝗿𝗮𝗺𝗮 𝗼𝗿 𝗳𝗹𝗶𝗿𝘁𝗶𝗻𝗴 𝗮𝗹𝗹𝗼𝘄𝗲𝗱)    
+- 𝗨𝘀𝗲 𝗰𝗼𝗺𝗺𝗼𝗻 𝘀𝗲𝗻𝘀𝗲  
+
+𝗜𝗳 𝘆𝗼𝘂 𝗿𝘂𝗻 𝗶𝗻𝘁𝗼 𝗽𝗲𝗼𝗽𝗹𝗲 𝗰𝗮𝘂𝘀𝗶𝗻𝗴 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀 𝗶𝗻 𝗰𝗵𝗮𝘁 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗰𝗿𝗲𝗮𝘁𝗲 𝗮 𝘀𝘂𝗽𝗽𝗼𝗿𝘁 𝘁𝗶𝗰𝗸𝗲𝘁 𝗼𝗻 𝘁𝗵𝗲 𝗼𝗳𝗳𝗶𝗰𝗶𝗮𝗹 𝗔𝗹𝗮𝗻 𝗕𝗲𝗰𝗸𝗲𝗿 𝗱𝗶𝘀𝗰𝗼𝗿𝗱 (𝗹𝗶𝗻𝗸𝗲𝗱 𝗮𝗯𝗼𝘃𝗲) 𝗮𝗻𝗱 𝗮𝘀𝗸 𝗳𝗼𝗿 𝗮 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝗺𝗼𝗱𝗲𝗿𝗮𝘁𝗼𝗿. 𝗪𝗵𝗲𝗻 𝗺𝗮𝗸𝗶𝗻𝗴 𝗮 𝗿𝗲𝗽𝗼𝗿𝘁 𝗽𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝘀𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁𝘀 &amp; 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝗜𝗗 𝗼𝗳 𝘁𝗵𝗲 𝗽𝗲𝗿𝘀𝗼𝗻 𝗶𝗻 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻.</media:description>
+   <media:community>
+    <media:starRating count="158017" average="5.00" min="1" max="5"/>
+    <media:statistics views="6394190"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:39BPQh6-ZFI</id>
+  <yt:videoId>39BPQh6-ZFI</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>How To: Open Doors - An Actual Short</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/39BPQh6-ZFI"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-10-18T12:00:06+00:00</published>
+  <updated>2026-04-28T21:35:58+00:00</updated>
+  <media:group>
+   <media:title>How To: Open Doors - An Actual Short</media:title>
+   <media:content url="https://www.youtube.com/v/39BPQh6-ZFI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/39BPQh6-ZFI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💡 Idea &amp; Writer: @its_me_skim 
+🔶 Animation: @DonnieBoots, @SimpleFox1, https://www.youtube.com/@Lunsar, &amp; @doumaki4501 
+🔷 Sounds: @dan_loeb 
+🎵 Music: Hide and Geek by Harry Edvino</media:description>
+   <media:community>
+    <media:starRating count="430466" average="5.00" min="1" max="5"/>
+    <media:statistics views="13505469"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:iSFDlT43bxw</id>
+  <yt:videoId>iSFDlT43bxw</yt:videoId>
+  <yt:channelId>UCbKWv2x9t6u8yZoB3KcPtnw</yt:channelId>
+  <title>Hardcore Manhunt - Animation vs. Minecraft Shorts Ep 37</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=iSFDlT43bxw"/>
+  <author>
+   <name>Alan Becker</name>
+   <uri>https://www.youtube.com/channel/UCbKWv2x9t6u8yZoB3KcPtnw</uri>
+  </author>
+  <published>2025-10-11T12:00:06+00:00</published>
+  <updated>2026-05-04T06:15:33+00:00</updated>
+  <media:group>
+   <media:title>Hardcore Manhunt - Animation vs. Minecraft Shorts Ep 37</media:title>
+   <media:content url="https://www.youtube.com/v/iSFDlT43bxw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/iSFDlT43bxw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Good luck with the pop quiz at the end! https://brilliant.org/alanbecker 20% off annual premium subscription included with this link only.
+
+🖐 ASK ME ANYTHING! ► https://www.youtube.com/noogai89/join 
+
+👕 MERCH! ► https://alanbecker.shop
+
+💬DISCORD SERVER ► https://discord.gg/alanbecker 
+
+🕹️ANIMATORS VS GAMES ►  @AnimatorsVSGames   
+
+📷INSTAGRAM ► http://www.instagram.com/alanbecker 
+
+✏️TWITTER ► http://twitter.com/alanthebecker 
+
+
+🔹🔶DIRECTORS / WRITERS🔶🔹
+@its_me_skim 
+Alan Becker
+🔹🔶ANIMATION🔶🔹
+🔹2D🔹
+@ARCpersona 
+@n8sterAnimates 
+@Ellis02Media 
+@NotSoProishNoob 
+Exceld
+@doumaki4501 
+@Fordz 
+@efan_04 
+@SimpleFox1 
+@ichasedacrow 
+@Spacedoughnut 
+@Hexalhaxel 
+@frankyofl 
+https://x.com/magicalotter46 
+@robby24anims62 
+@ablerai 
+@effie2095 
+@hatena360 
+Terkoiz
+@oxob3000 
+rojackie
+@Nemo0501 
+@mekatokwa 
+@dan_loeb 
+@tjb7345 
+🔹3D🔹
+@Ellis02Media 
+https://x.com/magicalotter46 
+@st4ticfilms 
+🔹🔶MINECRAFT BUILDERS🔶🔹
+TheKaemble
+🔹🔶BACKGROUND EDITOR🔶🔹
+iSwimmi
+🔹🔶CONCEPT ARTIST🔶🔹 
+IMPFORHIRE
+🔹🔶ASSET CREATION🔶🔹
+@ablerai 
+@Shuriken255 
+Double Apple
+🔹🔶MINECRAFT COMMANDS🔶🔹
+@Onnowhere 
+🔹🔶SOUND DESIGN🔶🔹 
+@dan_loeb 
+https://twitter.com/E_SoundWork
+🔹🔶MUSIC🔶🔹 
+@ScottBuckley 
+🔹🔶EDITORS🔶🔹 
+@n8sterAnimates 
+@dan_loeb 
+🔹🔶THUMBNAILS🔶🔹 
+Exceld
+DJ
+🔹🔶TECHNICAL DIRECTOR🔶🔹
+@Shuriken255 
+🔹🔶PROJECT LEAD🔶🔹
+@n8sterAnimates 
+🔹🔶PRODUCTION ASSISTANTS🔶🔹
+Sammi Alea https://sammialea.com/ 
+Gigi 
+🔹🔶LINE PRODUCER / PRODUCTION MANAGER🔶🔹
+@hatena360</media:description>
+   <media:community>
+    <media:starRating count="387921" average="5.00" min="1" max="5"/>
+    <media:statistics views="25356272"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

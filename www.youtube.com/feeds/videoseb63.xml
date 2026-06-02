@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UC_Mv2BsvWR03-s7S5CrNm3w"/>
+ <id>yt:channel:_Mv2BsvWR03-s7S5CrNm3w</id>
+ <yt:channelId>_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+ <title>Flipped Classroom Tutorials</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w"/>
+ <author>
+  <name>Flipped Classroom Tutorials</name>
+  <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+ </author>
+ <published>2008-02-08T21:12:12+00:00</published>
+ <entry>
+  <id>yt:video:9-oWz3RO_H0</id>
+  <yt:videoId>9-oWz3RO_H0</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>ScratchJr Explained (Start Here!)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=9-oWz3RO_H0"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2026-03-19T11:45:00+00:00</published>
+  <updated>2026-03-22T22:24:36+00:00</updated>
+  <media:group>
+   <media:title>ScratchJr Explained (Start Here!)</media:title>
+   <media:content url="https://www.youtube.com/v/9-oWz3RO_H0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/9-oWz3RO_H0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If you teach coding in the early years or primary classroom, this is one of the easiest places to start.
+
+In this video, I take a complete beginner look at ScratchJr, one of the most popular tools for introducing young learners to coding and computational thinking. ScratchJr uses simple pictorial programming blocks instead of text-based code, making it ideal for younger students who are just starting their journey with programming.
+
+We walk through the entire interface step by step: creating a project, adding characters (sprites), building simple algorithms with coding blocks, and testing animations using the green flag event system. You'll also see how students can create stories, animations, and interactive scenes while learning important computing concepts like sequencing, loops, events, and debugging.
+
+I also share some practical classroom tips along the way, including common mistakes younger learners make when attaching code to sprites, how to prevent frustration when characters move around the screen, and how to balance creativity with coding when students start designing their own backgrounds.
+
+Towards the end of the video, I will show you my own custom tool called AmberJr.com, a tool I built that allows teachers to add their own assets and lesson materials to ScratchJr projects. This opens up a lot more possibilities for storytelling, curriculum integration, and creative coding in the classroom.
+
+If you're introducing coding to younger learners, ScratchJr is a fantastic place to begin.
+
+⏱️ Timestamps
+
+0:00 Introduction
+0:04 What is ScratchJr?
+0:46 Installing and opening ScratchJr
+1:02 Creating your first project
+1:40 Adding sprites and coding blocks
+2:22 Movement blocks and simple algorithms
+3:11 Testing and adjusting code
+3:28 Resetting sprite positions
+3:53 Adding backgrounds
+4:30 Balancing creativity vs coding time
+5:17 Working with multiple scenes
+6:23 Adding and managing sprites
+7:01 Where code is attached (common mistake)
+7:27 Overview of coding blocks
+8:16 Sounds, loops, and speed controls
+8:43 Switching between scenes
+8:55 Adding custom ScratchJr assets
+10:21 Final thoughts
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="20" average="5.00" min="1" max="5"/>
+    <media:statistics views="1926"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Nvz5OoIXnqM</id>
+  <yt:videoId>Nvz5OoIXnqM</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Learn Python with BananaTales and CodeMonkey</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Nvz5OoIXnqM"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2026-03-16T11:30:33+00:00</published>
+  <updated>2026-04-29T06:42:35+00:00</updated>
+  <media:group>
+   <media:title>Learn Python with BananaTales and CodeMonkey</media:title>
+   <media:content url="https://www.youtube.com/v/Nvz5OoIXnqM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/Nvz5OoIXnqM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, we explore how students can learn Python through CodeMonkey’s Banana Tales courses, moving from structured beginner challenges to advanced programming concepts like lists, loops, and even bubble sort algorithms.
+
+Banana Tales is part of the wider CodeMonkey curriculum and focuses specifically on text-based coding using Python. Many schools around the world teach Python because it has clear, readable syntax while still being incredibly powerful. In this walkthrough, I explore both Python Fundamentals and Advanced Topics, showing how students progress from simple interactions to more complex problem-solving tasks inside a fully integrated coding environment.
+
+You’ll see how the IDE-style interface introduces students to real Python files, how challenges gradually increase in difficulty, and how advanced topics such as lists and sorting algorithms are scaffolded in a way that builds confidence over time. I also take a look at the extensive teacher resources available; including lesson plans, solutions, coding concept explanations, and curriculum support, making this accessible even for non-specialist computer science teachers.
+
+If you’re looking at introducing Python in your classroom, or you want a structured pathway that moves students from block-based coding into text-based programming, Banana Tales is worth exploring.
+
+⏱️ Timestamps
+0:00 Introduction
+0:11 Sponsored by CodeMonkey
+0:22 Overview of Banana Tales (Python Fundamentals &amp; Advanced Topics)
+0:36 Why Python is taught in schools
+1:05 Exploring Python Fundamentals
+2:06 Understanding the IDE interface
+3:40 First coding edits in Python
+4:23 Jumping to advanced challenges
+4:42 Working with Python lists
+6:27 Overview of teacher resources
+7:05 Exploring advanced topics (Bubble Sort example)
+8:18 Reviewing lesson plans
+9:23 Coding concepts breakdown
+10:01 Progression across the full CodeMonkey pathway
+10:29 Final thoughts
+
+\Watch previous videos in the series:
+▶️ Coding for kids: CodeMonkeyJr in the Classroom: https://youtu.be/3hNVWqgF2yQ
+▶️ Coding for Kids: Exploring Beaver Achiever: https://youtu.be/gjjVPP2-4aQ
+▶️ Coding Adventure by CodeMonkey, is it any good?: https://youtu.be/YeAQ55DEyNA
+▶️ Dodo does Maths: https://youtu.be/kQ-wVdBKs2Y
+▶️ Game Creation with Frogger, Platformer, and Sprite animation: https://youtu.be/Xkh766KfMD0
+▶️ Make fun games with CodeMonkey Game Builder: https://youtu.be/dZMCDvLLC_4
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="12" average="5.00" min="1" max="5"/>
+    <media:statistics views="370"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:S2duB-7yM4g</id>
+  <yt:videoId>S2duB-7yM4g</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Gemini now create Audio Lessons for Google Classroom</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=S2duB-7yM4g"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2026-02-16T11:15:02+00:00</published>
+  <updated>2026-05-05T15:30:18+00:00</updated>
+  <media:group>
+   <media:title>Gemini now create Audio Lessons for Google Classroom</media:title>
+   <media:content url="https://www.youtube.com/v/S2duB-7yM4g?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/S2duB-7yM4g/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Google Classroom has introduced Audio Lessons inside the Gemini tools, and this update has the potential to significantly change how teachers create and deliver content.
+
+In this tutorial, I walk you step by step through how to generate AI-powered audio lessons directly inside Google Classroom using Gemini. You’ll see how to define your topic, customise prompts, select teacher and student voices, generate a structured dialogue lesson, export it to Google Slides, download the audio file to Drive, and assign everything straight back into Classroom, all without leaving the platform.
+
+This video focuses on practical classroom application. Whether you're supporting flipped learning, revision resources, differentiated instruction, or accessibility needs, this new feature allows you to quickly generate structured discussion-style lessons that students can listen to anytime. As always, AI-generated content should be reviewed for accuracy and age appropriateness, but the workflow integration here makes this a genuinely powerful tool for teachers using Google Classroom.
+
+If you're interested in AI in education, edtech integration, and practical ways to save time while improving classroom delivery, this update is worth exploring.
+
+⏱️ Timestamps
+0:00 Introduction
+0:03 New Gemini Audio Lessons update
+0:19 Accessing the Gemini tab in Google Classroom
+0:47 Selecting topic and adding context
+1:50 Choosing avatars and voices
+2:36 Generating the audio lesson
+3:02 Reviewing the dialogue format
+3:40 Checking AI content for accuracy
+3:55 Exporting to Google Slides
+4:50 Exporting the audio file to Drive
+5:24 Adding the lesson back into Google Classroom
+6:20 Workflow recap
+6:37 Final thoughts
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here:
+https://www.patreon.com/eduflip
+
+You can also join our Facebook Community here:
+https://www.facebook.com/groups/538644703169584
+
+I've been busy building out my own platform for Digital Storytelling in Primary schools called AmberPuppets, so check it out here: https://www.amberpuppets.com/
+
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES:
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store:
+https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="101" average="5.00" min="1" max="5"/>
+    <media:statistics views="2797"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:dZMCDvLLC_4</id>
+  <yt:videoId>dZMCDvLLC_4</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Make fun games with Codemonkey Game Builder</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=dZMCDvLLC_4"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2026-02-04T12:45:14+00:00</published>
+  <updated>2026-05-04T20:34:21+00:00</updated>
+  <media:group>
+   <media:title>Make fun games with Codemonkey Game Builder</media:title>
+   <media:content url="https://www.youtube.com/v/dZMCDvLLC_4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/dZMCDvLLC_4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, we take a look at CodeMonkey’s Game Builder; the sandbox environment where students can bring together everything they’ve learned from previous CodeMonkey courses and start creating their own games from scratch.
+
+CodeMonkey already introduces students to both block-based and text-based coding, but the Game Builder is where those skills really come together. Students can choose their preferred coding style, work with preloaded sprites, animations, backgrounds, and example projects, and then start experimenting, modifying, and extending games in a much more open-ended way.
+
+I walk through how the Game Builder works, show the same project in both block and text coding so students can compare the two, and explore how games can be shared, either privately within a class or publicly through CodeMonkey’s Discover platform. We also look at how students can remix existing games, explore how others have coded them, and adapt those ideas into their own projects.
+
+This is a great next step once students have completed courses like Platformer, Frogger, or Sprite Animation, and it works particularly well for longer projects, capstone tasks, or ongoing game development that evolves as new coding skills are introduced.
+
+Why this matters in the classroom
+The Game Builder turns coding from a sequence of guided challenges into something far more creative and personal. Instead of starting from scratch every lesson, students can build a game over time, returning to it as they learn new concepts and immediately applying those skills in a meaningful context. It also supports comparison between block-based and text-based coding, helping students recognise patterns and make that transition more confidently. For teachers, it opens up opportunities for project-based learning, student showcases, peer feedback, and exemplar creation; all while keeping the technical barrier low and the creativity high.
+
+⏱️ Timestamps
+0:00 Introduction  
+0:09 From courses to creating your own games  
+0:23 Thank you to CodeMonkey (sponsorship)  
+0:40 Where Game Builder sits in the course overview  
+0:53 What Game Builder is and how it works  
+1:12 Choosing block-based or text-based coding  
+1:30 Exploring a block-based Game Builder example  
+2:26 Opening the same project in text-based coding  
+3:05 Comparing block and text code  
+3:27 Sharing games within a class  
+3:58 Publishing games to CodeMonkey Discover  
+4:22 Exploring games made by other students  
+5:32 Remixing games and learning from others’ code  
+6:17 Using Game Builder as an ongoing class project  
+7:05 Getting started with CodeMonkey  
+7:12 Final thanks and next steps  
+
+Watch previous videos in the series:
+▶️ Coding for kids: CodeMonkeyJr in the Classroom: https://youtu.be/3hNVWqgF2yQ
+▶️ Coding for Kids: Exploring Beaver Achiever: https://youtu.be/gjjVPP2-4aQ
+▶️ Coding Adventure by CodeMonkey, is it any good?: https://youtu.be/YeAQ55DEyNA
+▶️ Dodo does Maths: https://youtu.be/kQ-wVdBKs2Y
+▶️ Game Creation with Frogger, Platformer, and Sprite animation: https://youtu.be/Xkh766KfMD0
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="11" average="5.00" min="1" max="5"/>
+    <media:statistics views="567"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:NoskqgtgNmc</id>
+  <yt:videoId>NoskqgtgNmc</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Get your Google Educator level 1 and 2 while its FREE</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=NoskqgtgNmc"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2026-01-21T15:40:54+00:00</published>
+  <updated>2026-04-28T18:43:57+00:00</updated>
+  <media:group>
+   <media:title>Get your Google Educator level 1 and 2 while its FREE</media:title>
+   <media:content url="https://www.youtube.com/v/NoskqgtgNmc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/NoskqgtgNmc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The Google for Education Educator Level 1 and Level 2 certifications are currently completely free, and this is one of the best professional development opportunities available to teachers right now.
+
+In this video, I walk you through exactly where to find the free certifications, what has changed in the updated exams, and why it’s worth taking, or retaking both Level 1 and Level 2. Google has brought back practical scenarios, tasks, and labs, meaning these certifications now focus much more on real classroom application rather than just theory.
+
+Check them out here: 
+https://edu.google.com/intl/ALL_us/learning-center/certifications/
+
+or use the short-link yupse.com/google
+
+If you’ve taken these certifications before, I strongly recommend retaking them. They’ve been refreshed, they’re valid for three years, and while they’re usually paid exams, they are currently free to complete.
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="116" average="5.00" min="1" max="5"/>
+    <media:statistics views="6134"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Xkh766KfMD0</id>
+  <yt:videoId>Xkh766KfMD0</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Creating Games in CodeMonkey – Platformer, Frogger &amp; Sprite Animation!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Xkh766KfMD0"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-11-27T15:21:04+00:00</published>
+  <updated>2026-04-29T21:37:42+00:00</updated>
+  <media:group>
+   <media:title>Creating Games in CodeMonkey – Platformer, Frogger &amp; Sprite Animation!</media:title>
+   <media:content url="https://www.youtube.com/v/Xkh766KfMD0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Xkh766KfMD0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In today’s walkthrough, we dive into the Game Creation section of CodeMonkey and explore three powerful mini-courses:
+
+Platformer
+Frogger
+Sprite Animation
+
+These modules take students beyond simple text-based programming and move them into full game design; coding movement, collisions, animations, timers, power-ups and more. If you’re teaching coding in primary or secondary classrooms, this is one of the most accessible and exciting ways to build genuine problem-solving skills.
+
+I guide you through:
+✔️ The new editor layout for game creation
+✔️ Building core mechanics using keyboard inputs
+✔️ Adding jumps, collisions, power-ups and timers
+✔️ Reviewing teacher resources and ready-made slides
+✔️ Exploring complex examples as challenges progress
+✔️ Trying Frogger-style gameplay
+✔️ Using CodeMonkey’s example sprite animations to show what’s possible
+
+Whether you're looking to enrich your computing curriculum or empower students to create their first fully functional games, these three modules give you everything you need.
+
+Start exploring CodeMonkey today https://www.codemonkey.com/
+
+Timestamps
+00:00 Intro
+00:15 Overview of Game Creator Courses
+00:31 Platformer Course Walkthrough
+01:45 Keyboard Inputs &amp; Movement
+02:20 Adding Jump Functionality
+02:49 Increasing Complexity
+03:01 Teacher Resources
+03:34 Later Platformer Challenge
+04:06 Adding Timers &amp; Super Mode
+04:48 Frogger Course
+05:44 Gameplay Example
+05:57 Sprite Animation Course
+06:36 Teacher Example Sprites
+07:04 Game Animations in Action
+07:35 Final Thoughts
+
+🎉 Sponsored
+A huge thank-you to CodeMonkey for sponsoring this video and giving me full access to the platform so I can explore everything available for teachers and home users.
+
+🔗 Watch previous videos in the series:
+▶️ Coding for kids: CodeMonkeyJr in the Classroom: https://youtu.be/3hNVWqgF2yQ
+▶️ Coding for Kids: Exploring Beaver Achiever: https://youtu.be/gjjVPP2-4aQ
+▶️ Coding Adventure by CodeMonkey, is it any good?: https://youtu.be/YeAQ55DEyNA
+▶️ Dodo does Maths: https://youtu.be/kQ-wVdBKs2Y
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="13" average="5.00" min="1" max="5"/>
+    <media:statistics views="1065"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:u2dxKtXvf20</id>
+  <yt:videoId>u2dxKtXvf20</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Use the AI Function in Google Sheets</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=u2dxKtXvf20"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-09-26T13:36:03+00:00</published>
+  <updated>2026-04-22T22:23:39+00:00</updated>
+  <media:group>
+   <media:title>Use the AI Function in Google Sheets</media:title>
+   <media:content url="https://www.youtube.com/v/u2dxKtXvf20?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/u2dxKtXvf20/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Google Sheets has a powerful AI Fucntion, but it’s only available if you have access to a Gemini plan (Education, Business, or Enterprise). In this video, I’ll show you step by step how the new =AI() function works in Google Sheets and how it can transform your workflow.
+
+Generate keywords automatically from a video description
+Create one-sentence summaries with a simple formula
+Refresh AI results to get variations instantly
+Apply prompts across multiple rows at once
+Tweak outputs and use them in your day-to-day work
+
+This opens up lots of possibilities for teachers, schools, and professionals; from creating tags for resources, creating sample data, to summarising survey responses.
+
+Do you have Gemini access in your Google Workspace? Try it out and let me know in the comments how you’d use this!
+
+📌 Chapters:
+0:00 Intro
+0:14 Who can access this feature
+0:39 Example workflow
+1:03 Generating keywords with AI
+2:51 Writing summaries with AI
+3:40 Practical applications
+4:24 Wrap-up
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="115" average="5.00" min="1" max="5"/>
+    <media:statistics views="6764"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:s5MxNkegY5Q</id>
+  <yt:videoId>s5MxNkegY5Q</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Reimagine your presentations with Prezi AI</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=s5MxNkegY5Q"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-08-18T11:15:07+00:00</published>
+  <updated>2026-04-30T05:06:40+00:00</updated>
+  <media:group>
+   <media:title>Reimagine your presentations with Prezi AI</media:title>
+   <media:content url="https://www.youtube.com/v/s5MxNkegY5Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/s5MxNkegY5Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>(Sponsored Link): Check out Prezi here: https://prez.is/flippedclassroom/
+
+In this video, I explore Prezi AI and how it can completely transform the way you create and deliver presentations. Whether you’re a teacher updating lesson slides, a professional designing reports, or a student preparing a project, Prezi AI makes the process faster, smarter, and more engaging.
+
+You’ll see how to:
+Generate presentations from a simple AI prompt
+Build presentations using existing documents
+Customise designs, layouts, and colour schemes
+Use AI image generation inside your slides
+Present, record, and share in creative new ways
+
+Access my example prompts here: https://sethideclercq.com/2025/08/prezi-ai/
+
+Perfect for:
+Teachers refreshing lessons for the new school year
+Professionals creating engaging business presentations
+Students preparing standout academic projects
+
+Sponsored by Prezi. Huge thanks to them for providing full access so I can show you the complete workflow!
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="41" average="5.00" min="1" max="5"/>
+    <media:statistics views="2623"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:yDJq-ItJKY8</id>
+  <yt:videoId>yDJq-ItJKY8</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>How to Create Fully Interactive Documents with Canva</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=yDJq-ItJKY8"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-08-04T10:30:41+00:00</published>
+  <updated>2026-04-21T06:22:17+00:00</updated>
+  <media:group>
+   <media:title>How to Create Fully Interactive Documents with Canva</media:title>
+   <media:content url="https://www.youtube.com/v/yDJq-ItJKY8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/yDJq-ItJKY8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Did you know Canva for Education lets you create fully interactive documents; complete with embedded videos, clickable websites, and even Google Forms that can be filled out without leaving the page? And the best part? It's 100% free for teachers and schools.
+
+In this step-by-step walkthrough, I show you exactly how to:
+
+Embed playable YouTube videos
+Add interactive website previews
+Insert live Google Forms your audience can fill in without leaving the doc
+Share it securely with your staff or students
+
+This is a game-changer for flipped learning, staff training, newsletters, and student engagement.
+Try it out and let me know how you’d use this in your classroom or school.
+
+📌 Video Chapters:
+0:00 Introduction
+0:18 Canva Docs Overview
+1:00 Creating Your First Interactive Document
+2:00 Embedding YouTube Videos
+3:00 Embedding Website Links and Previews
+4:45 Inserting Interactive Google Forms
+6:00 Sharing Options &amp; Permissions
+7:00 Final Thoughts
+
+🔗 Activate your Canva for Education now: https://www.canva.com/education/
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="200" average="5.00" min="1" max="5"/>
+    <media:statistics views="4502"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8pBMT8X6H-8</id>
+  <yt:videoId>8pBMT8X6H-8</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>NotebookLM Now Makes Video Overviews Automatically! (New Feature Overview)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=8pBMT8X6H-8"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-08-01T13:05:06+00:00</published>
+  <updated>2026-05-05T01:11:01+00:00</updated>
+  <media:group>
+   <media:title>NotebookLM Now Makes Video Overviews Automatically! (New Feature Overview)</media:title>
+   <media:content url="https://www.youtube.com/v/8pBMT8X6H-8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8pBMT8X6H-8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>NotebookLM just got an incredible update! It can now generate full video overviews based on your sources! It goes beyond just summarising content or giving audio explanations. Now you get automatically created video lessons with slides, narration, and clear visuals to help make complex content easier to digest.
+
+In this video, I walk through how I used the feature to turn the Patreon API and Firebase documentation into a fully narrated slideshow video. Perfect for flipped classrooms, revision, or just wrapping your head around complex ideas.
+
+Watch my original video with podcasting in NotebookLM: https://youtu.be/Dr5e-E2OkI8
+Learn more about the tool: https://notebooklm.google
+Or watch the video overview it generated: https://youtu.be/-8WWFn_P3JU
+
+Tools used in this video:
+– NotebookLM
+– Patreon API Docs
+– Firebase Docs
+
+Thank you to all our Patreon supporters and channel members who make these videos possible. Patreon supporters will also get access to the app I’m currently building so watch this space!
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="64" average="5.00" min="1" max="5"/>
+    <media:statistics views="1955"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4X3nu6SJw0M</id>
+  <yt:videoId>4X3nu6SJw0M</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Agentic AI in Drive? Gemini Can Now Organize Your Files!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4X3nu6SJw0M"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-07-28T10:30:02+00:00</published>
+  <updated>2025-07-31T07:10:12+00:00</updated>
+  <media:group>
+   <media:title>Agentic AI in Drive? Gemini Can Now Organize Your Files!</media:title>
+   <media:content url="https://www.youtube.com/v/4X3nu6SJw0M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4X3nu6SJw0M/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Explore the newest Gemini + Google Drive integration. In this video, I demo how Gemini can create folders and move files using natural language, a first glimpse at a more agentic AI inside your Google ecosystem.
+
+This early Alpha release of Gemini inside Drive shows how we’re moving toward more automated and intelligent file management. While still limited, it's an exciting indicator of what’s ahead!
+
+Imagine: “Create a folder named ‘Lesson Plans’ inside ‘2025 Curriculum’ and move all PDFs from ‘Downloads’ into it.” That’s the direction we’re heading.
+
+In this video you'll see:
+How Gemini creates folders in Drive using natural language
+How to move files with Gemini
+Why this is a big step toward agentic AI
+My thoughts on where this is going for educators and productivity pros
+
+📌 Want to see more of these agentic AI features?
+Let me know in the comments: What would YOU want Gemini to do in Drive?
+
+👉 Support the channel: 
+📺 YouTube Memberships for early access: https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+📘 Patreon for extra downloads &amp; ad-free watching: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="158" average="5.00" min="1" max="5"/>
+    <media:statistics views="11255"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:v2xk8MGLdEw</id>
+  <yt:videoId>v2xk8MGLdEw</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Free Online Video Recording (and Collaboration) with Camtasia</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=v2xk8MGLdEw"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-07-21T10:45:07+00:00</published>
+  <updated>2025-08-20T14:30:58+00:00</updated>
+  <media:group>
+   <media:title>Free Online Video Recording (and Collaboration) with Camtasia</media:title>
+   <media:content url="https://www.youtube.com/v/v2xk8MGLdEw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/v2xk8MGLdEw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Camtasia now has a FREE online screen recorder and it’s surprisingly powerful!
+
+In this video, I’ll show you:
+How to start recording your screen and webcam online (no downloads)
+The collaboration tools built into Camtasia Online
+How to edit, share, and export your recordings
+
+Links mentioned in the video:
+🎥 Try the Free Camtasia Online Recorder: https://sethideclercq.com/CamtasiaRecorder
+💻 The Full Camtasia Suite I Use: https://sethideclercq.com/Camtasia
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="72" average="5.00" min="1" max="5"/>
+    <media:statistics views="1843"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:6EHVLBNbCm0</id>
+  <yt:videoId>6EHVLBNbCm0</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Gemini Helps you create Google Forms</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=6EHVLBNbCm0"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-07-17T15:53:15+00:00</published>
+  <updated>2026-04-29T00:33:43+00:00</updated>
+  <media:group>
+   <media:title>Gemini Helps you create Google Forms</media:title>
+   <media:content url="https://www.youtube.com/v/6EHVLBNbCm0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/6EHVLBNbCm0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Google is bringing Gemini AI into Google Forms and it’s a big time-saver.
+
+In this video, I walk you through:
+✅ Which Google Workspace editions get this feature
+✅ How Gemini can create an entire form from a simple prompt
+✅ Uploading a file (like a trip letter) and auto-generating your form
+
+This tool can save teachers, admins, and schools hours of work. Perfect for permission slips, surveys, quizzes, and more.
+
+🔗 Watch now and see how Gemini can change the way you work with Forms.
+
+💬 Drop your thoughts in the comments: How would you use this?
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="132" average="5.00" min="1" max="5"/>
+    <media:statistics views="7401"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:EjO1Cr06tEE</id>
+  <yt:videoId>EjO1Cr06tEE</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Create Custom Gemini Gems on Your Phone #gemini #ai #mobile</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/EjO1Cr06tEE"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-07-16T05:23:21+00:00</published>
+  <updated>2026-04-28T17:56:51+00:00</updated>
+  <media:group>
+   <media:title>Create Custom Gemini Gems on Your Phone #gemini #ai #mobile</media:title>
+   <media:content url="https://www.youtube.com/v/EjO1Cr06tEE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EjO1Cr06tEE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>💎 Did you know you can create Custom Gems in Google Gemini — right from your phone?
+Perfect for teachers, students, or anyone personalising AI tools for planning, learning, or productivity.
+In this quick video, I’ll show you exactly how to set it up and why it's useful on the go.
+
+📺 Want the full tutorial with deeper insights and classroom use cases?
+Check out the channel!
+
+🔔 Subscribe for more EdTech tips, tools, and tutorials!
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, why not check out the Patreon here: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="624" average="5.00" min="1" max="5"/>
+    <media:statistics views="55932"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:PBEnfS0Xp2g</id>
+  <yt:videoId>PBEnfS0Xp2g</yt:videoId>
+  <yt:channelId>UC_Mv2BsvWR03-s7S5CrNm3w</yt:channelId>
+  <title>Why and How to Create Custom Gems in Google Gemini?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=PBEnfS0Xp2g"/>
+  <author>
+   <name>Flipped Classroom Tutorials</name>
+   <uri>https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w</uri>
+  </author>
+  <published>2025-07-14T10:45:03+00:00</published>
+  <updated>2026-04-14T20:28:55+00:00</updated>
+  <media:group>
+   <media:title>Why and How to Create Custom Gems in Google Gemini?</media:title>
+   <media:content url="https://www.youtube.com/v/PBEnfS0Xp2g?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/PBEnfS0Xp2g/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Unlock a better version of Google Gemini with this serious upgrade.
+In this video, I walk you through how to create Custom Gems inside Gemini, and more importantly, why you’d want to.
+
+From curriculum-aligned planning tools to report-writing assistants, I’ll show you how you can tailor Gemini’s AI to become a true teaching companion, or anything you need it to be!
+
+In this walkthrough, I cover:
+What are Custom Gems?
+Real examples from the UK National Curriculum
+Using the RODES AI prompting framework for better AI results
+Uploading files, testing responses, and saving Gems
+Ideas for classroom, leadership, and admin use
+
+Perfect for teachers, school leaders, and anyone looking to bring more intentionality to AI use in education. Let's go beyond the hype and build smart.
+
+🔗 Subscribe for more weekly EdTech tips &amp; tutorials
+💬 Early access + extras on Patreon: https://www.patreon.com/eduflip
+
+Chapters:
+0:00 - Why Custom Gems Matter
+0:42 - What is a Custom Gem in Gemini?
+1:19 - Exploring Existing Gems
+1:36 - Creating a New Gem
+2:03 - Using the ROADS Prompting Framework
+4:31 - Uploading Curriculum Docs
+5:16 - Testing Your Custom Gem
+7:09 - Launching the Custom Chat
+8:15 - Final Thoughts &amp; Ideas
+
+💚💚💚
+Thank you all our Channel members! If you'd like to become a member as well follow this link:
+https://www.youtube.com/channel/UC_Mv2BsvWR03-s7S5CrNm3w/join
+
+And if you'd like to connect with me personally and support the channel even more, the Patreon link is ere: https://www.patreon.com/eduflip 
+
+You can also join our Facebook Community here: https://www.facebook.com/groups/538644703169584
+💚💚💚
+
+SERVICES AND SOFTWARE I USE DAILY:
+Video editing: https://sethideclercq.com/camtasia 
+Amazing screenshots: https://sethideclercq/Snagit
+Website hosting: https://sethideclercq.com/bluehost
+Screenshots and GIFs: https://sethideclercq.com/snagit
+Courses: https://sethideclercq.com/teachable
+Email lists and newsletter: https://sethideclercq.com/convertkit
+Website building: https://sethideclercq.com/wix
+
+GEAR AND RESOURCES: 
+https://www.amazon.com/shop/flippedclassroomtutorials
+https://kit.co/FlippedTutorials
+
+My TPT Store: https://www.teacherspayteachers.com/store/eduflip
+
+Disclaimer: Some of these links are affiliate links where I'll earn a small commission if you make a purchase at no additional cost to you. These videos have been made for educational purposes and all views or opinions expressed are my own.</media:description>
+   <media:community>
+    <media:starRating count="1441" average="5.00" min="1" max="5"/>
+    <media:statistics views="70976"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCqowvQUm5Q81jv_ronx891w"/>
+ <id>yt:channel:qowvQUm5Q81jv_ronx891w</id>
+ <yt:channelId>qowvQUm5Q81jv_ronx891w</yt:channelId>
+ <title>doktormorris</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w"/>
+ <author>
+  <name>doktormorris</name>
+  <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+ </author>
+ <published>2014-04-06T15:08:57+00:00</published>
+ <entry>
+  <id>yt:video:Hz1t61ForQ4</id>
+  <yt:videoId>Hz1t61ForQ4</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Liveström från doktormorris</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Hz1t61ForQ4"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2018-04-08T21:22:19+00:00</published>
+  <updated>2026-04-21T22:23:06+00:00</updated>
+  <media:group>
+   <media:title>Liveström från doktormorris</media:title>
+   <media:content url="https://www.youtube.com/v/Hz1t61ForQ4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Hz1t61ForQ4/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="0"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:jMYtfY0IoDQ</id>
+  <yt:videoId>jMYtfY0IoDQ</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft - Cliffside Village</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=jMYtfY0IoDQ"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-08-26T06:57:54+00:00</published>
+  <updated>2026-04-30T08:57:37+00:00</updated>
+  <media:group>
+   <media:title>Minecraft - Cliffside Village</media:title>
+   <media:content url="https://www.youtube.com/v/jMYtfY0IoDQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/jMYtfY0IoDQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A brief showcase of my plot on the xisumavoid server. If you want to get here type in / p h doktormorris and start exploring! The place is pretty big but will be bigger if i ever get around to finish it.</media:description>
+   <media:community>
+    <media:starRating count="12" average="5.00" min="1" max="5"/>
+    <media:statistics views="899"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:s2fKZeDp0jc</id>
+  <yt:videoId>s2fKZeDp0jc</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft Chorus Plant House - Tutorial</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=s2fKZeDp0jc"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-07-05T20:15:18+00:00</published>
+  <updated>2026-04-30T06:45:11+00:00</updated>
+  <media:group>
+   <media:title>Minecraft Chorus Plant House - Tutorial</media:title>
+   <media:content url="https://www.youtube.com/v/s2fKZeDp0jc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/s2fKZeDp0jc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Have you ever wanted to live in the end, but think the end fortress is too hostile? Now you can build your own house in a chorus plant and live there. Maybe build a whole town of houses if youre on a server and connect them together with suspension bridges.
+
+Music:
+1st one was found in a old folder in my video editor, and all it says is demo. So either i made it and placed it there, or it came when i downloaded the software, which im 95% sure is the case. 
+
+2nd song: Dennis Eggemann - Silent Coast</media:description>
+   <media:community>
+    <media:starRating count="6" average="5.00" min="1" max="5"/>
+    <media:statistics views="311"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:pt2FsaLHmro</id>
+  <yt:videoId>pt2FsaLHmro</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Building a Minigame Ep 2 - Planet Wheat</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=pt2FsaLHmro"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-03-26T14:57:40+00:00</published>
+  <updated>2026-04-13T16:49:05+00:00</updated>
+  <media:group>
+   <media:title>Building a Minigame Ep 2 - Planet Wheat</media:title>
+   <media:content url="https://www.youtube.com/v/pt2FsaLHmro?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/pt2FsaLHmro/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I was hit by a near fatal dose of the notorious man flu yesterday, which kept me unable to speak and move for a big part of the day. But at 18:00 i decided enough is enough and i need to get my legs going. but as soon as i climbed down the stairs the sickness hit me again and i was stuck in the computer room. 
+&quot;Oh shit&quot;, i thought and decided the best thing i could do was calm my nerves while playing games and watching videos and i spent the rest of the day buildin on the minigame. 
+But thankfully I survived the whole deal and lived to tell the tale, and today im healthy as a horse! 
+
+Just some building on the &quot;restroom&quot; area for the 2 player arena on the easy difficulty mode. Also some archival footage that never made it up on youtube before. Next video should be more progress on the 2 player arena.
+
+Music: Ted Irens - Two Mountains
+Respect that dude, he has some nice music and deserves more attention than he has, so check him out!</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="54"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_ExgDikz13k</id>
+  <yt:videoId>_ExgDikz13k</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Let's Build a Minigame #1 - Introduction to Hoppin' Rabbits</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_ExgDikz13k"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-03-15T13:19:45+00:00</published>
+  <updated>2026-05-05T03:06:03+00:00</updated>
+  <media:group>
+   <media:title>Let's Build a Minigame #1 - Introduction to Hoppin' Rabbits</media:title>
+   <media:content url="https://www.youtube.com/v/_ExgDikz13k?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_ExgDikz13k/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Welcome to a new series! its of a minigame ive been working on for a long time called &quot;hoppin rabbits&quot;. The goal is to shoot rabbits and get 23 meat that you throw in a chest that stops the timer. The game can be played solo or up to 4 people, with 3 different difficulties and 12 different maps it should turn out to be pretty damn fantastic, if i do everything right. This first video is an introduction where i explain how it works and is therefor pretty boring, but the next vids should be more entertaining with music and timelapses and all that. 
+also if anyone watching has any ideas on what to build, comment! and ill take it into consideration at least
+
+Music: 
+Intro: I think i made it, i found it in a old folder with shitty music i made but that doesnt mean its mine. if i did not make it, sorry :I
+
+Outro: I made that song atleast and it can be found here:</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="60"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:GYfpBmCUPJQ</id>
+  <yt:videoId>GYfpBmCUPJQ</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft - Slimeblock Minecart Junction - Tutorial</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=GYfpBmCUPJQ"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-02-08T20:03:38+00:00</published>
+  <updated>2026-05-05T06:14:16+00:00</updated>
+  <media:group>
+   <media:title>Minecraft - Slimeblock Minecart Junction - Tutorial</media:title>
+   <media:content url="https://www.youtube.com/v/GYfpBmCUPJQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/GYfpBmCUPJQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I wanted a cool way to make a subway system in my world but the old standard junctions has been built so many times so i wanted something new. So what i did is i made something out of slimeblocks and the way that you choose direction is by pushing blocks in the minecarts path through the air, so it falls down on the track and goes on its way. 
+
+music tracks used in chronological order:
+Brenticus - Ambient 
+Future sound of London - Papua new guinea</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="169"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:G87yyA4UBy0</id>
+  <yt:videoId>G87yyA4UBy0</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft Doks World 3 - Cinematic - 36 Months</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=G87yyA4UBy0"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-01-29T15:25:01+00:00</published>
+  <updated>2026-05-01T05:11:11+00:00</updated>
+  <media:group>
+   <media:title>Minecraft Doks World 3 - Cinematic - 36 Months</media:title>
+   <media:content url="https://www.youtube.com/v/G87yyA4UBy0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/G87yyA4UBy0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Doks world 3 has been made! A month late but whatever, heres to hoping i dont forget about it next year. Minecraft cinematic of my world. 
+
+Music: nExow - Silent Night
+http://soundcloud.com/nexowdubstep/nexow-silent-night
+
+World save: http://www.mediafire.com/file/htk6k7ac42u4q3r/36+months+doks+world+3.zip</media:description>
+   <media:community>
+    <media:starRating count="6" average="5.00" min="1" max="5"/>
+    <media:statistics views="225"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_ecVJ40dD44</id>
+  <yt:videoId>_ecVJ40dD44</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Mountain sunset timelapse 2017-01-22 1080p</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_ecVJ40dD44"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-01-22T21:09:44+00:00</published>
+  <updated>2025-06-12T08:16:18+00:00</updated>
+  <media:group>
+   <media:title>Mountain sunset timelapse 2017-01-22 1080p</media:title>
+   <media:content url="https://www.youtube.com/v/_ecVJ40dD44?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_ecVJ40dD44/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I took my fat ass out on an adventure to get some timelapse footage of the sunset today. got up on the mountain a little while before the sun set and eventually the sky lit up. if i had gone up the mountain yesterday i would've got some fantastic footage, cause that sunset was absolute fire. but oh well life goes on i guess</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="146"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:EKEYNAxlQoU</id>
+  <yt:videoId>EKEYNAxlQoU</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Doks LP Episode 6 - Western Nether Base</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=EKEYNAxlQoU"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-01-09T11:32:13+00:00</published>
+  <updated>2026-04-22T00:21:13+00:00</updated>
+  <media:group>
+   <media:title>Doks LP Episode 6 - Western Nether Base</media:title>
+   <media:content url="https://www.youtube.com/v/EKEYNAxlQoU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/EKEYNAxlQoU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>No shortcuts needed! this whole video is a montage
+
+Short video this time, but its still packed with stuff. i've mostly been in the nether this week building some barriers etc. to keep ghasts and blazes out, and made some major improvements to the wither skele farm. so now its producing 2x more wither skulls than last year. i also went mad on the editing this time, but other than that i havent done very much
+
+music: https://soundcloud.com/red3yz/relaxed-arpy
+https://www.music4YourVids.co.uk</media:description>
+   <media:community>
+    <media:starRating count="3" average="5.00" min="1" max="5"/>
+    <media:statistics views="55"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:tstorR5G-xk</id>
+  <yt:videoId>tstorR5G-xk</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Chillout music - Seeds of Freedom</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=tstorR5G-xk"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2017-01-05T00:10:28+00:00</published>
+  <updated>2026-04-29T22:59:00+00:00</updated>
+  <media:group>
+   <media:title>Chillout music - Seeds of Freedom</media:title>
+   <media:content url="https://www.youtube.com/v/tstorR5G-xk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/tstorR5G-xk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Been having this music software for years now but have only made utter trash so far. but you know what they say one mans trash is another mans gold, and im happy with how this turned out so yeah. also i ripped the cable on my good headphones so i just have this shitty computer speaker to listen to, so im not sure if the audio is good here, but the high quality version is here: https://soundcloud.com/john-lindahl-2/mhmm22wav
+and you can use this wherever as long as you link my channel in the video/description</media:description>
+   <media:community>
+    <media:starRating count="3" average="5.00" min="1" max="5"/>
+    <media:statistics views="119"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:hAZLzT3ACIQ</id>
+  <yt:videoId>hAZLzT3ACIQ</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Doks LP Episode 5 - The Road of the Silver Ants</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=hAZLzT3ACIQ"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2016-12-30T11:47:08+00:00</published>
+  <updated>2025-06-09T03:37:56+00:00</updated>
+  <media:group>
+   <media:title>Doks LP Episode 5 - The Road of the Silver Ants</media:title>
+   <media:content url="https://www.youtube.com/v/hAZLzT3ACIQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hAZLzT3ACIQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I start the construction of a very high tech system designed to transport silverfish upwards. 
+
+shortcuts: 
+0:00 - 0:33 new intro! tell me what you think.
+0:34 - 4:15 just some talking on various topics
+4:15 12:30 showing some different ideas i had of transporting silverfish. 
+12:30 - end Building montage of the start of the silverfish transport system before i accidentaly ripped the headphone cable and the ep came to a sudden end.
+
+Music by John Lindahl (me)</media:description>
+   <media:community>
+    <media:starRating count="4" average="5.00" min="1" max="5"/>
+    <media:statistics views="82"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:4M8q2NpFEac</id>
+  <yt:videoId>4M8q2NpFEac</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft - Next Level Hidden Lighting</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=4M8q2NpFEac"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2016-12-03T22:18:43+00:00</published>
+  <updated>2026-05-05T05:25:36+00:00</updated>
+  <media:group>
+   <media:title>Minecraft - Next Level Hidden Lighting</media:title>
+   <media:content url="https://www.youtube.com/v/4M8q2NpFEac?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/4M8q2NpFEac/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If youre ready to step up your hidden lighting game a bit this is for you. these are some techniques I have been using for years &amp; consider more advanced than the standard hidden lighting.
+
+music by Greg Baumont.</media:description>
+   <media:community>
+    <media:starRating count="8" average="5.00" min="1" max="5"/>
+    <media:statistics views="238"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:97KIqzRteTc</id>
+  <yt:videoId>97KIqzRteTc</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Doks LP Episode 4 - Improved Infrastructure</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=97KIqzRteTc"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2016-10-14T21:06:16+00:00</published>
+  <updated>2026-04-28T20:49:15+00:00</updated>
+  <media:group>
+   <media:title>Doks LP Episode 4 - Improved Infrastructure</media:title>
+   <media:content url="https://www.youtube.com/v/97KIqzRteTc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/97KIqzRteTc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>New ep finally! just showcasing some new stuff in the nether and build a really, really long bridge. I also played around a bit with the audio this time. so let me know if it  sounds ok or not. the computer fan still creates massive noise, but what can you do..
+
+Shortcuts: 
+0:00 1st part, showing some stuff i did 
+7:25 building the tunnel, montage with music
+10:30 1nd part, i just show the tunnel and some changes to the fortress.</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="103"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:hcFF4S2tKF4</id>
+  <yt:videoId>hcFF4S2tKF4</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft - Doks LP E:3 :: A Closer Look: Bow bridge &amp; custom mountain ridge</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=hcFF4S2tKF4"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2016-07-15T21:32:31+00:00</published>
+  <updated>2026-05-05T00:30:51+00:00</updated>
+  <media:group>
+   <media:title>Minecraft - Doks LP E:3 :: A Closer Look: Bow bridge &amp; custom mountain ridge</media:title>
+   <media:content url="https://www.youtube.com/v/hcFF4S2tKF4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hcFF4S2tKF4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>The last video turned out really dark so you couldnt see any of the bridge or the mountain ridge, so I made a better video only focusing on the bridge and ridge.
+
+First song was made by Oliver Smith (Cadence)  http://www.oliversmithmusic.com/, 2nd track was the hal2 music file in minecraft music.</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="80"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Bnf6UFBJMdI</id>
+  <yt:videoId>Bnf6UFBJMdI</yt:videoId>
+  <yt:channelId>UCqowvQUm5Q81jv_ronx891w</yt:channelId>
+  <title>Minecraft - Doks LP E:2 :: Wither Skele Farm &amp; Gold Farm</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Bnf6UFBJMdI"/>
+  <author>
+   <name>doktormorris</name>
+   <uri>https://www.youtube.com/channel/UCqowvQUm5Q81jv_ronx891w</uri>
+  </author>
+  <published>2016-07-02T22:00:09+00:00</published>
+  <updated>2025-06-06T05:37:57+00:00</updated>
+  <media:group>
+   <media:title>Minecraft - Doks LP E:2 :: Wither Skele Farm &amp; Gold Farm</media:title>
+   <media:content url="https://www.youtube.com/v/Bnf6UFBJMdI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/Bnf6UFBJMdI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Click read more for shortcuts
+
+im back! i'm in the middle of a huge inspiration boost right now where i just have to play some minecraft. This time i did the most i could out of it and made a video. A very laidback ep this time guys. We go over some of the stuff i've done, and i talk a bit about where I've been and where i'm going. We check out the wither skeleton pad/farm changes  madeto get some more wither skellys/wither skulls. We also check out a gold farm built at the quarry base, the new layout for the iron farm collection area, a new bridge build at spawn and some more. But again, a relaxed kinda lp today so sit back, relax and enjoy the show.
+
+Music in chronological order:
+Red3yz - Dubby
+Approaching Nirvana - The way home
+Trance taboo - music4yourvids.co.uk
+
+Shortcuts:
+0:00 Intro
+0:45 I run to the beer house to pick up some kopparberg cider
+2:49 At the wither skeleton fortress where I show what I did to improve the wither farm to get some more wither skellys/wither skulls.
+3:50 I say something stupid.
+4:43 Wither skele/wither skull hunt montage.
+5:03 I pay the price for saying that stupid thing.
+5:47 Unfortunate again.
+6:28 Showing off the 15 wither skulls I got
+6:34 Killing some wither bosses
+8:39 Talking a bit while collecting clay to rebuild the nether hub.
+12:04 Iron farm redesigning.
+14:13 Staircase renovation.
+14:43 Massive bow bridge over the harbour.
+15:47 Beautiful voice crack.
+17:08 Slime farm upgrade
+18:25 Huge building in the swampland.
+22:21 Pigman gold farm.
+23:18 Quarry base tour.
+25:33 Mesa-portal-path renovation.
+28:05 Speedrun through the nether.
+29:36 Outro</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="111"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

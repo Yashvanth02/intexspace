@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCyyhA9vazU2bbFbUM9JxEpg"/>
+ <id>yt:channel:yyhA9vazU2bbFbUM9JxEpg</id>
+ <yt:channelId>yyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+ <title>Demon</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg"/>
+ <author>
+  <name>Demon</name>
+  <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+ </author>
+ <published>2006-09-24T05:45:05+00:00</published>
+ <entry>
+  <id>yt:video:hNDWp6bNK0c</id>
+  <yt:videoId>hNDWp6bNK0c</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Stallord skip with displacement clip (Sidehop method)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=hNDWp6bNK0c"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2026-03-04T19:33:19+00:00</published>
+  <updated>2026-04-29T23:18:44+00:00</updated>
+  <media:group>
+   <media:title>Stallord skip with displacement clip (Sidehop method)</media:title>
+   <media:content url="https://www.youtube.com/v/hNDWp6bNK0c?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hNDWp6bNK0c/hqdefault.jpg" width="480" height="360"/>
+   <media:description>For documentation, if you need more info about the trick and its steps go to https://www.zeldaspeedruns.com/tp/boss/stallord.
+
+Troubleshooting:
+When doing this method you will find that you end up at slightly different X-positions, but as long as the steps were done correctly it should still work. The finicky part is that you need to aim to press B not too close to the spinner track, nor too far. If too close you will end up with a x-position around ~30 which is far off and will not work, while if you're too far your sword will hit the wall. Note that you can walk forward and then jumpslash if you're too far, but this usually ends up in a x-position that won't work.
+
+Keep these things in mind when doing this method:
+ - Hold ESS for the sidehops to not accidentally move
+ - Cancel the spinner with B (to pull sword) as Link's head is lined up with the spinner track, might need to find your own visual cue if it doesn't work. 
+ - ESS sidehop right ASAP after canceling the spinner as you can't sidehop if you sink into the sand
+ - Jumpslash and combo slash twice ASAP, if you wait slightly it'll give you a bad position (For example z-pos: -4035 instead of -4033 that you want)
+
+After this is done you want to have a z-pos of -4033 and x-pos of around 55.9-57.0x. Do remember that the positions will vary slightly depending on which frame you do your movement.</media:description>
+   <media:community>
+    <media:starRating count="15" average="5.00" min="1" max="5"/>
+    <media:statistics views="180"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:5k82Za2xJ2M</id>
+  <yt:videoId>5k82Za2xJ2M</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>(Child) Deku Tree WW with bombchu setup</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=5k82Za2xJ2M"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-09-26T07:54:08+00:00</published>
+  <updated>2026-05-04T22:30:05+00:00</updated>
+  <media:group>
+   <media:title>(Child) Deku Tree WW with bombchu setup</media:title>
+   <media:content url="https://www.youtube.com/v/5k82Za2xJ2M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/5k82Za2xJ2M/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Bit easier to setup as you can do it from the door</media:description>
+   <media:community>
+    <media:starRating count="6" average="5.00" min="1" max="5"/>
+    <media:statistics views="179"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:uT0nOENXmy8</id>
+  <yt:videoId>uT0nOENXmy8</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Alternative lava leap setup (No sword)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=uT0nOENXmy8"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-08-25T17:16:27+00:00</published>
+  <updated>2026-02-28T22:56:39+00:00</updated>
+  <media:group>
+   <media:title>Alternative lava leap setup (No sword)</media:title>
+   <media:content url="https://www.youtube.com/v/uT0nOENXmy8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/uT0nOENXmy8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I find this one to be easier for the sidehop at the end, but I haven't done any actual frame data on that. It doesn't require a sword.
+
+1. Target hookshot target, sidehop right and target the wall
+2. Backflip x2, roll and ess left x2 to 0x8e10. Hold target and roll, hold up ASAP after starting the roll, not before. The important part is to start the roll with just target and A. You will most likely get different positions here, but it's likely that it will work, I rarely fail it keeping the roll thing in mind + waiting for camera if possible.
+3. Aim up, make sure you start with a full down input, that's why I shoot the hookshot. You can also pause for it. Notice where the red reticle is during the first pause, that's where you want to stop. 
+4. Hold left and tap hookshot, pause buffer until the chain is out.
+5. Pause until the timer reaches 0 and Link dies
+6. Hold down until around when the room transitions (not precise) and then hold down-left for around 1.5s and finally hold left to sidehop at the peak of the jump. If you're lucky with your notches you might just need to hold down-left the the entire time.</media:description>
+   <media:community>
+    <media:starRating count="8" average="5.00" min="1" max="5"/>
+    <media:statistics views="81"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:mPgYbPzjx-M</id>
+  <yt:videoId>mPgYbPzjx-M</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>SSBM - Samus BtT - 7.78</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=mPgYbPzjx-M"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-08-04T17:42:01+00:00</published>
+  <updated>2026-04-30T08:32:49+00:00</updated>
+  <media:group>
+   <media:title>SSBM - Samus BtT - 7.78</media:title>
+   <media:content url="https://www.youtube.com/v/mPgYbPzjx-M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/mPgYbPzjx-M/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="12" average="5.00" min="1" max="5"/>
+    <media:statistics views="109"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Q5MW263tD3c</id>
+  <yt:videoId>Q5MW263tD3c</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>SSBM - Samus BtT - 7.85</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Q5MW263tD3c"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-08-02T07:35:59+00:00</published>
+  <updated>2025-09-01T13:58:16+00:00</updated>
+  <media:group>
+   <media:title>SSBM - Samus BtT - 7.85</media:title>
+   <media:content url="https://www.youtube.com/v/Q5MW263tD3c?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/Q5MW263tD3c/hqdefault.jpg" width="480" height="360"/>
+   <media:description>4 frame paybay!</media:description>
+   <media:community>
+    <media:starRating count="15" average="5.00" min="1" max="5"/>
+    <media:statistics views="118"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Ruvaump_51o</id>
+  <yt:videoId>Ruvaump_51o</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>OoT 100% in 4:23:07</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Ruvaump_51o"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-08-01T15:45:12+00:00</published>
+  <updated>2025-08-31T14:05:41+00:00</updated>
+  <media:group>
+   <media:title>OoT 100% in 4:23:07</media:title>
+   <media:content url="https://www.youtube.com/v/Ruvaump_51o?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/Ruvaump_51o/hqdefault.jpg" width="480" height="360"/>
+   <media:description>PB on July 27th, 2025. Bigger PB but still not very good.</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="57"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:n9jvbTZJZqc</id>
+  <yt:videoId>n9jvbTZJZqc</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>OoT 100% in 4:15:08</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=n9jvbTZJZqc"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-08-01T15:45:09+00:00</published>
+  <updated>2026-04-30T03:41:50+00:00</updated>
+  <media:group>
+   <media:title>OoT 100% in 4:15:08</media:title>
+   <media:content url="https://www.youtube.com/v/n9jvbTZJZqc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/n9jvbTZJZqc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>PB on July 31st, 2025. Only had one reset between this run and my previous PB :)</media:description>
+   <media:community>
+    <media:starRating count="9" average="5.00" min="1" max="5"/>
+    <media:statistics views="106"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0FSex4jSIAE</id>
+  <yt:videoId>0FSex4jSIAE</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>SSBM - Samus BtT - 7.92</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0FSex4jSIAE"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-07-28T14:50:23+00:00</published>
+  <updated>2026-05-04T22:41:44+00:00</updated>
+  <media:group>
+   <media:title>SSBM - Samus BtT - 7.92</media:title>
+   <media:content url="https://www.youtube.com/v/0FSex4jSIAE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0FSex4jSIAE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Smol pb, hoping to improve it :)</media:description>
+   <media:community>
+    <media:starRating count="19" average="5.00" min="1" max="5"/>
+    <media:statistics views="119"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:t7eL6dBYu18</id>
+  <yt:videoId>t7eL6dBYu18</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Wrong warp to Light Arrow Cutscene from Deku Tree and turn adult (For 100%)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=t7eL6dBYu18"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-05-27T23:25:43+00:00</published>
+  <updated>2026-04-22T12:05:42+00:00</updated>
+  <media:group>
+   <media:title>Wrong warp to Light Arrow Cutscene from Deku Tree and turn adult (For 100%)</media:title>
+   <media:content url="https://www.youtube.com/v/t7eL6dBYu18?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/t7eL6dBYu18/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Note: This video uses quicktext on GZ but it doesn't make a difference for the setup itself, just to make the pain for testing etc. less.
+
+Big shoutsout to natalyahasdied who helped me figure out how it works and to find angles and values that work!
+
+Watches used and explained:
+801CAAC8 x32: Shows the cutscene pointer value. Should read 801FA0A0 after saying yes to Deku Tree in step 3.
+801DB40C:  Allocations for actor held in hand, this is the heap value we manip to read 801FA0A0 when pulling the bombchu in step 8. Basically puts the value of a bombchu into the cutscene pointer's value which then will run as a failed command; this in turn makes the cutscene pointer value  skip 0x30 * your angle which eventually hits the flashback cutscene. (There's some more math to this but I'm too dumb for it)
+801FA0A0: The value we want for our cutscene pointer. Should read da03ff when pulling the second bombchu in step 8.
+
+Keep in mind that this is fit for 100% and depending on which rupees you pick up in Kokiri forest will affect the setup and result. Explanation and important steps for the wrong warp will be listed below, other tricks that's not relevant to it won't be explained.
+
+Make sure to grab the normal rupees for a 100% speedrun at the start as this will affect the trick (see normal 100% speedrun, they do it there). For this version of the trick you should also have met Zelda and gotten the lullaby as this removes Mido guarding the path to Deku Tree. If those conditions aren't met you could however use a different setup posted below, but it needs to use the angles 6ea3 or 6eb3 when you drop the second bombchu and I don't show this setup here.
+
+1. Enter deku tree without watching the cutscene. The cutscene of Deku Tree opening it's mouth will be used to set the correct cutscene pointer value and if you haven't cleared the deku tree intro cutscene your cutscene pointer's value will change later on.
+
+2. Exit and go through text, say no when prompted to enter.
+
+3. Reload area 3 times and take damage. Go back to Deku Tree and answer yes to enter.
+ - Get down to ½ heart during the setup, when you do it doesn't matter, it's to deathwarp later.
+
+4. Slash sign as shown
+
+5. Climb fence for angle, sidehop left
+
+6. ESS left to 0x36f9, ESS up to get the angle 0x36fe. ESS right until the angle 0x7926
+
+7. Hold target and drop bugs; this prevents the camera from turning the wrong way (you want it pointing towards the shop)
+
+8. Pull and drop chu x2, when you drop the second bombchu you should still have the angle 0x7926 and the watch 801FA0A0 should read da03ff while 801DB40C should read 801FA0A0. Deathwarp after this, you can pull another bombchu and it shouldn't mess up the setup.
+
+9. Go through Deku Tree. There might be a problem with actually going through B1 and not skipping it but nothing I've confirmed. Video just does it like 100% (might?) do it, but it's not required to get the slingshot and so.
+
+10. Kill gohma and take damage, I forgot to take damage in the video but it doesn't matter for the setup.
+
+11. Death wrong warp setup. Ganondoor might work but did not confirm.
+
+Pausing inside Gohma's room does NOT matter like it might for other instances.
+
+Bliny's setup (video by Count): https://www.youtube.com/watch?v=1uW5DlJP2Bs</media:description>
+   <media:community>
+    <media:starRating count="25" average="5.00" min="1" max="5"/>
+    <media:statistics views="470"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:eXyqXbjfkc0</id>
+  <yt:videoId>eXyqXbjfkc0</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Faster Door of Time skip as child</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=eXyqXbjfkc0"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-24T20:50:38+00:00</published>
+  <updated>2026-04-22T20:00:08+00:00</updated>
+  <media:group>
+   <media:title>Faster Door of Time skip as child</media:title>
+   <media:content url="https://www.youtube.com/v/eXyqXbjfkc0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/eXyqXbjfkc0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>1. Stop your backwalk as you walk over the first black line on the floor after going up the steps. You should end up around the the black line before reaching the wall.
+2. ESS turn left x4
+3. Target, turn left and target
+
+You can also backwalk all the way into the door, roll and then do the rest of the setup for a consistent position.</media:description>
+   <media:community>
+    <media:starRating count="25" average="5.00" min="1" max="5"/>
+    <media:statistics views="402"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:U6EcOqF7vzU</id>
+  <yt:videoId>U6EcOqF7vzU</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Castle Bombchu Boost (Stick only, alternate lineup)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=U6EcOqF7vzU"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-23T09:43:21+00:00</published>
+  <updated>2026-04-29T06:01:01+00:00</updated>
+  <media:group>
+   <media:title>Castle Bombchu Boost (Stick only, alternate lineup)</media:title>
+   <media:content url="https://www.youtube.com/v/U6EcOqF7vzU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/U6EcOqF7vzU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Just for documentation. I find it easier to adjust to the frames with this. 3rd frame after the blue flash also works if you hold down during the jump up to the top platform and then left, but not as consistently. 
+
+Frame data is not done here, people can try it out and see how it feels if they'd like.</media:description>
+   <media:community>
+    <media:starRating count="13" average="5.00" min="1" max="5"/>
+    <media:statistics views="301"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:drwXSSyw9ew</id>
+  <yt:videoId>drwXSSyw9ew</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Mega sidehop to Forest Temple basement</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=drwXSSyw9ew"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-22T21:36:08+00:00</published>
+  <updated>2025-06-13T03:55:11+00:00</updated>
+  <media:group>
+   <media:title>Mega sidehop to Forest Temple basement</media:title>
+   <media:content url="https://www.youtube.com/v/drwXSSyw9ew?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/drwXSSyw9ew/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Requires bombs, hover boots, shield and sword. 
+
+Simplifying the trick slightly where it won't need inverted camera and being able to see the bomb. Note that all 3 frames before the big blue one will also work.
+
+Setups for the same trick:
+Arthur: https://www.youtube.com/watch?v=y8l0bpUxOk8 (Requires inverted cam)
+Dotzo: https://www.youtube.com/watch?v=5touSm-Bdbk</media:description>
+   <media:community>
+    <media:starRating count="13" average="5.00" min="1" max="5"/>
+    <media:statistics views="216"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:td88IcEaS8Q</id>
+  <yt:videoId>td88IcEaS8Q</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Alternate Door of Time skip setup</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=td88IcEaS8Q"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-21T10:16:17+00:00</published>
+  <updated>2025-11-25T16:11:04+00:00</updated>
+  <media:group>
+   <media:title>Alternate Door of Time skip setup</media:title>
+   <media:content url="https://www.youtube.com/v/td88IcEaS8Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/td88IcEaS8Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Inspired by Cabbage's setup: https://www.youtube.com/watch?v=76mENmgcSI4
+
+Possible to do swordless if you hold right before the clip, but it still has only one frame that works.
+
+1. Get in corner
+2. Sidehop sideroll
+3. Sidehop, ESS up
+4. Target and then turn left
+5. Jumpslash while holding right for most working frames
+
+Keep in mind that you have to target before turning left or you'll get the wrong angle.</media:description>
+   <media:community>
+    <media:starRating count="23" average="5.00" min="1" max="5"/>
+    <media:statistics views="323"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:CEKmJ4lxbqI</id>
+  <yt:videoId>CEKmJ4lxbqI</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Ocarina of Time MST Speedrun in 1:44:49</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=CEKmJ4lxbqI"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-19T17:29:50+00:00</published>
+  <updated>2026-05-05T04:12:08+00:00</updated>
+  <media:group>
+   <media:title>Ocarina of Time MST Speedrun in 1:44:49</media:title>
+   <media:content url="https://www.youtube.com/v/CEKmJ4lxbqI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/CEKmJ4lxbqI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Achieved on March 19th, 2025. Big PB and met my goal of sub 1:45! 
+
+MST is an older category which stands for Medallions, Stones and Trials - basically all dungeons with trials included. It has restrictions on certain major glitches that would make the category trivial / less interesting, you can find more info about this at https://www.speedrun.com/oot?h=MST&amp;rules=category&amp;x=jdrwr0k6.</media:description>
+   <media:community>
+    <media:starRating count="11" average="5.00" min="1" max="5"/>
+    <media:statistics views="199"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:DCl2y3POeV0</id>
+  <yt:videoId>DCl2y3POeV0</yt:videoId>
+  <yt:channelId>UCyyhA9vazU2bbFbUM9JxEpg</yt:channelId>
+  <title>Ocarina of Time MST Speedrun in 1:48:47</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=DCl2y3POeV0"/>
+  <author>
+   <name>Demon</name>
+   <uri>https://www.youtube.com/channel/UCyyhA9vazU2bbFbUM9JxEpg</uri>
+  </author>
+  <published>2025-03-10T17:02:15+00:00</published>
+  <updated>2026-04-29T04:09:38+00:00</updated>
+  <media:group>
+   <media:title>Ocarina of Time MST Speedrun in 1:48:47</media:title>
+   <media:content url="https://www.youtube.com/v/DCl2y3POeV0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/DCl2y3POeV0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>PB achieved on March 10th, 2025. Very messy run, biggest mistakes being 2min on enter water temple and 1min on enter deku tree.</media:description>
+   <media:community>
+    <media:starRating count="14" average="5.00" min="1" max="5"/>
+    <media:statistics views="158"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

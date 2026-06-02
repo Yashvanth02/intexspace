@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCNu8JJDn2lO6Zb4lcRb7GVg"/>
+ <id>yt:channel:Nu8JJDn2lO6Zb4lcRb7GVg</id>
+ <yt:channelId>Nu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+ <title>finath</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg"/>
+ <author>
+  <name>finath</name>
+  <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+ </author>
+ <published>2006-06-25T13:38:43+00:00</published>
+ <entry>
+  <id>yt:video:I47JzfbP7kg</id>
+  <yt:videoId>I47JzfbP7kg</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Any% Speedrun 5:56.32 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=I47JzfbP7kg"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2023-09-10T16:11:39+00:00</published>
+  <updated>2025-06-14T23:48:47+00:00</updated>
+  <media:group>
+   <media:title>Outlast Any% Speedrun 5:56.32 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/I47JzfbP7kg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/I47JzfbP7kg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>With new skip in the lab I managed to get a sub 6 even with very slow Wernicke skip. The new skip uses 2 wall boosts to skip turning the valve before heading to the room with long stair case. The skip can save up to 50 seconds, but it's difficult to do fast, in this run I managed to save about 20 seconds with it.</media:description>
+   <media:community>
+    <media:starRating count="558" average="5.00" min="1" max="5"/>
+    <media:statistics views="11601"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:7Lfv_RVHRnk</id>
+  <yt:videoId>7Lfv_RVHRnk</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Any% Speedrun 6:13.35 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=7Lfv_RVHRnk"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2022-07-24T12:30:02+00:00</published>
+  <updated>2026-04-14T21:53:01+00:00</updated>
+  <media:group>
+   <media:title>Outlast Any% Speedrun 6:13.35 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/7Lfv_RVHRnk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/7Lfv_RVHRnk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A lot better run with the new skip. Hopefully sub 6 soon.
+
+
+Sorry about the quality, I changed the settings in OBS and left the bitrate too low.</media:description>
+   <media:community>
+    <media:starRating count="837" average="5.00" min="1" max="5"/>
+    <media:statistics views="20684"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:i1z6oTJt5Ag</id>
+  <yt:videoId>i1z6oTJt5Ag</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Any% Speedrun 6:52.51 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=i1z6oTJt5Ag"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2022-07-22T19:44:03+00:00</published>
+  <updated>2026-04-22T18:03:58+00:00</updated>
+  <media:group>
+   <media:title>Outlast Any% Speedrun 6:52.51 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/i1z6oTJt5Ag?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/i1z6oTJt5Ag/hqdefault.jpg" width="480" height="360"/>
+   <media:description>It finally happened! Skip big enough for me to do more runs. Thanks to Lampoos (https://www.youtube.com/watch?v=T6F11W7q-wI link to original video of the skip) we can now skip Wernicke talk in the lab (as well as Chris' death scene)! 
+
+
+The skip is very technical and at least so far isn't very consistent. We only know of it working on PC, and using keyboard and mouse.
+
+
+The gist of it is you need the smaller hitbox that you get from vaulting, then you need to clip into the door to get boosted up. The clipping can happen when you hold D on keyboard and tap W on the corner of the door. You move from left to right until Miles starts to move. If you don't get the clip you reset by going left, then get back to the corner for another try. This is just one way of doing it, there may be more consistent way out there, but the skip was found today. It's really not easy though! You need to get up with the smaller hitbox intact (you lose it as soon as you don't hug a wall). Once you are up you need to manouver left enough so you don't drop down yet you can jump to the other side while keeping the hitbox. On the otherside you just need to get to the corner and hold A and S while running to get the last boost. Once you are up you just get on top of the lamp to get enough height to jump on top of the Lab wall, then make your way beyond the locked door.
+
+
+The run itself isn't really good, you can see I didn't get first try bush jump, didn't go for all the fastest strats in lab etc. But it's PB nonetheless! I will definitely try to improve. Don't mind the splits, I had some settings wrong in LiveSplit so they didn't all split, had to manually get to the last split so at least I got the end right.</media:description>
+   <media:community>
+    <media:starRating count="328" average="5.00" min="1" max="5"/>
+    <media:statistics views="7251"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:T6i4XElTSsY</id>
+  <yt:videoId>T6i4XElTSsY</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 World Record 100% Speedrun 1:58:00 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=T6i4XElTSsY"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2021-02-11T15:30:51+00:00</published>
+  <updated>2026-04-29T04:36:25+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 World Record 100% Speedrun 1:58:00 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/T6i4XElTSsY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/T6i4XElTSsY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Got pretty good run with some new skips and strats. Having text in chinese saves time when using computer, since there's less characters to type out. Saves 10+ seconds. There were some pretty big mistakes still, like dying once at the chase scene towards the end and failing the cart glitch once after Val skip. Still pretty happy with the run, although I wish I got the sub 1:58.</media:description>
+   <media:community>
+    <media:starRating count="1017" average="5.00" min="1" max="5"/>
+    <media:statistics views="28955"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:k1PoVny2NJE</id>
+  <yt:videoId>k1PoVny2NJE</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 former World Record Any% Speedrun 1:45:13 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=k1PoVny2NJE"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2021-01-22T16:19:35+00:00</published>
+  <updated>2026-04-30T02:58:42+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 former World Record Any% Speedrun 1:45:13 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/k1PoVny2NJE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/k1PoVny2NJE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>This is my first good run with some new skips, including mill skip and some smaller ones. There were some mistakes, biggest one in the mines dying once to the dodge before mine cart push. I think that cost about 15s. On the other hand got very fast Val skip, which is rare. Quite happy with the run, might try for sub 1:45 later though.</media:description>
+   <media:community>
+    <media:starRating count="4352" average="5.00" min="1" max="5"/>
+    <media:statistics views="257262"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:E5ZgEAUe94Q</id>
+  <yt:videoId>E5ZgEAUe94Q</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Speedrun 20:15.1 on Insane Difficulty (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=E5ZgEAUe94Q"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-08-25T22:39:24+00:00</published>
+  <updated>2026-04-21T23:09:14+00:00</updated>
+  <media:group>
+   <media:title>Outlast Speedrun 20:15.1 on Insane Difficulty (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/E5ZgEAUe94Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/E5ZgEAUe94Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>New personal best after lots of failed attempts. Lost about 10 seconds in courtyard to wallride. Also missed the attempt to do new skip in return to admin, could've saved another 10s or so. Still pretty happy with the run.</media:description>
+   <media:community>
+    <media:starRating count="1147" average="5.00" min="1" max="5"/>
+    <media:statistics views="30506"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:FMCViHzSJHs</id>
+  <yt:videoId>FMCViHzSJHs</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Speedrun 20:32.50 on Insane Difficulty (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=FMCViHzSJHs"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-07-21T17:26:59+00:00</published>
+  <updated>2026-04-14T22:21:46+00:00</updated>
+  <media:group>
+   <media:title>Outlast Speedrun 20:32.50 on Insane Difficulty (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/FMCViHzSJHs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/FMCViHzSJHs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Decided to try insane difficulty speedrun after long time. First time doing it on PC (besides one run earlier this week). There lots of difficult skips and tricks, so I had quite a few time losses here. I will try to improve and go for sub 20 eventually.</media:description>
+   <media:community>
+    <media:starRating count="795" average="5.00" min="1" max="5"/>
+    <media:statistics views="19013"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Xu2KmQ7V-PI</id>
+  <yt:videoId>Xu2KmQ7V-PI</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 100% Speedrun 1:58:49 (PC) former WR</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Xu2KmQ7V-PI"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-02-03T18:10:39+00:00</published>
+  <updated>2026-04-29T19:31:52+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 100% Speedrun 1:58:49 (PC) former WR</media:title>
+   <media:content url="https://www.youtube.com/v/Xu2KmQ7V-PI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Xu2KmQ7V-PI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Finally got sub 2 hours. That was my goal, but I also happened to break the next minute barrier, so I happy with this run.</media:description>
+   <media:community>
+    <media:starRating count="789" average="5.00" min="1" max="5"/>
+    <media:statistics views="32826"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:abqw6XboSoE</id>
+  <yt:videoId>abqw6XboSoE</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Any% Speedrun 8:20.0 (PC)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=abqw6XboSoE"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-01-23T16:50:58+00:00</published>
+  <updated>2026-05-05T03:25:54+00:00</updated>
+  <media:group>
+   <media:title>Outlast Any% Speedrun 8:20.0 (PC)</media:title>
+   <media:content url="https://www.youtube.com/v/abqw6XboSoE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/abqw6XboSoE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Decided to grind any% a little, got this run after 2 days of derusting. Pretty good meme that it was 2 frames off of sub 8:20.</media:description>
+   <media:community>
+    <media:starRating count="800" average="5.00" min="1" max="5"/>
+    <media:statistics views="22338"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:zKM9Wgedd2I</id>
+  <yt:videoId>zKM9Wgedd2I</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 Any% Speedrun 1:46:32 (PC) former World Record</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=zKM9Wgedd2I"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-01-20T20:04:23+00:00</published>
+  <updated>2025-06-12T05:40:07+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 Any% Speedrun 1:46:32 (PC) former World Record</media:title>
+   <media:content url="https://www.youtube.com/v/zKM9Wgedd2I?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/zKM9Wgedd2I/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Two new skips helped save over 40 seconds, plus some small optimizations here and there. Obviously this wasn't perfect run, sub 1:46 is possible. Very happy that I could do both new skips pretty fast on my first attempt (22:00 and 23:40 in the video).</media:description>
+   <media:community>
+    <media:starRating count="6445" average="5.00" min="1" max="5"/>
+    <media:statistics views="383690"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:nI46mNyipdA</id>
+  <yt:videoId>nI46mNyipdA</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 100% Speedrun 2:01:17 former World Record</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=nI46mNyipdA"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2020-01-05T21:45:38+00:00</published>
+  <updated>2026-04-22T23:14:30+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 100% Speedrun 2:01:17 former World Record</media:title>
+   <media:content url="https://www.youtube.com/v/nI46mNyipdA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/nI46mNyipdA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Getting closer to sub 2h, which is possible but not easy. Had some big mistakes on this run, like dying twice to Laird while getting the camera, but a lot cleaner run than my previous pb. I might try to improve this to at least 2:00:xx, but I'm also interested doing any% and insane runs on Outlast 2.</media:description>
+   <media:community>
+    <media:starRating count="343" average="5.00" min="1" max="5"/>
+    <media:statistics views="8247"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:B6RDcq0Locs</id>
+  <yt:videoId>B6RDcq0Locs</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 100% Speedrun 2:03:20 former World Record</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=B6RDcq0Locs"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2019-11-02T22:30:08+00:00</published>
+  <updated>2026-04-29T00:44:32+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 100% Speedrun 2:03:20 former World Record</media:title>
+   <media:content url="https://www.youtube.com/v/B6RDcq0Locs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/B6RDcq0Locs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Run with small mistakes, pretty happy with it. Might try other categories now.</media:description>
+   <media:community>
+    <media:starRating count="708" average="5.00" min="1" max="5"/>
+    <media:statistics views="33781"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:KQZRQjP9a-s</id>
+  <yt:videoId>KQZRQjP9a-s</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 100% Speedrun 2:05:43 (former World Record)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=KQZRQjP9a-s"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2019-10-27T22:18:32+00:00</published>
+  <updated>2026-04-29T07:08:31+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 100% Speedrun 2:05:43 (former World Record)</media:title>
+   <media:content url="https://www.youtube.com/v/KQZRQjP9a-s?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/KQZRQjP9a-s/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Third run, another major improvement. Yet the run still had big mistakes, including 4 deaths.</media:description>
+   <media:community>
+    <media:starRating count="196" average="5.00" min="1" max="5"/>
+    <media:statistics views="6269"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:RxC1feUlZ2g</id>
+  <yt:videoId>RxC1feUlZ2g</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast 2 100% Speedrun 2:07:20 (former WR)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=RxC1feUlZ2g"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2019-10-19T17:47:07+00:00</published>
+  <updated>2025-06-05T12:22:56+00:00</updated>
+  <media:group>
+   <media:title>Outlast 2 100% Speedrun 2:07:20 (former WR)</media:title>
+   <media:content url="https://www.youtube.com/v/RxC1feUlZ2g?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/RxC1feUlZ2g/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Finally learned the route for Outlast 2 100% (get all documents and recordings), this was my second run of the category. There's some big mistakes, especially in the mines where I lost like 2 minutes. I will try to improve, this category is very unoptimized.</media:description>
+   <media:community>
+    <media:starRating count="308" average="5.00" min="1" max="5"/>
+    <media:statistics views="10244"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:XIMAzgZbwVA</id>
+  <yt:videoId>XIMAzgZbwVA</yt:videoId>
+  <yt:channelId>UCNu8JJDn2lO6Zb4lcRb7GVg</yt:channelId>
+  <title>Outlast Whistleblower NMG (No Major Glitches) Speedrun 30:52.0</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=XIMAzgZbwVA"/>
+  <author>
+   <name>finath</name>
+   <uri>https://www.youtube.com/channel/UCNu8JJDn2lO6Zb4lcRb7GVg</uri>
+  </author>
+  <published>2019-05-10T21:24:16+00:00</published>
+  <updated>2026-04-29T23:13:31+00:00</updated>
+  <media:group>
+   <media:title>Outlast Whistleblower NMG (No Major Glitches) Speedrun 30:52.0</media:title>
+   <media:content url="https://www.youtube.com/v/XIMAzgZbwVA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/XIMAzgZbwVA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A bit different kind of run, something between glitchless and no out of bounds. Rules are here https://pastebin.com/7LEMKFtz. Quite a few mistakes on the run, but I achieved my first goal for this category which was sub 31.</media:description>
+   <media:community>
+    <media:starRating count="1032" average="5.00" min="1" max="5"/>
+    <media:statistics views="43229"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

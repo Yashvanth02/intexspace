@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCI-8QMy9n3I5Pv6mTmXoAXA"/>
+ <id>yt:channel:I-8QMy9n3I5Pv6mTmXoAXA</id>
+ <yt:channelId>I-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+ <title>Gaspard G</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA"/>
+ <author>
+  <name>Gaspard G</name>
+  <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+ </author>
+ <published>2013-09-25T15:03:50+00:00</published>
+ <entry>
+  <id>yt:video:597LpFlanUM</id>
+  <yt:videoId>597LpFlanUM</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>⛓️Raconter la vie d’un otage</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/597LpFlanUM"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-30T08:37:25+00:00</published>
+  <updated>2026-05-04T06:08:31+00:00</updated>
+  <media:group>
+   <media:title>⛓️Raconter la vie d’un otage</media:title>
+   <media:content url="https://www.youtube.com/v/597LpFlanUM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/597LpFlanUM/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="10748"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:LWhaK9xXLCQ</id>
+  <yt:videoId>LWhaK9xXLCQ</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🇹🇷 Peut-on encore dessiner en Turquie ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/LWhaK9xXLCQ"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-29T09:07:14+00:00</published>
+  <updated>2026-05-02T20:23:27+00:00</updated>
+  <media:group>
+   <media:title>🇹🇷 Peut-on encore dessiner en Turquie ?</media:title>
+   <media:content url="https://www.youtube.com/v/LWhaK9xXLCQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/LWhaK9xXLCQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="861" average="5.00" min="1" max="5"/>
+    <media:statistics views="18328"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:yeBwsae-tB0</id>
+  <yt:videoId>yeBwsae-tB0</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🔎🇵🇸</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/yeBwsae-tB0"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-20T16:54:30+00:00</published>
+  <updated>2026-05-04T15:15:30+00:00</updated>
+  <media:group>
+   <media:title>🔎🇵🇸</media:title>
+   <media:content url="https://www.youtube.com/v/yeBwsae-tB0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/yeBwsae-tB0/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="707" average="5.00" min="1" max="5"/>
+    <media:statistics views="15783"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:hO1hmRGIvmk</id>
+  <yt:videoId>hO1hmRGIvmk</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>La véritable histoire de la Palestine</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=hO1hmRGIvmk"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-20T16:13:10+00:00</published>
+  <updated>2026-04-29T07:20:12+00:00</updated>
+  <media:group>
+   <media:title>La véritable histoire de la Palestine</media:title>
+   <media:content url="https://www.youtube.com/v/hO1hmRGIvmk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hO1hmRGIvmk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Cette vidéo existe grâce au soutien de Odoo. Pour les découvrir : https://www.odoo.com/r/e5H
+
+Depuis le 7 octobre 2023 et l’attaque du Hamas contre Israël, on entend quotidiennement parler de la Palestine. Alors pour comprendre ce territoire au cœur d’un des conflits les plus complexes des XXème et XIXème siècles, j’ai remonté 4 000 ans d’histoire au Proche-Orient… Voici l’histoire de la Palestine. 
+
+📣 Abonne-toi à ma chaîne YouTube pour soutenir mon travail : https://bit.ly/3bYWRxc 
+Pour être parmi les premiers à voir mes vidéos, n’oublie pas d’activer la cloche.
+
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+✌️ ME RETROUVER 
+
+Instagram : https://gaspard.gg/insta 
+TikTok : https://gaspard.gg/tiktok 
+Facebook : https://gaspard.gg/facebook 
+X (Twitter) : https://gaspard.gg/x-twitter 
+LinkedIn : https://gaspard.gg/linkedin 
+
+
+🎧 Mes vidéos sont aussi disponibles en podcast : 
+https://gaspard.gg/spotify 
+https://gaspard.gg/deezer 
+https://gaspard.gg/apple-podcast 
+
+
+📬 Annonceurs, écoles, conférences ? Mon équipe vous répond en 48h sur gaspardg@intello.co
+
+👉 Si vous cherchez d'autres créateurs d’info/éducation/vulgarisateurs, RDV sur https://intello.co/ (c'est la meilleure agence de créateurs mais je suis pas objectif, c'est la mienne 📙)
+
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+🗃 SOURCES 
+https://docs.google.com/document/d/1NZDmkWUceiInp25UlfmvzieOBSBr9njJ7EuZT3xfVFk/edit?tab=t.0
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+🍿CRÉDITS
+
+Une vidéo réalisée et produite par Gaspard G
+
+Journaliste – Morgane Pellennec
+Documentaliste – Pierre Montet
+Coordinatrice éditoriale – Chloé Chassaing 
+Rédacteurs en chef – Clémence Courteault et Gaspard G
+Directrice de production et post-production – Manon Gaillard
+Chargé de production et post-production – Valentin Forsans
+
+Chef opérateur – Louis Blin
+Monteur et motion design – Margaux Cabot
+Animations 3D – EKProd, Shelqo et Corentin Fortier (Blend.psd)
+Étalonnage – Kim Marc Huynh (KameHouse ColorGrading) 
+Mixage et réalisation sonore – Arthaud Versaveaud
+
+Maquilleuse – Eudine Liard
+Musiques – Tom Fox et Artlist 
+Miniature – Corentin (Blend.psd)
+
+Merci à Vincent Lemire, historien et auteur de Histoire de Jérusalem et Alice Croq, docteure en sciences religieuses, pour leurs précieuses relectures de cette vidéo.
+
+© Gaspard G, 2026
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+✂️ CHAPITRES 
+00:00 introduction 
+00:53 cette vidéo existe grâce au soutien de Odoo
+2:16 de Canaan à la terre sainte 
+7:34 un foyer juif en Palestine
+10:58 une terre, deux promesses
+17:08 la naissance d’Israël
+28:39 l’effondrement de la paix</media:description>
+   <media:community>
+    <media:starRating count="34513" average="5.00" min="1" max="5"/>
+    <media:statistics views="622700"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:szuFjS4H4gk</id>
+  <yt:videoId>szuFjS4H4gk</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🇧🇹 Le « Royaume du bonheur » est-il si heureux que ça ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/szuFjS4H4gk"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-14T15:37:22+00:00</published>
+  <updated>2026-04-17T21:54:32+00:00</updated>
+  <media:group>
+   <media:title>🇧🇹 Le « Royaume du bonheur » est-il si heureux que ça ?</media:title>
+   <media:content url="https://www.youtube.com/v/szuFjS4H4gk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/szuFjS4H4gk/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="5246" average="5.00" min="1" max="5"/>
+    <media:statistics views="141559"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:a8huauw7OkE</id>
+  <yt:videoId>a8huauw7OkE</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>Jean-Luc Mélenchon face à ses dossiers</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=a8huauw7OkE"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-08T16:30:21+00:00</published>
+  <updated>2026-04-22T20:07:33+00:00</updated>
+  <media:group>
+   <media:title>Jean-Luc Mélenchon face à ses dossiers</media:title>
+   <media:content url="https://www.youtube.com/v/a8huauw7OkE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/a8huauw7OkE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Qui est vraiment Jean-Luc Mélenchon ? Dans ce premier épisode des Dossiers, en partenariat avec @TF1INFO je reçois le fondateur de La France Insoumise pour un entretien long, exigeant et immersif. À travers des archives rares, je retrace sa trajectoire personnelle, politique et idéologique. De l'enfance aux convictions, des ruptures aux ambitions, mon objectif est simple : comprendre l'ADN des personnalités politiques aspirants à l'Élysée.
+
+👀 Cette vidéo est aussi disponible sur TF1+ : https://www.tf1.fr/lci/podcast-de-gaspard-g-les-dossiers
+
+🎧  Et en podcast : 
+https://gaspard.gg/spotify 
+https://gaspard.gg/deezer 
+https://gaspard.gg/apple-podcast 
+
+📣 Abonne-toi à ma chaîne YouTube pour soutenir mon travail : https://bit.ly/3bYWRxc 
+Pour être parmi les premiers à voir mes vidéos, n’oublie pas d’activer la cloche.
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+✌️ ME RETROUVER 
+
+Instagram : https://gaspard.gg/insta 
+TikTok : https://gaspard.gg/tiktok 
+Facebook : https://gaspard.gg/facebook 
+X (Twitter) : https://gaspard.gg/x-twitter 
+LinkedIn : https://gaspard.gg/linkedin 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+📝 CRÉDITS
+
+Les Dossiers de Jean-Luc Mélenchon
+Réalisé et produit par Gaspard G et Julien Potié
+
+Journalistes – Alison Roi, Clémence Courteault, Timothée David
+Documentaliste – Marie Paoli
+
+Directeur de la photographie – Augustin Bayle
+Assistant caméra – Alenjandro Nunez
+Cadreurs – Lucas Stoll, Manon Gaillard, Martin Coulaty, Marie Gaysse
+Cheffe électricienne – Anaïs Baiocco
+Électricien – Maxime Vassel
+Ingénieur du son – Yoën Cousot-Paoli
+
+Chef monteur – Stanley Duplan
+DA et motion designer – Léo Tix
+Étalonneur – Kim Marc Huynh
+Réalisateur sonore et mix – Arthaud Versaveaud
+Graphistes – Hugo Prunier, Corentin Fortier
+
+Directeur de production – Julien Potié
+Chargée de production – Romane Meissonnier
+Assistantes de production – Julie Courbon, Valentine Detout
+
+Décoratrices – Julie Courbon, Valentine Detout
+Maquilleuse – Eudine Liard
+Styliste – Guila Faroy
+Assistants studio – Léo Baranger, Yi Chen Lee
+
+QCDG / EFTR / INTELLO / LPOVS / PROFRAME / CINELIGHTS / DINOSAURES
+
+CRÉDITS IMAGES
+Images d'archive TF1
+Institut National de l'Audiovisuel
+- Soirée électorale : élection présidentielle 2eme tour - 10/05/1981 - Jean Cazenave
+- La soirée électorale au PS - 11/05/1981 - Bernard Marchetti
+- Soirée du résultat de l'élection presidentielle - 10/05/1981
+- L'émission politique - 23/02/2017 - Didier Froehly
+- Apostrophes - 11/04/1975 - François Chatel
+- Campagne electorale officielle: election presidentielle 2eme tour - 05/05/1981 - Serge Moati
+Bangumi - Quotidien
+La France Insoumise
+Agence France Presse - Clément
+Bibliothèque nationale de France, département Cartes et plans - Maroc: carte administrative
+L'archipel du Goulag, Soljénitsyne - 1976, Seuil
+La Meute, Olivier Pérou et Charlotte Belaïch - 2025, Flammarion
+“Melenchon : La candidate voilée du NPA relève du racolage” - 04/02/2010. Gérald Andrieu, Marianne
+“La (très) nette évolution de Mélenchon sur la question de l'islamophobie” - 10/11/2019, C. P.. Le Parisien
+Bibliotheque municipale de Besançon, Photographies de l'Est Républicain (B. Faille). Ph 56136
+Archives municipales de Besançon. 275W3
+Yvetot Normandie Tourisme
+Mairie d'Elbeuf sur Seine
+
+Crédits musiques – Artlist, Kaptain Music
+Remerciements – Coline Maigre, Vladimir Vinograd, Noa Ammar, Baptiste Leroux, Manon Gaillard
+
+Une création de Gaspard G et Quelque Chose de Grand
+Production déléguée – Gaspard G
+Production exécutive – Quelque Chose de Grand
+Avec la participation de TF1 Info
+
+Direction de l'Information TF1 / LCI
+Directeur – Thierry Thuillier
+Chief Digital Officer – Julien Laurent
+Secrétaire Générale – Laure Bezault
+Responsable réseaux sociaux – Pierre Mérin
+Responsable Cellule Image – Isabelle Toublant
+Adjointe Cellule Image – Gwénaëlle Le Bourdonnec
+Documentalistes – Antoine Bourgeois, Sebastien Deshaies, Zoé Pillorger, Aubin De Mareschal
+
+© Gaspard G / 2026
+ISAN 0000-0007-BFE3-0001-T-0000-0000-0
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+✂️ CHAPITRES 
+
+00:00 Introduction
+02:15 Enfance au Maroc, puis arrivée en France
+06:41 Adolescence rebelle et engagée
+13:15 Jeunesse socialiste avec Mitterrand
+21:23 Mélenchon ministre, son rapport à la Ve République
+25:51 Rupture avec le Parti Socialiste, lancement du Parti de Gauche
+31:17 La France Insoumise, entre modernité et critiques
+39:39 Évolutions de Mélenchon et son héritage 
+45:31 (Une dernière pour la route)</media:description>
+   <media:community>
+    <media:starRating count="27808" average="5.00" min="1" max="5"/>
+    <media:statistics views="596580"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:c5rqa1IQ5zk</id>
+  <yt:videoId>c5rqa1IQ5zk</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🗣️ Oser parler de bipolarité</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/c5rqa1IQ5zk"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-07T16:16:05+00:00</published>
+  <updated>2026-04-10T22:41:36+00:00</updated>
+  <media:group>
+   <media:title>🗣️ Oser parler de bipolarité</media:title>
+   <media:content url="https://www.youtube.com/v/c5rqa1IQ5zk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/c5rqa1IQ5zk/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="841" average="5.00" min="1" max="5"/>
+    <media:statistics views="17384"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ixa3Q9ZUBJI</id>
+  <yt:videoId>ixa3Q9ZUBJI</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🤨 C’est quoi le rapport entre l’Arabie saoudite et Les Sims ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/ixa3Q9ZUBJI"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-04-02T16:25:47+00:00</published>
+  <updated>2026-04-06T00:55:30+00:00</updated>
+  <media:group>
+   <media:title>🤨 C’est quoi le rapport entre l’Arabie saoudite et Les Sims ?</media:title>
+   <media:content url="https://www.youtube.com/v/ixa3Q9ZUBJI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/ixa3Q9ZUBJI/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="10559" average="5.00" min="1" max="5"/>
+    <media:statistics views="327861"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:KciVSH2H9QU</id>
+  <yt:videoId>KciVSH2H9QU</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🇵🇸 Raconter la réalité des Palestiniens grâce au dessin</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/KciVSH2H9QU"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-30T15:11:16+00:00</published>
+  <updated>2026-04-28T17:32:47+00:00</updated>
+  <media:group>
+   <media:title>🇵🇸 Raconter la réalité des Palestiniens grâce au dessin</media:title>
+   <media:content url="https://www.youtube.com/v/KciVSH2H9QU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/KciVSH2H9QU/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="3423" average="5.00" min="1" max="5"/>
+    <media:statistics views="56639"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:v4Ulbd35-mY</id>
+  <yt:videoId>v4Ulbd35-mY</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🗺️ Que veulent dire nos cartes ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/v4Ulbd35-mY"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-26T17:06:49+00:00</published>
+  <updated>2026-03-30T01:26:22+00:00</updated>
+  <media:group>
+   <media:title>🗺️ Que veulent dire nos cartes ?</media:title>
+   <media:content url="https://www.youtube.com/v/v4Ulbd35-mY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/v4Ulbd35-mY/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="6271" average="5.00" min="1" max="5"/>
+    <media:statistics views="139192"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:48q3gowowFc</id>
+  <yt:videoId>48q3gowowFc</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🇨🇩 Qui était Patrice Lumumba, qu’on célèbre encore en 2026 dans les stades de foot ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/48q3gowowFc"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-19T16:39:26+00:00</published>
+  <updated>2026-03-22T22:20:45+00:00</updated>
+  <media:group>
+   <media:title>🇨🇩 Qui était Patrice Lumumba, qu’on célèbre encore en 2026 dans les stades de foot ?</media:title>
+   <media:content url="https://www.youtube.com/v/48q3gowowFc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/48q3gowowFc/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="12830" average="5.00" min="1" max="5"/>
+    <media:statistics views="208006"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8Q-GwqEHXg0</id>
+  <yt:videoId>8Q-GwqEHXg0</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🚨 Mon entretien exclusif avec Noé, 4 ans.</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/8Q-GwqEHXg0"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-19T10:56:29+00:00</published>
+  <updated>2026-04-29T07:29:27+00:00</updated>
+  <media:group>
+   <media:title>🚨 Mon entretien exclusif avec Noé, 4 ans.</media:title>
+   <media:content url="https://www.youtube.com/v/8Q-GwqEHXg0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8Q-GwqEHXg0/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="9721" average="5.00" min="1" max="5"/>
+    <media:statistics views="172179"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:JPLCbbnpyWI</id>
+  <yt:videoId>JPLCbbnpyWI</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🤝 Que cache l’alliance entre les géants de la tech et Donald Trump ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/JPLCbbnpyWI"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-18T17:28:38+00:00</published>
+  <updated>2026-05-04T21:21:46+00:00</updated>
+  <media:group>
+   <media:title>🤝 Que cache l’alliance entre les géants de la tech et Donald Trump ?</media:title>
+   <media:content url="https://www.youtube.com/v/JPLCbbnpyWI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/JPLCbbnpyWI/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="7546" average="5.00" min="1" max="5"/>
+    <media:statistics views="375721"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:vjN2XOCXWRQ</id>
+  <yt:videoId>vjN2XOCXWRQ</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>🧠 Et si on encadrait l’IA pour protéger la santé mentale des jeunes ? avec le @GroupeVYV</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/vjN2XOCXWRQ"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-12T11:22:51+00:00</published>
+  <updated>2026-05-04T17:01:38+00:00</updated>
+  <media:group>
+   <media:title>🧠 Et si on encadrait l’IA pour protéger la santé mentale des jeunes ? avec le @GroupeVYV</media:title>
+   <media:content url="https://www.youtube.com/v/vjN2XOCXWRQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/vjN2XOCXWRQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="717" average="5.00" min="1" max="5"/>
+    <media:statistics views="14097"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ml3y9DZTGQI</id>
+  <yt:videoId>ml3y9DZTGQI</yt:videoId>
+  <yt:channelId>UCI-8QMy9n3I5Pv6mTmXoAXA</yt:channelId>
+  <title>✏️ Pourquoi c'est important de dessiner ?</title>
+  <link rel="alternate" href="https://www.youtube.com/shorts/ml3y9DZTGQI"/>
+  <author>
+   <name>Gaspard G</name>
+   <uri>https://www.youtube.com/channel/UCI-8QMy9n3I5Pv6mTmXoAXA</uri>
+  </author>
+  <published>2026-03-11T16:58:16+00:00</published>
+  <updated>2026-05-05T03:48:53+00:00</updated>
+  <media:group>
+   <media:title>✏️ Pourquoi c'est important de dessiner ?</media:title>
+   <media:content url="https://www.youtube.com/v/ml3y9DZTGQI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/ml3y9DZTGQI/hqdefault.jpg" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="966" average="5.00" min="1" max="5"/>
+    <media:statistics views="15701"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>
