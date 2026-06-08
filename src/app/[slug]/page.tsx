@@ -10,6 +10,10 @@ type PageProps = {
 };
 
 function getLegacyPage(slug: string) {
+  // Don't double-append .html if slug already ends with .html
+  if (slug.endsWith('.html')) {
+    return legacyPages[slug];
+  }
   return legacyPages[slug] ?? legacyPages[`${slug}.html`];
 }
 
