@@ -18,7 +18,10 @@ function getLegacyPage(slug: string) {
 }
 
 export function generateStaticParams() {
-  return legacySlugs.map((slug) => ({ slug }));
+  return legacySlugs.map((slug) => ({
+    // Strip .html extension if present to prevent double .html in output
+    slug: slug.endsWith('.html') ? slug.slice(0, -5) : slug
+  }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
