@@ -25,7 +25,6 @@ const legacyScripts = [
   "/js/ScrollTrigger.min.js",
   "/js/jquery.mb.YTPlayer.min.js",
   "/js/wow.min.js",
-  "/js/function.js",
 ];
 
 export default function RootLayout({
@@ -57,6 +56,13 @@ export default function RootLayout({
         {legacyScripts.map((src) => (
           <Script key={src} src={src} strategy="afterInteractive" />
         ))}
+        <Script src="/js/function.js" strategy="afterInteractive" />
+        <Script id="legacy-scripts-ready" strategy="afterInteractive">
+          {`
+            document.documentElement.classList.add('legacy-scripts-ready');
+            window.dispatchEvent(new Event('legacy:scripts-ready'));
+          `}
+        </Script>
       </body>
     </html>
   );

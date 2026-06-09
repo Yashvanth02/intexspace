@@ -1,3 +1,4 @@
+import { LegacyPageShell } from "@/components/LegacyPageShell";
 import type { LegacyPage as LegacyPageContent } from "@/lib/legacy-pages";
 
 type LegacyPageProps = {
@@ -5,5 +6,5 @@ type LegacyPageProps = {
 };
 
 export function LegacyPage({ page }: LegacyPageProps) {
-  return <div dangerouslySetInnerHTML={{ __html: page.body }} />;
+  return <LegacyPageShell page={page} />;
 }
