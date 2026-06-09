@@ -7,8 +7,8 @@ type LegacyPageShellProps = {
   page: LegacyPageContent;
 };
 
-const REVEAL_DELAY = 420;
-const FALLBACK_DELAY = 1800;
+const REVEAL_DELAY = 350;
+const FALLBACK_DELAY = 1100;
 
 export function LegacyPageShell({ page }: LegacyPageShellProps) {
   const [isReady, setIsReady] = useState(false);
@@ -21,7 +21,7 @@ export function LegacyPageShell({ page }: LegacyPageShellProps) {
 
     setIsReady(false);
 
-    const reveal = () => {
+    const reveal = (delay = REVEAL_DELAY) => {
       if (cancelled) {
         return;
       }
@@ -32,19 +32,27 @@ export function LegacyPageShell({ page }: LegacyPageShellProps) {
             setIsReady(true);
           }
         });
-      }, REVEAL_DELAY);
+      }, delay);
     };
 
     if (document.documentElement.classList.contains("legacy-scripts-ready")) {
       reveal();
     } else {
-      window.addEventListener("legacy:scripts-ready", reveal, { once: true });
-      fallbackTimer = window.setTimeout(reveal, FALLBACK_DELAY);
+      const revealFromScript = () => reveal();
+      window.addEventListener("legacy:scripts-ready", revealFromScript, { once: true });
+      fallbackTimer = window.setTimeout(() => reveal(0), FALLBACK_DELAY);
+
+      return () => {
+        cancelled = true;
+        window.removeEventListener("legacy:scripts-ready", revealFromScript);
+        window.clearTimeout(revealTimer);
+        window.clearTimeout(fallbackTimer);
+        window.cancelAnimationFrame(frame);
+      };
     }
 
     return () => {
       cancelled = true;
-      window.removeEventListener("legacy:scripts-ready", reveal);
       window.clearTimeout(revealTimer);
       window.clearTimeout(fallbackTimer);
       window.cancelAnimationFrame(frame);
