@@ -21,4 +21,17 @@ html {
   background: var(--white-color, #fff);
   font-weight: 600;
   line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gallery-format-list span.active,
+.gallery-format-list span:hover {
+  color: var(--white-color, #fff);
+  border-color: var(--accent-color, #c59d5f);
+  background: var(--accent-color, #c59d5f);
+}
+
+.page-gallery-box > [data-gallery-category].is-hidden {
+  display: none;
 }

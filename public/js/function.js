@@ -88,6 +88,36 @@
 		});
 	}
 
+	/* Gallery Category Filter JS */
+	if ($('.gallery-format-list').length && $('.page-gallery-box .photo-gallery').length) {
+		$('.page-gallery-box > div').each(function(){
+			const gallery_category = $(this).find('figcaption span').first().text().trim().toLowerCase();
+
+			if (gallery_category) {
+				$(this).attr('data-gallery-category', gallery_category);
+			}
+		});
+
+		$('.gallery-format-list span')
+			.attr({ role: 'button', tabindex: 0 })
+			.on('click', function(){
+				const selected_category = $(this).text().trim().toLowerCase();
+
+				$('.gallery-format-list span').removeClass('active');
+				$(this).addClass('active');
+
+				$('.page-gallery-box > div').each(function(){
+					$(this).toggleClass('is-hidden', $(this).attr('data-gallery-category') !== selected_category);
+				});
+			})
+			.on('keydown', function(event){
+				if (event.key === 'Enter' || event.key === ' ') {
+					event.preventDefault();
+					$(this).trigger('click');
+				}
+			});
+	}
+
 	/* Project Slider JS */
 	if ($('.project-company-slider').length) {
 		const project_company_slider = new Swiper('.project-company-slider .swiper', {
