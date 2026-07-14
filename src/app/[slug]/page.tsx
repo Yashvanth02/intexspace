@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LegacyPage } from "@/components/LegacyPage";
-import { legacyPages, legacySlugs } from "@/lib/legacy-pages";
+import { getLegacyPage, legacySlugs } from "@/lib/legacy-pages";
 
 type PageProps = {
   params: Promise<{
@@ -9,13 +9,7 @@ type PageProps = {
   }>;
 };
 
-function getLegacyPage(slug: string) {
-  // Don't double-append .html if slug already ends with .html
-  if (slug.endsWith('.html')) {
-    return legacyPages[slug];
-  }
-  return legacyPages[slug] ?? legacyPages[`${slug}.html`];
-}
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return legacySlugs.map((slug) => ({
@@ -26,7 +20,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = getLegacyPage(slug);
+  const page = await getLegacyPage(slug);
 
   if (!page) {
     return {};
@@ -40,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const page = getLegacyPage(slug);
+  const page = await getLegacyPage(slug);
 
   if (!page) {
     notFound();

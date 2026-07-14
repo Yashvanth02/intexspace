@@ -35,3 +35,23 @@ html {
 .page-gallery-box > [data-gallery-category].is-hidden {
   display: none;
 }
+
+.admin-access-bar {
+  display: flex;
+  justify-content: center;
+  padding: 14px 20px;
+  background: #141414;
+}
+
+.admin-access-bar a {
+  color: #c59d5f;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.admin-access-bar a:hover {
+  color: #ffffff;
+}

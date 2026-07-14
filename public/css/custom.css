@@ -183,7 +183,7 @@ a:focus{
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    visibility: hidden;
+	visibility: visible;
     overflow: hidden;
 }
 
