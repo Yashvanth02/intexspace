@@ -206,6 +206,23 @@ export function AdminDashboard() {
     event.preventDefault();
     setNotice("");
 
+    const formData = new FormData(event.currentTarget);
+    const imageFile = formData.get("image") instanceof File ? (formData.get("image") as File) : null;
+
+    if (imageFile && imageFile.size > 0) {
+      const uploadResponse = await fetch("/api/admin/projects", {
+        method: "POST",
+        body: formData,
+      });
+
+      const nextData = await readResponse(uploadResponse);
+      setData(nextData);
+      setProjectForm(emptyProject);
+      setEditingProjectId(null);
+      setNotice("Project saved.");
+      return;
+    }
+
     const response = await fetch(editingProjectId ? `/api/admin/projects/${editingProjectId}` : "/api/admin/projects", {
       method: editingProjectId ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
@@ -487,8 +504,8 @@ function ProjectsPanel({
               <input value={form.year || ""} onChange={(event) => setForm({ ...form, year: event.target.value })} />
             </label>
             <label className={`${styles.field} ${styles.wide}`}>
-              Image URL
-              <input value={form.imageUrl} onChange={(event) => setForm({ ...form, imageUrl: event.target.value })} />
+              Project Image
+              <input accept="image/*" name="image" type="file" />
             </label>
             <label className={`${styles.field} ${styles.wide}`}>
               Summary

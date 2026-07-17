@@ -1,8 +1,8 @@
-import { unlink } from "fs/promises";
-import path from "path";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { updateAdminData } from "@/lib/admin-store";
+import { readAdminData } from "@/lib/admin-store";
+import { createSupabaseAdmin } from "@/lib/supabase-server";
+
 
 type RouteParams = {
   params: Promise<{ id: string }>;
@@ -14,18 +14,47 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
   }
 
   const { id } = await params;
-  const data = await updateAdminData(async (current) => {
-    const image = current.gallery.find((item) => item.id === id);
+  const supabaseAdmin = createSupabaseAdmin();
+  const { data: galleryItem, error: fetchError } = await supabaseAdmin
+    .from("gallery")
+    .select("storage_path")
+    .eq("id", id)
+    .single();
 
-    if (image?.imageUrl.startsWith("/uploads/gallery/")) {
-      await unlink(path.join(process.cwd(), "public", image.imageUrl)).catch(() => undefined);
-    }
+  if (fetchError) {
+    return NextResponse.json({ message: fetchError.message || "Gallery item not found." }, { status: 404 });
+  }
 
-    return {
-      ...current,
-      gallery: current.gallery.filter((item) => item.id !== id),
-    };
+  if (galleryItem?.storage_path) {
+    await supabaseAdmin.storage.from("gallery").remove([galleryItem.storage_path]);
+  }
+
+  const { error: deleteError } = await supabaseAdmin.from("gallery").delete().eq("id", id);
+
+  if (deleteError) {
+    return NextResponse.json({ message: deleteError.message || "Failed to delete gallery item." }, { status: 500 });
+  }
+
+  const adminData = await readAdminData();
+  const { data: galleryRows, error: galleryError } = await supabaseAdmin
+    .from("gallery")
+    .select("id, title, image_url, alt, category, uploaded_at")
+    .order("uploaded_at", { ascending: false });
+
+  if (galleryError) {
+    return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
+  }
+
+  return NextResponse.json({
+    ...adminData,
+    gallery:
+      (galleryRows ?? []).map((galleryItem: any) => ({
+        id: galleryItem.id,
+        title: galleryItem.title,
+        imageUrl: galleryItem.image_url,
+        alt: galleryItem.alt,
+        category: galleryItem.category,
+        uploadedAt: galleryItem.uploaded_at,
+      })),
   });
-
-  return NextResponse.json(data);
 }
