@@ -60,6 +60,13 @@ type AdminData = {
   inquiries: Inquiry[];
 };
 
+const emptyGallery: Omit<GalleryImage, "id" | "uploadedAt"> = {
+  title: "",
+  imageUrl: "",
+  alt: "",
+  category: "Completed Projects",
+};
+
 const emptyProject: Omit<Project, "id" | "updatedAt"> = {
   title: "",
   status: "ongoing",
@@ -99,6 +106,10 @@ async function readResponse(response: Response) {
   return body as AdminData;
 }
 
+function isGenericGalleryTitle(title: string) {
+  return /^(img|image|photo|whatsapp|vid|video|screenshot|snapshot)[^a-z0-9]*\d*/i.test(title.trim());
+}
+
 export function AdminDashboard() {
   const [data, setData] = useState<AdminData | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>("projects");
@@ -110,6 +121,8 @@ export function AdminDashboard() {
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
   const [careerForm, setCareerForm] = useState(emptyCareer);
   const [editingCareerId, setEditingCareerId] = useState<string | null>(null);
+  const [galleryForm, setGalleryForm] = useState(emptyGallery);
+  const [editingGalleryId, setEditingGalleryId] = useState<string | null>(null);
 
   const counts = useMemo(
     () => ({
@@ -278,11 +291,27 @@ export function AdminDashboard() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const response = await fetch("/api/admin/gallery", { method: "POST", body: formData });
+    let response: Response;
+
+    if (editingGalleryId) {
+      response = await fetch(`/api/admin/gallery/${editingGalleryId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: String(formData.get("title") || "").trim(),
+          category: String(formData.get("category") || "Completed Projects").trim(),
+          alt: String(formData.get("alt") || "").trim(),
+        }),
+      });
+    } else {
+      response = await fetch("/api/admin/gallery", { method: "POST", body: formData });
+    }
 
     setData(await readResponse(response));
     form.reset();
-    setNotice("Gallery image uploaded.");
+    setEditingGalleryId(null);
+    setGalleryForm(emptyGallery);
+    setNotice(editingGalleryId ? "Gallery metadata updated." : "Gallery image uploaded.");
   }
 
   async function deleteGalleryImage(id: string) {
@@ -409,7 +438,15 @@ export function AdminDashboard() {
             />
           ) : null}
           {activeTab === "gallery" && data ? (
-            <GalleryPanel data={data.gallery} deleteImage={deleteGalleryImage} uploadGallery={uploadGallery} />
+            <GalleryPanel
+              data={data.gallery}
+              deleteImage={deleteGalleryImage}
+              uploadGallery={uploadGallery}
+              form={galleryForm}
+              setForm={setGalleryForm}
+              editingId={editingGalleryId}
+              setEditingId={setEditingGalleryId}
+            />
           ) : null}
           {activeTab === "careers" && data ? (
             <CareersPanel
@@ -591,10 +628,18 @@ function GalleryPanel({
   data,
   deleteImage,
   uploadGallery,
+  form,
+  setForm,
+  editingId,
+  setEditingId,
 }: {
   data: GalleryImage[];
   deleteImage: (id: string) => Promise<void>;
   uploadGallery: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  form: Omit<GalleryImage, "id" | "uploadedAt">;
+  setForm: (form: Omit<GalleryImage, "id" | "uploadedAt">) => void;
+  editingId: string | null;
+  setEditingId: (id: string | null) => void;
 }) {
   return (
     <section className={styles.panel}>
@@ -609,38 +654,85 @@ function GalleryPanel({
         <div className={styles.grid}>
           <label className={styles.field}>
             Title
-            <input name="title" required />
+            <input
+              name="title"
+              required
+              value={form.title}
+              onChange={(event) => setForm({ ...form, title: event.target.value })}
+            />
           </label>
           <label className={styles.field}>
             Category
-            <input name="category" placeholder="Completed Projects" />
+            <input
+              name="category"
+              placeholder="Completed Projects"
+              value={form.category}
+              onChange={(event) => setForm({ ...form, category: event.target.value })}
+            />
           </label>
           <label className={styles.field}>
             Alt Text
-            <input name="alt" />
+            <input
+              name="alt"
+              value={form.alt}
+              onChange={(event) => setForm({ ...form, alt: event.target.value })}
+            />
           </label>
           <label className={styles.field}>
             Image
-            <input accept="image/*" name="image" required type="file" />
+            <input accept="image/*" name="image" required={!editingId} type="file" />
           </label>
         </div>
-        <button className={styles.button} type="submit">
-          Upload Image
-        </button>
+        <div className={styles.rowActions}>
+          {editingId ? (
+            <button
+              className={styles.secondaryButton}
+              onClick={() => {
+                setEditingId(null);
+                setForm({ ...emptyGallery, category: "Completed Projects" });
+              }}
+              type="button"
+            >
+              Cancel Edit
+            </button>
+          ) : null}
+          <button className={styles.button} type="submit">
+            {editingId ? "Update Gallery Item" : "Upload Image"}
+          </button>
+        </div>
       </form>
       <div className={styles.galleryGrid}>
-        {data.map((image) => (
-          <article className={styles.galleryCard} key={image.id}>
-            <img alt={image.alt} src={image.imageUrl} />
-            <div>
-              <strong>{image.title}</strong>
-              <span>{image.category}</span>
-              <button className={styles.dangerButton} onClick={() => void deleteImage(image.id)} type="button">
-                Delete
-              </button>
-            </div>
-          </article>
-        ))}
+        {data.map((image) => {
+          const cardTitle = isGenericGalleryTitle(image.title)
+            ? image.category || image.alt || "Completed Projects"
+            : image.title;
+          const cardSubtitle = "Completed Projects";
+
+          return (
+            <article className={styles.galleryCard} key={image.id}>
+              <img alt={image.alt} src={image.imageUrl} />
+              <div>
+                <strong>{cardTitle}</strong>
+                <span>{cardSubtitle}</span>
+                <div className={styles.rowActions}>
+                  <button
+                    className={styles.secondaryButton}
+                    onClick={() => {
+                      setEditingId(image.id);
+                      setForm({ title: image.title, imageUrl: image.imageUrl, alt: image.alt, category: image.category });
+                    }}
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                  <button className={styles.dangerButton} onClick={() => void deleteImage(image.id)} type="button">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

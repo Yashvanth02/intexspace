@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { makeId, nowIso, readAdminData } from "@/lib/admin-store";
-import { createSupabaseAdmin } from "@/lib/supabase-server";
+import { makeId, nowIso, readAdminData, updateAdminData } from "@/lib/admin-store";
+import { createSupabaseAdmin, getSupabaseStorageBucket } from "@/lib/supabase-server";
 
 const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 
@@ -42,40 +42,58 @@ export async function POST(request: Request) {
   const fileBuffer = Buffer.from(await file.arrayBuffer());
   const supabaseAdmin = createSupabaseAdmin();
 
+  const bucket = getSupabaseStorageBucket();
   const { error: uploadError } = await supabaseAdmin.storage
-    .from("gallery")
+    .from(bucket)
     .upload(storagePath, fileBuffer, { contentType: file.type });
 
   if (uploadError) {
-    return NextResponse.json({ message: uploadError.message || "Image upload failed." }, { status: 500 });
+    return NextResponse.json({
+      message:
+        uploadError.message || `Image upload failed. Ensure Supabase bucket "${bucket}" exists and is accessible.`,
+    }, { status: 500 });
   }
 
-  const publicUrlResponse = supabaseAdmin.storage.from("gallery").getPublicUrl(storagePath);
+  const publicUrlResponse = supabaseAdmin.storage.from(bucket).getPublicUrl(storagePath);
 
   if (!publicUrlResponse?.data?.publicUrl) {
     return NextResponse.json({ message: "Failed to build public image URL." }, { status: 500 });
   }
 
   const imageUrl = publicUrlResponse.data.publicUrl;
-  const image = {
+  const galleryItem = {
     id,
     title: title || file.name,
-    image_url: imageUrl,
-    storage_path: storagePath,
+    imageUrl,
+    storagePath,
     alt: alt || title || file.name,
     category,
-    uploaded_at: nowIso(),
+    uploadedAt: nowIso(),
+  };
+
+  const insertRow = {
+    id: galleryItem.id,
+    title: galleryItem.title,
+    image_url: imageUrl,
+    storage_path: storagePath,
+    alt: galleryItem.alt,
+    category: galleryItem.category,
+    uploaded_at: galleryItem.uploadedAt,
   };
 
   const { error: insertError } = await supabaseAdmin
     .from("gallery")
-    .insert(image);
+    .insert(insertRow);
 
   if (insertError) {
     return NextResponse.json({ message: insertError.message || "Failed to save gallery metadata." }, { status: 500 });
   }
 
-  const adminData = await readAdminData();
+  const adminData = await updateAdminData((current) => ({
+    ...current,
+    gallery: [galleryItem, ...current.gallery],
+  }));
+
   const { data: galleryRows, error: galleryError } = await supabaseAdmin
     .from("gallery")
     .select("id, title, image_url, alt, category, uploaded_at")

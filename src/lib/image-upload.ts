@@ -1,5 +1,5 @@
 import { makeId } from "./admin-store";
-import { createSupabaseAdmin } from "./supabase-server";
+import { createSupabaseAdmin, getSupabaseStorageBucket } from "./supabase-server";
 
 function extensionFor(file: File) {
   const extension = file.name.toLowerCase().split(".").pop();
@@ -43,16 +43,19 @@ export async function uploadImageToStorage(file: File, folder: string, fallbackT
   const storagePath = `${folder}/${fileName}`;
   const fileBuffer = Buffer.from(await file.arrayBuffer());
   const supabaseAdmin = createSupabaseAdmin();
+  const bucket = getSupabaseStorageBucket();
 
   const { error: uploadError } = await supabaseAdmin.storage
-    .from("gallery")
+    .from(bucket)
     .upload(storagePath, fileBuffer, { contentType: file.type || "application/octet-stream" });
 
   if (uploadError) {
-    throw new Error(uploadError.message || "Image upload failed.");
+    throw new Error(
+      uploadError.message || `Image upload failed. Ensure bucket "${bucket}" exists and is accessible from Supabase.`,
+    );
   }
 
-  const publicUrlResponse = supabaseAdmin.storage.from("gallery").getPublicUrl(storagePath);
+  const publicUrlResponse = supabaseAdmin.storage.from(bucket).getPublicUrl(storagePath);
 
   if (!publicUrlResponse?.data?.publicUrl) {
     throw new Error("Failed to build public image URL.");

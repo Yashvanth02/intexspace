@@ -8,15 +8,12 @@ const cookieName = "intex_admin_session";
 function adminPassword() {
   return process.env.ADMIN_PASSWORD || "admin123";
 }
-
 function authSecret() {
   return process.env.ADMIN_SESSION_SECRET || adminPassword();
 }
-
 function sessionSignature() {
   return createHmac("sha256", authSecret()).update(adminPassword()).digest("hex");
 }
-
 function safeEqual(left: string, right: string) {
   const leftBuffer = Buffer.from(left);
   const rightBuffer = Buffer.from(right);

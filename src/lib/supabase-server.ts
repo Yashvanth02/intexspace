@@ -5,7 +5,11 @@ function getSupabaseUrl() {
 }
 
 function getSupabaseKey() {
-  return process.env.SUPABASE_SERVICE_ROLE_KEY;
+  return process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+}
+
+export function getSupabaseStorageBucket() {
+  return process.env.SUPABASE_STORAGE_BUCKET?.trim() || "gallery";
 }
 
 export function createSupabaseAdmin() {

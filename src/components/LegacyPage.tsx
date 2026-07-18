@@ -8,7 +8,7 @@ type LegacyPageProps = {
 export function LegacyPage({ page }: LegacyPageProps) {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: page.body }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: page.body }} />
       <div className="admin-access-bar">
         <a href="/admin">Admin Access</a>
       </div>

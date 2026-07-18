@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { makeId, nowIso, type Project, updateAdminData } from "@/lib/admin-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
+import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 function projectFromBody(body: Partial<Project>): Project {
   const title = String(body.title || "").trim();
@@ -68,6 +69,28 @@ export async function POST(request: Request) {
         updatedAt: nowIso(),
       };
 
+      const supabaseAdmin = createSupabaseAdmin();
+      const { error: projectError } = await supabaseAdmin.from("projects").upsert(
+        {
+          id: project.id,
+          title: project.title,
+          status: project.status,
+          location: project.location,
+          client: project.client,
+          category: project.category,
+          year: project.year,
+          summary: project.summary,
+          description: project.description,
+          image_url: project.imageUrl,
+          updated_at: project.updatedAt,
+        },
+        { onConflict: "id" },
+      );
+
+      if (projectError) {
+        return NextResponse.json({ message: projectError.message || "Failed to save project metadata." }, { status: 500 });
+      }
+
       const data = await updateAdminData((current) => ({
         ...current,
         projects: [project, ...current.projects],
@@ -81,6 +104,28 @@ export async function POST(request: Request) {
 
   try {
     const project = projectFromBody((await request.json()) as Partial<Project>);
+    const supabaseAdmin = createSupabaseAdmin();
+    const { error: projectError } = await supabaseAdmin.from("projects").upsert(
+      {
+        id: project.id,
+        title: project.title,
+        status: project.status,
+        location: project.location,
+        client: project.client,
+        category: project.category,
+        year: project.year,
+        summary: project.summary,
+        description: project.description,
+        image_url: project.imageUrl,
+        updated_at: project.updatedAt,
+      },
+      { onConflict: "id" },
+    );
+
+    if (projectError) {
+      return NextResponse.json({ message: projectError.message || "Failed to save project metadata." }, { status: 500 });
+    }
+
     const data = await updateAdminData((current) => ({
       ...current,
       projects: [project, ...current.projects],

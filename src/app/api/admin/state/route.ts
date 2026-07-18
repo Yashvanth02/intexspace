@@ -19,16 +19,25 @@ export async function GET() {
     return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
   }
 
+  const localGalleryById = new Map(adminData.gallery.map((item) => [item.id, item]));
+
+  const mergedGallery = new Map<string, any>(localGalleryById);
+
+  for (const galleryItem of galleryRows ?? []) {
+    mergedGallery.set(galleryItem.id, {
+      id: galleryItem.id,
+      title: galleryItem.title,
+      imageUrl: galleryItem.image_url,
+      alt: galleryItem.alt,
+      category: galleryItem.category,
+      uploadedAt: galleryItem.uploaded_at,
+    });
+  }
+
   return NextResponse.json({
     ...adminData,
-    gallery:
-      (galleryRows ?? []).map((galleryItem: any) => ({
-        id: galleryItem.id,
-        title: galleryItem.title,
-        imageUrl: galleryItem.image_url,
-        alt: galleryItem.alt,
-        category: galleryItem.category,
-        uploadedAt: galleryItem.uploaded_at,
-      })),
+    gallery: Array.from(mergedGallery.values()).sort((a, b) =>
+      new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
+    ),
   });
 }

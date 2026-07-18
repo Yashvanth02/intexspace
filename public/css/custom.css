@@ -2878,7 +2878,7 @@ body .hero-body{
 	display: flex;
 	width: 600%;
 	height: 100%;
-	animation: projectImageScroll 24s linear infinite;
+	animation: projectImageScroll 45s linear infinite;
 }
 
 .intex-projects-page .project-image-track figure{
@@ -3105,7 +3105,7 @@ body .hero-body{
 
 .project-modal-content{
 	padding: 52px;
-	align-self: center;
+	align-self: start;
 }
 
 .project-modal-status{
