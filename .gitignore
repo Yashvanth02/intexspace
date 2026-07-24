@@ -15,3 +15,5 @@ build/
 coverage/
 logs/
 *.log
+
+.vercel

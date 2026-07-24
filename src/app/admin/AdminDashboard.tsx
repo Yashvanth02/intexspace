@@ -117,6 +117,7 @@ export function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [notice, setNotice] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [projectForm, setProjectForm] = useState(emptyProject);
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
   const [careerForm, setCareerForm] = useState(emptyCareer);
@@ -161,6 +162,32 @@ export function AdminDashboard() {
   );
 
   const activeLabel = tabs.find((tab) => tab.id === activeTab)?.label ?? "Workspace";
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  const filteredProjects = useMemo(
+    () =>
+      (data?.projects ?? []).filter((project) =>
+        [project.title, project.client, project.location, project.category, project.year, project.status].some((value) =>
+          value?.toLowerCase().includes(normalizedSearchTerm),
+        ),
+      ),
+    [data?.projects, normalizedSearchTerm],
+  );
+  const filteredGallery = useMemo(
+    () =>
+      (data?.gallery ?? []).filter((image) =>
+        [image.title, image.alt, image.category].some((value) => value.toLowerCase().includes(normalizedSearchTerm)),
+      ),
+    [data?.gallery, normalizedSearchTerm],
+  );
+
+  useEffect(() => {
+    if (!notice) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => setNotice(""), 15_000);
+    return () => window.clearTimeout(timeout);
+  }, [notice]);
 
   async function loadState() {
     setIsLoading(true);
@@ -315,9 +342,15 @@ export function AdminDashboard() {
   }
 
   async function deleteGalleryImage(id: string) {
-    const response = await fetch(`/api/admin/gallery/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
-    setNotice("Gallery image deleted.");
+    setNotice("");
+
+    try {
+      const response = await fetch(`/api/admin/gallery/${id}`, { method: "DELETE" });
+      setData(await readResponse(response));
+      setNotice("Gallery image deleted from the dashboard and public gallery.");
+    } catch (error) {
+      setNotice((error as Error).message);
+    }
   }
 
   async function updateInquiryStatus(id: string, status: InquiryStatus) {
@@ -407,7 +440,10 @@ export function AdminDashboard() {
             <button
               aria-current={activeTab === tab.id}
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                setSearchTerm("");
+              }}
               type="button"
             >
               <span>{tab.label}</span>
@@ -422,12 +458,22 @@ export function AdminDashboard() {
               <span>Workspace</span>
               <h2>{activeLabel}</h2>
             </div>
-            <p>Saved changes are written to the admin store and surfaced on the public site.</p>
+            {activeTab === "projects" || activeTab === "gallery" ? (
+              <label className={styles.workspaceSearch}>
+                <span>Search {activeLabel}</span>
+                <input
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  placeholder={`Search ${activeLabel.toLowerCase()}...`}
+                  type="search"
+                  value={searchTerm}
+                />
+              </label>
+            ) : null}
           </div>
           {notice ? <p className={styles.notice}>{notice}</p> : null}
           {activeTab === "projects" && data ? (
             <ProjectsPanel
-              data={data.projects}
+              data={filteredProjects}
               deleteProject={deleteProject}
               editingId={editingProjectId}
               form={projectForm}
@@ -439,7 +485,7 @@ export function AdminDashboard() {
           ) : null}
           {activeTab === "gallery" && data ? (
             <GalleryPanel
-              data={data.gallery}
+              data={filteredGallery}
               deleteImage={deleteGalleryImage}
               uploadGallery={uploadGallery}
               form={galleryForm}
@@ -489,7 +535,16 @@ function ProjectsPanel({
 }) {
   return (
     <>
-      <section className={`${styles.panel} ${styles.editorPanel}`}>
+      <div
+        className={editingId ? styles.modalBackdrop : undefined}
+        onClick={(event) => {
+          if (editingId && event.target === event.currentTarget) {
+            setEditingId(null);
+            setForm(emptyProject);
+          }
+        }}
+      >
+      <section className={`${styles.panel} ${styles.editorPanel} ${editingId ? styles.modalPanel : ""}`}>
         <div className={styles.panelTitle}>
           <div>
             <span>{editingId ? "Edit" : "Add"}</span>
@@ -558,6 +613,7 @@ function ProjectsPanel({
           </button>
         </form>
       </section>
+      </div>
 
       <section className={styles.panel}>
         <div className={styles.panelTitle}>
@@ -641,8 +697,20 @@ function GalleryPanel({
   editingId: string | null;
   setEditingId: (id: string | null) => void;
 }) {
+  const [imagePendingDeletion, setImagePendingDeletion] = useState<GalleryImage | null>(null);
+
   return (
-    <section className={styles.panel}>
+    <>
+    <div
+      className={editingId ? styles.modalBackdrop : undefined}
+      onClick={(event) => {
+        if (editingId && event.target === event.currentTarget) {
+          setEditingId(null);
+          setForm(emptyGallery);
+        }
+      }}
+    >
+    <section className={`${styles.panel} ${editingId ? styles.modalPanel : ""}`}>
       <div className={styles.panelTitle}>
         <div>
           <span>Upload</span>
@@ -701,6 +769,10 @@ function GalleryPanel({
           </button>
         </div>
       </form>
+    </section>
+    </div>
+
+    <section className={styles.panel}>
       <div className={styles.galleryGrid}>
         {data.map((image) => {
           const cardTitle = isGenericGalleryTitle(image.title)
@@ -725,7 +797,7 @@ function GalleryPanel({
                   >
                     Edit
                   </button>
-                  <button className={styles.dangerButton} onClick={() => void deleteImage(image.id)} type="button">
+                  <button className={styles.dangerButton} onClick={() => setImagePendingDeletion(image)} type="button">
                     Delete
                   </button>
                 </div>
@@ -735,6 +807,41 @@ function GalleryPanel({
         })}
       </div>
     </section>
+    {imagePendingDeletion ? (
+      <div className={styles.modalBackdrop} onClick={() => setImagePendingDeletion(null)}>
+        <section
+          aria-labelledby="gallery-delete-title"
+          aria-modal="true"
+          className={`${styles.panel} ${styles.modalPanel}`}
+          onClick={(event) => event.stopPropagation()}
+          role="dialog"
+        >
+          <div className={styles.panelTitle}>
+            <div>
+              <span>Confirm deletion</span>
+              <h2 id="gallery-delete-title">Delete this image?</h2>
+              <p>“{imagePendingDeletion.title}” will be removed from the admin dashboard and public gallery.</p>
+            </div>
+          </div>
+          <div className={styles.rowActions}>
+            <button className={styles.secondaryButton} onClick={() => setImagePendingDeletion(null)} type="button">
+              Keep Image
+            </button>
+            <button
+              className={styles.dangerButton}
+              onClick={() => {
+                void deleteImage(imagePendingDeletion.id);
+                setImagePendingDeletion(null);
+              }}
+              type="button"
+            >
+              Delete Image
+            </button>
+          </div>
+        </section>
+      </div>
+    ) : null}
+    </>
   );
 }
 

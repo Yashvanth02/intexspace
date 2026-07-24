@@ -8,6 +8,28 @@ type RouteParams = {
   params: Promise<{ id: string }>;
 };
 
+function galleryResponse(adminData: Awaited<ReturnType<typeof readAdminData>>, galleryRows: any[]) {
+  const galleryById = new Map(adminData.gallery.map((item) => [item.id, item]));
+
+  for (const galleryItem of galleryRows) {
+    galleryById.set(galleryItem.id, {
+      id: galleryItem.id,
+      title: galleryItem.title,
+      imageUrl: galleryItem.image_url,
+      alt: galleryItem.alt,
+      category: galleryItem.category,
+      uploadedAt: galleryItem.uploaded_at,
+    });
+  }
+
+  return {
+    ...adminData,
+    gallery: Array.from(galleryById.values()).sort(
+      (first, second) => new Date(second.uploadedAt).getTime() - new Date(first.uploadedAt).getTime(),
+    ),
+  };
+}
+
 export async function DELETE(_request: Request, { params }: RouteParams) {
   if (!(await isAdminAuthenticated())) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -15,14 +37,17 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
 
   const { id } = await params;
   const supabaseAdmin = createSupabaseAdmin();
+  // An item can exist in the admin store without a matching Supabase row (for
+  // example, content created before Supabase syncing was enabled).  Do not
+  // make those items impossible to delete from the dashboard.
   const { data: galleryItem, error: fetchError } = await supabaseAdmin
     .from("gallery")
     .select("storage_path")
     .eq("id", id)
-    .single();
+    .maybeSingle();
 
   if (fetchError) {
-    return NextResponse.json({ message: fetchError.message || "Gallery item not found." }, { status: 404 });
+    return NextResponse.json({ message: fetchError.message || "Failed to load gallery item." }, { status: 500 });
   }
 
   if (galleryItem?.storage_path) {
@@ -51,18 +76,7 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
   }
 
-  return NextResponse.json({
-    ...adminData,
-    gallery:
-      (galleryRows ?? []).map((galleryItem: any) => ({
-        id: galleryItem.id,
-        title: galleryItem.title,
-        imageUrl: galleryItem.image_url,
-        alt: galleryItem.alt,
-        category: galleryItem.category,
-        uploadedAt: galleryItem.uploaded_at,
-      })),
-  });
+  return NextResponse.json(galleryResponse(adminData, galleryRows ?? []));
 }
 
 export async function PUT(request: Request, { params }: RouteParams) {
@@ -103,16 +117,5 @@ export async function PUT(request: Request, { params }: RouteParams) {
     return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
   }
 
-  return NextResponse.json({
-    ...adminData,
-    gallery:
-      (galleryRows ?? []).map((galleryItem: any) => ({
-        id: galleryItem.id,
-        title: galleryItem.title,
-        imageUrl: galleryItem.image_url,
-        alt: galleryItem.alt,
-        category: galleryItem.category,
-        uploadedAt: galleryItem.uploaded_at,
-      })),
-  });
+  return NextResponse.json(galleryResponse(adminData, galleryRows ?? []));
 }
