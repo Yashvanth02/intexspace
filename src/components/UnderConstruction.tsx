@@ -206,7 +206,7 @@ export function UnderConstruction() {
 
       <div className={styles.plan} aria-hidden="true">
         <svg viewBox="60 100 1520 840" preserveAspectRatio="xMidYMid meet">
-          {BANDS.map((band) =>
+          {/* {BANDS.map((band) =>
             band.paths.map((d, index) => (
               <path
                 key={`${band.className}-${d}`}
@@ -216,18 +216,18 @@ export function UnderConstruction() {
                 style={{ animationDelay: `${band.start + index * band.step}s` }}
               />
             )),
-          )}
+          )} */}
 
-          {GRID_LABELS.map((bubble) => (
+          {/* {GRID_LABELS.map((bubble) => (
             <g key={bubble.label} className={styles.late} style={{ animationDelay: "1.7s" }}>
               <circle cx={bubble.x} cy={150} r={24} className={styles.bubble} />
               <text x={bubble.x} y={158} className={styles.bubbleText}>
                 {bubble.label}
               </text>
             </g>
-          ))}
+          ))} */}
 
-          {DIM_LABELS.map((dim) => (
+          {/* {DIM_LABELS.map((dim) => (
             <text
               key={dim.x}
               x={dim.x}
@@ -237,9 +237,9 @@ export function UnderConstruction() {
             >
               {dim.label}
             </text>
-          ))}
+          ))} */}
 
-          <text
+          {/* <text
             x={110}
             y={500}
             className={`${styles.dimText} ${styles.late}`}
@@ -247,16 +247,16 @@ export function UnderConstruction() {
             transform="rotate(-90 110 500)"
           >
             6000
-          </text>
+          </text> */}
 
-          <g className={styles.late} style={{ animationDelay: "1.9s" }}>
+          {/* <g className={styles.late} style={{ animationDelay: "1.9s" }}>
             <circle cx={1500} cy={244} r={38} className={styles.bubble} />
             <text x={1500} y={196} className={styles.bubbleText}>
               N
             </text>
-          </g>
+          </g> */}
 
-          {ROOMS.map((room) => (
+          {/* {ROOMS.map((room) => (
             <g key={room.name} className={styles.late} style={{ animationDelay: "2s" }}>
               <text x={room.x} y={room.y} className={styles.roomName}>
                 {room.name}
@@ -265,7 +265,7 @@ export function UnderConstruction() {
                 {room.area}
               </text>
             </g>
-          ))}
+          ))} */}
         </svg>
       </div>
 
@@ -279,6 +279,14 @@ export function UnderConstruction() {
       </div>
 
       <div className={styles.frame} aria-hidden="true" />
+
+      {/* Drawings get stamped. This one says what the site is doing. */}
+      <p className={styles.stamp}>
+        <span className={styles.stampLine}>Under</span>
+        <span className={styles.stampLine}>Construction</span>
+        <span className={styles.stampRule} aria-hidden="true" />
+        <span className={styles.stampSub}>Site relaunching soon</span>
+      </p>
 
       <div className={styles.hud} aria-hidden="true">
         <span className={styles.hudRow}>
