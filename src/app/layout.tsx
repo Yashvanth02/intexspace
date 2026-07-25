@@ -28,11 +28,29 @@ const legacyScripts = [
   "/js/function.js",
 ];
 
+const legacyStyles = [
+  "/css/bootstrap.min.css",
+  "/css/slicknav.min.css",
+  "/css/swiper-bundle.min.css",
+  "/css/all.min.css",
+  "/css/animate.css",
+  "/css/magnific-popup.css",
+  "/css/mousecursor.css",
+  "/css/custom.css",
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // While the gate is up the only routes rendered are the under-construction
+  // page and /admin. The construction page must not load the legacy theme —
+  // custom.css would override its background and magiccursor.js would fight
+  // its cursor. /admin is styled entirely by AdminDashboard.module.css and
+  // uses no bootstrap or legacy classes, so it is unaffected.
+  const underConstruction = process.env.SITE_UNDER_CONSTRUCTION === "true";
+
   return (
     <html lang="en">
       <head>
@@ -43,26 +61,26 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap"
           rel="stylesheet"
         />
-        <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="/css/slicknav.min.css" rel="stylesheet" />
-        <link href="/css/swiper-bundle.min.css" rel="stylesheet" />
-        <link href="/css/all.min.css" rel="stylesheet" media="screen" />
-        <link href="/css/animate.css" rel="stylesheet" />
-        <link href="/css/magnific-popup.css" rel="stylesheet" />
-        <link href="/css/mousecursor.css" rel="stylesheet" />
-        <link href="/css/custom.css" rel="stylesheet" media="screen" />
-        <style
-          dangerouslySetInnerHTML={{
-            __html:
-              ".preloader{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}",
-          }}
-        />
+        {!underConstruction && (
+          <>
+            {legacyStyles.map((href) => (
+              <link key={href} href={href} rel="stylesheet" media="screen" />
+            ))}
+            <style
+              dangerouslySetInnerHTML={{
+                __html:
+                  ".preloader{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;}",
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         {children}
-        {legacyScripts.map((src) => (
-          <Script key={src} src={src} strategy="afterInteractive" />
-        ))}
+        {!underConstruction &&
+          legacyScripts.map((src) => (
+            <Script key={src} src={src} strategy="afterInteractive" />
+          ))}
       </body>
     </html>
   );

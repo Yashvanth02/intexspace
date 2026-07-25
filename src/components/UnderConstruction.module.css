@@ -1,0 +1,472 @@
+.root {
+  --ink: #0b0b0b;
+  --gold: #bdad7b;
+  --olive: #615328;
+  --cream: #f4f0e9;
+  --pad: clamp(20px, 3.4vw, 52px);
+  --lens-r: clamp(88px, 15vw, 186px);
+  --lx: 50vw;
+  --ly: 50vh;
+  --px: 0;
+  --py: 0;
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 42%, rgba(97, 83, 40, 0.16), transparent 62%),
+    var(--ink);
+  color: var(--cream);
+  font-family: "DM Sans", system-ui, sans-serif;
+  cursor: crosshair;
+}
+
+/* Drafting grid, drifting against the pointer. */
+.root::before {
+  content: "";
+  position: absolute;
+  inset: -6%;
+  background-image: radial-gradient(circle, rgba(97, 83, 40, 0.65) 1px, transparent 1px);
+  background-size: 34px 34px;
+  transform: translate3d(calc(var(--px) * -14px), calc(var(--py) * -14px), 0);
+}
+
+/* ---------- Reveal ---------- */
+
+.reveal {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: radial-gradient(
+    circle var(--lens-r) at var(--lx) var(--ly),
+    #000 0 58%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--lens-r) at var(--lx) var(--ly),
+    #000 0 58%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.photoOn {
+  opacity: 1;
+}
+
+/* ---------- Drawing ---------- */
+
+.plan {
+  position: absolute;
+  inset: 0;
+  padding: clamp(48px, 9vh, 110px) var(--pad) clamp(190px, 30vh, 300px);
+  transform: translate3d(calc(var(--px) * 10px), calc(var(--py) * 10px), 0);
+  pointer-events: none;
+}
+
+.plan svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stroke {
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.85s cubic-bezier(0.62, 0, 0.2, 1) forwards;
+}
+
+.heavy {
+  stroke: var(--gold);
+  stroke-width: 2.4;
+}
+
+.wall {
+  stroke: rgba(189, 173, 123, 0.86);
+  stroke-width: 1.7;
+}
+
+.thin {
+  stroke: rgba(189, 173, 123, 0.62);
+  stroke-width: 1.1;
+}
+
+.faint {
+  stroke: rgba(189, 173, 123, 0.4);
+  stroke-width: 0.9;
+}
+
+.bubble {
+  fill: none;
+  stroke: rgba(189, 173, 123, 0.45);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.bubbleText,
+.dimText,
+.roomName,
+.roomArea {
+  font-family: "Space Grotesk", ui-monospace, monospace;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+.bubbleText {
+  fill: var(--gold);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.dimText {
+  fill: rgba(189, 173, 123, 0.62);
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+}
+
+.roomName {
+  fill: rgba(244, 240, 233, 0.82);
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+}
+
+.roomArea {
+  fill: rgba(189, 173, 123, 0.55);
+  font-size: 19px;
+  letter-spacing: 0.16em;
+}
+
+.late {
+  opacity: 0;
+  animation: fade 0.9s ease forwards;
+}
+
+/* ---------- Lens furniture ---------- */
+
+.lens {
+  position: absolute;
+  left: var(--lx);
+  top: var(--ly);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: fade 1s ease 1.5s forwards;
+}
+
+.lensRing,
+.pulse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lensRing {
+  width: calc(var(--lens-r) * 2);
+  height: calc(var(--lens-r) * 2);
+  border: 1px solid rgba(189, 173, 123, 0.55);
+}
+
+.tick {
+  position: absolute;
+  background: var(--gold);
+}
+
+.tickN,
+.tickS {
+  width: 1px;
+  height: 16px;
+  left: -0.5px;
+}
+
+.tickN {
+  top: calc(var(--lens-r) * -1 - 24px);
+}
+
+.tickS {
+  top: calc(var(--lens-r) + 8px);
+}
+
+.tickE,
+.tickW {
+  height: 1px;
+  width: 16px;
+  top: -0.5px;
+}
+
+.tickE {
+  left: calc(var(--lens-r) + 8px);
+}
+
+.tickW {
+  left: calc(var(--lens-r) * -1 - 24px);
+}
+
+.pulse {
+  width: calc(var(--lens-r) * 2);
+  height: calc(var(--lens-r) * 2);
+  border: 1px solid rgba(189, 173, 123, 0.7);
+  animation: pulse 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+/* ---------- Sheet frame ---------- */
+
+.frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(189, 173, 123, 0.18);
+  pointer-events: none;
+}
+
+/* ---------- HUD ---------- */
+
+.hud {
+  position: absolute;
+  top: var(--pad);
+  right: var(--pad);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-family: "Space Grotesk", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(189, 173, 123, 0.72);
+  opacity: 0;
+  animation: fade 1s ease 1.6s forwards;
+  pointer-events: none;
+}
+
+.hudRow span {
+  color: var(--cream);
+  font-variant-numeric: tabular-nums;
+}
+
+.hudProject {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(189, 173, 123, 0.28);
+  color: rgba(244, 240, 233, 0.9);
+}
+
+/* ---------- Foot: wordmark and title block ---------- */
+
+.foot {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.3rem, 7vw, 6.2rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--cream);
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.42em);
+  animation: rise 0.9s cubic-bezier(0.16, 0.8, 0.24, 1) forwards;
+}
+
+.lede {
+  margin: clamp(12px, 1.6vw, 20px) 0 0;
+  max-width: 34ch;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  line-height: 1.5;
+  color: rgba(244, 240, 233, 0.64);
+  opacity: 0;
+  animation: fade 1s ease 1.15s forwards;
+}
+
+/* The contact details, set as a drawing sheet's title block. */
+.titleBlock {
+  width: min(370px, 46vw);
+  border: 1px solid rgba(189, 173, 123, 0.34);
+  background: rgba(11, 11, 11, 0.55);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  animation: fade 1s ease 1.35s forwards;
+}
+
+.tbRow {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 12px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(189, 173, 123, 0.2);
+}
+
+.tbRow:last-child {
+  border-bottom: 0;
+}
+
+.tbKey {
+  font-family: "Space Grotesk", ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(189, 173, 123, 0.7);
+  padding-top: 2px;
+}
+
+.tbValue {
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(244, 240, 233, 0.9);
+}
+
+.tbValue a {
+  display: block;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tbValue a:hover,
+.tbValue a:focus-visible {
+  color: var(--cream);
+}
+
+.tbValue a:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.6);
+  }
+}
+
+@media (max-width: 820px) {
+  .foot {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .titleBlock {
+    width: 100%;
+  }
+
+  /* The plan is far wider than a phone. Push the envelope out to the screen
+     edges and scale the annotation type up to stay legible — the drawing gets
+     bigger without the labels being cropped. */
+  .plan {
+    padding: clamp(30px, 6vh, 60px) 0 clamp(300px, 48vh, 440px);
+  }
+
+  .plan svg {
+    transform: scale(1.1);
+  }
+
+  .roomName {
+    font-size: 42px;
+  }
+
+  .roomArea {
+    font-size: 30px;
+  }
+
+  .dimText {
+    font-size: 32px;
+  }
+
+  .bubbleText {
+    font-size: 38px;
+  }
+
+  .hud {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root::before,
+  .plan {
+    transform: none;
+  }
+
+  .stroke,
+  .late,
+  .letter,
+  .lede,
+  .titleBlock,
+  .hud,
+  .lens {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+
+  .lensRing,
+  .pulse {
+    transform: translate(-50%, -50%);
+  }
+
+  .pulse {
+    display: none;
+  }
+
+  .photo {
+    transition: none;
+  }
+}
