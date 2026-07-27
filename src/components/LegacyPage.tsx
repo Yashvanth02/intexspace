@@ -1,4 +1,5 @@
 import type { LegacyPage as LegacyPageContent } from "@/lib/legacy-pages";
+import { LegacyInteractions } from "./LegacyInteractions";
 import Script from "next/script";
 
 type LegacyPageProps = {
@@ -6,12 +7,15 @@ type LegacyPageProps = {
 };
 
 export function LegacyPage({ page }: LegacyPageProps) {
+  // Legacy HTML can contain browser-normalized whitespace or imperfect markup.
+  // Keep the adjacent admin link in this same isolated container so it cannot
+  // become a separately hydrated sibling and trigger a mismatch.
+  const body = `${page.body}<div class="admin-access-bar"><a href="/admin">Admin Access</a></div>`;
+
   return (
     <>
-      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: page.body }} />
-      <div className="admin-access-bar">
-        <a href="/admin">Admin Access</a>
-      </div>
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: body }} />
+      <LegacyInteractions />
       <Script id="intex-inquiry-form-bridge" strategy="afterInteractive">
         {`
           (function () {

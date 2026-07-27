@@ -41,6 +41,15 @@ export type GalleryImage = {
   uploadedAt: string;
 };
 
+export type Vlog = {
+  id: string;
+  title: string;
+  details: string;
+  youtubeUrl: string;
+  thumbnailUrl: string;
+  createdAt: string;
+};
+
 export type TeamMember = {
   id: string;
   name: string;
@@ -69,6 +78,7 @@ export type AdminData = {
   projects: Project[];
   careers: CareerOpening[];
   gallery: GalleryImage[];
+  vlogs: Vlog[];
   inquiries: Inquiry[];
   team: TeamMember[];
   // menu visibility map: slug -> enabled (true/false)
@@ -81,6 +91,7 @@ const emptyData: AdminData = {
   projects: [],
   careers: [],
   gallery: [],
+  vlogs: [],
   inquiries: [],
   team: [],
   menu: {},
@@ -99,7 +110,8 @@ export function makeId(prefix: string, value: string) {
 export async function readAdminData(): Promise<AdminData> {
   try {
     const raw = await readFile(dataFile, "utf8");
-    return { ...emptyData, ...JSON.parse(raw.replace(/^\uFEFF/, "")) };
+    const data = { ...emptyData, ...JSON.parse(raw.replace(/^\uFEFF/, "")) } as AdminData;
+    return data;
   } catch (error) {
     const code = (error as NodeJS.ErrnoException).code;
 

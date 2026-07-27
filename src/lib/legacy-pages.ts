@@ -56,6 +56,8 @@ const legacyPageLoaders: Record<string, () => Promise<LegacyPageModule>> = {
   "testimonials": () => import("./legacy-pages-data/testimonials"),
   "video-gallery.html": () => import("./legacy-pages-data/video_gallery_html"),
   "video-gallery": () => import("./legacy-pages-data/video_gallery"),
+  "vlog": () => import("./legacy-pages-data/vlog"),
+  "vlog.html": () => import("./legacy-pages-data/vlog"),
 };
 
 export const legacySlugs = [
@@ -102,7 +104,9 @@ export const legacySlugs = [
     "testimonials.html",
     "testimonials",
     "video-gallery.html",
-    "video-gallery"
+    "video-gallery",
+    "vlog.html",
+    "vlog"
   ];
 
 export async function getLegacyPage(slug: string): Promise<LegacyPage | undefined> {
@@ -124,8 +128,26 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   // so they point to the new standalone ongoing page instead.
   body = body.replace(/projects\.html#ongoing/g, 'ongoing.html');
 
-  // Insert a top-level "Ongoing" nav item before the Careers link if the link isn't already present.
-  if (!/href=\"ongoing\.html\"/.test(body)) {
+  // Use one consistent Projects dropdown throughout the legacy site. Individual
+  // source pages carried different, outdated status menus.
+  body = body.replace(
+    /(<li class="nav-item submenu"><a class="nav-link" href="projects\.html">Projects<\/a>\s*)<ul>[\s\S]*?<\/ul>(\s*<\/li>)/,
+    `$1<ul>
+      <li class="nav-item"><a class="nav-link" href="projects.html#bank">Banking</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#hospital">Healthcare</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#offices">Offices</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#residential">Residential</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#airports">Airports</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#telecom">Telecom</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#education">Education</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#industrial">Industrial</a></li>
+      <li class="nav-item"><a class="nav-link" href="projects.html#maritime">Maritime</a></li>
+    </ul>$2`,
+  );
+
+  // Keep Ongoing as its own top-level item, alongside the Projects dropdown.
+  // A dropdown link to ongoing.html must not suppress this navigation entry.
+  if (!/<li class=\"nav-item\"><a class=\"nav-link\" href=\"ongoing\.html\">Ongoing<\/a><\/li>/.test(body)) {
     const careersMarker = '<li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>';
     if (body.indexOf(careersMarker) !== -1) {
       body = body.replace(careersMarker, '<li class="nav-item"><a class="nav-link" href="ongoing.html">Ongoing</a></li>\n                                ' + careersMarker);
@@ -135,9 +157,51 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     }
   }
 
-  // For the Projects legacy page specifically, remove the inline Ongoing section (we moved it to a new page)
+  // The imported projects document has its section markup embedded in an
+  // unfinished ticker. Extract it into a valid page shell so its grid aligns
+  // with the rest of the site, and render admin-managed completed work on the
+  // server (scripts inside dangerouslySetInnerHTML do not execute).
   if (normalizedSlug === 'projects') {
-    body = body.replace(/<section[^>]+id=\"ongoing\"[\s\S]*?<\/section>/, '');
+    const sectionStart = body.indexOf('<section class="intex-project-section"');
+    const footerStart = body.indexOf('<!-- Footer Start -->');
+
+    if (sectionStart !== -1 && footerStart > sectionStart) {
+      const tickerStart = body.lastIndexOf('<!-- Scrolling Ticker Section Start -->', sectionStart);
+      const pageStart = tickerStart === -1 ? body.slice(0, sectionStart) : body.slice(0, tickerStart);
+      const sections = body.slice(sectionStart, footerStart);
+
+      body = `${pageStart}
+        <main class="intex-projects-page">
+          <div class="container">
+            <nav class="intex-project-tabs" aria-label="Project categories">
+              <a href="#bank"><span>Banking</span></a>
+              <a href="#hospital"><span>Healthcare</span></a>
+              <a href="#offices"><span>Offices</span></a>
+              <a href="#residential"><span>Residential</span></a>
+              <a href="#airports"><span>Airports</span></a>
+              <a href="#telecom"><span>Telecom</span></a>
+              <a href="#education"><span>Education</span></a>
+              <a href="#industrial"><span>Industrial</span></a>
+              <a href="#maritime"><span>Maritime</span></a>
+            </nav>
+            ${sections}
+            ${renderCompletedProjectSection(data)}
+          </div>
+        </main>
+        ${body.slice(footerStart)}`;
+    }
+  }
+
+  if (!/href=\"vlog\.html\"/.test(body)) {
+    const galleryMarker = '<li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>';
+    if (body.includes(galleryMarker)) {
+      body = body.replace(galleryMarker, `${galleryMarker}\n                                <li class="nav-item"><a class="nav-link" href="vlog.html">Vlog</a></li>`);
+    }
+
+    const footerGalleryMarker = '<li><a href="gallery.html">Gallery</a></li>';
+    if (body.includes(footerGalleryMarker)) {
+      body = body.replace(footerGalleryMarker, `${footerGalleryMarker}\n                                <li><a href="vlog.html">Vlog</a></li>`);
+    }
   }
 
   // Apply menu visibility settings from admin data: remove nav links and page sections for disabled slugs.
@@ -191,8 +255,7 @@ function renderAdminSection(slug: string, data: AdminData) {
   };
 
   if (slug === "projects") {
-    if (!isEnabled("projects")) return "";
-    return renderProjectsIntoCompletedSection(data);
+    return "";
   }
 
   if (slug === "gallery" && data.gallery.length > 0) {
@@ -200,10 +263,6 @@ function renderAdminSection(slug: string, data: AdminData) {
     return `${adminSectionStyles()}
     <section class="admin-live-section admin-live-gallery" id="admin-managed-gallery">
       <div class="container">
-        <div class="admin-live-heading">
-          <h2>Our Works</h2>
-          <p>Completed Projects managed through the admin gallery.</p>
-        </div>
         <div class="admin-live-gallery-grid">
           ${data.gallery.map(renderGalleryCard).join("")}
         </div>
@@ -223,6 +282,22 @@ function renderAdminSection(slug: string, data: AdminData) {
         </div>
         <div class="admin-live-list">
           ${data.careers.map(renderCareerCard).join("")}
+        </div>
+      </div>
+    </section>`;
+  }
+
+  if (slug === "vlog") {
+    if (!isEnabled("vlog")) return "";
+    return `${adminSectionStyles()}
+    <section class="admin-live-section admin-live-vlogs" id="admin-managed-vlogs">
+      <div class="container">
+        <div class="admin-live-heading">
+          <h2>Vlogs</h2>
+          <p>Explore our latest project stories and updates.</p>
+        </div>
+        <div class="admin-live-gallery-grid">
+          ${data.vlogs.length ? data.vlogs.map(renderVlogCard).join("") : "<p>No vlogs have been published yet.</p>"}
         </div>
       </div>
     </section>`;
@@ -269,6 +344,46 @@ function projectImageUrls(project: AdminData["projects"][number], gallery: Admin
     .map((image) => image.imageUrl);
 
   return [...new Set([project.imageUrl, ...matchedUrls].filter(Boolean))];
+}
+
+function renderCompletedProjectSection(data: AdminData) {
+  if (data.menu?.projects === false || data.projects.length === 0) {
+    return "";
+  }
+
+  return `<section class="intex-project-section" id="completed">
+    <div class="row section-row align-items-center">
+      <div class="col-xl-8">
+        <div class="section-title">
+          <h3>Completed Projects</h3>
+          <h2>Projects delivered by the Intexspace team.</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row intex-project-grid">
+      ${data.projects.map((project) => {
+        const image = projectImageUrls(project, data.gallery)[0] || "/images/project-overview-image.jpg";
+        const title = escapeHtml(project.title || project.client || "Intexspace Project");
+        const category = escapeHtml(project.category || "Completed Project");
+        const location = escapeHtml(project.location || "India");
+        const year = escapeHtml(project.year || "");
+
+        return `<div class="col-xl-4 col-md-6">
+          <article class="project-item admin-completed-project">
+            <div class="project-item-image">
+              <a href="contact.html" aria-label="Discuss ${title}">
+                <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
+              </a>
+            </div>
+            <div class="project-item-content">
+              <h2><a href="contact.html">${title}</a></h2>
+              <ul><li>${category}</li><li>${location}</li>${year ? `<li>${year}</li>` : ""}</ul>
+            </div>
+          </article>
+        </div>`;
+      }).join("")}
+    </div>
+  </section>`;
 }
 
 function renderProjectsIntoCompletedSection(data: AdminData) {
@@ -378,25 +493,17 @@ function renderProjectsIntoCompletedSection(data: AdminData) {
   </script>`;
 }
 
-function isGenericGalleryTitle(title: string) {
-  const normalized = title.trim().toLowerCase();
-  return /^(img|image|photo|whatsapp|vid|video|screenshot|snapshot)[^a-z0-9]*\d*/.test(normalized);
+function renderGalleryCard(image: AdminData["gallery"][number]) {
+  return `<figure class="admin-live-gallery-card">
+    <img src="${escapeHtml(image.imageUrl)}" alt="${escapeHtml(image.alt || image.title || "Gallery image")}">
+  </figure>`;
 }
 
-function renderGalleryCard(image: AdminData["gallery"][number]) {
-  const shouldUseCategoryTitle = isGenericGalleryTitle(image.title);
-  const cardTitle = shouldUseCategoryTitle
-    ? image.category || image.alt || "Completed Projects"
-    : image.title;
-  const cardSubtitle = "Completed Projects";
-
-  return `<figure class="admin-live-gallery-card">
-    <img src="${escapeHtml(image.imageUrl)}" alt="${escapeHtml(image.alt || cardTitle)}">
-    <figcaption>
-      <strong>${escapeHtml(cardTitle)}</strong>
-      <span>${escapeHtml(cardSubtitle)}</span>
-    </figcaption>
-  </figure>`;
+function renderVlogCard(vlog: AdminData["vlogs"][number]) {
+  return `<a class="admin-live-vlog-card" href="${escapeHtml(vlog.youtubeUrl)}" target="_blank" rel="noopener noreferrer">
+    <div class="admin-vlog-media"><img src="${escapeHtml(vlog.thumbnailUrl)}" alt="${escapeHtml(vlog.title)}"><span class="admin-vlog-play" aria-hidden="true">▶</span></div>
+    <div><h3>${escapeHtml(vlog.title)}</h3><p>${escapeHtml(vlog.details)}</p></div>
+  </a>`;
 }
 
 function renderCareerCard(career: AdminData["careers"][number]) {
@@ -423,27 +530,36 @@ function adminSectionStyles() {
     .admin-live-heading h2{margin:0;font-size:clamp(32px,5vw,54px);line-height:1.05}
     .admin-live-heading p{margin:0;color:#6d6358}
     .admin-live-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-    .admin-live-card,.admin-live-role,.admin-live-gallery-card{overflow:hidden;border:1px solid #e4d8c8;border-radius:8px;background:#fff;box-shadow:0 20px 54px rgba(47,38,26,.09)}
-    .admin-live-card img,.admin-live-gallery-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .35s ease,filter .35s ease}
-    .admin-live-card img:hover,.admin-live-gallery-card img:hover{transform:scale(1.05);filter:brightness(1.05)}
-    .admin-live-card>div,.admin-live-role,.admin-live-gallery-card figcaption{display:grid;gap:12px;padding:22px}
+    .admin-live-card,.admin-live-role,.admin-live-vlog-card{overflow:hidden;border:1px solid #e4d8c8;border-radius:8px;background:#fff;box-shadow:0 20px 54px rgba(47,38,26,.09)}
+    .admin-live-card img,.admin-live-gallery-card img,.admin-live-vlog-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .35s ease,filter .35s ease}
+    .admin-live-card img:hover,.admin-live-gallery-card img:hover,.admin-live-vlog-card:hover img{transform:scale(1.05);filter:brightness(1.05)}
+    .admin-live-card>div,.admin-live-role{display:grid;gap:12px;padding:22px}
     .admin-live-card h3,.admin-live-role h3{margin:0;font-size:24px}
-    .admin-live-gallery-card figcaption{padding:26px}
-    .admin-live-gallery-card figcaption strong{font-size:20px;line-height:1.2}
-    .admin-live-gallery-card figcaption span{font-size:14px;color:#756a5e}
     .admin-live-card p,.admin-live-role p{margin:0;color:#6b6258}
     .admin-live-card dl{display:grid;gap:10px;margin:4px 0 0}
-    .admin-live-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .admin-live-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .admin-live-card dl div{display:flex;justify-content:space-between;gap:14px;border-top:1px solid #eee4d6;padding-top:10px}
     .admin-live-card dt{font-weight:800;color:#352d24}
     .admin-live-card dd{margin:0;color:#766a5c;text-align:right}
     .admin-live-pill{display:inline-flex;width:max-content;border-radius:999px;background:#f0e2c9;padding:7px 11px}
-    .admin-live-gallery-card{margin:0}
+    .admin-live-gallery-card{margin:0;overflow:hidden;background:#1d1812}
+    .admin-live-gallery-card img{aspect-ratio:1/1;transition:transform .45s ease,filter .45s ease}
+    .admin-live-gallery-card:hover img{transform:scale(1.08);filter:brightness(1.08)}
+    .admin-live-gallery .admin-live-gallery-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-inline:contain}
+    .admin-live-gallery .admin-live-gallery-grid::-webkit-scrollbar{display:none}
+    .admin-live-gallery .admin-live-gallery-grid.is-dragging{user-select:none}
+    .admin-live-gallery .admin-live-gallery-card{scroll-snap-align:start}
+    .admin-live-gallery .admin-live-gallery-card img{-webkit-user-drag:none;user-select:none}
+    .admin-live-vlog-card{display:block;color:inherit;text-decoration:none}
+    .admin-vlog-media{position:relative;overflow:hidden;background:#17130d}
+    .admin-live-vlog-card>div{padding:20px}.admin-live-vlog-card h3{margin:0 0 8px}.admin-live-vlog-card p{margin:0;color:#6b6258}
+    .admin-vlog-play{position:absolute;top:50%;left:50%;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:rgba(197,157,95,.94);color:#fff;transform:translate(-50%,-50%)}
     .admin-live-list{display:grid;gap:16px}
     .admin-live-role{grid-template-columns:minmax(0,1fr) minmax(220px,340px);align-items:start}
     .admin-live-role ul{display:grid;gap:8px;margin:0;padding:22px;list-style:none;background:#f2eadf}
     .admin-live-role li{font-weight:700;color:#42392f}
-    @media(max-width:760px){.admin-live-section{padding:58px 0}.admin-live-role{grid-template-columns:1fr}}
+    @media(max-width:760px){.admin-live-section{padding:58px 0}.admin-live-role{grid-template-columns:1fr}.admin-live-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-live-gallery .admin-live-gallery-grid{grid-auto-columns:calc((100% - 18px) / 2)}}
+    @media(max-width:480px){.admin-live-gallery-grid{grid-template-columns:1fr}.admin-live-gallery .admin-live-gallery-grid{grid-auto-columns:100%}}
   </style>`;
 }
 

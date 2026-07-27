@@ -42,8 +42,8 @@ export async function GET() {
   return NextResponse.json({
     ...adminData,
     menuSections,
-    gallery: Array.from(mergedGallery.values()).sort((a, b) =>
-      new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
+    gallery: Array.from(mergedGallery.values()).sort(
+      (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
     ),
   });
 }

@@ -5,7 +5,7 @@ import styles from "./AdminDashboard.module.css";
 
 type ProjectStatus = "ongoing" | "in-progress" | "completed" | "on-hold";
 type InquiryStatus = "new" | "contacted" | "closed";
-type Tab = "projects" | "gallery" | "careers" | "team" | "inquiries" | "menu";
+type Tab = "projects" | "gallery" | "vlogs" | "careers" | "team" | "inquiries" | "menu";
 
 type Project = {
   id: string;
@@ -42,6 +42,8 @@ type GalleryImage = {
   uploadedAt: string;
 };
 
+type Vlog = { id: string; title: string; details: string; youtubeUrl: string; thumbnailUrl: string; createdAt: string };
+
 type TeamMember = {
   id: string;
   name: string;
@@ -70,6 +72,7 @@ type AdminData = {
   projects: Project[];
   careers: CareerOpening[];
   gallery: GalleryImage[];
+  vlogs: Vlog[];
   inquiries: Inquiry[];
   team?: TeamMember[];
   // menu visibility map supplied by server (optional)
@@ -120,6 +123,7 @@ const emptyTeamMember: Omit<TeamMember, "id" | "updatedAt"> = {
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "projects", label: "Projects" },
   { id: "gallery", label: "Gallery" },
+  { id: "vlogs", label: "Vlogs" },
   { id: "menu", label: "Menu Controls" },
   { id: "careers", label: "Careers" },
   { id: "team", label: "Team Members" },
@@ -154,6 +158,7 @@ export function AdminDashboard() {
   const [editingCareerId, setEditingCareerId] = useState<string | null>(null);
   const [galleryForm, setGalleryForm] = useState(emptyGallery);
   const [editingGalleryId, setEditingGalleryId] = useState<string | null>(null);
+  const [vlogForm, setVlogForm] = useState({ title: "", details: "", youtubeUrl: "" });
   const [teamForm, setTeamForm] = useState(emptyTeamMember);
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null);
 
@@ -161,6 +166,7 @@ export function AdminDashboard() {
     () => ({
       projects: data?.projects.length ?? 0,
       gallery: data?.gallery.length ?? 0,
+      vlogs: data?.vlogs.length ?? 0,
       menu: data?.menuSections?.length ?? 0,
       careers: data?.careers.length ?? 0,
       team: data?.team?.length ?? 0,
@@ -430,6 +436,22 @@ export function AdminDashboard() {
     }
   }
 
+  async function saveVlog(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setNotice("");
+    const response = await fetch("/api/admin/vlogs", { method: "POST", body: new FormData(event.currentTarget) });
+    setData(await readResponse(response));
+    setVlogForm({ title: "", details: "", youtubeUrl: "" });
+    event.currentTarget.reset();
+    setNotice("Vlog published.");
+  }
+
+  async function deleteVlog(id: string) {
+    const response = await fetch(`/api/admin/vlogs/${id}`, { method: "DELETE" });
+    setData(await readResponse(response));
+    setNotice("Vlog deleted.");
+  }
+
   async function updateInquiryStatus(id: string, status: InquiryStatus) {
     const response = await fetch(`/api/admin/inquiries/${id}`, {
       method: "PUT",
@@ -571,6 +593,7 @@ export function AdminDashboard() {
               setEditingId={setEditingGalleryId}
             />
           ) : null}
+          {activeTab === "vlogs" && data ? <VlogsPanel data={data.vlogs} form={vlogForm} setForm={setVlogForm} saveVlog={saveVlog} deleteVlog={deleteVlog} /> : null}
           {activeTab === "menu" && data ? (
             <MenuControlsPanel data={data} />
           ) : null}
@@ -1139,6 +1162,10 @@ function GalleryPanel({
     ) : null}
     </>
   );
+}
+
+function VlogsPanel({ data, form, setForm, saveVlog, deleteVlog }: { data: Vlog[]; form: { title: string; details: string; youtubeUrl: string }; setForm: (form: { title: string; details: string; youtubeUrl: string }) => void; saveVlog: (event: FormEvent<HTMLFormElement>) => Promise<void>; deleteVlog: (id: string) => Promise<void> }) {
+  return <><section className={styles.panel}><div className={styles.panelTitle}><div><span>Publish</span><h2>Vlog</h2><p>Publish a project story that links visitors to YouTube.</p></div></div><form className={styles.form} onSubmit={saveVlog}><div className={styles.grid}><label className={styles.field}>Title<input name="title" required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} /></label><label className={styles.field}>YouTube link<input name="youtubeUrl" required type="url" value={form.youtubeUrl} onChange={(event) => setForm({ ...form, youtubeUrl: event.target.value })} /></label><label className={`${styles.field} ${styles.wide}`}>Details<textarea name="details" required value={form.details} onChange={(event) => setForm({ ...form, details: event.target.value })} /></label><label className={styles.field}>Thumbnail<input accept="image/*" name="thumbnail" required type="file" /></label></div><button className={styles.button} type="submit">Publish Vlog</button></form></section><section className={styles.panel}><div className={styles.galleryGrid}>{data.map((vlog) => <article className={styles.galleryCard} key={vlog.id}><img alt="" src={vlog.thumbnailUrl} /><div><strong>{vlog.title}</strong><span>{vlog.details}</span><div className={styles.rowActions}><a className={styles.secondaryButton} href={vlog.youtubeUrl} rel="noreferrer" target="_blank">Open video</a><button className={styles.dangerButton} onClick={() => void deleteVlog(vlog.id)} type="button">Delete</button></div></div></article>)}</div></section></>;
 }
 
 function CareersPanel({
