@@ -42,6 +42,8 @@ const legacyPageLoaders: Record<string, () => Promise<LegacyPageModule>> = {
   "project-single": () => import("./legacy-pages-data/project_single"),
   "projects.html": () => import("./legacy-pages-data/projects_html"),
   "projects": () => import("./legacy-pages-data/projects"),
+  "ongoing.html": () => import("./legacy-pages-data/ongoing_html"),
+  "ongoing": () => import("./legacy-pages-data/ongoing"),
   "service-single.html": () => import("./legacy-pages-data/service_single_html"),
   "service-single": () => import("./legacy-pages-data/service_single"),
   "services.html": () => import("./legacy-pages-data/services_html"),
@@ -87,6 +89,8 @@ export const legacySlugs = [
     "project-single",
     "projects.html",
     "projects",
+    "ongoing.html",
+    "ongoing",
     "service-single.html",
     "service-single",
     "services.html",
@@ -113,9 +117,50 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   const data = await readAdminData();
   const normalizedSlug = slug.replace(/\.html$/, "");
 
+  // Inject admin-managed sections first
+  let body = injectAdminContent(page.body, normalizedSlug, data);
+
+  // Replace project anchor links that previously pointed to the projects page ongoing anchor
+  // so they point to the new standalone ongoing page instead.
+  body = body.replace(/projects\.html#ongoing/g, 'ongoing.html');
+
+  // Insert a top-level "Ongoing" nav item before the Careers link if the link isn't already present.
+  if (!/href=\"ongoing\.html\"/.test(body)) {
+    const careersMarker = '<li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>';
+    if (body.indexOf(careersMarker) !== -1) {
+      body = body.replace(careersMarker, '<li class="nav-item"><a class="nav-link" href="ongoing.html">Ongoing</a></li>\n                                ' + careersMarker);
+    } else {
+      // Fallback: try a simpler insertion near the careers anchor if exact marker not found
+      body = body.replace('<a class="nav-link" href="careers.html">Careers</a>', '<a class="nav-link" href="ongoing.html">Ongoing</a>\n                                <a class="nav-link" href="careers.html">Careers</a>');
+    }
+  }
+
+  // For the Projects legacy page specifically, remove the inline Ongoing section (we moved it to a new page)
+  if (normalizedSlug === 'projects') {
+    body = body.replace(/<section[^>]+id=\"ongoing\"[\s\S]*?<\/section>/, '');
+  }
+
+  // Apply menu visibility settings from admin data: remove nav links and page sections for disabled slugs.
+  if (data && data.menu) {
+    for (const [slug, enabled] of Object.entries(data.menu)) {
+      if (enabled === false) {
+        try {
+          // Remove list nav item that links to the slug (li wrapper)
+          body = body.replace(new RegExp(`<li[^>]*>\\s*<a[^>]*href=\\"${slug}\\.html\\"[\\s\\S]*?<\\/li>`, 'i'), '');
+          // Remove any anchor link pointing directly to the page
+          body = body.replace(new RegExp(`<a[^>]*href=\\"${slug}\\.html\\"[^>]*>[^<]*<\\/a>`, 'gi'), '');
+          // Remove a section with matching id attribute
+          body = body.replace(new RegExp(`<section[^>]+id=\\"${slug}\\"[\\s\\S]*?<\\/section>`, 'i'), '');
+        } catch (e) {
+          // ignore regex errors and continue
+        }
+      }
+    }
+  }
+
   return {
     ...page,
-    body: injectAdminContent(page.body, normalizedSlug, data),
+    body,
   };
 }
 
@@ -136,11 +181,22 @@ function injectAdminContent(body: string, slug: string, data: AdminData) {
 }
 
 function renderAdminSection(slug: string, data: AdminData) {
+  // By default sections are enabled unless explicitly disabled in admin data.menu
+  const isEnabled = (s: string) => {
+    try {
+      return data.menu?.[s] !== false;
+    } catch (e) {
+      return true;
+    }
+  };
+
   if (slug === "projects") {
+    if (!isEnabled("projects")) return "";
     return renderProjectsIntoCompletedSection(data);
   }
 
   if (slug === "gallery" && data.gallery.length > 0) {
+    if (!isEnabled("gallery")) return "";
     return `${adminSectionStyles()}
     <section class="admin-live-section admin-live-gallery" id="admin-managed-gallery">
       <div class="container">
@@ -156,6 +212,7 @@ function renderAdminSection(slug: string, data: AdminData) {
   }
 
   if (slug === "careers" && data.careers.length > 0) {
+    if (!isEnabled("careers")) return "";
     return `${adminSectionStyles()}
     <section class="admin-live-section admin-live-careers" id="admin-managed-careers">
       <div class="container">

@@ -41,6 +41,19 @@ export type GalleryImage = {
   uploadedAt: string;
 };
 
+export type TeamMember = {
+  id: string;
+  name: string;
+  designation: string;
+  linkedIn?: string;
+  instagram?: string;
+  facebook?: string;
+  x?: string;
+  photoUrl: string;
+  storagePath?: string;
+  updatedAt: string;
+};
+
 export type Inquiry = {
   id: string;
   name: string;
@@ -57,6 +70,9 @@ export type AdminData = {
   careers: CareerOpening[];
   gallery: GalleryImage[];
   inquiries: Inquiry[];
+  team: TeamMember[];
+  // menu visibility map: slug -> enabled (true/false)
+  menu?: Record<string, boolean>;
 };
 
 const dataFile = path.join(process.cwd(), "data", "admin-data.json");
@@ -66,6 +82,8 @@ const emptyData: AdminData = {
   careers: [],
   gallery: [],
   inquiries: [],
+  team: [],
+  menu: {},
 };
 
 export function makeId(prefix: string, value: string) {

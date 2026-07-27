@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { readAdminData } from "@/lib/admin-store";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
+import { legacySlugs } from "@/lib/legacy-pages";
 
 export async function GET() {
   if (!(await isAdminAuthenticated())) {
@@ -34,8 +35,13 @@ export async function GET() {
     });
   }
 
+  // Derive menu sections from legacy slugs, normalizing and removing single-resource pages and 404/index variants
+  const normalized = Array.from(new Set(legacySlugs.map((s) => s.replace(/\.html$/, ""))));
+  const menuSections = normalized.filter((s) => !/^404$/.test(s) && !/^index-\d+$/.test(s) && !s.endsWith("-single"));
+
   return NextResponse.json({
     ...adminData,
+    menuSections,
     gallery: Array.from(mergedGallery.values()).sort((a, b) =>
       new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
     ),

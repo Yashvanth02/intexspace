@@ -5,7 +5,7 @@ import styles from "./AdminDashboard.module.css";
 
 type ProjectStatus = "ongoing" | "in-progress" | "completed" | "on-hold";
 type InquiryStatus = "new" | "contacted" | "closed";
-type Tab = "projects" | "gallery" | "careers" | "inquiries";
+type Tab = "projects" | "gallery" | "careers" | "team" | "inquiries" | "menu";
 
 type Project = {
   id: string;
@@ -42,6 +42,19 @@ type GalleryImage = {
   uploadedAt: string;
 };
 
+type TeamMember = {
+  id: string;
+  name: string;
+  designation: string;
+  linkedIn?: string;
+  instagram?: string;
+  facebook?: string;
+  x?: string;
+  photoUrl: string;
+  storagePath?: string;
+  updatedAt: string;
+};
+
 type Inquiry = {
   id: string;
   name: string;
@@ -58,6 +71,11 @@ type AdminData = {
   careers: CareerOpening[];
   gallery: GalleryImage[];
   inquiries: Inquiry[];
+  team?: TeamMember[];
+  // menu visibility map supplied by server (optional)
+  menu?: Record<string, boolean>;
+  // detected menu sections available on user dashboard
+  menuSections?: string[];
 };
 
 const emptyGallery: Omit<GalleryImage, "id" | "uploadedAt"> = {
@@ -89,10 +107,22 @@ const emptyCareer: Omit<CareerOpening, "id" | "updatedAt"> = {
   isOpen: true,
 };
 
+const emptyTeamMember: Omit<TeamMember, "id" | "updatedAt"> = {
+  name: "",
+  designation: "",
+  linkedIn: "",
+  instagram: "",
+  facebook: "",
+  x: "",
+  photoUrl: "",
+};
+
 const tabs: Array<{ id: Tab; label: string }> = [
   { id: "projects", label: "Projects" },
   { id: "gallery", label: "Gallery" },
+  { id: "menu", label: "Menu Controls" },
   { id: "careers", label: "Careers" },
+  { id: "team", label: "Team Members" },
   { id: "inquiries", label: "Inquiries" },
 ];
 
@@ -124,12 +154,16 @@ export function AdminDashboard() {
   const [editingCareerId, setEditingCareerId] = useState<string | null>(null);
   const [galleryForm, setGalleryForm] = useState(emptyGallery);
   const [editingGalleryId, setEditingGalleryId] = useState<string | null>(null);
+  const [teamForm, setTeamForm] = useState(emptyTeamMember);
+  const [editingTeamId, setEditingTeamId] = useState<string | null>(null);
 
   const counts = useMemo(
     () => ({
       projects: data?.projects.length ?? 0,
       gallery: data?.gallery.length ?? 0,
+      menu: data?.menuSections?.length ?? 0,
       careers: data?.careers.length ?? 0,
+      team: data?.team?.length ?? 0,
       inquiries: data?.inquiries.filter((inquiry) => inquiry.status === "new").length ?? 0,
     }),
     [data],
@@ -211,6 +245,26 @@ export function AdminDashboard() {
 
   useEffect(() => {
     void loadState();
+  }, []);
+
+  // Listen for menu updates dispatched from MenuControlsPanel so UI updates immediately without a full refresh
+  useEffect(() => {
+    function onUpdated(event: Event) {
+      const detail = (event as CustomEvent).detail as AdminData | undefined;
+      if (detail) setData(detail);
+    }
+
+    function onNotice(event: Event) {
+      const message = (event as CustomEvent).detail as string | undefined;
+      if (message) setNotice(message);
+    }
+
+    window.addEventListener('admin-data-updated', onUpdated as EventListener);
+    window.addEventListener('admin-notice', onNotice as EventListener);
+    return () => {
+      window.removeEventListener('admin-data-updated', onUpdated as EventListener);
+      window.removeEventListener('admin-notice', onNotice as EventListener);
+    };
   }, []);
 
   async function login(event: FormEvent<HTMLFormElement>) {
@@ -312,6 +366,29 @@ export function AdminDashboard() {
     const response = await fetch(`/api/admin/careers/${id}`, { method: "DELETE" });
     setData(await readResponse(response));
     setNotice("Career opening deleted.");
+  }
+
+  async function saveTeamMember(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setNotice("");
+
+    const formData = new FormData(event.currentTarget);
+    const response = await fetch(editingTeamId ? `/api/admin/team/${editingTeamId}` : "/api/admin/team", {
+      method: editingTeamId ? "PUT" : "POST",
+      body: formData,
+    });
+
+    const nextData = await readResponse(response);
+    setData(nextData);
+    setTeamForm(emptyTeamMember);
+    setEditingTeamId(null);
+    setNotice(editingTeamId ? "Team member updated." : "Team member added.");
+  }
+
+  async function deleteTeamMember(id: string) {
+    const response = await fetch(`/api/admin/team/${id}`, { method: "DELETE" });
+    setData(await readResponse(response));
+    setNotice("Team member deleted.");
   }
 
   async function uploadGallery(event: FormEvent<HTMLFormElement>) {
@@ -494,6 +571,9 @@ export function AdminDashboard() {
               setEditingId={setEditingGalleryId}
             />
           ) : null}
+          {activeTab === "menu" && data ? (
+            <MenuControlsPanel data={data} />
+          ) : null}
           {activeTab === "careers" && data ? (
             <CareersPanel
               data={data.careers}
@@ -505,12 +585,228 @@ export function AdminDashboard() {
               setForm={setCareerForm}
             />
           ) : null}
+          {activeTab === "team" && data ? (
+            <TeamMembersPanel
+              data={data.team || []}
+              deleteTeamMember={deleteTeamMember}
+              editingId={editingTeamId}
+              form={teamForm}
+              saveTeamMember={saveTeamMember}
+              setEditingId={setEditingTeamId}
+              setForm={setTeamForm}
+            />
+          ) : null}
           {activeTab === "inquiries" && data ? (
             <InquiriesPanel data={data.inquiries} deleteInquiry={deleteInquiry} updateStatus={updateInquiryStatus} />
           ) : null}
         </section>
       </div>
     </main>
+  );
+}
+
+function MenuControlsPanel({ data }: { data: AdminData }) {
+  const sections = data?.menuSections || [];
+
+  async function toggleSection(slug: string, enabled: boolean) {
+    try {
+      const response = await fetch('/api/admin/menu', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, enabled }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.message || 'Failed to update menu state');
+      }
+
+      const next = await readResponse(response);
+      // update top-level data state by setting it in the enclosing component via setData call in parent
+      // But this component has no direct access to setData; rely on the response to be merged via loadState when needed.
+      // To allow immediate UI update, dispatch a custom event with updated data.
+      const event = new CustomEvent('admin-data-updated', { detail: next });
+      window.dispatchEvent(event as Event);
+    } catch (error) {
+      // Best-effort notice via DOM event as well
+      const evt = new CustomEvent('admin-notice', { detail: (error as Error).message });
+      window.dispatchEvent(evt as Event);
+    }
+  }
+
+  return (
+    <section className={styles.panel}>
+      <div className={styles.panelTitle}>
+        <div>
+          <span>Configure</span>
+          <h2>Menu Controls</h2>
+          <p>Enable or disable major sections on the public user dashboard.</p>
+        </div>
+      </div>
+      <div className={styles.list}>
+        {sections.map((slug) => {
+          const isEnabled = data?.menu?.[slug] !== false;
+          const label = slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+          return (
+            <article className={`${styles.item} ${styles.itemNoImage}`} key={slug}>
+              <div>
+                <h3>{label}</h3>
+              </div>
+              <div className={styles.rowActions}>
+                <label className={styles.field} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <input
+                    checked={isEnabled}
+                    onChange={(e) => toggleSection(slug, e.currentTarget.checked)}
+                    type="checkbox"
+                  />
+                  <span style={{ marginLeft: 6 }}>{isEnabled ? 'Enabled' : 'Disabled'}</span>
+                </label>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function TeamMembersPanel({
+  data,
+  deleteTeamMember,
+  editingId,
+  form,
+  saveTeamMember,
+  setEditingId,
+  setForm,
+}: {
+  data: TeamMember[];
+  deleteTeamMember: (id: string) => Promise<void>;
+  editingId: string | null;
+  form: Omit<TeamMember, "id" | "updatedAt">;
+  saveTeamMember: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  setEditingId: (id: string | null) => void;
+  setForm: (form: Omit<TeamMember, "id" | "updatedAt">) => void;
+}) {
+  return (
+    <>
+      <div
+        className={editingId ? styles.modalBackdrop : undefined}
+        onClick={(event) => {
+          if (editingId && event.target === event.currentTarget) {
+            setEditingId(null);
+            setForm(emptyTeamMember);
+          }
+        }}
+      >
+        <section className={`${styles.panel} ${styles.editorPanel} ${editingId ? styles.modalPanel : ""}`}>
+          <div className={styles.panelTitle}>
+            <div>
+              <span>{editingId ? "Edit" : "Add"}</span>
+              <h2>Team Member</h2>
+              <p>Team member profiles publish to the public site.</p>
+            </div>
+            {editingId ? (
+              <button
+                className={styles.secondaryButton}
+                onClick={() => {
+                  setEditingId(null);
+                  setForm(emptyTeamMember);
+                }}
+                type="button"
+              >
+                Cancel Edit
+              </button>
+            ) : null}
+          </div>
+          <form className={styles.form} onSubmit={saveTeamMember}>
+            <div className={styles.grid}>
+              <label className={styles.field}>
+                Name
+                <input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} />
+              </label>
+              <label className={styles.field}>
+                Designation
+                <input required value={form.designation} onChange={(event) => setForm({ ...form, designation: event.target.value })} />
+              </label>
+              <label className={styles.field}>
+                LinkedIn
+                <input value={form.linkedIn || ""} onChange={(event) => setForm({ ...form, linkedIn: event.target.value })} type="url" />
+              </label>
+              <label className={styles.field}>
+                Instagram
+                <input value={form.instagram || ""} onChange={(event) => setForm({ ...form, instagram: event.target.value })} type="url" />
+              </label>
+              <label className={styles.field}>
+                Facebook
+                <input value={form.facebook || ""} onChange={(event) => setForm({ ...form, facebook: event.target.value })} type="url" />
+              </label>
+              <label className={styles.field}>
+                X (Twitter)
+                <input value={form.x || ""} onChange={(event) => setForm({ ...form, x: event.target.value })} type="url" />
+              </label>
+              <label className={`${styles.field} ${styles.wide}`}>
+                Photo
+                <input accept="image/*" name="photo" type="file" required={!editingId} />
+              </label>
+            </div>
+            <button className={styles.button} type="submit">
+              {editingId ? "Update Team Member" : "Add Team Member"}
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <section className={styles.panel}>
+        <div className={styles.panelTitle}>
+          <div>
+            <span>Manage</span>
+            <h2>Team Members</h2>
+            <p>View and maintain your team profiles from one place.</p>
+          </div>
+        </div>
+        <div className={styles.list}>
+          {data.map((member) => (
+            <article className={styles.item} key={member.id}>
+              <img className={styles.itemImage} alt={member.name} src={member.photoUrl} />
+              <div>
+                <h3>{member.name}</h3>
+                <p>{member.designation}</p>
+                <div className={styles.meta}>
+                  {member.linkedIn ? <span>LinkedIn</span> : null}
+                  {member.instagram ? <span>Instagram</span> : null}
+                  {member.facebook ? <span>Facebook</span> : null}
+                  {member.x ? <span>X</span> : null}
+                </div>
+              </div>
+              <div className={styles.rowActions}>
+                <button
+                  className={styles.secondaryButton}
+                  onClick={() => {
+                    setEditingId(member.id);
+                    setForm({
+                      name: member.name,
+                      designation: member.designation,
+                      linkedIn: member.linkedIn || "",
+                      instagram: member.instagram || "",
+                      facebook: member.facebook || "",
+                      x: member.x || "",
+                      photoUrl: member.photoUrl,
+                      storagePath: member.storagePath,
+                    });
+                  }}
+                  type="button"
+                >
+                  Edit
+                </button>
+                <button className={styles.dangerButton} onClick={() => void deleteTeamMember(member.id)} type="button">
+                  Delete
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
 
