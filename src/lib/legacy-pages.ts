@@ -168,7 +168,8 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     if (sectionStart !== -1 && footerStart > sectionStart) {
       const tickerStart = body.lastIndexOf('<!-- Scrolling Ticker Section Start -->', sectionStart);
       const pageStart = tickerStart === -1 ? body.slice(0, sectionStart) : body.slice(0, tickerStart);
-      const sections = body.slice(sectionStart, footerStart);
+      let sections = body.slice(sectionStart, footerStart);
+      sections = truncateProjectsAfterMaritime(sections).replace(/href="contact\.html"/g, 'href="#project-details" data-project-trigger');
 
       body = `${pageStart}
         <main class="intex-projects-page">
@@ -185,11 +186,14 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
               <a href="#maritime"><span>Maritime</span></a>
             </nav>
             ${sections}
-            ${renderCompletedProjectSection(data)}
           </div>
         </main>
         ${body.slice(footerStart)}`;
     }
+  }
+
+  if (normalizedSlug === 'team' && data.team.length > 0) {
+    body = body.replace(/<!-- Page Team Start -->[\s\S]*?<!-- Page Team End -->/i, renderAdminTeamSection(data.team));
   }
 
   if (!/href=\"vlog\.html\"/.test(body)) {
@@ -520,6 +524,71 @@ function renderCareerCard(career: AdminData["careers"][number]) {
       <li>${escapeHtml(career.qualification || "Relevant qualification")}</li>
     </ul>
   </article>`;
+}
+
+function truncateProjectsAfterMaritime(sections: string) {
+  const maritimeStart = sections.indexOf('<section class="intex-project-section" id="maritime">');
+  if (maritimeStart === -1) {
+    return sections;
+  }
+
+  const maritimeEnd = sections.indexOf('</section>', maritimeStart);
+  return maritimeEnd === -1 ? sections : sections.slice(0, maritimeEnd + '</section>'.length);
+}
+
+function renderAdminTeamSection(team: AdminData["team"]) {
+  if (!team.length) {
+    return "";
+  }
+
+  return `<!-- Page Team Start -->
+    <div class="page-team">
+      <div class="container">
+        <div class="row">
+          ${team.map(renderTeamMemberCard).join("")}
+        </div>
+      </div>
+    </div>
+    <!-- Page Team End -->`;
+}
+
+function renderTeamMemberCard(member: AdminData["team"][number], index = 0) {
+  const delay = index > 0 ? ` data-wow-delay="${Math.min(0.8, index * 0.2).toFixed(1)}s"` : "";
+  const socialLinks = renderTeamSocialLinks(member);
+
+  return `<div class="col-xl-3 col-md-6">
+            <div class="team-item wow fadeInUp"${delay}>
+              <div class="team-item-image">
+                <a href="team-single.html" data-cursor-text="View">
+                  <figure><img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}"></figure>
+                </a>
+              </div>
+              <div class="team-item-body">
+                <div class="team-item-content">
+                  <h2><a href="team-single.html">${escapeHtml(member.name)}</a></h2>
+                  <p>${escapeHtml(member.designation)}</p>
+                </div>
+                ${socialLinks ? `<div class="team-social-list"><ul>${socialLinks}</ul></div>` : ""}
+              </div>
+            </div>
+          </div>`;
+}
+
+function renderTeamSocialLinks(member: AdminData["team"][number]) {
+  const links: string[] = [];
+  if (member.facebook) {
+    links.push(`<li><a href="${escapeHtml(member.facebook)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a></li>`);
+  }
+  if (member.linkedIn) {
+    links.push(`<li><a href="${escapeHtml(member.linkedIn)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>`);
+  }
+  if (member.instagram) {
+    links.push(`<li><a href="${escapeHtml(member.instagram)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>`);
+  }
+  if (member.x) {
+    links.push(`<li><a href="${escapeHtml(member.x)}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a></li>`);
+  }
+  return links.join("");
 }
 
 function adminSectionStyles() {

@@ -745,27 +745,27 @@ function TeamMembersPanel({
             <div className={styles.grid}>
               <label className={styles.field}>
                 Name
-                <input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} />
+                <input name="name" required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} />
               </label>
               <label className={styles.field}>
                 Designation
-                <input required value={form.designation} onChange={(event) => setForm({ ...form, designation: event.target.value })} />
+                <input name="designation" required value={form.designation} onChange={(event) => setForm({ ...form, designation: event.target.value })} />
               </label>
               <label className={styles.field}>
                 LinkedIn
-                <input value={form.linkedIn || ""} onChange={(event) => setForm({ ...form, linkedIn: event.target.value })} type="url" />
+                <input name="linkedIn" value={form.linkedIn || ""} onChange={(event) => setForm({ ...form, linkedIn: event.target.value })} type="url" />
               </label>
               <label className={styles.field}>
                 Instagram
-                <input value={form.instagram || ""} onChange={(event) => setForm({ ...form, instagram: event.target.value })} type="url" />
+                <input name="instagram" value={form.instagram || ""} onChange={(event) => setForm({ ...form, instagram: event.target.value })} type="url" />
               </label>
               <label className={styles.field}>
                 Facebook
-                <input value={form.facebook || ""} onChange={(event) => setForm({ ...form, facebook: event.target.value })} type="url" />
+                <input name="facebook" value={form.facebook || ""} onChange={(event) => setForm({ ...form, facebook: event.target.value })} type="url" />
               </label>
               <label className={styles.field}>
                 X (Twitter)
-                <input value={form.x || ""} onChange={(event) => setForm({ ...form, x: event.target.value })} type="url" />
+                <input name="x" value={form.x || ""} onChange={(event) => setForm({ ...form, x: event.target.value })} type="url" />
               </label>
               <label className={`${styles.field} ${styles.wide}`}>
                 Photo
