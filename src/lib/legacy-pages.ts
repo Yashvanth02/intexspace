@@ -545,7 +545,7 @@ function adminSectionStyles() {
     .admin-live-gallery-card{margin:0;overflow:hidden;background:#1d1812}
     .admin-live-gallery-card img{aspect-ratio:1/1;transition:transform .45s ease,filter .45s ease}
     .admin-live-gallery-card:hover img{transform:scale(1.08);filter:brightness(1.08)}
-    .admin-live-gallery .admin-live-gallery-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);overflow-x:auto;padding-bottom:6px;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-inline:contain}
+    .admin-live-gallery .admin-live-gallery-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);overflow-x:auto;padding-bottom:6px;scroll-behavior:smooth;scroll-snap-type:x proximity;scrollbar-width:none;touch-action:pan-y;overscroll-behavior-inline:contain}
     .admin-live-gallery .admin-live-gallery-grid::-webkit-scrollbar{display:none}
     .admin-live-gallery .admin-live-gallery-grid.is-dragging{user-select:none}
     .admin-live-gallery .admin-live-gallery-card{scroll-snap-align:start}

@@ -11,6 +11,21 @@ export function LegacyInteractions() {
     );
 
     const cleanups = carousels.map((carousel) => {
+      const frame = document.createElement("div");
+      frame.className = "project-carousel-frame";
+      carousel.before(frame);
+      frame.appendChild(carousel);
+
+      const projectCount = Array.from(carousel.children).filter((child) => child.matches(".col-xl-4, .admin-live-gallery-card")).length;
+      const nextButton = projectCount >= 3 ? document.createElement("button") : null;
+      if (nextButton) {
+        nextButton.type = "button";
+        nextButton.className = "project-carousel-next";
+        nextButton.setAttribute("aria-label", "Show next projects");
+        nextButton.innerHTML = '<span aria-hidden="true">&#8594;</span>';
+        frame.appendChild(nextButton);
+      }
+
       let pointerId: number | null = null;
       let startX = 0;
       let startScroll = 0;
@@ -80,11 +95,20 @@ export function LegacyInteractions() {
       };
 
       const onWheel = (event: WheelEvent) => {
-        const distance = event.deltaX || event.deltaY;
-        if (!distance) return;
+        // Preserve normal vertical page scrolling. Only a deliberate horizontal
+        // gesture (such as Shift + wheel or a trackpad swipe) moves the carousel.
+        if (!event.deltaX || Math.abs(event.deltaY) > Math.abs(event.deltaX)) return;
         event.preventDefault();
         targetScroll = carousel.scrollLeft;
-        moveSmoothly(distance);
+        moveSmoothly(event.deltaX);
+      };
+
+      const onNextClick = () => {
+        const distance = Math.max(carousel.clientWidth * 0.82, 280);
+        const maximumScroll = carousel.scrollWidth - carousel.clientWidth;
+        const nextPosition = Math.min(maximumScroll, carousel.scrollLeft + distance);
+        targetScroll = nextPosition;
+        carousel.scrollTo({ left: nextPosition, behavior: "smooth" });
       };
 
       const onClick = (event: MouseEvent) => {
@@ -104,6 +128,7 @@ export function LegacyInteractions() {
       carousel.addEventListener("pointerleave", onPointerLeave);
       carousel.addEventListener("wheel", onWheel, { passive: false });
       carousel.addEventListener("click", onClick, true);
+      nextButton?.addEventListener("click", onNextClick);
       window.addEventListener("blur", stopDragging);
 
       return () => {
@@ -117,8 +142,10 @@ export function LegacyInteractions() {
         carousel.removeEventListener("pointerleave", onPointerLeave);
         carousel.removeEventListener("wheel", onWheel);
         carousel.removeEventListener("click", onClick, true);
+        nextButton?.removeEventListener("click", onNextClick);
         window.removeEventListener("blur", stopDragging);
         if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+        frame.replaceWith(carousel);
       };
     });
 

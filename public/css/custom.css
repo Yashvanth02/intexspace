@@ -3016,8 +3016,43 @@ body .hero-body{
 .intex-projects-page .project-carousel-wrap{
 	cursor: default;
 	scrollbar-width: none;
+	scroll-behavior: smooth;
 	touch-action: pan-y;
 	overscroll-behavior-inline: contain;
+}
+
+.project-carousel-frame{
+	display: grid;
+	gap: 14px;
+}
+
+.project-carousel-next{
+	display: grid;
+	justify-self: end;
+	width: 44px;
+	height: 44px;
+	place-items: center;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	background: rgba(24, 20, 15, 0.82);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	color: var(--white-color);
+	font-size: 24px;
+	line-height: 1;
+	transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-carousel-next:hover,
+.project-carousel-next:focus-visible{
+	background: var(--accent-color);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
+	transform: scale(1.08);
+}
+
+.project-carousel-next:focus-visible{
+	outline: 2px solid var(--accent-secondary-color);
+	outline-offset: 3px;
 }
 
 .intex-projects-page .project-carousel-wrap::-webkit-scrollbar{
