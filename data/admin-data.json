@@ -1105,6 +1105,7 @@
     }
   ],
   "menu": {
-    "about": true
+    "about": true,
+    "blog": true
   }
 }
