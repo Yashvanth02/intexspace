@@ -644,12 +644,18 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
         throw new Error(body.message || 'Failed to update menu state');
       }
 
-      const next = await readResponse(response);
-      // update top-level data state by setting it in the enclosing component via setData call in parent
-      // But this component has no direct access to setData; rely on the response to be merged via loadState when needed.
-      // To allow immediate UI update, dispatch a custom event with updated data.
-      const event = new CustomEvent('admin-data-updated', { detail: next });
+      // The PUT response contains the raw stored AdminData (without computed fields like
+      // menuSections or merged gallery). Extract only the updated menu map and merge it
+      // into the existing data so that menuSections and other fields are preserved.
+      const body = await response.json().catch(() => ({})) as { menu?: Record<string, boolean> };
+      const updatedMenu: Record<string, boolean> = body.menu ?? { ...((data.menu) || {}), [slug]: enabled };
+      const merged: AdminData = { ...data, menu: updatedMenu };
+
+      const event = new CustomEvent('admin-data-updated', { detail: merged });
       window.dispatchEvent(event as Event);
+
+      const notice = new CustomEvent('admin-notice', { detail: `"${slug}" section ${enabled ? 'enabled' : 'disabled'}.` });
+      window.dispatchEvent(notice as Event);
     } catch (error) {
       // Best-effort notice via DOM event as well
       const evt = new CustomEvent('admin-notice', { detail: (error as Error).message });

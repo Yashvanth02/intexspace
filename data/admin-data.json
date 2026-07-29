@@ -1105,6 +1105,6 @@
     }
   ],
   "menu": {
-    "about": false
+    "about": true
   }
 }
