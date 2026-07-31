@@ -586,6 +586,26 @@ header.main-header .header-sticky.active{
 	display: inline-flex;
 	align-items: center;
 	flex-shrink: 0;
+	position: relative;
+}
+
+.brand-symbol{
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 4px;
+	width: 44px;
+	height: 68px;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.navbar-brand .brand-symbol img{
+	display: block;
+	position: absolute;
+	width: 111px;
+	max-width: none;
+	transform: translate(-41px, -33px);
 }
 
 .navbar-brand img{

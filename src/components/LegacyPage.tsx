@@ -10,7 +10,12 @@ export function LegacyPage({ page }: LegacyPageProps) {
   // Legacy HTML can contain browser-normalized whitespace or imperfect markup.
   // Keep the adjacent admin link in this same isolated container so it cannot
   // become a separately hydrated sibling and trigger a mismatch.
-  const body = `${page.body}<div class="admin-access-bar"><a href="/admin">Admin Access</a></div>`;
+  const bodyWithLogo = page.body.replace(
+    /<img\s+src="images\/logo\.svg"\s+alt="([^"]*)">/g,
+    (_match, alt) =>
+      `<span class="brand-symbol" aria-hidden="true"><img src="/images/intex-symbol.png" alt=""></span><img src="images/logo.svg" alt="${alt}">`,
+  );
+  const body = `${bodyWithLogo}<div class="admin-access-bar"><a href="/admin">Admin Access</a></div>`;
 
   return (
     <>
