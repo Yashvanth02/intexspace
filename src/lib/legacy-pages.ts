@@ -1,6 +1,7 @@
 import "server-only";
 
 import { readAdminData, type AdminData } from "./admin-store";
+import { createSupabaseAdmin } from "./supabase-server";
 
 export type LegacyPage = {
   title: string;
@@ -118,8 +119,78 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
   const module = await loader();
   const page = module.default;
-  const data = await readAdminData();
+  const rawData = await readAdminData();
   const normalizedSlug = slug.replace(/\.html$/, "");
+
+  // Merge gallery from Supabase (same as admin state endpoint) so user-facing
+  // pages always reflect the latest admin uploads.
+  let data: AdminData = rawData;
+  try {
+    const supabaseAdmin = createSupabaseAdmin();
+
+    // Fetch both gallery and projects from Supabase so public legacy pages reflect remote changes
+    const { data: galleryRows } = await supabaseAdmin
+      .from("gallery")
+      .select("id, title, image_url, alt, category, uploaded_at")
+      .order("uploaded_at", { ascending: false });
+
+    const { data: projectRows } = await supabaseAdmin
+      .from("projects")
+      .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
+      .order("updated_at", { ascending: false });
+
+    // Merge gallery rows with local gallery (local items take precedence unless Supabase has newer entries)
+    let sortedGallery: AdminData["gallery"] | undefined = undefined;
+    if (galleryRows && galleryRows.length > 0) {
+      const localGalleryById = new Map(rawData.gallery.map((item) => [item.id, item]));
+      const mergedGallery = new Map<string, AdminData["gallery"][number]>(localGalleryById);
+      for (const row of galleryRows) {
+        mergedGallery.set(row.id, {
+          id: row.id,
+          title: row.title,
+          imageUrl: row.image_url,
+          alt: row.alt,
+          category: row.category,
+          uploadedAt: row.uploaded_at,
+        });
+      }
+      sortedGallery = Array.from(mergedGallery.values()).sort(
+        (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
+      );
+    }
+
+    // Merge project rows with local projects so user pages pick up admin updates stored in Supabase
+    let sortedProjects: AdminData["projects"] | undefined = undefined;
+    if (projectRows && projectRows.length > 0) {
+      const localProjectsById = new Map(rawData.projects.map((item) => [item.id, item]));
+      const mergedProjects = new Map<string, AdminData["projects"][number]>(localProjectsById);
+      for (const row of projectRows) {
+        mergedProjects.set(row.id, {
+          id: row.id,
+          title: row.title,
+          status: row.status,
+          location: row.location,
+          client: row.client,
+          category: row.category,
+          year: row.year,
+          summary: row.summary,
+          description: row.description,
+          imageUrl: row.image_url,
+          updatedAt: row.updated_at,
+        });
+      }
+      sortedProjects = Array.from(mergedProjects.values()).sort(
+        (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      );
+    }
+
+    // Compose final data: start from local rawData, then override gallery and/or projects when remote data is available
+    data = rawData;
+    if (sortedGallery) data = { ...data, gallery: sortedGallery };
+    if (sortedProjects) data = { ...data, projects: sortedProjects };
+  } catch (_err) {
+    // If Supabase is unavailable, fall back to local JSON data
+  }
 
   // Inject admin-managed sections first
   let body = injectAdminContent(page.body, normalizedSlug, data);
@@ -171,6 +242,12 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
       let sections = body.slice(sectionStart, footerStart);
       sections = truncateProjectsAfterMaritime(sections).replace(/href="contact\.html"/g, 'href="#project-details" data-project-trigger');
 
+      // Render admin-managed projects as server-side HTML so they appear without client scripts
+      const adminProjectsSection = renderCompletedProjectSection(data);
+      const completedTab = adminProjectsSection
+        ? '<a href="#completed"><span>Completed</span></a>'
+        : '';
+
       body = `${pageStart}
         <main class="intex-projects-page">
           <div class="container">
@@ -184,16 +261,52 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
               <a href="#education"><span>Education</span></a>
               <a href="#industrial"><span>Industrial</span></a>
               <a href="#maritime"><span>Maritime</span></a>
+              ${completedTab}
             </nav>
             ${sections}
+            ${adminProjectsSection}
           </div>
         </main>
         ${body.slice(footerStart)}`;
     }
   }
 
-  if (normalizedSlug === 'team' && data.team.length > 0) {
-    body = body.replace(/<!-- Page Team Start -->[\s\S]*?<!-- Page Team End -->/i, renderAdminTeamSection(data.team));
+  if (normalizedSlug === 'team' && data.team && data.team.length > 0) {
+    const teamStartMarker = '<!-- Page Team Start -->';
+    const teamEndMarker = '<!-- Page Team End -->';
+    const teamStartIdx = body.indexOf(teamStartMarker);
+    const teamEndIdx = body.indexOf(teamEndMarker);
+
+    if (teamStartIdx !== -1 && teamEndIdx !== -1 && teamEndIdx > teamStartIdx) {
+      // Replace the entire block including the end marker
+      body = body.slice(0, teamStartIdx) +
+        renderAdminTeamSection(data.team) +
+        body.slice(teamEndIdx + teamEndMarker.length);
+    } else {
+      // Fallback: inject before footer if markers not found
+      const footerIdx = body.indexOf('<!-- Footer Start -->');
+      if (footerIdx !== -1) {
+        body = body.slice(0, footerIdx) +
+          renderAdminTeamSection(data.team) +
+          body.slice(footerIdx);
+      } else {
+        body = body + renderAdminTeamSection(data.team);
+      }
+    }
+  }
+
+  // Replace the about page's "Our Team" section with admin team data
+  if (normalizedSlug === 'about' && data.team && data.team.length > 0) {
+    const aboutTeamStartMarker = '<!-- Our Team Section Start -->';
+    const aboutTeamEndMarker = '<!-- Our Team Section End -->';
+    const aboutTeamStartIdx = body.indexOf(aboutTeamStartMarker);
+    const aboutTeamEndIdx = body.indexOf(aboutTeamEndMarker);
+
+    if (aboutTeamStartIdx !== -1 && aboutTeamEndIdx !== -1 && aboutTeamEndIdx > aboutTeamStartIdx) {
+      body = body.slice(0, aboutTeamStartIdx) +
+        renderAboutTeamSection(data.team) +
+        body.slice(aboutTeamEndIdx + aboutTeamEndMarker.length);
+    }
   }
 
   if (!/href=\"vlog\.html\"/.test(body)) {
@@ -259,6 +372,12 @@ function renderAdminSection(slug: string, data: AdminData) {
   };
 
   if (slug === "projects") {
+    return "";
+  }
+
+  if (slug === "team" && data.team && data.team.length > 0) {
+    // Team section is handled separately via direct body replacement in getLegacyPage.
+    // Return empty here to avoid double-injection.
     return "";
   }
 
@@ -551,6 +670,35 @@ function renderAdminTeamSection(team: AdminData["team"]) {
     </div>
     <!-- Page Team End -->`;
 }
+
+function renderAboutTeamSection(team: AdminData["team"]) {
+  if (!team.length) {
+    return "";
+  }
+
+  return `<!-- Our Team Section Start -->
+    <div class="our-team">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title section-title-center">
+                        <h3 class="wow fadeInUp">Our Expert Team</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Team Intexspace</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2em">Our team brings together innovative thinkers and skilled professionals dedicated to crafting spaces that reflect your style and enhance your everyday living.</p>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                ${team.map(renderTeamMemberCard).join("")}
+            </div>
+        </div>
+    </div>
+    <!-- Our Team Section End -->`;
+}
+
 
 function renderTeamMemberCard(member: AdminData["team"][number], index = 0) {
   const delay = index > 0 ? ` data-wow-delay="${Math.min(0.8, index * 0.2).toFixed(1)}s"` : "";
