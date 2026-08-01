@@ -330,6 +330,38 @@
   grid-column: 1 / -1;
 }
 
+.projectPreview {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #e7ded1;
+  border-radius: 8px;
+  background: #f8f5ee;
+}
+
+.projectPreviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.projectPreviewGrid img {
+  width: 100%;
+  min-height: 96px;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.field small {
+  display: block;
+  margin-top: 4px;
+  color: #6b6258;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .list {
   display: grid;
   gap: 12px;

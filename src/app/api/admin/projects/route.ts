@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { makeId, nowIso, type Project, updateAdminData } from "@/lib/admin-store";
-import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
+import { uploadImageToStorage } from "@/lib/image-upload";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 function projectFromBody(body: Partial<Project>): Project {
@@ -36,7 +36,15 @@ export async function POST(request: Request) {
   if (contentType.includes("multipart/form-data")) {
     try {
       const formData = await request.formData();
-      const file = formData.get("image");
+      const fileEntries = formData.getAll("images");
+      const files = fileEntries.filter((file): file is File => file instanceof File && file.size > 0);
+      const fallback = formData.get("image");
+      const allFiles = files.length > 0
+        ? files
+        : fallback instanceof File && fallback.size > 0
+          ? [fallback]
+          : [];
+
       const title = String(formData.get("title") || "").trim();
       const status = String(formData.get("status") || "ongoing").trim();
       const location = String(formData.get("location") || "").trim();
@@ -50,11 +58,12 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: "Project title is required." }, { status: 400 });
       }
 
-      if (!isImageFile(file instanceof File ? file : null)) {
-        return NextResponse.json({ message: "Please upload a valid image file." }, { status: 400 });
+      if (allFiles.length === 0) {
+        return NextResponse.json({ message: "Please upload at least one image file." }, { status: 400 });
       }
 
-      const uploadedImage = await uploadImageToStorage(file as File, "projects", title);
+      const [featuredFile, ...extraFiles] = allFiles;
+      const uploadedImage = await uploadImageToStorage(featuredFile, "projects", title);
       const project = {
         id: makeId("project", title),
         title,
@@ -91,9 +100,45 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: projectError.message || "Failed to save project metadata." }, { status: 500 });
       }
 
+      const galleryItems = await Promise.all(
+        extraFiles.map(async (file, index) => {
+          const uploaded = await uploadImageToStorage(file, "gallery", `${title} ${index + 1}`);
+          const galleryItem = {
+            id: uploaded.id,
+            title: `${title} ${index + 1}`,
+            imageUrl: uploaded.imageUrl,
+            alt: title,
+            category: category || "Completed Projects",
+            uploadedAt: nowIso(),
+            storagePath: uploaded.storagePath,
+          };
+
+          return galleryItem;
+        }),
+      );
+
+      if (galleryItems.length > 0) {
+        const galleryRows = galleryItems.map((item) => ({
+          id: item.id,
+          title: item.title,
+          image_url: item.imageUrl,
+          storage_path: item.storagePath,
+          alt: item.alt,
+          category: item.category,
+          uploaded_at: item.uploadedAt,
+        }));
+
+        const { error: galleryError } = await supabaseAdmin.from("gallery").insert(galleryRows);
+
+        if (galleryError) {
+          return NextResponse.json({ message: galleryError.message || "Failed to save gallery metadata." }, { status: 500 });
+        }
+      }
+
       const data = await updateAdminData((current) => ({
         ...current,
         projects: [project, ...current.projects],
+        gallery: [...galleryItems, ...current.gallery],
       }));
 
       return NextResponse.json(data);

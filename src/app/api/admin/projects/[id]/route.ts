@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { nowIso, type Project, updateAdminData } from "@/lib/admin-store";
+import { uploadImageToStorage } from "@/lib/image-upload";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 type RouteParams = {
@@ -13,8 +14,89 @@ export async function PUT(request: Request, { params }: RouteParams) {
   }
 
   const { id } = await params;
-  const body = (await request.json()) as Partial<Project>;
   const updatedAt = nowIso();
+  const contentType = request.headers.get("content-type") || "";
+
+  let patch: Partial<Project> = {};
+
+  if (contentType.includes("multipart/form-data")) {
+    try {
+      const formData = await request.formData();
+      const fileEntries = formData.getAll("images");
+      const files = fileEntries.filter((file): file is File => file instanceof File && file.size > 0);
+      const fallback = formData.get("image");
+      const allFiles = files.length > 0
+        ? files
+        : fallback instanceof File && fallback.size > 0
+          ? [fallback]
+          : [];
+      const title = String(formData.get("title") || "").trim();
+
+      if (!title) {
+        return NextResponse.json({ message: "Project title is required." }, { status: 400 });
+      }
+
+      patch = {
+        title,
+        status: (String(formData.get("status") || "ongoing").trim()) as Project["status"],
+        location: String(formData.get("location") || "").trim(),
+        client: String(formData.get("client") || "").trim(),
+        category: String(formData.get("category") || "").trim(),
+        year: String(formData.get("year") || "").trim(),
+        summary: String(formData.get("summary") || "").trim(),
+        description: String(formData.get("description") || "").trim(),
+      };
+
+      if (allFiles.length > 0) {
+        const [featuredFile, ...extraFiles] = allFiles;
+        const uploaded = await uploadImageToStorage(featuredFile, "projects", title);
+        patch.imageUrl = uploaded.imageUrl;
+
+        const galleryItems = await Promise.all(
+          extraFiles.map(async (file, index) => {
+            const uploadedGallery = await uploadImageToStorage(file, "gallery", `${title} ${index + 1}`);
+            return {
+              id: uploadedGallery.id,
+              title: `${title} ${index + 1}`,
+              imageUrl: uploadedGallery.imageUrl,
+              alt: title,
+              category: patch.category || "Completed Projects",
+              uploadedAt: nowIso(),
+              storagePath: uploadedGallery.storagePath,
+            };
+          }),
+        );
+
+        if (galleryItems.length > 0) {
+          const supabaseAdmin = createSupabaseAdmin();
+          const { error: galleryError } = await supabaseAdmin.from("gallery").insert(
+            galleryItems.map((item) => ({
+              id: item.id,
+              title: item.title,
+              image_url: item.imageUrl,
+              storage_path: item.storagePath,
+              alt: item.alt,
+              category: item.category,
+              uploaded_at: item.uploadedAt,
+            })),
+          );
+
+          if (galleryError) {
+            return NextResponse.json({ message: galleryError.message || "Failed to save gallery metadata." }, { status: 500 });
+          }
+
+          await updateAdminData((current) => ({
+            ...current,
+            gallery: [...galleryItems, ...current.gallery],
+          }));
+        }
+      }
+    } catch (error) {
+      return NextResponse.json({ message: (error as Error).message }, { status: 400 });
+    }
+  } else {
+    patch = (await request.json()) as Partial<Project>;
+  }
 
   const data = await updateAdminData((current) => ({
     ...current,
@@ -22,7 +104,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
       project.id === id
         ? {
             ...project,
-            ...body,
+            ...patch,
             id: project.id,
             updatedAt,
           }
@@ -57,6 +139,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
   return NextResponse.json(data);
 }
+
 
 export async function DELETE(_request: Request, { params }: RouteParams) {
   if (!(await isAdminAuthenticated())) {

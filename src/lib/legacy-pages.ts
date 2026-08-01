@@ -165,18 +165,19 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
       const localProjectsById = new Map(rawData.projects.map((item) => [item.id, item]));
       const mergedProjects = new Map<string, AdminData["projects"][number]>(localProjectsById);
       for (const row of projectRows) {
+        const localItem = localProjectsById.get(row.id);
         mergedProjects.set(row.id, {
           id: row.id,
-          title: row.title,
-          status: row.status,
-          location: row.location,
-          client: row.client,
-          category: row.category,
-          year: row.year,
-          summary: row.summary,
-          description: row.description,
-          imageUrl: row.image_url,
-          updatedAt: row.updated_at,
+          title: row.title || localItem?.title || "",
+          status: (row.status || localItem?.status || "completed") as AdminData["projects"][number]["status"],
+          location: row.location || localItem?.location || "",
+          client: row.client || localItem?.client || "",
+          category: row.category || localItem?.category || "",
+          year: row.year || localItem?.year || "",
+          summary: row.summary || localItem?.summary || "",
+          description: row.description || localItem?.description || "",
+          imageUrl: row.image_url || localItem?.imageUrl || "/images/project-workplace-fabric.jpg",
+          updatedAt: row.updated_at || localItem?.updatedAt || new Date().toISOString(),
         });
       }
       sortedProjects = Array.from(mergedProjects.values()).sort(
@@ -242,8 +243,14 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
       let sections = body.slice(sectionStart, footerStart);
       sections = truncateProjectsAfterMaritime(sections).replace(/href="contact\.html"/g, 'href="#project-details" data-project-trigger');
 
+      const completedProjects = data.projects.filter((p) => p.status === "completed");
+
+      // Synchronize category sections with admin project data and images
+      sections = syncProjectImagesInHtml(sections, completedProjects, data.gallery);
+      sections = injectCategoryProjects(sections, completedProjects, data.gallery);
+
       // Render admin-managed projects as server-side HTML so they appear without client scripts
-      const adminProjectsSection = renderCompletedProjectSection(data);
+      const adminProjectsSection = renderCompletedProjectSection({ ...data, projects: completedProjects });
       const completedTab = adminProjectsSection
         ? '<a href="#completed"><span>Completed</span></a>'
         : '';
@@ -268,6 +275,21 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
           </div>
         </main>
         ${body.slice(footerStart)}`;
+    }
+  }
+
+  if (normalizedSlug === 'ongoing') {
+    const ongoingStart = body.indexOf('<section class="intex-project-section"');
+    if (ongoingStart !== -1) {
+      const ongoingEnd = body.indexOf('</section>', ongoingStart);
+      if (ongoingEnd !== -1) {
+        const adminOngoingSection = renderOngoingProjectSection(data);
+        if (adminOngoingSection) {
+          body = body.slice(0, ongoingEnd + '</section>'.length) +
+            '\n            ' + adminOngoingSection +
+            body.slice(ongoingEnd + '</section>'.length);
+        }
+      }
     }
   }
 
@@ -339,10 +361,122 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     }
   }
 
+  // Ensure overall page body updates static project card images using admin projects data
+  if (data && data.projects && data.projects.length > 0) {
+    body = syncProjectImagesInHtml(body, data.projects, data.gallery || []);
+  }
+
   return {
     ...page,
     body,
   };
+}
+
+function projectMatchesCardText(project: AdminData["projects"][number], text: string) {
+  const normText = normalizeText(text);
+  if (!normText) return false;
+
+  const pTitle = normalizeText(project.title || "");
+  const pLocation = normalizeText(project.location || "");
+  const pClient = normalizeText(project.client || "");
+
+  if (pTitle && pTitle.length > 2) {
+    if (normText.includes(pTitle) || pTitle.includes(normText)) {
+      return true;
+    }
+  }
+
+  if (pLocation && pLocation.length > 2) {
+    if (pClient && pClient.length > 2 && normText.includes(pClient) && normText.includes(pLocation)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function categoryToSectionId(category: string): string | null {
+  const norm = normalizeText(category);
+  if (norm.includes("bank")) return "bank";
+  if (norm.includes("health") || norm.includes("hospital")) return "hospital";
+  if (norm.includes("office") || norm.includes("corporate")) return "offices";
+  if (norm.includes("resident") || norm.includes("bungalow")) return "residential";
+  if (norm.includes("airport")) return "airports";
+  if (norm.includes("telecom")) return "telecom";
+  if (norm.includes("school") || norm.includes("educat")) return "education";
+  if (norm.includes("factor") || norm.includes("industr")) return "industrial";
+  if (norm.includes("maritime") || norm.includes("seafarer")) return "maritime";
+  return null;
+}
+
+function syncProjectImagesInHtml(htmlContent: string, projects: AdminData["projects"], gallery: AdminData["gallery"]): string {
+  let updatedHtml = htmlContent;
+
+  for (const project of projects) {
+    const imageUrl = projectImageUrls(project, gallery)[0] || project.imageUrl;
+    if (!imageUrl) continue;
+
+    // Match project cards in HTML and update their img src
+    const cardRegex = /(<div[^>]*class="[^"]*project-item[^"]*"[^>]*>[\s\S]*?<img[^>]*src=")([^"]+)("[^>]*alt=")([^"]+)("[^>]*>)/gi;
+
+    updatedHtml = updatedHtml.replace(cardRegex, (fullMatch, prefix, _oldSrc, altPrefix, oldAlt, suffix) => {
+      if (projectMatchesCardText(project, oldAlt) || projectMatchesCardText(project, fullMatch)) {
+        return `${prefix}${escapeHtml(imageUrl)}${altPrefix}${oldAlt}${suffix}`;
+      }
+      return fullMatch;
+    });
+  }
+
+  return updatedHtml;
+}
+
+function injectCategoryProjects(htmlContent: string, projects: AdminData["projects"], gallery: AdminData["gallery"]): string {
+  let updatedHtml = htmlContent;
+
+  for (const project of projects) {
+    const sectionId = categoryToSectionId(project.category || "");
+    if (!sectionId) continue;
+
+    const sectionRegex = new RegExp(`(<section[^>]*id="${sectionId}"[^>]*>[\\s\\S]*?)(<div[^>]*class="(?:project-carousel-wrap|row intex-project-grid)"[^>]*>)([\\s\\S]*?)(</div>[\\s\\S]*?</section>)`, "i");
+
+    const sectionMatch = updatedHtml.match(sectionRegex);
+    if (!sectionMatch) continue;
+
+    const [fullSection, secHeader, gridOpen, gridContent, secClose] = sectionMatch;
+
+    // If project is already matched/present in gridContent, skip
+    if (projectMatchesCardText(project, gridContent)) continue;
+
+    const image = projectImageUrls(project, gallery)[0] || project.imageUrl || "/images/project-overview-image.jpg";
+    const title = escapeHtml(project.title || project.client || "Intexspace Project");
+    const categoryLabel = escapeHtml(project.category || "Project");
+    const location = escapeHtml(project.location || "India");
+    const year = escapeHtml(project.year || "");
+
+    const newCard = `<div class="col-xl-4 col-md-6" style="min-width:320px; flex:0 0 auto; scroll-snap-align:start;">
+      <div class="project-item wow fadeInUp">
+        <div class="project-item-image">
+          <a href="contact.html" data-cursor-text="view">
+            <figure class="image-anime">
+              <img src="${escapeHtml(image)}" alt="${title}">
+            </figure>
+          </a>
+        </div>
+        <div class="project-item-content">
+          <h2><a href="contact.html">${title}</a></h2>
+          <ul>
+            <li>${categoryLabel}</li>
+            <li>${location}</li>
+            ${year ? `<li>${year}</li>` : ""}
+          </ul>
+        </div>
+      </div>
+    </div>`;
+
+    updatedHtml = updatedHtml.replace(fullSection, `${secHeader}${gridOpen}${newCard}${gridContent}${secClose}`);
+  }
+
+  return updatedHtml;
 }
 
 function injectAdminContent(body: string, slug: string, data: AdminData) {
@@ -470,7 +604,8 @@ function projectImageUrls(project: AdminData["projects"][number], gallery: Admin
 }
 
 function renderCompletedProjectSection(data: AdminData) {
-  if (data.menu?.projects === false || data.projects.length === 0) {
+  const completedProjects = data.projects.filter((p) => p.status === "completed");
+  if (data.menu?.projects === false || completedProjects.length === 0) {
     return "";
   }
 
@@ -484,7 +619,7 @@ function renderCompletedProjectSection(data: AdminData) {
       </div>
     </div>
     <div class="row intex-project-grid">
-      ${data.projects.map((project) => {
+      ${completedProjects.map((project) => {
         const image = projectImageUrls(project, data.gallery)[0] || "/images/project-overview-image.jpg";
         const title = escapeHtml(project.title || project.client || "Intexspace Project");
         const category = escapeHtml(project.category || "Completed Project");
@@ -493,6 +628,47 @@ function renderCompletedProjectSection(data: AdminData) {
 
         return `<div class="col-xl-4 col-md-6">
           <article class="project-item admin-completed-project">
+            <div class="project-item-image">
+              <a href="contact.html" aria-label="Discuss ${title}">
+                <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
+              </a>
+            </div>
+            <div class="project-item-content">
+              <h2><a href="contact.html">${title}</a></h2>
+              <ul><li>${category}</li><li>${location}</li>${year ? `<li>${year}</li>` : ""}</ul>
+            </div>
+          </article>
+        </div>`;
+      }).join("")}
+    </div>
+  </section>`;
+}
+
+function renderOngoingProjectSection(data: AdminData) {
+  const ongoingProjects = data.projects.filter((p) => p.status === "ongoing");
+  if (ongoingProjects.length === 0) {
+    return "";
+  }
+
+  return `<section class="intex-project-section" id="ongoing-admin">
+    <div class="row section-row align-items-center">
+      <div class="col-xl-8">
+        <div class="section-title">
+          <h3>Admin Managed Ongoing Projects</h3>
+          <h2>Ongoing projects delivered by the Intexspace team.</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row intex-project-grid">
+      ${ongoingProjects.map((project) => {
+        const image = projectImageUrls(project, data.gallery)[0] || "/images/project-overview-image.jpg";
+        const title = escapeHtml(project.title || project.client || "Intexspace Project");
+        const category = escapeHtml(project.category || "Ongoing Project");
+        const location = escapeHtml(project.location || "India");
+        const year = escapeHtml(project.year || "");
+
+        return `<div class="col-xl-4 col-md-6">
+          <article class="project-item admin-ongoing-project">
             <div class="project-item-image">
               <a href="contact.html" aria-label="Discuss ${title}">
                 <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>

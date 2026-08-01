@@ -9,7 +9,7 @@ function getSupabaseKey() {
 }
 
 export function getSupabaseStorageBucket() {
-  return process.env.SUPABASE_STORAGE_BUCKET?.trim() || "gallery";
+  return process.env.SUPABASE_STORAGE_BUCKET?.trim() || "Gallery";
 }
 
 export function createSupabaseAdmin() {

@@ -28,34 +28,51 @@ export function LegacyInteractions() {
 
       let pointerId: number | null = null;
       let startX = 0;
+      let startY = 0;
       let startScroll = 0;
       let dragged = false;
       let lastHoverX: number | null = null;
       let targetScroll = carousel.scrollLeft;
       let animationFrame: number | null = null;
+      let animationStartTime: number | null = null;
+      let animationFrom: number | null = null;
 
-      const animateScroll = () => {
-        const distance = targetScroll - carousel.scrollLeft;
-        if (Math.abs(distance) < 0.5) {
-          carousel.scrollLeft = targetScroll;
-          animationFrame = null;
+      const animateScroll = (timestamp: number) => {
+        if (animationStartTime === null || animationFrom === null) {
+          animationStartTime = timestamp;
+          animationFrom = carousel.scrollLeft;
+        }
+
+        const duration = 180;
+        const progress = Math.min(1, (timestamp - animationStartTime) / duration);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const nextScroll = animationFrom + (targetScroll - animationFrom) * easedProgress;
+        carousel.scrollLeft = nextScroll;
+
+        if (progress < 1) {
+          animationFrame = window.requestAnimationFrame(animateScroll);
           return;
         }
-        carousel.scrollLeft += distance * 0.2;
-        animationFrame = window.requestAnimationFrame(animateScroll);
+
+        carousel.scrollLeft = targetScroll;
+        animationFrame = null;
+        animationStartTime = null;
+        animationFrom = null;
       };
 
       const moveSmoothly = (distance: number) => {
         const maximumScroll = carousel.scrollWidth - carousel.clientWidth;
         targetScroll = Math.max(0, Math.min(maximumScroll, targetScroll + distance));
-        if (animationFrame === null) animationFrame = window.requestAnimationFrame(animateScroll);
+        if (animationFrame === null) {
+          animationStartTime = null;
+          animationFrom = null;
+          animationFrame = window.requestAnimationFrame(animateScroll);
+        }
       };
 
       const stopDragging = () => {
-        if (pointerId !== null && carousel.hasPointerCapture(pointerId)) {
-          carousel.releasePointerCapture(pointerId);
-        }
         pointerId = null;
+        dragged = false;
         carousel.classList.remove("is-dragging");
       };
 
@@ -63,19 +80,30 @@ export function LegacyInteractions() {
         if (event.button !== 0) return;
         pointerId = event.pointerId;
         startX = event.clientX;
+        startY = event.clientY;
         startScroll = carousel.scrollLeft;
         targetScroll = carousel.scrollLeft;
         dragged = false;
-        carousel.setPointerCapture(event.pointerId);
-        carousel.classList.add("is-dragging");
-        event.preventDefault();
+        carousel.classList.remove("is-dragging");
       };
 
       const onPointerMove = (event: PointerEvent) => {
         if (event.pointerId !== pointerId) return;
-        const distance = event.clientX - startX;
-        if (Math.abs(distance) > 3) dragged = true;
-        carousel.scrollLeft = startScroll - distance;
+        const distanceX = event.clientX - startX;
+        const distanceY = event.clientY - startY;
+
+        if (!dragged && Math.abs(distanceX) < 8 && Math.abs(distanceY) < 8) {
+          return;
+        }
+
+        if (!dragged && Math.abs(distanceX) <= Math.abs(distanceY)) {
+          return;
+        }
+
+        dragged = true;
+        carousel.classList.add("is-dragging");
+        event.preventDefault();
+        carousel.scrollLeft = startScroll - distanceX;
         targetScroll = carousel.scrollLeft;
       };
 
@@ -108,7 +136,12 @@ export function LegacyInteractions() {
         const maximumScroll = carousel.scrollWidth - carousel.clientWidth;
         const nextPosition = Math.min(maximumScroll, carousel.scrollLeft + distance);
         targetScroll = nextPosition;
-        carousel.scrollTo({ left: nextPosition, behavior: "smooth" });
+        if (animationFrame !== null) {
+          window.cancelAnimationFrame(animationFrame);
+        }
+        animationStartTime = null;
+        animationFrom = null;
+        animationFrame = window.requestAnimationFrame(animateScroll);
       };
 
       const onClick = (event: MouseEvent) => {

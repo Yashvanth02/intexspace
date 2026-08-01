@@ -43,6 +43,7 @@ type GalleryImage = {
 };
 
 type Vlog = { id: string; title: string; details: string; youtubeUrl: string; thumbnailUrl: string; createdAt: string };
+type VlogFormState = { title: string; details: string; youtubeUrl: string; thumbnailUrl?: string };
 
 type TeamMember = {
   id: string;
@@ -144,6 +145,38 @@ function isGenericGalleryTitle(title: string) {
   return /^(img|image|photo|whatsapp|vid|video|screenshot|snapshot)[^a-z0-9]*\d*/i.test(title.trim());
 }
 
+function normalizeText(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function projectMatchesGalleryImage(project: Pick<Project, "title" | "client">, image: GalleryImage) {
+  const projectName = normalizeText(project.client || project.title || "");
+  const projectTitle = normalizeText(project.title || "");
+
+  if (!projectName && !projectTitle) {
+    return false;
+  }
+
+  const imageText = normalizeText(`${image.title} ${image.category} ${image.alt}`);
+  return (
+    (projectName && imageText.includes(projectName)) ||
+    (projectTitle && imageText.includes(projectTitle))
+  );
+}
+
+function projectImageUrls(project: Pick<Project, "title" | "client" | "imageUrl">, gallery: GalleryImage[]) {
+  const matchedUrls = gallery
+    .filter((image) => projectMatchesGalleryImage(project, image))
+    .map((image) => image.imageUrl);
+
+  return [...new Set([project.imageUrl, ...matchedUrls].filter(Boolean))];
+}
+
 export function AdminDashboard() {
   const [data, setData] = useState<AdminData | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>("projects");
@@ -158,7 +191,8 @@ export function AdminDashboard() {
   const [editingCareerId, setEditingCareerId] = useState<string | null>(null);
   const [galleryForm, setGalleryForm] = useState(emptyGallery);
   const [editingGalleryId, setEditingGalleryId] = useState<string | null>(null);
-  const [vlogForm, setVlogForm] = useState({ title: "", details: "", youtubeUrl: "" });
+  const [vlogForm, setVlogForm] = useState<VlogFormState>({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
+  const [editingVlogId, setEditingVlogId] = useState<string | null>(null);
   const [teamForm, setTeamForm] = useState(emptyTeamMember);
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null);
 
@@ -307,11 +341,37 @@ export function AdminDashboard() {
     setNotice("");
 
     const formData = new FormData(event.currentTarget);
-    const imageFile = formData.get("image") instanceof File ? (formData.get("image") as File) : null;
+    const imageFiles = Array.from(formData.getAll("images")).filter(
+      (file): file is File => file instanceof File && file.size > 0,
+    );
+    const fallbackFile = formData.get("image");
+    const allFiles = imageFiles.length > 0
+      ? imageFiles
+      : fallbackFile instanceof File && fallbackFile.size > 0
+        ? [fallbackFile]
+        : [];
 
-    if (imageFile && imageFile.size > 0) {
-      const uploadResponse = await fetch("/api/admin/projects", {
-        method: "POST",
+    if (allFiles.length > 0) {
+      // Append all controlled state fields into FormData so the API can read them
+      formData.set("title", projectForm.title);
+      formData.set("status", projectForm.status);
+      formData.set("client", projectForm.client);
+      formData.set("location", projectForm.location);
+      formData.set("category", projectForm.category || "");
+      formData.set("year", projectForm.year || "");
+      formData.set("summary", projectForm.summary);
+      formData.set("description", projectForm.description);
+      if (editingProjectId) {
+        formData.set("id", editingProjectId);
+      }
+
+      const uploadUrl = editingProjectId
+        ? `/api/admin/projects/${editingProjectId}`
+        : "/api/admin/projects";
+      const uploadMethod = editingProjectId ? "PUT" : "POST";
+
+      const uploadResponse = await fetch(uploadUrl, {
+        method: uploadMethod,
         body: formData,
       });
 
@@ -334,6 +394,7 @@ export function AdminDashboard() {
     setEditingProjectId(null);
     setNotice("Project saved.");
   }
+
 
   async function deleteProject(id: string) {
     const response = await fetch(`/api/admin/projects/${id}`, { method: "DELETE" });
@@ -439,11 +500,33 @@ export function AdminDashboard() {
   async function saveVlog(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setNotice("");
-    const response = await fetch("/api/admin/vlogs", { method: "POST", body: new FormData(event.currentTarget) });
-    setData(await readResponse(response));
-    setVlogForm({ title: "", details: "", youtubeUrl: "" });
+
+    const formData = new FormData(event.currentTarget);
+    const title = String(formData.get("title") || "").trim();
+    const details = String(formData.get("details") || "").trim();
+    const youtubeUrl = String(formData.get("youtubeUrl") || "").trim();
+
+    if (!title || !details || !youtubeUrl) {
+      setNotice("Title, details and YouTube link are required.");
+      return;
+    }
+
+    if (!/^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(youtubeUrl)) {
+      setNotice("Please enter a valid YouTube link.");
+      return;
+    }
+
+    const response = await fetch(editingVlogId ? `/api/admin/vlogs/${editingVlogId}` : "/api/admin/vlogs", {
+      method: editingVlogId ? "PUT" : "POST",
+      body: formData,
+    });
+
+    const nextData = await readResponse(response);
+    setData(nextData);
+    setVlogForm({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
+    setEditingVlogId(null);
     event.currentTarget.reset();
-    setNotice("Vlog published.");
+    setNotice(editingVlogId ? "Vlog updated." : "Vlog published.");
   }
 
   async function deleteVlog(id: string) {
@@ -573,6 +656,7 @@ export function AdminDashboard() {
           {activeTab === "projects" && data ? (
             <ProjectsPanel
               data={filteredProjects}
+              gallery={data.gallery}
               deleteProject={deleteProject}
               editingId={editingProjectId}
               form={projectForm}
@@ -593,7 +677,17 @@ export function AdminDashboard() {
               setEditingId={setEditingGalleryId}
             />
           ) : null}
-          {activeTab === "vlogs" && data ? <VlogsPanel data={data.vlogs} form={vlogForm} setForm={setVlogForm} saveVlog={saveVlog} deleteVlog={deleteVlog} /> : null}
+          {activeTab === "vlogs" && data ? (
+            <VlogsPanel
+              data={data.vlogs}
+              editingId={editingVlogId}
+              form={vlogForm}
+              saveVlog={saveVlog}
+              deleteVlog={deleteVlog}
+              setEditingId={setEditingVlogId}
+              setForm={setVlogForm}
+            />
+          ) : null}
           {activeTab === "menu" && data ? (
             <MenuControlsPanel data={data} />
           ) : null}
@@ -841,6 +935,7 @@ function TeamMembersPanel({
 
 function ProjectsPanel({
   data,
+  gallery,
   deleteProject,
   editingId,
   form,
@@ -850,6 +945,7 @@ function ProjectsPanel({
   updateProjectStatus,
 }: {
   data: Project[];
+  gallery: GalleryImage[];
   deleteProject: (id: string) => Promise<void>;
   editingId: string | null;
   form: Omit<Project, "id" | "updatedAt">;
@@ -890,6 +986,16 @@ function ProjectsPanel({
           ) : null}
         </div>
         <form className={styles.form} onSubmit={saveProject}>
+          {editingId ? (
+            <div className={styles.projectPreview}>
+              <span>Current project images</span>
+              <div className={styles.projectPreviewGrid}>
+                {projectImageUrls(form, gallery).map((src, index) => (
+                  <img key={`${src}-${index}`} alt={`Project image ${index + 1}`} src={src} />
+                ))}
+              </div>
+            </div>
+          ) : null}
           <div className={styles.grid}>
             <label className={styles.field}>
               Project Name
@@ -914,15 +1020,32 @@ function ProjectsPanel({
             </label>
             <label className={styles.field}>
               Category
-              <input value={form.category || ""} onChange={(event) => setForm({ ...form, category: event.target.value })} />
+              <input
+                list="projectCategories"
+                placeholder="Select or type a category"
+                value={form.category || ""}
+                onChange={(event) => setForm({ ...form, category: event.target.value })}
+              />
+              <datalist id="projectCategories">
+                <option value="Banking" />
+                <option value="Healthcare" />
+                <option value="Offices" />
+                <option value="Residential" />
+                <option value="Airports" />
+                <option value="Telecom" />
+                <option value="Education" />
+                <option value="Industrial" />
+                <option value="Maritime" />
+              </datalist>
             </label>
             <label className={styles.field}>
               Year
               <input value={form.year || ""} onChange={(event) => setForm({ ...form, year: event.target.value })} />
             </label>
             <label className={`${styles.field} ${styles.wide}`}>
-              Project Image
-              <input accept="image/*" name="image" type="file" />
+              Project Images
+              <input accept="image/*" multiple name="images" type="file" />
+              <small>Upload one or more images. The first file becomes the featured project image; additional files are added to the gallery.</small>
             </label>
             <label className={`${styles.field} ${styles.wide}`}>
               Summary
@@ -1170,8 +1293,108 @@ function GalleryPanel({
   );
 }
 
-function VlogsPanel({ data, form, setForm, saveVlog, deleteVlog }: { data: Vlog[]; form: { title: string; details: string; youtubeUrl: string }; setForm: (form: { title: string; details: string; youtubeUrl: string }) => void; saveVlog: (event: FormEvent<HTMLFormElement>) => Promise<void>; deleteVlog: (id: string) => Promise<void> }) {
-  return <><section className={styles.panel}><div className={styles.panelTitle}><div><span>Publish</span><h2>Vlog</h2><p>Publish a project story that links visitors to YouTube.</p></div></div><form className={styles.form} onSubmit={saveVlog}><div className={styles.grid}><label className={styles.field}>Title<input name="title" required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} /></label><label className={styles.field}>YouTube link<input name="youtubeUrl" required type="url" value={form.youtubeUrl} onChange={(event) => setForm({ ...form, youtubeUrl: event.target.value })} /></label><label className={`${styles.field} ${styles.wide}`}>Details<textarea name="details" required value={form.details} onChange={(event) => setForm({ ...form, details: event.target.value })} /></label><label className={styles.field}>Thumbnail<input accept="image/*" name="thumbnail" required type="file" /></label></div><button className={styles.button} type="submit">Publish Vlog</button></form></section><section className={styles.panel}><div className={styles.galleryGrid}>{data.map((vlog) => <article className={styles.galleryCard} key={vlog.id}><img alt="" src={vlog.thumbnailUrl} /><div><strong>{vlog.title}</strong><span>{vlog.details}</span><div className={styles.rowActions}><a className={styles.secondaryButton} href={vlog.youtubeUrl} rel="noreferrer" target="_blank">Open video</a><button className={styles.dangerButton} onClick={() => void deleteVlog(vlog.id)} type="button">Delete</button></div></div></article>)}</div></section></>;
+function VlogsPanel({
+  data,
+  editingId,
+  form,
+  saveVlog,
+  deleteVlog,
+  setEditingId,
+  setForm,
+}: {
+  data: Vlog[];
+  editingId: string | null;
+  form: VlogFormState;
+  saveVlog: (event: FormEvent<HTMLFormElement>) => Promise<void>;
+  deleteVlog: (id: string) => Promise<void>;
+  setEditingId: (id: string | null) => void;
+  setForm: (form: VlogFormState) => void;
+}) {
+  return (
+    <>
+      <section className={styles.panel}>
+        <div className={styles.panelTitle}>
+          <div>
+            <span>{editingId ? "Edit" : "Publish"}</span>
+            <h2>Vlog</h2>
+            <p>Publish or update a project story that links visitors to YouTube.</p>
+          </div>
+          {editingId ? (
+            <button
+              className={styles.secondaryButton}
+              onClick={() => {
+                setEditingId(null);
+                setForm({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
+              }}
+              type="button"
+            >
+              Cancel Edit
+            </button>
+          ) : null}
+        </div>
+        <form className={styles.form} onSubmit={saveVlog}>
+          <div className={styles.grid}>
+            <label className={styles.field}>
+              Title
+              <input name="title" required value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} />
+            </label>
+            <label className={styles.field}>
+              YouTube link
+              <input name="youtubeUrl" required type="url" value={form.youtubeUrl} onChange={(event) => setForm({ ...form, youtubeUrl: event.target.value })} />
+            </label>
+            <label className={`${styles.field} ${styles.wide}`}>
+              Details
+              <textarea name="details" required value={form.details} onChange={(event) => setForm({ ...form, details: event.target.value })} />
+            </label>
+            <label className={styles.field}>
+              Thumbnail
+              <input accept="image/*" name="thumbnail" required={!editingId} type="file" />
+            </label>
+            {editingId && form.thumbnailUrl ? (
+              <div className={`${styles.field} ${styles.wide}`}>
+                <span>Current thumbnail</span>
+                <img alt="Current vlog thumbnail" className={styles.itemImage} src={form.thumbnailUrl} />
+              </div>
+            ) : null}
+          </div>
+          <button className={styles.button} type="submit">
+            {editingId ? "Update Vlog" : "Publish Vlog"}
+          </button>
+        </form>
+      </section>
+      <section className={styles.panel}>
+        <div className={styles.galleryGrid}>
+          {data.map((vlog) => (
+            <article className={styles.galleryCard} key={vlog.id}>
+              <img alt="" src={vlog.thumbnailUrl} />
+              <div>
+                <strong>{vlog.title}</strong>
+                <span>{vlog.details}</span>
+                <div className={styles.rowActions}>
+                  <button
+                    className={styles.secondaryButton}
+                    onClick={() => {
+                      setEditingId(vlog.id);
+                      setForm({ title: vlog.title, details: vlog.details, youtubeUrl: vlog.youtubeUrl, thumbnailUrl: vlog.thumbnailUrl });
+                    }}
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                  <a className={styles.secondaryButton} href={vlog.youtubeUrl} rel="noreferrer" target="_blank">
+                    Open video
+                  </a>
+                  <button className={styles.dangerButton} onClick={() => void deleteVlog(vlog.id)} type="button">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
 }
 
 function CareersPanel({

@@ -1,6 +1,7 @@
 import "server-only";
 
 import { mkdir, readFile, writeFile } from "fs/promises";
+import os from "os";
 import path from "path";
 
 export type ProjectStatus = "ongoing" | "in-progress" | "completed" | "on-hold";
@@ -86,6 +87,7 @@ export type AdminData = {
 };
 
 const dataFile = path.join(process.cwd(), "data", "admin-data.json");
+const fallbackDataFile = path.join(os.tmpdir(), "intex-admin-data.json");
 
 const emptyData: AdminData = {
   projects: [],
@@ -107,26 +109,56 @@ export function makeId(prefix: string, value: string) {
   return `${prefix}-${slug || Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export async function readAdminData(): Promise<AdminData> {
+async function readAdminDataFile(filePath: string): Promise<AdminData> {
+  const raw = await readFile(filePath, "utf8");
+  return { ...emptyData, ...JSON.parse(raw.replace(/^\uFEFF/, "")) } as AdminData;
+}
+
+async function writeAdminDataFile(filePath: string, data: AdminData) {
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+}
+
+async function readFallbackAdminData(): Promise<AdminData> {
   try {
-    const raw = await readFile(dataFile, "utf8");
-    const data = { ...emptyData, ...JSON.parse(raw.replace(/^\uFEFF/, "")) } as AdminData;
-    return data;
+    return await readAdminDataFile(fallbackDataFile);
   } catch (error) {
     const code = (error as NodeJS.ErrnoException).code;
-
     if (code !== "ENOENT") {
       throw error;
     }
 
-    await writeAdminData(emptyData);
+    await writeAdminDataFile(fallbackDataFile, emptyData);
     return emptyData;
   }
 }
 
+export async function readAdminData(): Promise<AdminData> {
+  try {
+    return await readAdminDataFile(dataFile);
+  } catch (error) {
+    const code = (error as NodeJS.ErrnoException).code;
+
+    if (code !== "ENOENT" && code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR") {
+      throw error;
+    }
+
+    return await readFallbackAdminData();
+  }
+}
+
 export async function writeAdminData(data: AdminData) {
-  await mkdir(path.dirname(dataFile), { recursive: true });
-  await writeFile(dataFile, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+  try {
+    await writeAdminDataFile(dataFile, data);
+    return;
+  } catch (error) {
+    const code = (error as NodeJS.ErrnoException).code;
+    if (code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR") {
+      throw error;
+    }
+
+    await writeAdminDataFile(fallbackDataFile, data);
+  }
 }
 
 export async function updateAdminData(updater: (data: AdminData) => AdminData | Promise<AdminData>) {
