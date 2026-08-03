@@ -116,12 +116,19 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
   const module = await loader();
   const page = module.default;
-  const storedData = await readAdminData();
+  const [storedData, persistedMenu] = await Promise.all([readAdminData(), readPersistentMenu()]);
   const rawData = {
     ...storedData,
-    menu: { ...(storedData.menu || {}), ...((await readPersistentMenu()) || {}) },
+    menu: { ...(storedData.menu || {}), ...(persistedMenu || {}) },
   };
   const normalizedSlug = slug.replace(/\.html$/, "");
+
+  // A disabled top-level page is not merely removed from navigation: direct
+  // visits are unavailable as well. Project categories live inside Projects,
+  // so they automatically follow this single setting.
+  if (rawData.menu?.[normalizedSlug] === false) {
+    return undefined;
+  }
 
   // Merge gallery from Supabase (same as admin state endpoint) so user-facing
   // pages always reflect the latest admin uploads.
@@ -130,15 +137,16 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     const supabaseAdmin = createSupabaseAdmin();
 
     // Fetch both gallery and projects from Supabase so public legacy pages reflect remote changes
-    const { data: galleryRows } = await supabaseAdmin
-      .from("gallery")
-      .select("id, title, image_url, alt, category, uploaded_at")
-      .order("uploaded_at", { ascending: false });
-
-    const { data: projectRows } = await supabaseAdmin
-      .from("projects")
-      .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
-      .order("updated_at", { ascending: false });
+    const [{ data: galleryRows }, { data: projectRows }] = await Promise.all([
+      supabaseAdmin
+        .from("gallery")
+        .select("id, title, image_url, alt, category, uploaded_at")
+        .order("uploaded_at", { ascending: false }),
+      supabaseAdmin
+        .from("projects")
+        .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
+        .order("updated_at", { ascending: false }),
+    ]);
 
     // Merge gallery rows with local gallery (local items take precedence unless Supabase has newer entries)
     let sortedGallery: AdminData["gallery"] | undefined = undefined;
@@ -227,6 +235,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
       /<div class="testimonial-item-logo">\s*<img[^>]*>\s*<\/div>/g,
       '<div class="testimonial-item-logo"><img src="images/logo.svg" alt="Intex Space Solutions"></div>',
     );
+    body = body.replace(/<div class="testimonial-item">/g, '<div class="testimonial-item intex-testimonial">');
   }
 
   // Team members are presented as a grid only; individual profile pages are
@@ -290,25 +299,10 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
       // Render admin-managed projects as server-side HTML so they appear without client scripts
       const adminProjectsSection = renderCompletedProjectSection({ ...data, projects: completedProjects });
-      const completedTab = adminProjectsSection
-        ? '<a href="#completed"><span>Completed</span></a>'
-        : '';
 
       body = `${pageStart}
         <main class="intex-projects-page">
           <div class="container">
-            <nav class="intex-project-tabs" aria-label="Project categories">
-              <a href="#bank"><span>Banking</span></a>
-              <a href="#hospital"><span>Healthcare</span></a>
-              <a href="#offices"><span>Offices</span></a>
-              <a href="#residential"><span>Residential</span></a>
-              <a href="#airports"><span>Airports</span></a>
-              <a href="#telecom"><span>Telecom</span></a>
-              <a href="#education"><span>Education</span></a>
-              <a href="#industrial"><span>Industrial</span></a>
-              <a href="#maritime"><span>Maritime</span></a>
-              ${completedTab}
-            </nav>
             ${sections}
             ${adminProjectsSection}
           </div>
@@ -387,6 +381,14 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     for (const [slug, enabled] of Object.entries(data.menu)) {
       if (enabled === false) {
         try {
+          if (slug === "projects") {
+            // Remove the complete Projects dropdown, including all category
+            // links, rather than leaving nested list items behind.
+            body = body.replace(
+              /<li class="nav-item submenu">\s*<a class="nav-link" href="projects\.html">Projects<\/a>\s*<ul>[\s\S]*?<\/ul>\s*<\/li>/i,
+              "",
+            );
+          }
           // Remove list nav item that links to the slug (li wrapper)
           body = body.replace(new RegExp(`<li[^>]*>\\s*<a[^>]*href=\\"${slug}\\.html\\"[\\s\\S]*?<\\/li>`, 'i'), '');
           // Remove any anchor link pointing directly to the page

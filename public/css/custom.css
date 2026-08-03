@@ -2514,6 +2514,28 @@ body .hero-body{
 	margin: 5px 0 0;
 }
 
+/* Home-page testimonial branding: retain the header's complete Intex logo
+   lockup and give this card its own dark, high-contrast treatment. */
+.our-testimonials .testimonial-item.intex-testimonial{
+	background: #111111;
+	color: #ffffff;
+}
+
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-item-logo img{
+	width: 220px;
+	max-width: 100%;
+}
+
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-item-content p,
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-author-content h3,
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-author-content p{
+	color: #ffffff;
+}
+
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-author-content{
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
 .our-testimonials .section-footer-text{
 	margin-top: 60px;
 }

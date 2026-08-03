@@ -9,16 +9,31 @@ export async function PUT(request: Request) {
   }
 
   const body = await request.json().catch(() => ({}));
-  const { slug, enabled } = body as { slug?: string; enabled?: boolean };
+  const { slug, enabled, menu: requestedMenu } = body as {
+    slug?: string;
+    enabled?: boolean;
+    menu?: Record<string, unknown>;
+  };
+  const singleUpdate = typeof slug === "string" && typeof enabled === "boolean" ? { [slug]: enabled } : null;
+  const bulkUpdate =
+    requestedMenu &&
+    typeof requestedMenu === "object" &&
+    !Array.isArray(requestedMenu) &&
+    Object.entries(requestedMenu).every(([key, value]) => key.trim().length > 0 && typeof value === "boolean")
+      ? (requestedMenu as Record<string, boolean>)
+      : null;
 
-  if (typeof slug !== "string" || typeof enabled !== "boolean") {
-    return NextResponse.json({ message: "Invalid request. Expect { slug: string, enabled: boolean }" }, { status: 400 });
+  if (!singleUpdate && !bulkUpdate) {
+    return NextResponse.json(
+      { message: "Invalid request. Expect { slug, enabled } or { menu: Record<string, boolean> }." },
+      { status: 400 },
+    );
   }
 
   try {
     const current = await readAdminData();
     const persistedMenu = await readPersistentMenu();
-    const menu = { ...(current.menu || {}), ...(persistedMenu || {}), [slug]: enabled };
+    const menu = { ...(current.menu || {}), ...(persistedMenu || {}), ...(singleUpdate || bulkUpdate || {}) };
 
     // Supabase Storage is the durable source of truth on serverless hosts.
     // Do this before the best-effort local cache write, so a successful HTTP

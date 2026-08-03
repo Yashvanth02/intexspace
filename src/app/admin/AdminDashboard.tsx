@@ -124,6 +124,8 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: "inquiries", label: "Inquiries" },
 ];
 
+const defaultMenuSections = ["about", "projects", "ongoing", "careers", "gallery", "vlog", "team", "contact"];
+
 async function readResponse(response: Response) {
   const body = await response.json().catch(() => ({}));
 
@@ -694,14 +696,24 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
   // state-endpoint failure, does not provide the computed section list.
   const sections = data?.menuSections?.length
     ? data.menuSections
-    : ["about", "projects", "ongoing", "careers", "gallery", "vlog", "team", "contact"];
+    : defaultMenuSections;
+  const [draftMenu, setDraftMenu] = useState<Record<string, boolean>>({});
+  const [isSaving, setIsSaving] = useState(false);
 
-  async function toggleSection(slug: string, enabled: boolean) {
+  useEffect(() => {
+    setDraftMenu(Object.fromEntries(sections.map((slug) => [slug, data.menu?.[slug] !== false])));
+  }, [data.menu, sections]);
+
+  const enabledCount = sections.filter((slug) => draftMenu[slug] !== false).length;
+  const hasChanges = sections.some((slug) => (data.menu?.[slug] !== false) !== (draftMenu[slug] !== false));
+
+  async function saveMenu() {
+    setIsSaving(true);
     try {
       const response = await fetch('/api/admin/menu', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, enabled }),
+        body: JSON.stringify({ menu: draftMenu }),
       });
 
       if (!response.ok) {
@@ -713,18 +725,20 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
       // menuSections or merged gallery). Extract only the updated menu map and merge it
       // into the existing data so that menuSections and other fields are preserved.
       const body = await response.json().catch(() => ({})) as { menu?: Record<string, boolean> };
-      const updatedMenu: Record<string, boolean> = body.menu ?? { ...((data.menu) || {}), [slug]: enabled };
+      const updatedMenu: Record<string, boolean> = body.menu ?? draftMenu;
       const merged: AdminData = { ...data, menu: updatedMenu };
 
       const event = new CustomEvent('admin-data-updated', { detail: merged });
       window.dispatchEvent(event as Event);
 
-      const notice = new CustomEvent('admin-notice', { detail: `"${slug}" section ${enabled ? 'enabled' : 'disabled'}.` });
+      const notice = new CustomEvent('admin-notice', { detail: 'Menu visibility settings saved.' });
       window.dispatchEvent(notice as Event);
     } catch (error) {
       // Best-effort notice via DOM event as well
       const evt = new CustomEvent('admin-notice', { detail: (error as Error).message });
       window.dispatchEvent(evt as Event);
+    } finally {
+      setIsSaving(false);
     }
   }
 
@@ -734,27 +748,43 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
         <div>
           <span>Configure</span>
           <h2>Menu Controls</h2>
-          <p>Enable or disable major sections on the public user dashboard.</p>
+          <p>Choose which sections are visible on the public site, then save all changes together.</p>
         </div>
+        <div className={styles.menuSummary}>{enabledCount} of {sections.length} enabled</div>
+      </div>
+      <div className={styles.menuToolbar}>
+        <button className={styles.secondaryButton} onClick={() => setDraftMenu(Object.fromEntries(sections.map((slug) => [slug, true])))} type="button">
+          Enable All
+        </button>
+        <button className={styles.secondaryButton} onClick={() => setDraftMenu(Object.fromEntries(sections.map((slug) => [slug, false])))} type="button">
+          Disable All
+        </button>
+        <button className={styles.button} disabled={!hasChanges || isSaving} onClick={() => void saveMenu()} type="button">
+          {isSaving ? 'Saving…' : 'Save Changes'}
+        </button>
       </div>
       <div className={styles.list}>
         {sections.map((slug) => {
-          const isEnabled = data?.menu?.[slug] !== false;
+          const isEnabled = draftMenu[slug] !== false;
           const label = slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
           return (
-            <article className={`${styles.item} ${styles.itemNoImage}`} key={slug}>
+            <article className={`${styles.item} ${styles.itemNoImage} ${styles.menuItem}`} key={slug}>
               <div>
                 <h3>{label}</h3>
+                <p>{isEnabled ? 'Visible on the public site' : 'Hidden from the public site'}</p>
               </div>
               <div className={styles.rowActions}>
-                <label className={styles.field} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <input
-                    checked={isEnabled}
-                    onChange={(e) => toggleSection(slug, e.currentTarget.checked)}
-                    type="checkbox"
-                  />
-                  <span style={{ marginLeft: 6 }}>{isEnabled ? 'Enabled' : 'Disabled'}</span>
-                </label>
+                <span className={isEnabled ? styles.menuStatusEnabled : styles.menuStatusDisabled}>{isEnabled ? 'Enabled' : 'Disabled'}</span>
+                <button
+                  aria-checked={isEnabled}
+                  aria-label={`${isEnabled ? 'Disable' : 'Enable'} ${label}`}
+                  className={`${styles.menuToggle} ${isEnabled ? styles.menuToggleEnabled : ''}`}
+                  onClick={() => setDraftMenu((current) => ({ ...current, [slug]: !isEnabled }))}
+                  role="switch"
+                  type="button"
+                >
+                  <span className={styles.menuToggleKnob} />
+                </button>
               </div>
             </article>
           );

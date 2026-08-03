@@ -433,6 +433,79 @@
   min-width: 150px;
 }
 
+.menuToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.menuToolbar .button {
+  margin-left: auto;
+}
+
+.menuSummary,
+.menuStatusEnabled,
+.menuStatusDisabled {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.menuSummary,
+.menuStatusEnabled {
+  color: #315a3b;
+  background: #dceedd;
+}
+
+.menuStatusDisabled {
+  color: #7a4435;
+  background: #f6dfd8;
+}
+
+.menuItem {
+  border-color: #dfd2bd;
+}
+
+.menuToggle {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #b9afa3;
+  transition: background 160ms ease;
+}
+
+.menuToggle:focus-visible {
+  outline: 3px solid rgba(124, 88, 35, 0.35);
+  outline-offset: 3px;
+}
+
+.menuToggleEnabled {
+  background: #386b45;
+}
+
+.menuToggleKnob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform 160ms ease;
+}
+
+.menuToggleEnabled .menuToggleKnob {
+  transform: translateX(20px);
+}
+
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -544,5 +617,9 @@
 
   .rowActions {
     justify-content: flex-start;
+  }
+
+  .menuToolbar .button {
+    margin-left: 0;
   }
 }

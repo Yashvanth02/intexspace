@@ -1106,6 +1106,13 @@
   ],
   "menu": {
     "about": true,
-    "blog": true
+    "blog": true,
+    "ongoing": false,
+    "projects": false,
+    "careers": true,
+    "gallery": true,
+    "vlog": true,
+    "team": true,
+    "contact": true
   }
 }
