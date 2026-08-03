@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "project-kadappa-airport-kadappa-2022-23",
-      "title": "Kadappa Airport - Kadappa",
+      "title": "Kadappa Airport ",
       "status": "completed",
       "location": "Kadappa",
       "client": "Kadappa Airport",
@@ -11,7 +11,7 @@
       "summary": "Airport project delivered for Kadappa Airport during 2022-23.",
       "description": "Intexspace Solutions project for Kadappa Airport at Kadappa, categorized under Airport, with the engagement listed for 2022-23.",
       "imageUrl": "/images/project-cruise-terminal.jpg",
-      "updatedAt": "2026-07-31T04:23:27.575Z"
+      "updatedAt": "2026-08-03T03:35:34.226Z"
     },
     {
       "id": "project-dena-bank-gujarat-2017-18",
@@ -973,7 +973,7 @@
       "qualification": "B.E. Civil Engineering / Diploma in Civil Engineering",
       "description": "Supervise day-to-day site activities, contractors, vendors, work progress, quality standards and safety compliance.",
       "isOpen": true,
-      "updatedAt": "2026-06-29T00:00:00.000Z"
+      "updatedAt": "2026-08-03T05:39:55.137Z"
     },
     {
       "id": "career-architect",
@@ -1072,7 +1072,7 @@
   "vlogs": [
     {
       "id": "vlog-sample1-jppcuk",
-      "title": "Sample1",
+      "title": "Sample",
       "details": "Sample vlog is added",
       "youtubeUrl": "https://www.youtube.com/shorts/1g_y1JqyO6U",
       "thumbnailUrl": "https://fplivymefohodraheosq.supabase.co/storage/v1/object/public/Gallery/vlogs/vlogs-sample1-cfle6e.jpeg",

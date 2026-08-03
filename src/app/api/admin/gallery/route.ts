@@ -27,71 +27,68 @@ export async function POST(request: Request) {
   }
 
   const formData = await request.formData();
-  const file = formData.get("image");
-  const title = String(formData.get("title") || "").trim();
-  const category = String(formData.get("category") || "Project Gallery").trim();
-  const alt = String(formData.get("alt") || title).trim();
+  const files = formData
+    .getAll("images")
+    .filter((file): file is File => file instanceof File && file.size > 0);
+  const legacyFile = formData.get("image");
+  const uploads = files.length > 0
+    ? files
+    : legacyFile instanceof File && legacyFile.size > 0
+      ? [legacyFile]
+      : [];
 
-  if (!(file instanceof File) || !allowedTypes.has(file.type)) {
+  if (uploads.length === 0 || uploads.some((file) => !allowedTypes.has(file.type))) {
     return NextResponse.json({ message: "Please upload a JPG, PNG, WEBP or GIF image." }, { status: 400 });
   }
 
-  const id = makeId("gallery", title || file.name);
-  const fileName = `${id}${extensionFor(file)}`;
-  const storagePath = `gallery/${fileName}`;
-  const fileBuffer = Buffer.from(await file.arrayBuffer());
   const supabaseAdmin = createSupabaseAdmin();
-
   const bucket = getSupabaseStorageBucket();
-  const { error: uploadError } = await supabaseAdmin.storage
-    .from(bucket)
-    .upload(storagePath, fileBuffer, { contentType: file.type });
+  const galleryItems = await Promise.all(uploads.map(async (file) => {
+    const id = makeId("gallery", file.name);
+    const storagePath = `gallery/${id}${extensionFor(file)}`;
+    const { error: uploadError } = await supabaseAdmin.storage
+      .from(bucket)
+      .upload(storagePath, Buffer.from(await file.arrayBuffer()), { contentType: file.type });
 
-  if (uploadError) {
-    return NextResponse.json({
-      message:
-        uploadError.message || `Image upload failed. Ensure Supabase bucket "${bucket}" exists and is accessible.`,
-    }, { status: 500 });
-  }
+    if (uploadError) {
+      throw new Error(uploadError.message || `Image upload failed. Ensure Supabase bucket "${bucket}" exists and is accessible.`);
+    }
 
-  const publicUrlResponse = supabaseAdmin.storage.from(bucket).getPublicUrl(storagePath);
+    const imageUrl = supabaseAdmin.storage.from(bucket).getPublicUrl(storagePath).data.publicUrl;
+    if (!imageUrl) {
+      throw new Error("Failed to build public image URL.");
+    }
 
-  if (!publicUrlResponse?.data?.publicUrl) {
-    return NextResponse.json({ message: "Failed to build public image URL." }, { status: 500 });
-  }
+    return {
+      id,
+      title: file.name,
+      imageUrl,
+      storagePath,
+      alt: file.name,
+      category: "Gallery",
+      uploadedAt: nowIso(),
+    };
+  }));
 
-  const imageUrl = publicUrlResponse.data.publicUrl;
-  const galleryItem = {
-    id,
-    title: title || file.name,
-    imageUrl,
-    storagePath,
-    alt: alt || title || file.name,
-    category,
-    uploadedAt: nowIso(),
-  };
-
-  const insertRow = {
-    id: galleryItem.id,
-    title: galleryItem.title,
-    image_url: imageUrl,
-    storage_path: storagePath,
-    alt: galleryItem.alt,
-    category: galleryItem.category,
-    uploaded_at: galleryItem.uploadedAt,
-  };
-
-  const { error: insertError } = await supabaseAdmin
-    .from("gallery")
-    .insert(insertRow);
+  const { error: insertError } = await supabaseAdmin.from("gallery").insert(
+    galleryItems.map((item) => ({
+      id: item.id,
+      title: item.title,
+      image_url: item.imageUrl,
+      storage_path: item.storagePath,
+      alt: item.alt,
+      category: item.category,
+      uploaded_at: item.uploadedAt,
+    })),
+  );
 
   if (insertError) {
-    return NextResponse.json({ message: insertError.message || "Failed to save gallery metadata." }, { status: 500 });
+    return NextResponse.json({ message: insertError.message || "Failed to save gallery images." }, { status: 500 });
   }
 
   const adminData = await updateAdminData((current) => ({
     ...current,
-    gallery: [galleryItem, ...current.gallery],
+    gallery: [...galleryItems, ...current.gallery],
   }));
 
   const { data: galleryRows, error: galleryError } = await supabaseAdmin

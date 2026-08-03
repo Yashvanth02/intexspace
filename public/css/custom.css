@@ -3034,10 +3034,10 @@ body .hero-body{
 }
 
 .intex-projects-page .project-carousel-wrap{
-	cursor: default;
+	cursor: grab;
 	scrollbar-width: none;
 	scroll-behavior: smooth;
-	touch-action: pan-y;
+	touch-action: auto;
 	overscroll-behavior-inline: contain;
 }
 
@@ -3046,21 +3046,35 @@ body .hero-body{
 	gap: 14px;
 }
 
+.project-carousel-controls{
+	display: flex;
+	justify-self: end;
+	gap: 10px;
+}
+
 .project-carousel-next{
 	display: grid;
-	justify-self: end;
+	place-content: center;
 	width: 44px;
 	height: 44px;
-	place-items: center;
 	padding: 0;
 	border: 1px solid rgba(255, 255, 255, 0.7);
 	border-radius: 50%;
 	background: rgba(24, 20, 15, 0.82);
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 	color: var(--white-color);
-	font-size: 24px;
-	line-height: 1;
 	transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-carousel-next svg{
+	display: block;
+	width: 23px;
+	height: 23px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 3;
 }
 
 .project-carousel-next:hover,
@@ -3080,6 +3094,7 @@ body .hero-body{
 }
 
 .intex-projects-page .project-carousel-wrap.is-dragging{
+	cursor: grabbing;
 	user-select: none;
 }
 
@@ -4470,10 +4485,44 @@ body .hero-body{
 
 .team-item-content h2{
     font-size: 20px;
+	color: var(--white-color);
 }
 
 .team-item-content h2 a{
     color: var(--white-color);
+}
+
+.team-carousel{
+	display: flex;
+	gap: 30px;
+	overflow-x: auto;
+	padding-bottom: 16px;
+	cursor: grab;
+	scroll-behavior: smooth;
+	scroll-snap-type: x proximity;
+	scrollbar-width: none;
+	touch-action: auto;
+	overscroll-behavior-inline: contain;
+}
+
+.team-carousel::-webkit-scrollbar{
+	display: none;
+}
+
+.team-carousel > .col-xl-3{
+	min-width: 260px;
+	flex: 0 0 calc((100% - 90px) / 4);
+	scroll-snap-align: start;
+}
+
+.team-carousel.is-dragging{
+	cursor: grabbing;
+	user-select: none;
+}
+
+.team-carousel img{
+	-webkit-user-drag: none;
+	user-select: none;
 }
 
 .team-item-content p{

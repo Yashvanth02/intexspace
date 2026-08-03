@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { makeId, nowIso, type Project, updateAdminData } from "@/lib/admin-store";
+import { makeId, normalizeProjectStatus, nowIso, type Project, updateAdminData } from "@/lib/admin-store";
 import { uploadImageToStorage } from "@/lib/image-upload";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
 
@@ -14,7 +14,7 @@ function projectFromBody(body: Partial<Project>): Project {
   return {
     id: makeId("project", title),
     title,
-    status: body.status || "ongoing",
+    status: normalizeProjectStatus(body.status),
     location: String(body.location || "").trim(),
     client: String(body.client || "").trim(),
     category: String(body.category || "").trim(),
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
           : [];
 
       const title = String(formData.get("title") || "").trim();
-      const status = String(formData.get("status") || "ongoing").trim();
+      const status = normalizeProjectStatus(formData.get("status"));
       const location = String(formData.get("location") || "").trim();
       const client = String(formData.get("client") || "").trim();
       const category = String(formData.get("category") || "").trim();
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       const project = {
         id: makeId("project", title),
         title,
-        status: status as Project["status"],
+        status,
         location,
         client,
         category,

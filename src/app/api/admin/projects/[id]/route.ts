@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { nowIso, type Project, updateAdminData } from "@/lib/admin-store";
+import { normalizeProjectStatus, nowIso, type Project, updateAdminData } from "@/lib/admin-store";
 import { uploadImageToStorage } from "@/lib/image-upload";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
 
@@ -38,7 +38,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
       patch = {
         title,
-        status: (String(formData.get("status") || "ongoing").trim()) as Project["status"],
+        status: normalizeProjectStatus(formData.get("status")),
         location: String(formData.get("location") || "").trim(),
         client: String(formData.get("client") || "").trim(),
         category: String(formData.get("category") || "").trim(),
@@ -96,6 +96,9 @@ export async function PUT(request: Request, { params }: RouteParams) {
     }
   } else {
     patch = (await request.json()) as Partial<Project>;
+    if ("status" in patch) {
+      patch.status = normalizeProjectStatus(patch.status);
+    }
   }
 
   const data = await updateAdminData((current) => ({

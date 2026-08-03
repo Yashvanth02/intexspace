@@ -1,7 +1,8 @@
 import "server-only";
 
-import { readAdminData, type AdminData } from "./admin-store";
+import { normalizeProjectStatus, readAdminData, type AdminData } from "./admin-store";
 import { createSupabaseAdmin } from "./supabase-server";
+import { readPersistentMenu } from "./menu-store";
 
 export type LegacyPage = {
   title: string;
@@ -49,8 +50,6 @@ const legacyPageLoaders: Record<string, () => Promise<LegacyPageModule>> = {
   "service-single": () => import("./legacy-pages-data/service_single"),
   "services.html": () => import("./legacy-pages-data/services_html"),
   "services": () => import("./legacy-pages-data/services"),
-  "team-single.html": () => import("./legacy-pages-data/team_single_html"),
-  "team-single": () => import("./legacy-pages-data/team_single"),
   "team.html": () => import("./legacy-pages-data/team_html"),
   "team": () => import("./legacy-pages-data/team"),
   "testimonials.html": () => import("./legacy-pages-data/testimonials_html"),
@@ -98,8 +97,6 @@ export const legacySlugs = [
     "service-single",
     "services.html",
     "services",
-    "team-single.html",
-    "team-single",
     "team.html",
     "team",
     "testimonials.html",
@@ -119,7 +116,11 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
   const module = await loader();
   const page = module.default;
-  const rawData = await readAdminData();
+  const storedData = await readAdminData();
+  const rawData = {
+    ...storedData,
+    menu: { ...(storedData.menu || {}), ...((await readPersistentMenu()) || {}) },
+  };
   const normalizedSlug = slug.replace(/\.html$/, "");
 
   // Merge gallery from Supabase (same as admin state endpoint) so user-facing
@@ -169,7 +170,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
         mergedProjects.set(row.id, {
           id: row.id,
           title: row.title || localItem?.title || "",
-          status: (row.status || localItem?.status || "completed") as AdminData["projects"][number]["status"],
+          status: normalizeProjectStatus(row.status || localItem?.status),
           location: row.location || localItem?.location || "",
           client: row.client || localItem?.client || "",
           category: row.category || localItem?.category || "",
@@ -195,6 +196,44 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
   // Inject admin-managed sections first
   let body = injectAdminContent(page.body, normalizedSlug, data);
+
+  if (normalizedSlug === "index") {
+    // The profile PDF is served through a small route so its filename can be
+    // changed in /public without requiring another home-page edit.
+    body = body.replace(
+      /(<div class="video-play-button">[\s\S]*?<a href=")[^"]+("[^>]*>)/,
+      '$1/api/profile$2',
+    );
+    body = body.replace(
+      'href="api/profile" class="popup-video" data-cursor-text="Play"',
+      'href="/api/profile" target="_blank" rel="noopener" data-cursor-text="View"',
+    );
+
+    // These are template-only promotional sections and are not part of the
+    // Intex home-page content.
+    body = body.replace(/\s*<!-- Intro Video Section Start -->[\s\S]*?<!-- Intro Video Section End -->/, "");
+    body = body.replace(/\s*<!-- Our Projects Section Start -->[\s\S]*?<!-- Our Projects Section End -->/, "");
+
+    // Keep the capabilities cards informational; the arrow-only links add no
+    // useful destination once the project sections are managed separately.
+    body = body.replace(
+      /\s*<!-- Service Readmore Button Start -->\s*<div class="service-item-btn">[\s\S]*?<\/div>\s*<!-- Service Readmore Button End -->/g,
+      "",
+    );
+
+    // Use the established site logo in testimonial cards instead of the
+    // template company logos.
+    body = body.replace(
+      /<div class="testimonial-item-logo">\s*<img[^>]*>\s*<\/div>/g,
+      '<div class="testimonial-item-logo"><img src="images/logo.svg" alt="Intex Space Solutions"></div>',
+    );
+  }
+
+  // Team members are presented as a grid only; individual profile pages are
+  // intentionally not part of the public site.
+  if (normalizedSlug === "team") {
+    body = body.replace(/<a\b[^>]*href="team-single\.html"[^>]*>([\s\S]*?)<\/a>/g, "$1");
+  }
 
   // Replace project anchor links that previously pointed to the projects page ongoing anchor
   // so they point to the new standalone ongoing page instead.
@@ -627,14 +666,14 @@ function renderCompletedProjectSection(data: AdminData) {
         const year = escapeHtml(project.year || "");
 
         return `<div class="col-xl-4 col-md-6">
-          <article class="project-item admin-completed-project">
+          <article class="project-item admin-completed-project" data-project-description="${escapeHtml(project.description || project.summary || "")}">
             <div class="project-item-image">
-              <a href="contact.html" aria-label="Discuss ${title}">
+              <a href="#project-details" data-project-trigger aria-label="View details for ${title}">
                 <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
               </a>
             </div>
             <div class="project-item-content">
-              <h2><a href="contact.html">${title}</a></h2>
+              <h2><a href="#project-details" data-project-trigger>${title}</a></h2>
               <ul><li>${category}</li><li>${location}</li>${year ? `<li>${year}</li>` : ""}</ul>
             </div>
           </article>
@@ -668,14 +707,14 @@ function renderOngoingProjectSection(data: AdminData) {
         const year = escapeHtml(project.year || "");
 
         return `<div class="col-xl-4 col-md-6">
-          <article class="project-item admin-ongoing-project">
+          <article class="project-item admin-ongoing-project" data-project-description="${escapeHtml(project.description || project.summary || "")}">
             <div class="project-item-image">
-              <a href="contact.html" aria-label="Discuss ${title}">
+              <a href="#project-details" data-project-trigger aria-label="View details for ${title}">
                 <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
               </a>
             </div>
             <div class="project-item-content">
-              <h2><a href="contact.html">${title}</a></h2>
+              <h2><a href="#project-details" data-project-trigger>${title}</a></h2>
               <ul><li>${category}</li><li>${location}</li>${year ? `<li>${year}</li>` : ""}</ul>
             </div>
           </article>
@@ -839,9 +878,7 @@ function renderAdminTeamSection(team: AdminData["team"]) {
   return `<!-- Page Team Start -->
     <div class="page-team">
       <div class="container">
-        <div class="row">
-          ${team.map(renderTeamMemberCard).join("")}
-        </div>
+        ${renderTeamGrid(team)}
       </div>
     </div>
     <!-- Page Team End -->`;
@@ -867,14 +904,18 @@ function renderAboutTeamSection(team: AdminData["team"]) {
                 </div>
             </div>
 
-            <div class="row">
-                ${team.map(renderTeamMemberCard).join("")}
-            </div>
+            ${renderTeamGrid(team)}
         </div>
     </div>
     <!-- Our Team Section End -->`;
 }
 
+function renderTeamGrid(team: AdminData["team"]) {
+  const cards = team.map(renderTeamMemberCard).join("");
+  return team.length > 4
+    ? `<div class="team-carousel">${cards}</div>`
+    : `<div class="row">${cards}</div>`;
+}
 
 function renderTeamMemberCard(member: AdminData["team"][number], index = 0) {
   const delay = index > 0 ? ` data-wow-delay="${Math.min(0.8, index * 0.2).toFixed(1)}s"` : "";
@@ -883,13 +924,11 @@ function renderTeamMemberCard(member: AdminData["team"][number], index = 0) {
   return `<div class="col-xl-3 col-md-6">
             <div class="team-item wow fadeInUp"${delay}>
               <div class="team-item-image">
-                <a href="team-single.html" data-cursor-text="View">
-                  <figure><img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}"></figure>
-                </a>
+                <figure><img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}"></figure>
               </div>
               <div class="team-item-body">
                 <div class="team-item-content">
-                  <h2><a href="team-single.html">${escapeHtml(member.name)}</a></h2>
+                  <h2>${escapeHtml(member.name)}</h2>
                   <p>${escapeHtml(member.designation)}</p>
                 </div>
                 ${socialLinks ? `<div class="team-social-list"><ul>${socialLinks}</ul></div>` : ""}
@@ -938,9 +977,9 @@ function adminSectionStyles() {
     .admin-live-gallery-card{margin:0;overflow:hidden;background:#1d1812}
     .admin-live-gallery-card img{aspect-ratio:1/1;transition:transform .45s ease,filter .45s ease}
     .admin-live-gallery-card:hover img{transform:scale(1.08);filter:brightness(1.08)}
-    .admin-live-gallery .admin-live-gallery-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);overflow-x:auto;padding-bottom:6px;scroll-behavior:smooth;scroll-snap-type:x proximity;scrollbar-width:none;touch-action:pan-y;overscroll-behavior-inline:contain}
+    .admin-live-gallery .admin-live-gallery-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3);overflow-x:auto;padding-bottom:6px;cursor:grab;scroll-behavior:smooth;scroll-snap-type:x proximity;scrollbar-width:none;touch-action:auto;overscroll-behavior-inline:contain}
     .admin-live-gallery .admin-live-gallery-grid::-webkit-scrollbar{display:none}
-    .admin-live-gallery .admin-live-gallery-grid.is-dragging{user-select:none}
+    .admin-live-gallery .admin-live-gallery-grid.is-dragging{cursor:grabbing;user-select:none}
     .admin-live-gallery .admin-live-gallery-card{scroll-snap-align:start}
     .admin-live-gallery .admin-live-gallery-card img{-webkit-user-drag:none;user-select:none}
     .admin-live-vlog-card{display:block;color:inherit;text-decoration:none}

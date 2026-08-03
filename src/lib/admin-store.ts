@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from "fs/promises";
 import os from "os";
 import path from "path";
 
-export type ProjectStatus = "ongoing" | "in-progress" | "completed" | "on-hold";
+export type ProjectStatus = "ongoing" | "completed";
 export type InquiryStatus = "new" | "contacted" | "closed";
 
 export type Project = {
@@ -153,7 +153,7 @@ export async function writeAdminData(data: AdminData) {
     return;
   } catch (error) {
     const code = (error as NodeJS.ErrnoException).code;
-    if (code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR") {
+    if (code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR" && code !== "EROFS") {
       throw error;
     }
 
@@ -170,4 +170,9 @@ export async function updateAdminData(updater: (data: AdminData) => AdminData | 
 
 export function nowIso() {
   return new Date().toISOString();
+}
+
+/** Keeps legacy values visible while limiting new project records to two states. */
+export function normalizeProjectStatus(value: unknown): ProjectStatus {
+  return String(value).trim().toLowerCase() === "completed" ? "completed" : "ongoing";
 }
