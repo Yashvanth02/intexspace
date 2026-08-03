@@ -567,13 +567,13 @@ export function AdminDashboard() {
           <p>Manage projects, gallery, hiring and inquiries from one publishing workspace.</p>
         </div>
         <div className={styles.headerActions}>
-          <a className={styles.secondaryButton} href="/" target="_blank">
+          <a className={`${styles.secondaryButton} ${styles.headerSiteButton}`} href="/" rel="noopener noreferrer" target="_blank">
             View Site
           </a>
-          <button className={styles.secondaryButton} onClick={loadState} type="button">
+          <button className={`${styles.secondaryButton} ${styles.headerRefreshButton}`} onClick={loadState} type="button">
             Refresh
           </button>
-          <button className={styles.button} onClick={logout} type="button">
+          <button className={`${styles.button} ${styles.headerLogoutButton}`} onClick={logout} type="button">
             Logout
           </button>
         </div>
