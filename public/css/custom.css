@@ -3454,6 +3454,14 @@ body .hero-body{
 	background: linear-gradient(90deg, var(--accent-secondary-color) 0%, var(--accent-color) 100%);
 }
 
+.career-eyebrow-closed{
+	color: #c62828;
+}
+
+.career-eyebrow-closed::before{
+	background: #c62828;
+}
+
 .career-detail-header h2{
 	font-size: 42px;
 	margin-bottom: 16px;
@@ -3526,6 +3534,17 @@ body .hero-body{
 
 .career-role-detail .btn-default{
 	margin-top: 30px;
+}
+
+.career-role-detail .career-apply-disabled{
+	background: #9a9a9a;
+	color: #fff;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.career-role-detail .career-apply-disabled::before{
+	display: none;
 }
 
 .intex-career-cta{

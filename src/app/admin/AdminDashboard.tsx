@@ -133,7 +133,16 @@ async function readResponse(response: Response) {
     throw new Error(body.message || "Request failed.");
   }
 
-  return body as AdminData;
+  // Most mutation endpoints return the stored admin data, while only the
+  // state endpoint adds menuSections. Keep this derived UI field stable after
+  // any save/delete action so the Menu Controls badge cannot briefly show 0.
+  return {
+    ...body,
+    menuSections:
+      Array.isArray(body.menuSections) && body.menuSections.length > 0
+        ? body.menuSections
+        : defaultMenuSections,
+  } as AdminData;
 }
 
 function normalizeText(value: string) {

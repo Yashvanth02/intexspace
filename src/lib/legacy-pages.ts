@@ -205,6 +205,10 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   // Inject admin-managed sections first
   let body = injectAdminContent(page.body, normalizedSlug, data);
 
+  
+
+  
+
   if (normalizedSlug === "index") {
     // The profile PDF is served through a small route so its filename can be
     // changed in /public without requiring another home-page edit.
@@ -242,6 +246,10 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   // intentionally not part of the public site.
   if (normalizedSlug === "team") {
     body = body.replace(/<a\b[^>]*href="team-single\.html"[^>]*>([\s\S]*?)<\/a>/g, "$1");
+  }
+
+  if (normalizedSlug === "careers") {
+    body = applyCareerAvailability(body, data.careers);
   }
 
   // Replace project anchor links that previously pointed to the projects page ongoing anchor
@@ -860,6 +868,33 @@ function renderCareerCard(career: AdminData["careers"][number]) {
       <li>${escapeHtml(career.qualification || "Relevant qualification")}</li>
     </ul>
   </article>`;
+}
+
+function applyCareerAvailability(body: string, careers: AdminData["careers"]) {
+  const closedTitles = new Set(
+    careers.filter((career) => !career.isOpen).map((career) => career.title.trim()),
+  );
+
+  if (closedTitles.size === 0) {
+    return body;
+  }
+
+  return body.replace(/<article class="career-role-detail[\s\S]*?<\/article>/g, (role) => {
+    const title = role.match(/<h2>([\s\S]*?)<\/h2>/)?.[1].trim();
+    if (!title || !closedTitles.has(title)) {
+      return role;
+    }
+
+    const closedRole = role.replace(
+      /<span class="career-eyebrow">Open role<\/span>/i,
+      '<span class="career-eyebrow career-eyebrow-closed">Closed</span>',
+    );
+
+    return closedRole.replace(
+      /<a class="btn-default"[^>]*>Apply Now[\s\S]*?<\/a>/i,
+      '<span class="btn-default career-apply-disabled" aria-disabled="true">Applications Closed</span>',
+    );
+  });
 }
 
 function truncateProjectsAfterMaritime(sections: string) {
