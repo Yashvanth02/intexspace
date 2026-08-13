@@ -3,6 +3,7 @@ import "server-only";
 import { mkdir, readFile, writeFile } from "fs/promises";
 import os from "os";
 import path from "path";
+import { createSupabaseAdmin, getSupabaseStorageBucket } from "./supabase-server";
 
 export type ProjectStatus = "ongoing" | "completed";
 export type InquiryStatus = "new" | "contacted" | "closed";
@@ -88,6 +89,7 @@ export type AdminData = {
 
 const dataFile = path.join(process.cwd(), "data", "admin-data.json");
 const fallbackDataFile = path.join(os.tmpdir(), "intex-admin-data.json");
+const persistentDataPath = "settings/admin-data.json";
 
 const emptyData: AdminData = {
   projects: [],
@@ -133,7 +135,32 @@ async function readFallbackAdminData(): Promise<AdminData> {
   }
 }
 
+async function readPersistentAdminData(): Promise<AdminData | null> {
+  try {
+    const client = createSupabaseAdmin();
+    const { data, error } = await client.storage.from(getSupabaseStorageBucket()).download(persistentDataPath);
+    if (error || !data) return null;
+    const parsed = JSON.parse(await data.text()) as unknown;
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+      ? ({ ...emptyData, ...parsed } as AdminData)
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+async function writePersistentAdminData(data: AdminData) {
+  const client = createSupabaseAdmin();
+  const { error } = await client.storage
+    .from(getSupabaseStorageBucket())
+    .upload(persistentDataPath, JSON.stringify(data), { contentType: "application/json", upsert: true });
+  if (error) throw new Error(error.message || "Failed to persist admin data.");
+}
+
 export async function readAdminData(): Promise<AdminData> {
+  const persistentData = await readPersistentAdminData();
+  if (persistentData) return persistentData;
+
   try {
     return await readAdminDataFile(dataFile);
   } catch (error) {
@@ -148,6 +175,12 @@ export async function readAdminData(): Promise<AdminData> {
 }
 
 export async function writeAdminData(data: AdminData) {
+  try {
+    await writePersistentAdminData(data);
+  } catch {
+    // Storage is optional for local development; use the local cache below.
+  }
+
   try {
     await writeAdminDataFile(dataFile, data);
     return;

@@ -498,8 +498,9 @@ export function AdminDashboard() {
       return;
     }
 
-    const response = await fetch(editingVlogId ? `/api/admin/vlogs/${editingVlogId}` : "/api/admin/vlogs", {
-      method: editingVlogId ? "PUT" : "POST",
+    const isEditing = Boolean(editingVlogId);
+    const response = await fetch(isEditing ? `/api/admin/vlogs/${editingVlogId}` : "/api/admin/vlogs", {
+      method: isEditing ? "PUT" : "POST",
       body: formData,
     });
 
@@ -508,7 +509,7 @@ export function AdminDashboard() {
     setVlogForm({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
     setEditingVlogId(null);
     event.currentTarget.reset();
-    setNotice(editingVlogId ? "Vlog updated." : "Vlog published.");
+    setNotice(isEditing ? "Vlog updated." : "Vlog published.");
   }
 
   async function deleteVlog(id: string) {

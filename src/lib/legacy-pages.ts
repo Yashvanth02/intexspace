@@ -280,7 +280,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   }
 
   if (normalizedSlug === "careers") {
-    body = applyCareerAvailability(body, data.careers);
+    body = replaceCareerBoard(body, data.careers);
   }
 
   // Replace project anchor links that previously pointed to the projects page ongoing anchor
@@ -355,7 +355,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     if (ongoingStart !== -1) {
       const ongoingEnd = body.indexOf('</section>', ongoingStart);
       if (ongoingEnd !== -1) {
-        const adminOngoingSection = renderOngoingProjectSection(data);
+        const adminOngoingSection = data.menu?.ongoing === false ? "" : renderOngoingProjectSection(data);
         if (adminOngoingSection) {
           body = body.slice(0, ongoingEnd + '</section>'.length) +
             '\n            ' + adminOngoingSection +
@@ -609,22 +609,9 @@ function renderAdminSection(slug: string, data: AdminData) {
     </section>`;
   }
 
-  if (slug === "careers" && data.careers.length > 0) {
-    if (!isEnabled("careers")) return "";
-    return `${adminSectionStyles()}
-    <section class="admin-live-section admin-live-careers" id="admin-managed-careers">
-      <div class="container">
-        <div class="admin-live-heading">
-          <span>Updated From Admin</span>
-          <h2>Open Roles</h2>
-          <p>Career openings are controlled by the admin dashboard.</p>
-        </div>
-        <div class="admin-live-list">
-          ${data.careers.map(renderCareerCard).join("")}
-        </div>
-      </div>
-    </section>`;
-  }
+  // Careers replace the template's own board above, so they are not appended
+  // again as a second, inconsistent list at the bottom of the page.
+  if (slug === "careers") return "";
 
   if (slug === "vlog") {
     if (!isEnabled("vlog")) return "";
@@ -903,31 +890,24 @@ function renderCareerCard(career: AdminData["careers"][number]) {
   </article>`;
 }
 
-function applyCareerAvailability(body: string, careers: AdminData["careers"]) {
-  const closedTitles = new Set(
-    careers.filter((career) => !career.isOpen).map((career) => career.title.trim()),
-  );
+function replaceCareerBoard(body: string, careers: AdminData["careers"]) {
+  const start = body.indexOf('<div class="career-board');
+  const nextSection = body.indexOf('<div class="intex-career-cta', start);
+  if (start === -1 || nextSection === -1) return body;
 
-  if (closedTitles.size === 0) {
-    return body;
-  }
-
-  return body.replace(/<article class="career-role-detail[\s\S]*?<\/article>/g, (role) => {
-    const title = role.match(/<h2>([\s\S]*?)<\/h2>/)?.[1].trim();
-    if (!title || !closedTitles.has(title)) {
-      return role;
-    }
-
-    const closedRole = role.replace(
-      /<span class="career-eyebrow">Open role<\/span>/i,
-      '<span class="career-eyebrow career-eyebrow-closed">Closed</span>',
-    );
-
-    return closedRole.replace(
-      /<a class="btn-default"[^>]*>Apply Now[\s\S]*?<\/a>/i,
-      '<span class="btn-default career-apply-disabled" aria-disabled="true">Applications Closed</span>',
-    );
+  const cards = careers.map((career, index) => {
+    const roleId = `career-role-${career.id}`;
+    const active = index === 0;
+    const action = career.isOpen
+      ? `<a class="btn-default" href="mailto:admin@intexspace.com?subject=Application%20-%20${encodeURIComponent(career.title)}">Apply Now</a>`
+      : '<span class="btn-default career-apply-disabled" aria-disabled="true">Applications Closed</span>';
+    return {
+      tab: `<button class="career-job-card${active ? " active" : ""}" type="button" role="tab" aria-selected="${active}" aria-controls="${roleId}" data-career-role="${career.id}"><span class="career-job-content"><span class="career-job-title">${escapeHtml(career.title)}</span><span class="career-job-meta">${escapeHtml(career.location || "Chennai")} | ${escapeHtml(career.employmentType || "Full-time")} | ${escapeHtml(career.experience || "Experience as applicable")}</span><span class="career-job-summary">${escapeHtml(career.qualification || "Relevant qualification")}</span></span></button>`,
+      detail: `<article class="career-role-detail${active ? " active" : ""}" id="${roleId}" role="tabpanel" data-career-detail="${career.id}"${active ? "" : " hidden"}><div class="career-detail-header"><span class="career-eyebrow${career.isOpen ? "" : " career-eyebrow-closed"}">${career.isOpen ? "Open role" : "Applications closed"}</span><h2>${escapeHtml(career.title)}</h2><p>${escapeHtml(career.qualification || "Relevant qualification")}</p></div><div class="career-detail-grid"><div><span>Location</span><strong>${escapeHtml(career.location || "Chennai")}</strong></div><div><span>Experience</span><strong>${escapeHtml(career.experience || "As applicable")}</strong></div><div><span>Employment Type</span><strong>${escapeHtml(career.employmentType || "Full-time")}</strong></div></div><h3>Role Description</h3><p>${escapeHtml(career.description || "Details will be shared during the application process.")}</p>${action}</article>`,
+    };
   });
+  const board = `<div class="career-board wow fadeInUp" data-wow-delay="0.3s"><div class="career-list" role="tablist" aria-label="Current openings">${cards.map((card) => card.tab).join("")}</div><div class="career-detail-panel">${cards.map((card) => card.detail).join("")}</div></div>`;
+  return `${body.slice(0, start)}${board}${body.slice(nextSection)}`;
 }
 
 function truncateProjectsAfterMaritime(sections: string) {

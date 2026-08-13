@@ -226,10 +226,32 @@ export function LegacyInteractions() {
     document.addEventListener("click", onProjectClick);
     document.addEventListener("keydown", onProjectKeydown);
 
+    // Scripts embedded in legacy HTML are intentionally not executed by
+    // React. Bind the admin-generated career tabs here so newly created and
+    // renamed openings work exactly like the original template roles.
+    const careerButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-career-role]"));
+    const onCareerClick = (event: Event) => {
+      const button = event.currentTarget as HTMLButtonElement;
+      const role = button.dataset.careerRole;
+      if (!role) return;
+      careerButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      document.querySelectorAll<HTMLElement>("[data-career-detail]").forEach((panel) => {
+        const active = panel.dataset.careerDetail === role;
+        panel.classList.toggle("active", active);
+        panel.hidden = !active;
+      });
+    };
+    careerButtons.forEach((button) => button.addEventListener("click", onCareerClick));
+
     return () => {
       cleanups.forEach((cleanup) => cleanup());
       document.removeEventListener("click", onProjectClick);
       document.removeEventListener("keydown", onProjectKeydown);
+      careerButtons.forEach((button) => button.removeEventListener("click", onCareerClick));
     };
   }, []);
 

@@ -19,7 +19,23 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     if (!/^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(youtubeUrl)) throw new Error("Please enter a valid YouTube link.");
 
     const current = await readAdminData();
-    const existingVlog = current.vlogs.find((vlog) => vlog.id === id);
+    let existingVlog = current.vlogs.find((vlog) => vlog.id === id);
+
+    if (!existingVlog) {
+      const client = createSupabaseAdmin();
+      const { data, error } = await client
+        .from("vlogs")
+        .select("id, title, details, youtube_url, thumbnail_url, created_at")
+        .eq("id", id)
+        .maybeSingle();
+      if (error) throw new Error(error.message || "Failed to load vlog metadata.");
+      if (data) {
+        existingVlog = {
+          id: data.id, title: data.title, details: data.details, youtubeUrl: data.youtube_url,
+          thumbnailUrl: data.thumbnail_url, createdAt: data.created_at,
+        };
+      }
+    }
 
     if (!existingVlog) throw new Error("Vlog not found.");
 
@@ -32,7 +48,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     }
 
     const updatedVlog = { ...existingVlog, title, details, youtubeUrl, thumbnailUrl };
-    const next = { ...current, vlogs: current.vlogs.map((vlog) => (vlog.id === id ? updatedVlog : vlog)) };
+    const next = {
+      ...current,
+      vlogs: current.vlogs.some((vlog) => vlog.id === id)
+        ? current.vlogs.map((vlog) => (vlog.id === id ? updatedVlog : vlog))
+        : [updatedVlog, ...current.vlogs],
+    };
 
     const supabaseAdmin = createSupabaseAdmin();
     const { error } = await supabaseAdmin.from("vlogs").upsert({
