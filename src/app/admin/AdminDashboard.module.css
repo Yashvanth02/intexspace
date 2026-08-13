@@ -474,6 +474,18 @@
   min-width: 150px;
 }
 
+.emptyImages,
+.imagePlaceholder {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  margin: 0;
+  border: 1px dashed #cfc1ac;
+  border-radius: 8px;
+  color: #70665b;
+  background: #fff;
+}
+
 .menuToolbar {
   display: flex;
   flex-wrap: wrap;

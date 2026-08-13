@@ -91,7 +91,7 @@ const emptyProject: Omit<Project, "id" | "updatedAt"> = {
   year: "",
   summary: "",
   description: "",
-  imageUrl: "/images/project-workplace-fabric.jpg",
+  imageUrl: "",
 };
 
 const emptyCareer: Omit<CareerOpening, "id" | "updatedAt"> = {
@@ -1000,9 +1000,9 @@ function ProjectsPanel({
             <div className={styles.projectPreview}>
               <span>Current project images</span>
               <div className={styles.projectPreviewGrid}>
-                {projectImageUrls(form, gallery).map((src, index) => (
+                {projectImageUrls(form, gallery).length ? projectImageUrls(form, gallery).map((src, index) => (
                   <img key={`${src}-${index}`} alt={`Project image ${index + 1}`} src={src} />
-                ))}
+                )) : <p className={styles.emptyImages}>No images added.</p>}
               </div>
             </div>
           ) : null}
@@ -1055,6 +1055,15 @@ function ProjectsPanel({
               <input accept="image/*" multiple name="images" type="file" />
               <small>Upload one or more images. The first file becomes the featured project image; additional files are added to the gallery.</small>
             </label>
+            {editingId && form.imageUrl ? (
+              <div className={`${styles.field} ${styles.wide}`}>
+                <input name="removeImage" type="hidden" value="false" />
+                <button className={styles.dangerButton} onClick={() => setForm({ ...form, imageUrl: "" })} type="button">
+                  Remove featured project image
+                </button>
+                <small>This removes only the featured image. Manually added matching gallery images will continue to display.</small>
+              </div>
+            ) : editingId ? <input name="removeImage" type="hidden" value="true" /> : null}
             <label className={`${styles.field} ${styles.wide}`}>
               Summary
               <input value={form.summary} onChange={(event) => setForm({ ...form, summary: event.target.value })} />
@@ -1082,7 +1091,7 @@ function ProjectsPanel({
         <div className={styles.list}>
           {data.map((project) => (
             <article className={styles.item} key={project.id}>
-              <img className={styles.itemImage} alt="" src={project.imageUrl} />
+              {project.imageUrl ? <img className={styles.itemImage} alt="" src={project.imageUrl} /> : <div className={styles.imagePlaceholder}>No image</div>}
               <div>
                 <h3>{project.title}</h3>
                 <p>{project.summary || project.description}</p>

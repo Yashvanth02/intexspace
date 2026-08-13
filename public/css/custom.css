@@ -2522,8 +2522,15 @@ body .hero-body{
 }
 
 .our-testimonials .testimonial-item.intex-testimonial .testimonial-item-logo img{
-	width: 220px;
 	max-width: 100%;
+}
+
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-item-logo{
+	position: relative;
+}
+
+.our-testimonials .testimonial-item.intex-testimonial .testimonial-item-logo .intex-testimonial-wordmark{
+	width: 260px;
 }
 
 .our-testimonials .testimonial-item.intex-testimonial .testimonial-item-content p,

@@ -136,8 +136,8 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   try {
     const supabaseAdmin = createSupabaseAdmin();
 
-    // Fetch both gallery and projects from Supabase so public legacy pages reflect remote changes
-    const [{ data: galleryRows }, { data: projectRows }] = await Promise.all([
+    // Fetch remote content so public legacy pages reflect the latest admin changes.
+    const [{ data: galleryRows }, { data: projectRows }, vlogResult] = await Promise.all([
       supabaseAdmin
         .from("gallery")
         .select("id, title, image_url, alt, category, uploaded_at")
@@ -146,6 +146,10 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
         .from("projects")
         .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
         .order("updated_at", { ascending: false }),
+      supabaseAdmin
+        .from("vlogs")
+        .select("id, title, details, youtube_url, thumbnail_url, created_at")
+        .order("created_at", { ascending: false }),
     ]);
 
     // Merge gallery rows with local gallery (local items take precedence unless Supabase has newer entries)
@@ -185,7 +189,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
           year: row.year || localItem?.year || "",
           summary: row.summary || localItem?.summary || "",
           description: row.description || localItem?.description || "",
-          imageUrl: row.image_url || localItem?.imageUrl || "/images/project-workplace-fabric.jpg",
+          imageUrl: row.image_url ?? localItem?.imageUrl ?? "",
           updatedAt: row.updated_at || localItem?.updatedAt || new Date().toISOString(),
         });
       }
@@ -198,6 +202,21 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     data = rawData;
     if (sortedGallery) data = { ...data, gallery: sortedGallery };
     if (sortedProjects) data = { ...data, projects: sortedProjects };
+    if (!vlogResult.error) {
+      data = {
+        ...data,
+        vlogs: (vlogResult.data ?? []).map((row) => ({
+          id: row.id,
+          title: row.title,
+          details: row.details,
+          youtubeUrl: row.youtube_url,
+          thumbnailUrl: row.thumbnail_url,
+          createdAt: row.created_at,
+        })).sort(
+          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        ),
+      };
+    }
   } catch (_err) {
     // If Supabase is unavailable, fall back to local JSON data
   }
@@ -225,6 +244,10 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     // Intex home-page content.
     body = body.replace(/\s*<!-- Intro Video Section Start -->[\s\S]*?<!-- Intro Video Section End -->/, "");
     body = body.replace(/\s*<!-- Our Projects Section Start -->[\s\S]*?<!-- Our Projects Section End -->/, "");
+    // The template labels the Sector Experience cards as an "Our Blog"
+    // section, so remove that exact block rather than the unrelated projects
+    // section above.
+    body = body.replace(/\s*<!-- Our Blog Section Start -->[\s\S]*?Sector Experience[\s\S]*?<!-- Our Blog Section End -->/, "");
 
     // Keep the capabilities cards informational; the arrow-only links add no
     // useful destination once the project sections are managed separately.
@@ -237,7 +260,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     // template company logos.
     body = body.replace(
       /<div class="testimonial-item-logo">\s*<img[^>]*>\s*<\/div>/g,
-      '<div class="testimonial-item-logo"><img src="images/logo.svg" alt="Intex Space Solutions"></div>',
+      '<div class="testimonial-item-logo"><span class="brand-symbol" aria-hidden="true"><img src="images/intex-symbol.png" alt=""></span><img class="intex-testimonial-wordmark" src="images/logo.svg" alt="Intex Space Solutions"></div>',
     );
     body = body.replace(/<div class="testimonial-item">/g, '<div class="testimonial-item intex-testimonial">');
   }
@@ -246,6 +269,14 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   // intentionally not part of the public site.
   if (normalizedSlug === "team") {
     body = body.replace(/<a\b[^>]*href="team-single\.html"[^>]*>([\s\S]*?)<\/a>/g, "$1");
+  }
+
+  if (normalizedSlug === "about") {
+    // These template sections repeat content already available elsewhere:
+    // sector cards belong to the projects experience, the CTA belongs on the
+    // contact page, and testimonials remain on the home page only.
+    body = body.replace(/\s*<!-- CTA Box Section Start -->[\s\S]*?<!-- CTA Box Section End -->/, "");
+    body = body.replace(/\s*<!-- Our Testimonials Section Start -->[\s\S]*?<!-- Our Testimonials Section End -->/, "");
   }
 
   if (normalizedSlug === "careers") {
@@ -462,14 +493,16 @@ function syncProjectImagesInHtml(htmlContent: string, projects: AdminData["proje
   let updatedHtml = htmlContent;
 
   for (const project of projects) {
-    const imageUrl = projectImageUrls(project, gallery)[0] || project.imageUrl;
-    if (!imageUrl) continue;
+    const imageUrl = projectImageUrls(project, gallery)[0];
 
     // Match project cards in HTML and update their img src
     const cardRegex = /(<div[^>]*class="[^"]*project-item[^"]*"[^>]*>[\s\S]*?<img[^>]*src=")([^"]+)("[^>]*alt=")([^"]+)("[^>]*>)/gi;
 
     updatedHtml = updatedHtml.replace(cardRegex, (fullMatch, prefix, _oldSrc, altPrefix, oldAlt, suffix) => {
       if (projectMatchesCardText(project, oldAlt) || projectMatchesCardText(project, fullMatch)) {
+        if (!imageUrl) {
+          return fullMatch.replace(/<img\b[^>]*>/i, '<div class="admin-project-image-empty" aria-label="Project image not available"></div>');
+        }
         return `${prefix}${escapeHtml(imageUrl)}${altPrefix}${oldAlt}${suffix}`;
       }
       return fullMatch;
@@ -496,7 +529,7 @@ function injectCategoryProjects(htmlContent: string, projects: AdminData["projec
     // If project is already matched/present in gridContent, skip
     if (projectMatchesCardText(project, gridContent)) continue;
 
-    const image = projectImageUrls(project, gallery)[0] || project.imageUrl || "/images/project-overview-image.jpg";
+    const image = projectImageUrls(project, gallery)[0];
     const title = escapeHtml(project.title || project.client || "Intexspace Project");
     const categoryLabel = escapeHtml(project.category || "Project");
     const location = escapeHtml(project.location || "India");
@@ -504,13 +537,13 @@ function injectCategoryProjects(htmlContent: string, projects: AdminData["projec
 
     const newCard = `<div class="col-xl-4 col-md-6" style="min-width:320px; flex:0 0 auto; scroll-snap-align:start;">
       <div class="project-item wow fadeInUp">
-        <div class="project-item-image">
+        ${image ? `<div class="project-item-image">
           <a href="contact.html" data-cursor-text="view">
             <figure class="image-anime">
               <img src="${escapeHtml(image)}" alt="${title}">
             </figure>
           </a>
-        </div>
+        </div>` : '<div class="project-item-image"><div class="admin-project-image-empty" aria-label="Project image not available"></div></div>'}
         <div class="project-item-content">
           <h2><a href="contact.html">${title}</a></h2>
           <ul>
@@ -1001,6 +1034,7 @@ function adminSectionStyles() {
     .admin-live-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
     .admin-live-card,.admin-live-role,.admin-live-vlog-card{overflow:hidden;border:1px solid #e4d8c8;border-radius:8px;background:#fff;box-shadow:0 20px 54px rgba(47,38,26,.09)}
     .admin-live-card img,.admin-live-gallery-card img,.admin-live-vlog-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .35s ease,filter .35s ease}
+    .admin-project-image-empty{display:block;min-height:220px;background:#f4efe6}
     .admin-live-card img:hover,.admin-live-gallery-card img:hover,.admin-live-vlog-card:hover img{transform:scale(1.05);filter:brightness(1.05)}
     .admin-live-card>div,.admin-live-role{display:grid;gap:12px;padding:22px}
     .admin-live-card h3,.admin-live-role h3{margin:0;font-size:24px}

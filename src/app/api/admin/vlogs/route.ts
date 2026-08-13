@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { makeId, nowIso, updateAdminData } from "@/lib/admin-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
+import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 export async function POST(request: Request) {
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -16,6 +17,17 @@ export async function POST(request: Request) {
     if (!isImageFile(thumbnail instanceof File ? thumbnail : null)) throw new Error("Please upload a thumbnail image.");
     const uploaded = await uploadImageToStorage(thumbnail as File, "vlogs", title);
     const vlog = { id: makeId("vlog", title), title, details, youtubeUrl, thumbnailUrl: uploaded.imageUrl, createdAt: nowIso() };
+    const supabaseAdmin = createSupabaseAdmin();
+    const { error } = await supabaseAdmin.from("vlogs").upsert({
+      id: vlog.id,
+      title: vlog.title,
+      details: vlog.details,
+      youtube_url: vlog.youtubeUrl,
+      thumbnail_url: vlog.thumbnailUrl,
+      created_at: vlog.createdAt,
+    }, { onConflict: "id" });
+
+    if (error) throw new Error(error.message || "Failed to save vlog metadata.");
     return NextResponse.json(await updateAdminData((current) => ({ ...current, vlogs: [vlog, ...current.vlogs] })));
   } catch (error) {
     return NextResponse.json({ message: (error as Error).message }, { status: 400 });

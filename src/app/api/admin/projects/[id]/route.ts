@@ -47,6 +47,10 @@ export async function PUT(request: Request, { params }: RouteParams) {
         description: String(formData.get("description") || "").trim(),
       };
 
+      if (formData.get("removeImage") === "true") {
+        patch.imageUrl = "";
+      }
+
       if (allFiles.length > 0) {
         const [featuredFile, ...extraFiles] = allFiles;
         const uploaded = await uploadImageToStorage(featuredFile, "projects", title);

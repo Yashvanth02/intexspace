@@ -160,11 +160,6 @@
 				nextEl: '.testimonial-button-next',
 				prevEl: '.testimonial-button-prev',
 			},
-			breakpoints: {
-				1025:{
-					slidesPerView: 2,
-				}
-			}
 		});
 	}
 

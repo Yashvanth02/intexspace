@@ -21,7 +21,7 @@ function projectFromBody(body: Partial<Project>): Project {
     year: String(body.year || "").trim(),
     summary: String(body.summary || "").trim(),
     description: String(body.description || "").trim(),
-    imageUrl: String(body.imageUrl || "/images/project-workplace-fabric.jpg").trim(),
+    imageUrl: String(body.imageUrl ?? "").trim(),
     updatedAt: nowIso(),
   };
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { readAdminData, updateAdminData, writeAdminData } from "@/lib/admin-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
+import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -33,6 +34,18 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     const updatedVlog = { ...existingVlog, title, details, youtubeUrl, thumbnailUrl };
     const next = { ...current, vlogs: current.vlogs.map((vlog) => (vlog.id === id ? updatedVlog : vlog)) };
 
+    const supabaseAdmin = createSupabaseAdmin();
+    const { error } = await supabaseAdmin.from("vlogs").upsert({
+      id: updatedVlog.id,
+      title: updatedVlog.title,
+      details: updatedVlog.details,
+      youtube_url: updatedVlog.youtubeUrl,
+      thumbnail_url: updatedVlog.thumbnailUrl,
+      created_at: updatedVlog.createdAt,
+    }, { onConflict: "id" });
+
+    if (error) throw new Error(error.message || "Failed to update vlog metadata.");
+
     await writeAdminData(next);
     return NextResponse.json(next);
   } catch (error) {
@@ -43,5 +56,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 export async function DELETE(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   const { id } = await params;
-  return NextResponse.json(await updateAdminData((current) => ({ ...current, vlogs: current.vlogs.filter((vlog) => vlog.id !== id) })));
+  try {
+    const supabaseAdmin = createSupabaseAdmin();
+    const { error } = await supabaseAdmin.from("vlogs").delete().eq("id", id);
+    if (error) throw new Error(error.message || "Failed to delete vlog metadata.");
+    return NextResponse.json(await updateAdminData((current) => ({ ...current, vlogs: current.vlogs.filter((vlog) => vlog.id !== id) })));
+  } catch (error) {
+    return NextResponse.json({ message: (error as Error).message }, { status: 400 });
+  }
 }
