@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { nowIso, type CareerOpening, updateAdminData } from "@/lib/admin-store";
 
@@ -32,6 +33,8 @@ export async function PUT(request: Request, { params }: RouteParams) {
       };
       return { ...current, careers: current.careers.map((career) => (career.id === id ? updated : career)) };
     });
+    revalidatePath("/careers");
+    revalidatePath("/careers.html");
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ message: (error as Error).message }, { status: 400 });
@@ -48,6 +51,9 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
     ...current,
     careers: current.careers.filter((career) => career.id !== id),
   }));
+
+  revalidatePath("/careers");
+  revalidatePath("/careers.html");
 
   return NextResponse.json(data);
 }

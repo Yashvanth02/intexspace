@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { readAdminData, updateAdminData, writeAdminData } from "@/lib/admin-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
-import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -20,22 +20,6 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 
     const current = await readAdminData();
     let existingVlog = current.vlogs.find((vlog) => vlog.id === id);
-
-    if (!existingVlog) {
-      const client = createSupabaseAdmin();
-      const { data, error } = await client
-        .from("vlogs")
-        .select("id, title, details, youtube_url, thumbnail_url, created_at")
-        .eq("id", id)
-        .maybeSingle();
-      if (error) throw new Error(error.message || "Failed to load vlog metadata.");
-      if (data) {
-        existingVlog = {
-          id: data.id, title: data.title, details: data.details, youtubeUrl: data.youtube_url,
-          thumbnailUrl: data.thumbnail_url, createdAt: data.created_at,
-        };
-      }
-    }
 
     if (!existingVlog) throw new Error("Vlog not found.");
 
@@ -55,19 +39,9 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
         : [updatedVlog, ...current.vlogs],
     };
 
-    const supabaseAdmin = createSupabaseAdmin();
-    const { error } = await supabaseAdmin.from("vlogs").upsert({
-      id: updatedVlog.id,
-      title: updatedVlog.title,
-      details: updatedVlog.details,
-      youtube_url: updatedVlog.youtubeUrl,
-      thumbnail_url: updatedVlog.thumbnailUrl,
-      created_at: updatedVlog.createdAt,
-    }, { onConflict: "id" });
-
-    if (error) throw new Error(error.message || "Failed to update vlog metadata.");
-
     await writeAdminData(next);
+    revalidatePath("/vlog");
+    revalidatePath("/vlog.html");
     return NextResponse.json(next);
   } catch (error) {
     return NextResponse.json({ message: (error as Error).message }, { status: 400 });
@@ -78,10 +52,10 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   const { id } = await params;
   try {
-    const supabaseAdmin = createSupabaseAdmin();
-    const { error } = await supabaseAdmin.from("vlogs").delete().eq("id", id);
-    if (error) throw new Error(error.message || "Failed to delete vlog metadata.");
-    return NextResponse.json(await updateAdminData((current) => ({ ...current, vlogs: current.vlogs.filter((vlog) => vlog.id !== id) })));
+    const next = await updateAdminData((current) => ({ ...current, vlogs: current.vlogs.filter((vlog) => vlog.id !== id) }));
+    revalidatePath("/vlog");
+    revalidatePath("/vlog.html");
+    return NextResponse.json(next);
   } catch (error) {
     return NextResponse.json({ message: (error as Error).message }, { status: 400 });
   }

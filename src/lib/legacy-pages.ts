@@ -137,7 +137,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     const supabaseAdmin = createSupabaseAdmin();
 
     // Fetch remote content so public legacy pages reflect the latest admin changes.
-    const [{ data: galleryRows }, { data: projectRows }, vlogResult] = await Promise.all([
+    const [{ data: galleryRows }, { data: projectRows }] = await Promise.all([
       supabaseAdmin
         .from("gallery")
         .select("id, title, image_url, alt, category, uploaded_at")
@@ -146,10 +146,6 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
         .from("projects")
         .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
         .order("updated_at", { ascending: false }),
-      supabaseAdmin
-        .from("vlogs")
-        .select("id, title, details, youtube_url, thumbnail_url, created_at")
-        .order("created_at", { ascending: false }),
     ]);
 
     // Merge gallery rows with local gallery (local items take precedence unless Supabase has newer entries)
@@ -202,21 +198,6 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     data = rawData;
     if (sortedGallery) data = { ...data, gallery: sortedGallery };
     if (sortedProjects) data = { ...data, projects: sortedProjects };
-    if (!vlogResult.error) {
-      data = {
-        ...data,
-        vlogs: (vlogResult.data ?? []).map((row) => ({
-          id: row.id,
-          title: row.title,
-          details: row.details,
-          youtubeUrl: row.youtube_url,
-          thumbnailUrl: row.thumbnail_url,
-          createdAt: row.created_at,
-        })).sort(
-          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        ),
-      };
-    }
   } catch (_err) {
     // If Supabase is unavailable, fall back to local JSON data
   }
@@ -902,7 +883,9 @@ function replaceCareerBoard(body: string, careers: AdminData["careers"]) {
       ? `<a class="btn-default" href="mailto:admin@intexspace.com?subject=Application%20-%20${encodeURIComponent(career.title)}">Apply Now</a>`
       : '<span class="btn-default career-apply-disabled" aria-disabled="true">Applications Closed</span>';
     return {
-      tab: `<button class="career-job-card${active ? " active" : ""}" type="button" role="tab" aria-selected="${active}" aria-controls="${roleId}" data-career-role="${career.id}"><span class="career-job-content"><span class="career-job-title">${escapeHtml(career.title)}</span><span class="career-job-meta">${escapeHtml(career.location || "Chennai")} | ${escapeHtml(career.employmentType || "Full-time")} | ${escapeHtml(career.experience || "Experience as applicable")}</span><span class="career-job-summary">${escapeHtml(career.qualification || "Relevant qualification")}</span></span></button>`,
+      // Keep the template's icon and arrow elements: custom.css uses these
+      // for the visual hierarchy, hover states and responsive spacing.
+      tab: `<button class="career-job-card${active ? " active" : ""}" type="button" role="tab" aria-selected="${active}" aria-controls="${roleId}" data-career-role="${career.id}"><span class="career-job-icon"><img src="images/icon-service-item-${(index % 2) + 1}.svg" alt=""></span><span class="career-job-content"><span class="career-job-title">${escapeHtml(career.title)}</span><span class="career-job-meta">${escapeHtml(career.location || "Chennai")} | ${escapeHtml(career.employmentType || "Full-time")} | ${escapeHtml(career.experience || "Experience as applicable")}</span><span class="career-job-summary">${escapeHtml(career.qualification || "Relevant qualification")}</span></span><span class="career-job-arrow"><img src="images/arrow-primary.svg" alt=""></span></button>`,
       detail: `<article class="career-role-detail${active ? " active" : ""}" id="${roleId}" role="tabpanel" data-career-detail="${career.id}"${active ? "" : " hidden"}><div class="career-detail-header"><span class="career-eyebrow${career.isOpen ? "" : " career-eyebrow-closed"}">${career.isOpen ? "Open role" : "Applications closed"}</span><h2>${escapeHtml(career.title)}</h2><p>${escapeHtml(career.qualification || "Relevant qualification")}</p></div><div class="career-detail-grid"><div><span>Location</span><strong>${escapeHtml(career.location || "Chennai")}</strong></div><div><span>Experience</span><strong>${escapeHtml(career.experience || "As applicable")}</strong></div><div><span>Employment Type</span><strong>${escapeHtml(career.employmentType || "Full-time")}</strong></div></div><h3>Role Description</h3><p>${escapeHtml(career.description || "Details will be shared during the application process.")}</p>${action}</article>`,
     };
   });

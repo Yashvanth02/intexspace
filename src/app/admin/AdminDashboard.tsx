@@ -482,8 +482,11 @@ export function AdminDashboard() {
   async function saveVlog(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setNotice("");
+    const formElement = event.currentTarget;
 
-    const formData = new FormData(event.currentTarget);
+    try {
+
+    const formData = new FormData(formElement);
     const title = String(formData.get("title") || "").trim();
     const details = String(formData.get("details") || "").trim();
     const youtubeUrl = String(formData.get("youtubeUrl") || "").trim();
@@ -508,8 +511,13 @@ export function AdminDashboard() {
     setData(nextData);
     setVlogForm({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
     setEditingVlogId(null);
-    event.currentTarget.reset();
+    formElement.reset();
     setNotice(isEditing ? "Vlog updated." : "Vlog published.");
+    } catch (error) {
+      // Keep the editor open and preserve the entered values so an upload or
+      // remote persistence error can be corrected without retyping content.
+      setNotice((error as Error).message || "Unable to update the vlog.");
+    }
   }
 
   async function deleteVlog(id: string) {

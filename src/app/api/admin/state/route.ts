@@ -19,12 +19,10 @@ export async function GET() {
   // The local/fallback admin data is still enough to render the dashboard.
   let galleryRows: Array<any> = [];
   let projectRows: Array<any> = [];
-  let vlogRows: Array<any> = [];
-  let vlogQuerySucceeded = false;
 
   try {
     const supabaseAdmin = createSupabaseAdmin();
-    const [galleryResult, projectResult, vlogResult] = await Promise.all([
+    const [galleryResult, projectResult] = await Promise.all([
       supabaseAdmin
         .from("gallery")
         .select("id, title, image_url, alt, category, uploaded_at")
@@ -33,18 +31,10 @@ export async function GET() {
         .from("projects")
         .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
         .order("updated_at", { ascending: false }),
-      supabaseAdmin
-        .from("vlogs")
-        .select("id, title, details, youtube_url, thumbnail_url, created_at")
-        .order("created_at", { ascending: false }),
     ]);
 
     if (!galleryResult.error) galleryRows = galleryResult.data ?? [];
     if (!projectResult.error) projectRows = projectResult.data ?? [];
-    if (!vlogResult.error) {
-      vlogRows = vlogResult.data ?? [];
-      vlogQuerySucceeded = true;
-    }
   } catch {
     // Fall back to the admin data loaded above. A failed optional content
     // refresh must not make the entire admin dashboard, including Menu
@@ -86,15 +76,6 @@ export async function GET() {
     });
   }
 
-  const remoteVlogs = vlogRows.map((vlog) => ({
-    id: vlog.id,
-    title: vlog.title,
-    details: vlog.details,
-    youtubeUrl: vlog.youtube_url,
-    thumbnailUrl: vlog.thumbnail_url,
-    createdAt: vlog.created_at,
-  }));
-
   const menuSections = ["about", "projects", "ongoing", "careers", "gallery", "vlog", "team", "contact"];
 
   return NextResponse.json({
@@ -106,9 +87,7 @@ export async function GET() {
     gallery: Array.from(mergedGallery.values()).sort(
       (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
     ),
-    // Vlogs are remote-authoritative when their query succeeds. This ensures
-    // a deleted vlog cannot reappear from a server's local fallback file.
-    vlogs: (vlogQuerySucceeded ? remoteVlogs : adminData.vlogs).sort(
+    vlogs: adminData.vlogs.sort(
       (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     ),
   });

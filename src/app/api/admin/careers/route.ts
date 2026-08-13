@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { makeId, nowIso, type CareerOpening, updateAdminData } from "@/lib/admin-store";
 
@@ -33,6 +34,9 @@ export async function POST(request: Request) {
       ...current,
       careers: [career, ...current.careers],
     }));
+
+    revalidatePath("/careers");
+    revalidatePath("/careers.html");
 
     return NextResponse.json(data);
   } catch (error) {
