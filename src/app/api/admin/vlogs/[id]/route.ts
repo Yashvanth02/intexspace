@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { readAdminData, updateAdminData, writeAdminData } from "@/lib/admin-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
+import { createSupabaseAdmin } from "@/lib/supabase-server";
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -32,6 +33,29 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     }
 
     const updatedVlog = { ...existingVlog, title, details, youtubeUrl, thumbnailUrl };
+
+    // Persist update to Supabase vlogs table
+    try {
+      const supabaseAdmin = createSupabaseAdmin();
+      const { error: vlogError } = await supabaseAdmin.from("vlogs").upsert(
+        {
+          id: updatedVlog.id,
+          title: updatedVlog.title,
+          details: updatedVlog.details,
+          youtube_url: updatedVlog.youtubeUrl,
+          thumbnail_url: updatedVlog.thumbnailUrl,
+          created_at: updatedVlog.createdAt,
+        },
+        { onConflict: "id" },
+      );
+
+      if (vlogError) {
+        return NextResponse.json({ message: vlogError.message || "Failed to update vlog in database." }, { status: 500 });
+      }
+    } catch (err) {
+      return NextResponse.json({ message: (err as Error).message || "Failed to update vlog in database." }, { status: 500 });
+    }
+
     const next = {
       ...current,
       vlogs: current.vlogs.some((vlog) => vlog.id === id)
@@ -52,6 +76,17 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   if (!(await isAdminAuthenticated())) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   const { id } = await params;
   try {
+    // Delete from Supabase table
+    try {
+      const supabaseAdmin = createSupabaseAdmin();
+      const { error: deleteError } = await supabaseAdmin.from("vlogs").delete().eq("id", id);
+      if (deleteError) {
+        return NextResponse.json({ message: deleteError.message || "Failed to delete vlog from database." }, { status: 500 });
+      }
+    } catch (err) {
+      return NextResponse.json({ message: (err as Error).message || "Failed to delete vlog from database." }, { status: 500 });
+    }
+
     const next = await updateAdminData((current) => ({ ...current, vlogs: current.vlogs.filter((vlog) => vlog.id !== id) }));
     revalidatePath("/vlog");
     revalidatePath("/vlog.html");

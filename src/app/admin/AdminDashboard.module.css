@@ -601,6 +601,25 @@
   font-weight: 800;
 }
 
+/* Simple floating toast for short colloquial notices in the admin UI. Click to dismiss. */
+.toast {
+  position: fixed;
+  z-index: 60;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(420px, calc(100% - 40px));
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(48, 48, 48, 0.94);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.toast:active { transform: translateY(1px); }
+
 .login {
   display: grid;
   place-items: center;

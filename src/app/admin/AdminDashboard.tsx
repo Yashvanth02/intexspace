@@ -643,8 +643,21 @@ export function AdminDashboard() {
               </label>
             ) : null}
           </div>
-          {notice ? <p className={styles.notice}>{notice}</p> : null}
-          {activeTab === "projects" && data ? (
+              {notice ? (
+                isAuthenticated ? (
+                  <div
+                    role="status"
+                    aria-live="polite"
+                    className={styles.toast}
+                    onClick={() => setNotice("")}
+                  >
+                    {notice}
+                  </div>
+                ) : (
+                  <p className={styles.notice}>{notice}</p>
+                )
+              ) : null}
+              {activeTab === "projects" && data ? (
             <ProjectsPanel
               data={filteredProjects}
               gallery={data.gallery}
