@@ -1081,6 +1081,16 @@
   ],
   "inquiries": [
     {
+      "id": "inquiry-wyfksgor-groku-1786689998620-xuowz2",
+      "name": "Wyfksgor Groku",
+      "email": "eh.ep.upib47.9@gmail.com",
+      "phone": "5249911969",
+      "subject": "Website inquiry",
+      "message": "IzaauSbqkrUDFmQRUusdUIU",
+      "status": "new",
+      "createdAt": "2026-08-14T06:46:38.620Z"
+    },
+    {
       "id": "inquiry-demo",
       "name": "Sample Enquiry",
       "email": "client@example.com",
