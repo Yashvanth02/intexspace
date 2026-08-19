@@ -41,6 +41,13 @@ export function LegacyInteractions() {
       let dragged = false;
 
       const stopDragging = () => {
+        if (pointerId !== null) {
+          try {
+            carousel.releasePointerCapture(pointerId);
+          } catch (_e) {
+            // ignore if not captured
+          }
+        }
         pointerId = null;
         dragged = false;
         carousel.classList.remove("is-dragging");
@@ -49,7 +56,6 @@ export function LegacyInteractions() {
       const onPointerDown = (event: PointerEvent) => {
         if (event.pointerType !== "mouse" || event.button !== 0) return;
         pointerId = event.pointerId;
-        carousel.setPointerCapture(event.pointerId);
         startX = event.clientX;
         startY = event.clientY;
         startScroll = carousel.scrollLeft;
@@ -70,17 +76,26 @@ export function LegacyInteractions() {
           return;
         }
 
-        dragged = true;
-        carousel.classList.add("is-dragging");
+        if (!dragged) {
+          dragged = true;
+          try {
+            carousel.setPointerCapture(event.pointerId);
+          } catch (_e) {
+            // fallback if capture unsupported
+          }
+          carousel.classList.add("is-dragging");
+        }
+
         event.preventDefault();
         carousel.scrollLeft = startScroll - distanceX;
       };
 
       const onClick = (event: MouseEvent) => {
-        if (!dragged) return;
-        event.preventDefault();
-        event.stopPropagation();
-        dragged = false;
+        if (dragged) {
+          event.preventDefault();
+          event.stopPropagation();
+          dragged = false;
+        }
       };
 
       const onNextClick = () => {
@@ -115,120 +130,191 @@ export function LegacyInteractions() {
       };
     });
 
-    const projectSelector = ".intex-projects-page .project-item, #ongoing-admin .project-item";
-    const projectCards = Array.from(document.querySelectorAll<HTMLElement>(projectSelector));
+    const projectSelector = ".project-item, [data-project-trigger], .admin-completed-project";
 
-    const ensureProjectModal = () => {
-      const existing = document.getElementById("projectDetailsModal");
-      if (existing) return existing;
-
-      const modal = document.createElement("div");
-      modal.className = "project-modal";
-      modal.id = "projectDetailsModal";
-      modal.setAttribute("role", "dialog");
-      modal.setAttribute("aria-modal", "true");
-      modal.setAttribute("aria-labelledby", "projectModalTitle");
-      modal.hidden = true;
-      modal.innerHTML = `
-        <div class="project-modal-backdrop" data-project-close></div>
-        <div class="project-modal-dialog">
-          <button class="project-modal-close" type="button" aria-label="Close project details" data-project-close>&times;</button>
-          <div class="project-modal-grid">
-            <div class="project-modal-media"><div class="project-modal-image-stack" id="projectModalImages"></div></div>
-            <div class="project-modal-content">
-              <span class="project-modal-status" id="projectModalStatus"></span>
-              <h2 id="projectModalTitle"></h2>
-              <p id="projectModalDescription"></p>
-              <div class="project-modal-facts" id="projectModalFacts"></div>
-              <div class="project-modal-section"><h3>Project details</h3><p id="projectModalScope"></p></div>
+    const ensureProjectModal = (): HTMLElement => {
+      let modal = document.getElementById("projectDetailsModal");
+      if (!modal) {
+        modal = document.createElement("div");
+        modal.className = "project-modal";
+        modal.id = "projectDetailsModal";
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+        modal.setAttribute("aria-labelledby", "projectModalTitle");
+        modal.hidden = true;
+        modal.innerHTML = `
+          <div class="project-modal-backdrop" data-project-close></div>
+          <div class="project-modal-dialog">
+            <button class="project-modal-close" type="button" aria-label="Close project details" data-project-close>&times;</button>
+            <div class="project-modal-grid">
+              <div class="project-modal-media"><div class="project-modal-image-stack" id="projectModalImages"></div></div>
+              <div class="project-modal-content">
+                <span class="project-modal-status" id="projectModalStatus"></span>
+                <h2 id="projectModalTitle"></h2>
+                <p id="projectModalDescription"></p>
+                <div class="project-modal-facts" id="projectModalFacts"></div>
+                <div class="project-modal-section"><h3>Project Scope</h3><p id="projectModalScope"></p></div>
+                <div class="project-modal-section"><h3>Delivery Focus</h3><p id="projectModalDelivery"></p></div>
+                <a class="btn-default" href="contact.html">Discuss Similar Work</a>
+              </div>
             </div>
-          </div>
-        </div>`;
-      document.body.appendChild(modal);
+          </div>`;
+      }
+
+      // Detach from any parent transform/stacking context and attach to document.body
+      if (modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+      }
       return modal;
     };
 
-    const modal = projectCards.length ? ensureProjectModal() : null;
+    const projectDetails: Record<string, { description?: string; scope?: string; delivery?: string }> = {
+      "Bank of Baroda ATM Maintenance": {
+        description: "A continuing facility management engagement supporting a large ATM network with responsive maintenance, reporting and issue closure across Tamil Nadu.",
+        scope: "Plumbing, electrical, carpentry, civil repairs, periodic support calls and multi-location maintenance coordination.",
+        delivery: "Fast response, consistent documentation, minimal operational disruption and dependable service coverage across 500+ ATM sites.",
+      },
+      "Reserve Bank of India Maintenance": {
+        description: "A long-term institutional maintenance relationship covering core building service needs and upkeep coordination over multiple years.",
+        scope: "Plumbing, electrical, carpentry and civil maintenance support with recurring inspections and service follow-up.",
+        delivery: "Stable service continuity, disciplined execution teams and clear coordination for a high-trust institutional environment.",
+      },
+      "LIC and PNB Maintenance Support": {
+        description: "Institutional maintenance support for banking and insurance facilities with service continuity across active office environments.",
+        scope: "General maintenance, civil finishing, electrical and plumbing assistance, carpentry and branch-level support.",
+        delivery: "Reliable planned and reactive support shaped around client operations, uptime and neat closure of maintenance requirements.",
+      },
+      "Dena Bank | Gujarat | 2017-18": {
+        description: "Turnkey branch interior fit-out, MEP setup, and architectural execution delivered with strict adherence to public banking standards.",
+        scope: "Civil finishing, false ceiling, modular banking counters, electrical wiring, and networking setup.",
+        delivery: "Delivered on schedule with complete quality inspection, regulatory compliance, and seamless operational handover.",
+      },
+      "Canara Bank | Teynampet | 2020-21": {
+        description: "Complete modern branch renovation and interior MEP execution optimized for customer workflow and staff security.",
+        scope: "Turnkey interior fit-out, acoustic partitioning, safety grills, lighting design, and HVAC integration.",
+        delivery: "Zero downtime handover ensuring uninterrupted banking services and premium finish.",
+      },
+      "NBCC - Visakhapatnam Port Authority": {
+        description: "Institutional infrastructure and interior development for major government port facilities with maritime-grade specifications.",
+        scope: "Structural planning, corrosion-resistant finishes, office layout fit-out, and MEP coordination.",
+        delivery: "Precision engineering, strict adherence to PSU norms, and high durability handover.",
+      },
+    };
+
     const openProjectModal = (card: HTMLElement) => {
+      const modal = ensureProjectModal();
       if (!modal) return;
-      const title = card.querySelector(".project-item-content h2")?.textContent?.trim() || "Intexspace Project";
-      const facts = Array.from(card.querySelectorAll(".project-item-content li"))
+
+      const titleElement = card.querySelector<HTMLElement>(".project-item-content h2 a") ||
+                           card.querySelector<HTMLElement>(".project-item-content h2") ||
+                           card.querySelector<HTMLElement>("h2") ||
+                           card.querySelector<HTMLElement>("h3");
+      const title = titleElement?.textContent?.trim() ||
+                    card.dataset.projectTitle ||
+                    card.querySelector("img")?.alt?.trim() ||
+                    "Intexspace Project";
+
+      const facts = Array.from(card.querySelectorAll(".project-item-content li, .project-meta li, .meta span"))
         .map((item) => item.textContent?.trim())
         .filter(Boolean) as string[];
-      const images = Array.from(card.querySelectorAll<HTMLImageElement>(".project-item-image img"))
-        .map((image) => image.currentSrc || image.src)
-        .filter((src, index, all) => src && all.indexOf(src) === index);
-      const description = card.dataset.projectDescription || "A selected Intexspace project delivered through coordinated planning and execution.";
 
-      const titleElement = modal.querySelector<HTMLElement>("#projectModalTitle");
-      const statusElement = modal.querySelector<HTMLElement>("#projectModalStatus");
-      const descriptionElement = modal.querySelector<HTMLElement>("#projectModalDescription");
-      const factsElement = modal.querySelector<HTMLElement>("#projectModalFacts");
-      const scopeElement = modal.querySelector<HTMLElement>("#projectModalScope");
-      const imageElement = modal.querySelector<HTMLElement>("#projectModalImages");
+      const rawImages = Array.from(card.querySelectorAll<HTMLImageElement>("img"))
+        .map((image) => image.currentSrc || image.src || image.getAttribute("src") || "")
+        .filter((src, index, all) => src && all.indexOf(src) === index && !src.includes("icon-"));
 
-      if (titleElement) titleElement.textContent = title;
-      if (statusElement) statusElement.textContent = facts[0] || "Project";
-      if (descriptionElement) descriptionElement.textContent = description;
-      if (scopeElement) scopeElement.textContent = facts.length > 1 ? facts.slice(1).join(" • ") : description;
-      if (factsElement) {
-        factsElement.replaceChildren(...facts.map((fact) => {
-          const item = document.createElement("span");
-          item.textContent = fact;
-          return item;
-        }));
+      const defaultDetail = projectDetails[title] || {};
+      const description = card.dataset.projectDescription ||
+                          defaultDetail.description ||
+                          `Comprehensive architectural design, turnkey interior execution, and MEP coordination delivered for ${title}.`;
+      const scope = defaultDetail.scope ||
+                    (facts.length > 1 ? `Sector: ${facts[0]} • Details: ${facts.slice(1).join(" • ")}` : "Turnkey interior fit-out, architectural detailing, MEP coordination, and site execution.");
+      const delivery = defaultDetail.delivery ||
+                       "Delivered on schedule with complete quality control, safety compliance, and operational handover support.";
+
+      const modalTitle = modal.querySelector<HTMLElement>("#projectModalTitle");
+      const modalStatus = modal.querySelector<HTMLElement>("#projectModalStatus");
+      const modalDescription = modal.querySelector<HTMLElement>("#projectModalDescription");
+      const modalFacts = modal.querySelector<HTMLElement>("#projectModalFacts");
+      const modalScope = modal.querySelector<HTMLElement>("#projectModalScope");
+      const modalDelivery = modal.querySelector<HTMLElement>("#projectModalDelivery");
+      const modalImages = modal.querySelector<HTMLElement>("#projectModalImages");
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalStatus) modalStatus.textContent = facts[0] || "Featured Project";
+      if (modalDescription) modalDescription.textContent = description;
+      if (modalScope) modalScope.textContent = scope;
+      if (modalDelivery) modalDelivery.textContent = delivery;
+
+      if (modalFacts) {
+        modalFacts.innerHTML = "";
+        const factList = facts.length > 0 ? facts : ["Pan-India Delivery", "Turnkey Execution", "Quality Assured"];
+        factList.forEach((fact) => {
+          const span = document.createElement("span");
+          span.textContent = fact;
+          modalFacts.appendChild(span);
+        });
       }
-      if (imageElement) {
-        imageElement.replaceChildren(...images.map((src) => {
-          const image = document.createElement("img");
-          image.src = src;
-          image.alt = title;
-          return image;
-        }));
+
+      if (modalImages) {
+        modalImages.innerHTML = "";
+        const displayImages = rawImages.length > 0 ? rawImages : ["images/project-overview-image.jpg"];
+        displayImages.forEach((src) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = title;
+          modalImages.appendChild(img);
+        });
       }
 
       modal.hidden = false;
+      modal.removeAttribute("hidden");
+      modal.style.display = "flex";
+      modal.style.position = "fixed";
+      modal.style.inset = "0";
+      modal.style.zIndex = "999999";
       document.body.classList.add("project-modal-open");
+      document.body.style.overflow = "hidden";
     };
 
     const closeProjectModal = () => {
+      const modal = document.getElementById("projectDetailsModal");
       if (!modal) return;
       modal.hidden = true;
+      modal.setAttribute("hidden", "");
+      modal.style.display = "none";
       document.body.classList.remove("project-modal-open");
+      document.body.style.overflow = "";
     };
-
-    projectCards.forEach((card) => {
-      card.tabIndex = 0;
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-label", `View details for ${card.querySelector(".project-item-content h2")?.textContent?.trim() || "project"}`);
-    });
 
     const onProjectClick = (event: MouseEvent) => {
       const close = (event.target as Element).closest("[data-project-close]");
       if (close) {
+        event.preventDefault();
+        event.stopPropagation();
         closeProjectModal();
         return;
       }
+
       const card = (event.target as Element).closest<HTMLElement>(projectSelector);
       if (!card) return;
+
       event.preventDefault();
+      event.stopPropagation();
       openProjectModal(card);
     };
 
     const onProjectKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeProjectModal();
-      if ((event.key === "Enter" || event.key === " ") && (event.target as Element).matches(projectSelector)) {
+      const target = event.target as Element;
+      if ((event.key === "Enter" || event.key === " ") && target.closest(projectSelector)) {
         event.preventDefault();
-        openProjectModal(event.target as HTMLElement);
+        openProjectModal(target.closest<HTMLElement>(projectSelector)!);
       }
     };
 
-    document.addEventListener("click", onProjectClick);
-    document.addEventListener("keydown", onProjectKeydown);
+    document.addEventListener("click", onProjectClick, true);
+    document.addEventListener("keydown", onProjectKeydown, true);
 
-    // Scripts embedded in legacy HTML are intentionally not executed by
-    // React. Bind the admin-generated career tabs here so newly created and
-    // renamed openings work exactly like the original template roles.
     const careerButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-career-role]"));
     const onCareerClick = (event: Event) => {
       const button = event.currentTarget as HTMLButtonElement;
@@ -249,8 +335,8 @@ export function LegacyInteractions() {
 
     return () => {
       cleanups.forEach((cleanup) => cleanup());
-      document.removeEventListener("click", onProjectClick);
-      document.removeEventListener("keydown", onProjectKeydown);
+      document.removeEventListener("click", onProjectClick, true);
+      document.removeEventListener("keydown", onProjectKeydown, true);
       careerButtons.forEach((button) => button.removeEventListener("click", onCareerClick));
     };
   }, []);

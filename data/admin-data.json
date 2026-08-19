@@ -972,8 +972,8 @@
       "experience": "Freshers & Experienced",
       "qualification": "B.E. Civil Engineering / Diploma in Civil Engineering",
       "description": "Supervise day-to-day site activities, contractors, vendors, work progress, quality standards and safety compliance.",
-      "isOpen": true,
-      "updatedAt": "2026-08-13T04:56:01.921Z"
+      "isOpen": false,
+      "updatedAt": "2026-08-16T03:48:12.184Z"
     },
     {
       "id": "career-architect",
@@ -1117,8 +1117,8 @@
   "menu": {
     "about": true,
     "blog": true,
-    "ongoing": false,
-    "projects": false,
+    "ongoing": true,
+    "projects": true,
     "careers": true,
     "gallery": true,
     "vlog": true,

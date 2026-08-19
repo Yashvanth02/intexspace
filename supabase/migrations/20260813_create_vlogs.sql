@@ -4,7 +4,7 @@ create table if not exists public.vlogs (
   id text primary key,
   title text not null check (char_length(trim(title)) > 0),
   details text not null check (char_length(trim(details)) > 0),
-  youtube_url text not null check (youtube_url ~* '^https?://(www\\.)?(youtube\\.com|youtu\\.be)/'),
+  youtube_url text not null check (youtube_url ~* '^https?://(www\.)?(youtube\.com|youtu\.be)/'),
   thumbnail_url text not null,
   created_at timestamptz not null default now()
 );
