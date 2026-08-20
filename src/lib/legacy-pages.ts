@@ -12,6 +12,31 @@ export type LegacyPage = {
 
 type LegacyPageModule = { default: LegacyPage };
 
+function renderScrollingTicker() {
+  const items = [
+    "Turnkey Projects",
+    "Architectural Design",
+    "Project Management",
+    "MEP Services",
+    "Facility Management",
+    "Liaisoning",
+    "In-house Execution Team",
+    "Pan-India Projects",
+  ];
+  const content = items
+    .map((item) => `<span><img src="/images/icon-asterisk-white.svg" alt="">${item}</span>`)
+    .join("");
+
+  return `<!-- Scrolling Ticker Section Start -->
+    <div class="our-scrolling-ticker">
+      <div class="scrolling-ticker-box">
+        <div class="scrolling-content">${content}</div>
+        <div class="scrolling-content" aria-hidden="true">${content}</div>
+      </div>
+    </div>
+    <!-- Scrolling Ticker Section End -->`;
+}
+
 const legacyPageLoaders: Record<string, () => Promise<LegacyPageModule>> = {
   "404": () => import("./legacy-pages-data/404"),
   "404.html": () => import("./legacy-pages-data/404_html"),
@@ -425,6 +450,22 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   // Ensure overall page body updates static project card images using admin projects data
   if (data && data.projects && data.projects.length > 0) {
     body = syncProjectImagesInHtml(body, data.projects, data.gallery || []);
+  }
+
+  // The Projects page reconstructs its content from an imported document and
+  // consequently drops its original ticker. Render one shared, route-safe
+  // version on both requested pages directly below their page headers.
+  if (normalizedSlug === "about" || normalizedSlug === "projects") {
+    body = body.replace(
+      /\s*<!-- Scrolling Ticker Section Start -->[\s\S]*?<!-- Scrolling Ticker Section End -->/,
+      "",
+    );
+    const pageHeaderEnd = "<!-- Page Header Section End -->";
+    const pageHeaderIndex = body.indexOf(pageHeaderEnd);
+    if (pageHeaderIndex !== -1) {
+      const insertAt = pageHeaderIndex + pageHeaderEnd.length;
+      body = `${body.slice(0, insertAt)}\n    ${renderScrollingTicker()}${body.slice(insertAt)}`;
+    }
   }
 
   return {
