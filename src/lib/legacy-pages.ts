@@ -1,13 +1,14 @@
 import "server-only";
+import { load } from "cheerio";
 
-import { normalizeProjectStatus, readAdminData, type AdminData } from "./admin-store";
-import { createSupabaseAdmin } from "./supabase-server";
-import { readPersistentMenu } from "./menu-store";
+import type { AdminData } from "./admin-store";
+import { readSiteSnapshot, publicContentRevision } from "./content-store";
 
 export type LegacyPage = {
   title: string;
   description: string;
   body: string;
+  revision?: string;
 };
 
 type LegacyPageModule = { default: LegacyPage };
@@ -141,98 +142,12 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
   const module = await loader();
   const page = module.default;
-  const [storedData, persistedMenu] = await Promise.all([readAdminData(), readPersistentMenu()]);
-  const rawData = {
-    ...storedData,
-    menu: { ...(storedData.menu || {}), ...(persistedMenu || {}) },
-  };
+  const { data } = await readSiteSnapshot();
   const normalizedSlug = slug.replace(/\.html$/, "");
-
-  // A disabled top-level page is not merely removed from navigation: direct
-  // visits are unavailable as well. Project categories live inside Projects,
-  // so they automatically follow this single setting.
-  if (rawData.menu?.[normalizedSlug] === false) {
-    return undefined;
-  }
-
-  // Merge gallery from Supabase (same as admin state endpoint) so user-facing
-  // pages always reflect the latest admin uploads.
-  let data: AdminData = rawData;
-  try {
-    const supabaseAdmin = createSupabaseAdmin();
-
-    // Fetch remote content so public legacy pages reflect the latest admin changes.
-    const [{ data: galleryRows }, { data: projectRows }] = await Promise.all([
-      supabaseAdmin
-        .from("gallery")
-        .select("id, title, image_url, alt, category, uploaded_at")
-        .order("uploaded_at", { ascending: false }),
-      supabaseAdmin
-        .from("projects")
-        .select("id, title, status, location, client, category, year, summary, description, image_url, updated_at")
-        .order("updated_at", { ascending: false }),
-    ]);
-
-    // Merge gallery rows with local gallery (local items take precedence unless Supabase has newer entries)
-    let sortedGallery: AdminData["gallery"] | undefined = undefined;
-    if (galleryRows && galleryRows.length > 0) {
-      const localGalleryById = new Map(rawData.gallery.map((item) => [item.id, item]));
-      const mergedGallery = new Map<string, AdminData["gallery"][number]>(localGalleryById);
-      for (const row of galleryRows) {
-        mergedGallery.set(row.id, {
-          id: row.id,
-          title: row.title,
-          imageUrl: row.image_url,
-          alt: row.alt,
-          category: row.category,
-          uploadedAt: row.uploaded_at,
-        });
-      }
-      sortedGallery = Array.from(mergedGallery.values()).sort(
-        (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
-      );
-    }
-
-    // Merge project rows with local projects so user pages pick up admin updates stored in Supabase
-    let sortedProjects: AdminData["projects"] | undefined = undefined;
-    if (projectRows && projectRows.length > 0) {
-      const localProjectsById = new Map(rawData.projects.map((item) => [item.id, item]));
-      const mergedProjects = new Map<string, AdminData["projects"][number]>(localProjectsById);
-      for (const row of projectRows) {
-        const localItem = localProjectsById.get(row.id);
-        mergedProjects.set(row.id, {
-          id: row.id,
-          title: row.title || localItem?.title || "",
-          status: normalizeProjectStatus(row.status || localItem?.status),
-          location: row.location || localItem?.location || "",
-          client: row.client || localItem?.client || "",
-          category: row.category || localItem?.category || "",
-          year: row.year || localItem?.year || "",
-          summary: row.summary || localItem?.summary || "",
-          description: row.description || localItem?.description || "",
-          imageUrl: row.image_url ?? localItem?.imageUrl ?? "",
-          updatedAt: row.updated_at || localItem?.updatedAt || new Date().toISOString(),
-        });
-      }
-      sortedProjects = Array.from(mergedProjects.values()).sort(
-        (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-      );
-    }
-
-    // Compose final data: start from local rawData, then override gallery and/or projects when remote data is available
-    data = rawData;
-    if (sortedGallery) data = { ...data, gallery: sortedGallery };
-    if (sortedProjects) data = { ...data, projects: sortedProjects };
-  } catch (_err) {
-    // If Supabase is unavailable, fall back to local JSON data
-  }
+  if (data.menu?.[normalizedSlug] === false) return undefined;
 
   // Inject admin-managed sections first
   let body = injectAdminContent(page.body, normalizedSlug, data);
-
-  
-
-  
 
   if (normalizedSlug === "index") {
     // The profile PDF is served through a small route so its filename can be
@@ -338,9 +253,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
 
       const completedProjects = data.projects.filter((p) => p.status === "completed");
 
-      // Synchronize category sections with admin project data and images
-      sections = syncProjectImagesInHtml(sections, completedProjects, data.gallery);
-      sections = injectCategoryProjects(sections, completedProjects, data.gallery);
+      sections = renderProjectCategorySections(sections, { ...data, projects: completedProjects });
 
       // Render admin-managed projects as server-side HTML so they appear without client scripts
       const adminProjectsSection = renderCompletedProjectSection({ ...data, projects: completedProjects });
@@ -371,7 +284,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
     }
   }
 
-  if (normalizedSlug === 'team' && data.team && data.team.length > 0) {
+  if (normalizedSlug === 'team' && data.team) {
     const teamStartMarker = '<!-- Page Team Start -->';
     const teamEndMarker = '<!-- Page Team End -->';
     const teamStartIdx = body.indexOf(teamStartMarker);
@@ -396,7 +309,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   }
 
   // Replace the about page's "Our Team" section with admin team data
-  if (normalizedSlug === 'about' && data.team && data.team.length > 0) {
+  if (normalizedSlug === 'about' && data.team) {
     const aboutTeamStartMarker = '<!-- Our Team Section Start -->';
     const aboutTeamEndMarker = '<!-- Our Team Section End -->';
     const aboutTeamStartIdx = body.indexOf(aboutTeamStartMarker);
@@ -448,7 +361,7 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   }
 
   // Ensure overall page body updates static project card images using admin projects data
-  if (data && data.projects && data.projects.length > 0) {
+  if (normalizedSlug !== "projects" && data.projects.length > 0) {
     body = syncProjectImagesInHtml(body, data.projects, data.gallery || []);
   }
 
@@ -471,7 +384,23 @@ export async function getLegacyPage(slug: string): Promise<LegacyPage | undefine
   return {
     ...page,
     body,
+    revision: publicContentRevision(data),
   };
+}
+
+
+function categoryToSectionId(category: string): string | null {
+  const norm = normalizeText(category);
+  if (norm.includes("bank")) return "bank";
+  if (norm.includes("health") || norm.includes("hospital")) return "hospital";
+  if (norm.includes("office") || norm.includes("corporate")) return "offices";
+  if (norm.includes("resident") || norm.includes("bungalow") || norm.includes("quarter") || norm.includes("housing")) return "residential";
+  if (norm.includes("airport")) return "airports";
+  if (norm.includes("telecom")) return "telecom";
+  if (norm.includes("school") || norm.includes("educat")) return "education";
+  if (norm.includes("factor") || norm.includes("industr")) return "industrial";
+  if (norm.includes("maritime") || norm.includes("seafarer")) return "maritime";
+  return null;
 }
 
 function projectMatchesCardText(project: AdminData["projects"][number], text: string) {
@@ -497,20 +426,6 @@ function projectMatchesCardText(project: AdminData["projects"][number], text: st
   return false;
 }
 
-function categoryToSectionId(category: string): string | null {
-  const norm = normalizeText(category);
-  if (norm.includes("bank")) return "bank";
-  if (norm.includes("health") || norm.includes("hospital")) return "hospital";
-  if (norm.includes("office") || norm.includes("corporate")) return "offices";
-  if (norm.includes("resident") || norm.includes("bungalow")) return "residential";
-  if (norm.includes("airport")) return "airports";
-  if (norm.includes("telecom")) return "telecom";
-  if (norm.includes("school") || norm.includes("educat")) return "education";
-  if (norm.includes("factor") || norm.includes("industr")) return "industrial";
-  if (norm.includes("maritime") || norm.includes("seafarer")) return "maritime";
-  return null;
-}
-
 function syncProjectImagesInHtml(htmlContent: string, projects: AdminData["projects"], gallery: AdminData["gallery"]): string {
   let updatedHtml = htmlContent;
 
@@ -534,54 +449,34 @@ function syncProjectImagesInHtml(htmlContent: string, projects: AdminData["proje
   return updatedHtml;
 }
 
-function injectCategoryProjects(htmlContent: string, projects: AdminData["projects"], gallery: AdminData["gallery"]): string {
-  let updatedHtml = htmlContent;
-
-  for (const project of projects) {
-    const sectionId = categoryToSectionId(project.category || "");
-    if (!sectionId) continue;
-
-    const sectionRegex = new RegExp(`(<section[^>]*id="${sectionId}"[^>]*>[\\s\\S]*?)(<div[^>]*class="(?:project-carousel-wrap|row intex-project-grid)"[^>]*>)([\\s\\S]*?)(</div>[\\s\\S]*?</section>)`, "i");
-
-    const sectionMatch = updatedHtml.match(sectionRegex);
-    if (!sectionMatch) continue;
-
-    const [fullSection, secHeader, gridOpen, gridContent, secClose] = sectionMatch;
-
-    // If project is already matched/present in gridContent, skip
-    if (projectMatchesCardText(project, gridContent)) continue;
-
-    const image = projectImageUrls(project, gallery)[0];
-    const title = escapeHtml(project.title || project.client || "Intexspace Project");
-    const categoryLabel = escapeHtml(project.category || "Project");
-    const location = escapeHtml(project.location || "India");
-    const year = escapeHtml(project.year || "");
-
-    const newCard = `<div class="col-xl-4 col-md-6" style="min-width:320px; flex:0 0 auto; scroll-snap-align:start;">
-      <div class="project-item wow fadeInUp">
-        ${image ? `<div class="project-item-image">
-          <a href="contact.html" data-cursor-text="view">
-            <figure class="image-anime">
-              <img src="${escapeHtml(image)}" alt="${title}">
-            </figure>
-          </a>
-        </div>` : '<div class="project-item-image"><div class="admin-project-image-empty" aria-label="Project image not available"></div></div>'}
-        <div class="project-item-content">
-          <h2><a href="contact.html">${title}</a></h2>
-          <ul>
-            <li>${categoryLabel}</li>
-            <li>${location}</li>
-            ${year ? `<li>${year}</li>` : ""}
-          </ul>
+function renderProjectCategorySections(html: string, data: AdminData) {
+  const $ = load(html, null, false);
+  $("section.intex-project-section[id]").each((_index, element) => {
+    const section = $(element);
+    const id = section.attr("id");
+    const grid = section.find(".project-carousel-wrap, .row.intex-project-grid").first();
+    if (!id || !grid.length) return;
+    const projects = data.projects.filter((project) => categoryToSectionId(project.category || "") === id);
+    grid.html(projects.map((project) => {
+      const images = projectImageUrls(project, data.gallery);
+      const title = escapeHtml(project.title || project.client || "Intexspace Project");
+      return `<div class="col-xl-4 col-md-6">
+        <div class="project-item wow fadeInUp" data-project-images="${escapeHtml(JSON.stringify(images))}" data-project-description="${escapeHtml(project.description || project.summary || "")}">
+          <div class="project-item-image">${images.length
+            ? `<a href="#project-details" data-project-trigger><figure class="image-anime"><img src="${escapeHtml(images[0])}" alt="${title}"></figure></a>`
+            : '<div class="admin-project-image-empty" aria-label="Project image not available"></div>'}</div>
+          <div class="project-item-content">
+            <h2><a href="#project-details" data-project-trigger>${title}</a></h2>
+            <ul><li>${escapeHtml(project.category || "Project")}</li><li>${escapeHtml(project.location || "India")}</li>${project.year ? `<li>${escapeHtml(project.year)}</li>` : ""}</ul>
+          </div>
         </div>
-      </div>
-    </div>`;
-
-    updatedHtml = updatedHtml.replace(fullSection, `${secHeader}${gridOpen}${newCard}${gridContent}${secClose}`);
-  }
-
-  return updatedHtml;
+      </div>`;
+    }).join(""));
+  });
+  return $.html();
 }
+
+
 
 function injectAdminContent(body: string, slug: string, data: AdminData) {
   const section = renderAdminSection(slug, data);
@@ -718,7 +613,7 @@ function renderCompletedProjectSection(data: AdminData) {
         const year = escapeHtml(project.year || "");
 
         return `<div class="col-xl-4 col-md-6">
-          <article class="project-item admin-completed-project" data-project-description="${escapeHtml(project.description || project.summary || "")}">
+          <article class="project-item admin-completed-project" data-project-images="${escapeHtml(JSON.stringify(projectImageUrls(project, data.gallery)))}" data-project-description="${escapeHtml(project.description || project.summary || "")}">
             <div class="project-item-image">
               <a href="#project-details" data-project-trigger aria-label="View details for ${title}">
                 <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
@@ -759,7 +654,7 @@ function renderOngoingProjectSection(data: AdminData) {
         const year = escapeHtml(project.year || "");
 
         return `<div class="col-xl-4 col-md-6">
-          <article class="project-item admin-ongoing-project" data-project-description="${escapeHtml(project.description || project.summary || "")}">
+          <article class="project-item admin-ongoing-project" data-project-images="${escapeHtml(JSON.stringify(projectImageUrls(project, data.gallery)))}" data-project-description="${escapeHtml(project.description || project.summary || "")}">
             <div class="project-item-image">
               <a href="#project-details" data-project-trigger aria-label="View details for ${title}">
                 <figure class="image-anime"><img src="${escapeHtml(image)}" alt="${title}"></figure>
@@ -776,112 +671,6 @@ function renderOngoingProjectSection(data: AdminData) {
   </section>`;
 }
 
-function renderProjectsIntoCompletedSection(data: AdminData) {
-  const projects = data.projects.map((project) => ({
-    title: project.title,
-    status: formatLabel(project.status),
-    summary: project.summary || project.description,
-    client: project.client || "Intexspace Client",
-    location: project.location || "India",
-    category: project.category || "",
-    year: project.year || "",
-    images: projectImageUrls(project, data.gallery),
-  }));
-
-  return `<script>
-    window.addEventListener('load', function () {
-      function resetProjectModalScroll() {
-        var modal = document.getElementById('projectDetailsModal');
-        var dialog = modal && modal.querySelector('.project-modal-dialog');
-        if (modal) modal.scrollTop = 0;
-        if (dialog) dialog.scrollTop = 0;
-      }
-
-      function resetAfterProjectOpen(event) {
-        if (!event.target.closest('.intex-projects-page .project-item')) return;
-        window.setTimeout(resetProjectModalScroll, 0);
-      }
-
-      document.addEventListener('click', resetAfterProjectOpen, true);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') resetAfterProjectOpen(event);
-      }, true);
-
-      var completedGrid = document.querySelector('#completed .intex-project-grid');
-      if (!completedGrid) return;
-
-      var projects = ${JSON.stringify(projects).replace(/</g, "\\u003c")};
-      var count = document.querySelector('.intex-project-tabs a[href="#completed"] strong');
-      if (count) count.textContent = String(completedGrid.querySelectorAll('.project-item').length + projects.length).padStart(2, '0');
-
-      projects.forEach(function (project) {
-        var column = document.createElement('div');
-        column.className = 'col-xl-4 col-md-6';
-        var card = document.createElement('div');
-        card.className = 'project-item admin-completed-project wow fadeInUp';
-        card._projectImages = project.images;
-        card.tabIndex = 0;
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', 'View details for ' + project.title);
-
-        var imageMarkup = project.images.length > 1
-          ? '<div class="project-image-track">' + project.images.concat(project.images).map(function (src) {
-              return '<figure class="image-anime"><img src="' + escapeAttribute(src) + '" alt="' + escapeAttribute(project.title) + '"></figure>';
-            }).join('') + '</div>'
-          : '<figure class="image-anime"><img src="' + escapeAttribute(project.images[0] || '') + '" alt="' + escapeAttribute(project.title) + '"></figure>';
-
-        card.innerHTML = '<div class="project-item-image"><a href="#project-details" data-project-trigger>' + imageMarkup + '<span class="project-view-chip">View details</span></a></div>' +
-          '<div class="project-item-content"><h2><a href="#project-details" data-project-trigger>' + escapeHtml(project.title) + '</a></h2><ul>' +
-          '<li>' + escapeHtml(project.status) + '</li><li>' + escapeHtml(project.client) + '</li><li>' + escapeHtml(project.location) + '</li>' +
-          (project.category ? '<li>' + escapeHtml(project.category) + '</li>' : '') +
-          (project.year ? '<li>' + escapeHtml(project.year) + '</li>' : '') +
-          (project.summary ? '<li>' + escapeHtml(project.summary) + '</li>' : '') +
-          '</ul></div>';
-        column.appendChild(card);
-        completedGrid.appendChild(column);
-
-        var track = card.querySelector('.project-image-track');
-        if (track) {
-          var imageCount = project.images.length;
-          track.style.width = String(imageCount * 200) + '%';
-          track.style.animationDuration = String(imageCount * 15) + 's';
-          track.querySelectorAll('figure').forEach(function (figure) {
-            figure.style.flexBasis = String(100 / (imageCount * 2)) + '%';
-            figure.style.width = String(100 / (imageCount * 2)) + '%';
-          });
-        }
-      });
-
-      function updateModalMedia(card) {
-        if (!card || !card.classList.contains('admin-completed-project')) return;
-        var modalImages = document.getElementById('projectModalImages');
-        if (!modalImages) return;
-        var title = card.querySelector('.project-item-content h2 a').textContent.trim();
-        modalImages.innerHTML = '';
-        card._projectImages.forEach(function (src) {
-          var image = document.createElement('img');
-          image.src = src;
-          image.alt = title;
-          modalImages.appendChild(image);
-        });
-      }
-
-      document.addEventListener('click', function (event) {
-        updateModalMedia(event.target.closest('.admin-completed-project'));
-      });
-
-      function escapeHtml(value) {
-        var element = document.createElement('div');
-        element.textContent = value || '';
-        return element.innerHTML;
-      }
-
-      function escapeAttribute(value) {
-        return escapeHtml(value).replace(/"/g, '&quot;');
-      }
-    });
-  </script>`;
-}
 
 function renderGalleryCard(image: AdminData["gallery"][number]) {
   return `<figure class="admin-live-gallery-card">

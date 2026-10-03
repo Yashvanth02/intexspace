@@ -1,34 +1,12 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { readAdminData, updateAdminData } from "@/lib/admin-store";
+import { updateAdminData } from "@/lib/admin-store";
 import { createSupabaseAdmin, getSupabaseStorageBucket } from "@/lib/supabase-server";
 
 
 type RouteParams = {
   params: Promise<{ id: string }>;
 };
-
-function galleryResponse(adminData: Awaited<ReturnType<typeof readAdminData>>, galleryRows: any[]) {
-  const galleryById = new Map(adminData.gallery.map((item) => [item.id, item]));
-
-  for (const galleryItem of galleryRows) {
-    galleryById.set(galleryItem.id, {
-      id: galleryItem.id,
-      title: galleryItem.title,
-      imageUrl: galleryItem.image_url,
-      alt: galleryItem.alt,
-      category: galleryItem.category,
-      uploadedAt: galleryItem.uploaded_at,
-    });
-  }
-
-  return {
-    ...adminData,
-    gallery: Array.from(galleryById.values()).sort(
-      (first, second) => new Date(second.uploadedAt).getTime() - new Date(first.uploadedAt).getTime(),
-    ),
-  };
-}
 
 export async function DELETE(_request: Request, { params }: RouteParams) {
   if (!(await isAdminAuthenticated())) {
@@ -61,22 +39,12 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ message: deleteError.message || "Failed to delete gallery item." }, { status: 500 });
   }
 
-  await updateAdminData((current) => ({
+  const adminData = await updateAdminData((current) => ({
     ...current,
     gallery: current.gallery.filter((galleryItem) => galleryItem.id !== id),
   }));
 
-  const adminData = await readAdminData();
-  const { data: galleryRows, error: galleryError } = await supabaseAdmin
-    .from("gallery")
-    .select("id, title, image_url, alt, category, uploaded_at")
-    .order("uploaded_at", { ascending: false });
-
-  if (galleryError) {
-    return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
-  }
-
-  return NextResponse.json(galleryResponse(adminData, galleryRows ?? []));
+  return NextResponse.json(adminData);
 }
 
 export async function PUT(request: Request, { params }: RouteParams) {
@@ -100,22 +68,12 @@ export async function PUT(request: Request, { params }: RouteParams) {
     return NextResponse.json({ message: updateError.message || "Failed to update gallery metadata." }, { status: 500 });
   }
 
-  await updateAdminData((current) => ({
+  const adminData = await updateAdminData((current) => ({
     ...current,
     gallery: current.gallery.map((galleryItem) =>
       galleryItem.id === id ? { ...galleryItem, title, category, alt } : galleryItem,
     ),
   }));
 
-  const adminData = await readAdminData();
-  const { data: galleryRows, error: galleryError } = await supabaseAdmin
-    .from("gallery")
-    .select("id, title, image_url, alt, category, uploaded_at")
-    .order("uploaded_at", { ascending: false });
-
-  if (galleryError) {
-    return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
-  }
-
-  return NextResponse.json(galleryResponse(adminData, galleryRows ?? []));
+  return NextResponse.json(adminData);
 }

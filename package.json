@@ -6,11 +6,13 @@
     "dev": "next dev",
     "dev:admin": "next dev -p 3000",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "node tests/admin-live.integration.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",
-    "next": "^15.3.3",
+    "cheerio": "^1.2.0",
+    "next": "^15.5.27",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -21,6 +23,8 @@
     "typescript": "^5.8.3"
   },
   "overrides": {
-    "postcss": "^8.5.10"
+    "postcss": "^8.5.28",
+    "sharp": "^0.35.5",
+    "nanoid": "^3.3.19"
   }
 }

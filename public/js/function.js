@@ -1,17 +1,22 @@
 (function ($) {
     "use strict";
+
+  function initializeLegacy() {
+    if (!document.getElementById('menu')) return;
+    if (window.intexCleanupLegacy) window.intexCleanupLegacy();
+    var alive = true;
 	
 	var $window = $(window); 
 	var $body = $('body'); 
 
 	/* Preloader Effect */
-	$window.on('load', function(){
+	$window.on('load.intexLegacy', function(){
 		$(".preloader").fadeOut(600);
 	});
 
 	/* Sticky Header */	
 	if($('.active-sticky-header').length){
-		$window.on('resize', function(){
+		$window.on('resize.intexLegacy', function(){
 			setHeaderHeight();
 		});
 
@@ -19,7 +24,7 @@
 	 		$("header.active-sticky-header").css("height", $('header.active-sticky-header .header-sticky').outerHeight());
 		}	
 	
-		$window.on("scroll", function() {
+		$window.on("scroll.intexLegacy", function() {
 			var fromTop = $(window).scrollTop();
 			setHeaderHeight();
 			var headerHeight = $('header.active-sticky-header .header-sticky').outerHeight()
@@ -35,7 +40,7 @@
 	});
 
 	if($("a[href='#top']").length){
-		$(document).on("click", "a[href='#top']", function() {
+		$(document).on("click.intexLegacy", "a[href='#top']", function() {
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 		});
@@ -291,6 +296,7 @@
 
 	/* Text Effect Animation */
 	function initHeadingAnimation() {
+		if (!alive) return;
 		
 		if($('.text-effect').length) {
 			var textheading = $(".text-effect");
@@ -407,7 +413,7 @@
             initHeadingAnimation();
         });
     } else {
-        window.addEventListener("load", initHeadingAnimation);
+        $window.one("load.intexLegacy", initHeadingAnimation);
     }
 
 	/* Parallaxie js */
@@ -444,48 +450,14 @@
 		}
 	});
 
-	/* Contact form validation */
-	var $contactform = $("#contactForm");
-	$contactform.validator({focus: false}).on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {
-			event.preventDefault();
-			submitForm();
-		}
-	});
-
-	function submitForm(){
-		/* Ajax call to submit form */
-		$.ajax({
-			type: "POST",
-			url: "form-process.php",
-			data: $contactform.serialize(),
-			success : function(text){
-				if (text === "success"){
-					formSuccess();
-				} else {
-					submitMSG(false,text);
-				}
-			}
-		});
-	}
-
-	function formSuccess(){
-		$contactform[0].reset();
-		submitMSG(true, "Message Sent Successfully!")
-	}
-
-	function submitMSG(valid, msg){
-		if(valid){
-			var msgClasses = "h4 text-success";
-		} else {
-			var msgClasses = "h4 text-danger";
-		}
-		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
-	}
-	/* Contact form validation end */
 
 	/* Animated Wow Js */	
-	new WOW().init();
+  if (!window.intexWow) {
+    window.intexWow = new WOW();
+    window.intexWow.init();
+  } else {
+    window.intexWow.sync();
+  }
 
 	/* Popup Video */
 	if ($('.popup-video').length) {
@@ -518,5 +490,28 @@
 		}
 	}
 	/* Service Item List End */
+
+  var swipers = Array.from(document.querySelectorAll('.swiper')).map(function (element) { return element.swiper; }).filter(Boolean);
+  var menus = $('#menu');
+  var popupElements = $('.gallery-items, .popup-video');
+  window.intexCleanupLegacy = function () {
+    alive = false;
+    $window.off('.intexLegacy');
+    $(document).off('.intexLegacy');
+    swipers.forEach(function (swiper) { if (!swiper.destroyed) swiper.destroy(true, true); });
+    if (window.ScrollTrigger) ScrollTrigger.getAll().forEach(function (trigger) {
+      if (trigger.animation) trigger.animation.kill();
+      trigger.kill();
+    });
+    if (window.Waypoint) Waypoint.destroyAll();
+    menus.each(function () { $(this).removeData('plugin_slicknav'); });
+    $('.slicknav_menu').remove();
+    popupElements.off('.magnificPopup');
+    $window.off('.intexParallax');
+    window.intexCleanupLegacy = undefined;
+  };
+  }
+
+  window.intexInitializeLegacy = initializeLegacy;
 	
 })(jQuery);

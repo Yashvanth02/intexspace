@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { initializeProjectCards } from "@/lib/project-card-runtime";
 
 export function LegacyInteractions() {
   useEffect(() => {
+    initializeProjectCards();
     const carousels = Array.from(
       document.querySelectorAll<HTMLElement>(
         ".intex-projects-page .project-carousel-wrap, .admin-live-gallery .admin-live-gallery-grid, .team-carousel",
@@ -274,6 +276,9 @@ export function LegacyInteractions() {
       modal.style.zIndex = "999999";
       document.body.classList.add("project-modal-open");
       document.body.style.overflow = "hidden";
+      modal.scrollTop = 0;
+      const dialog = modal.querySelector<HTMLElement>(".project-modal-dialog");
+      if (dialog) dialog.scrollTop = 0;
     };
 
     const closeProjectModal = () => {
@@ -295,7 +300,8 @@ export function LegacyInteractions() {
         return;
       }
 
-      const card = (event.target as Element).closest<HTMLElement>(projectSelector);
+      const trigger = (event.target as Element).closest<HTMLElement>(projectSelector);
+      const card = trigger?.closest<HTMLElement>(".project-item, .admin-completed-project") || trigger;
       if (!card) return;
 
       event.preventDefault();
@@ -308,7 +314,8 @@ export function LegacyInteractions() {
       const target = event.target as Element;
       if ((event.key === "Enter" || event.key === " ") && target.closest(projectSelector)) {
         event.preventDefault();
-        openProjectModal(target.closest<HTMLElement>(projectSelector)!);
+        const trigger = target.closest<HTMLElement>(projectSelector)!;
+        openProjectModal(trigger.closest<HTMLElement>(".project-item, .admin-completed-project") || trigger);
       }
     };
 
@@ -333,11 +340,39 @@ export function LegacyInteractions() {
     };
     careerButtons.forEach((button) => button.addEventListener("click", onCareerClick));
 
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+    let submitting = false;
+    const submitInquiry = async (event: Event) => {
+      event.preventDefault();
+      if (!form || submitting || !form.reportValidity()) return;
+      submitting = true;
+      const message = document.getElementById("msgSubmit");
+      try {
+        const response = await fetch("/api/inquiries", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form).entries())),
+        });
+        if (!response.ok) throw new Error("Please check the form and try again.");
+        form.reset();
+        if (message) message.textContent = "Thank you. Your message has been sent.";
+      } catch (error) {
+        if (message) message.textContent = (error as Error).message || "Unable to send your message.";
+      } finally {
+        message?.classList.remove("hidden");
+        submitting = false;
+      }
+    };
+    form?.addEventListener("submit", submitInquiry);
+
     return () => {
       cleanups.forEach((cleanup) => cleanup());
       document.removeEventListener("click", onProjectClick, true);
       document.removeEventListener("keydown", onProjectKeydown, true);
       careerButtons.forEach((button) => button.removeEventListener("click", onCareerClick));
+      form?.removeEventListener("submit", submitInquiry);
+      document.body.classList.remove("project-modal-open");
+      document.body.style.overflow = "";
+      document.getElementById("projectDetailsModal")?.remove();
     };
   }, []);
 

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { makeId, nowIso, readAdminData, updateAdminData } from "@/lib/admin-store";
+import { makeId, nowIso, updateAdminData } from "@/lib/admin-store";
 import { createSupabaseAdmin, getSupabaseStorageBucket } from "@/lib/supabase-server";
 
 const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
@@ -91,25 +91,5 @@ export async function POST(request: Request) {
     gallery: [...galleryItems, ...current.gallery],
   }));
 
-  const { data: galleryRows, error: galleryError } = await supabaseAdmin
-    .from("gallery")
-    .select("id, title, image_url, alt, category, uploaded_at")
-    .order("uploaded_at", { ascending: false });
-
-  if (galleryError) {
-    return NextResponse.json({ message: galleryError.message || "Failed to load gallery data." }, { status: 500 });
-  }
-
-  return NextResponse.json({
-    ...adminData,
-    gallery:
-      (galleryRows ?? []).map((galleryItem: any) => ({
-        id: galleryItem.id,
-        title: galleryItem.title,
-        imageUrl: galleryItem.image_url,
-        alt: galleryItem.alt,
-        category: galleryItem.category,
-        uploadedAt: galleryItem.uploaded_at,
-      })),
-  });
+  return NextResponse.json(adminData);
 }

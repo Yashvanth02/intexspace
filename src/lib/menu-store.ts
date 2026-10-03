@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createSupabaseAdmin, getSupabaseStorageBucket } from "./supabase-server";
+import { notifyContentUpdated } from "./content-updates";
 
 const menuStoragePath = "settings/menu.json";
 
@@ -9,7 +10,8 @@ export type MenuVisibility = Record<string, boolean>;
 export async function readPersistentMenu(): Promise<MenuVisibility | null> {
   try {
     const supabaseAdmin = createSupabaseAdmin();
-    const { data, error } = await supabaseAdmin.storage.from(getSupabaseStorageBucket()).download(menuStoragePath);
+    const { data, error } = await supabaseAdmin.storage.from(getSupabaseStorageBucket())
+      .download(menuStoragePath, { cacheNonce: String(Date.now()) });
     if (error || !data) return null;
 
     const parsed = JSON.parse(await data.text()) as unknown;
@@ -27,9 +29,10 @@ export async function writePersistentMenu(menu: MenuVisibility) {
   const supabaseAdmin = createSupabaseAdmin();
   const { error } = await supabaseAdmin.storage
     .from(getSupabaseStorageBucket())
-    .upload(menuStoragePath, JSON.stringify(menu), { contentType: "application/json", upsert: true });
+    .upload(menuStoragePath, JSON.stringify(menu), { contentType: "application/json", cacheControl: "0", upsert: true });
 
   if (error) {
     throw new Error(error.message || "Failed to save menu settings.");
   }
+  notifyContentUpdated();
 }

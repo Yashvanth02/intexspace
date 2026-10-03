@@ -1,9 +1,11 @@
 import "server-only";
 
-import { mkdir, readFile, writeFile } from "fs/promises";
+import { mkdir, readFile, writeFile, rename } from "fs/promises";
 import os from "os";
 import path from "path";
-import { createSupabaseAdmin, getSupabaseStorageBucket } from "./supabase-server";
+import { createSupabaseAdmin, getSupabaseStorageBucket, hasSupabaseConfig } from "./supabase-server";
+import { notifyContentUpdated } from "./content-updates";
+import { revalidatePath } from "next/cache";
 
 export type ProjectStatus = "ongoing" | "completed";
 export type InquiryStatus = "new" | "contacted" | "closed";
@@ -85,9 +87,10 @@ export type AdminData = {
   team: TeamMember[];
   // menu visibility map: slug -> enabled (true/false)
   menu?: Record<string, boolean>;
+  tableRecordIds?: { projects: string[]; gallery: string[]; vlogs: string[] };
 };
 
-const dataFile = path.join(process.cwd(), "data", "admin-data.json");
+const dataFile = process.env.ADMIN_DATA_FILE || path.join(process.cwd(), "data", "admin-data.json");
 const fallbackDataFile = path.join(os.tmpdir(), "intex-admin-data.json");
 const persistentDataPath = "settings/admin-data.json";
 
@@ -118,7 +121,9 @@ async function readAdminDataFile(filePath: string): Promise<AdminData> {
 
 async function writeAdminDataFile(filePath: string, data: AdminData) {
   await mkdir(path.dirname(filePath), { recursive: true });
-  await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+  const temporaryPath = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  await writeFile(temporaryPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+  await rename(temporaryPath, filePath);
 }
 
 async function readFallbackAdminData(): Promise<AdminData> {
@@ -138,7 +143,8 @@ async function readFallbackAdminData(): Promise<AdminData> {
 async function readPersistentAdminData(): Promise<AdminData | null> {
   try {
     const client = createSupabaseAdmin();
-    const { data, error } = await client.storage.from(getSupabaseStorageBucket()).download(persistentDataPath);
+    const { data, error } = await client.storage.from(getSupabaseStorageBucket())
+      .download(persistentDataPath, { cacheNonce: String(Date.now()) });
     if (error || !data) return null;
     const parsed = JSON.parse(await data.text()) as unknown;
     return parsed && typeof parsed === "object" && !Array.isArray(parsed)
@@ -153,7 +159,7 @@ async function writePersistentAdminData(data: AdminData) {
   const client = createSupabaseAdmin();
   const { error } = await client.storage
     .from(getSupabaseStorageBucket())
-    .upload(persistentDataPath, JSON.stringify(data), { contentType: "application/json", upsert: true });
+    .upload(persistentDataPath, JSON.stringify(data), { contentType: "application/json", cacheControl: "0", upsert: true });
   if (error) throw new Error(error.message || "Failed to persist admin data.");
 }
 
@@ -175,30 +181,43 @@ export async function readAdminData(): Promise<AdminData> {
 }
 
 export async function writeAdminData(data: AdminData) {
-  try {
+  const persistent = hasSupabaseConfig();
+  if (persistent) {
     await writePersistentAdminData(data);
-  } catch {
-    // Storage is optional for local development; use the local cache below.
   }
 
   try {
     await writeAdminDataFile(dataFile, data);
-    return;
   } catch (error) {
     const code = (error as NodeJS.ErrnoException).code;
-    if (code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR" && code !== "EROFS") {
+    if (!persistent && code !== "EACCES" && code !== "EPERM" && code !== "ENOTDIR" && code !== "EROFS") {
       throw error;
     }
-
-    await writeAdminDataFile(fallbackDataFile, data);
+    if (!persistent) await writeAdminDataFile(fallbackDataFile, data);
   }
+  revalidatePath("/", "layout");
+  notifyContentUpdated();
 }
 
-export async function updateAdminData(updater: (data: AdminData) => AdminData | Promise<AdminData>) {
-  const current = await readAdminData();
-  const next = await updater(current);
-  await writeAdminData(next);
-  return next;
+let pendingUpdate: Promise<unknown> = Promise.resolve();
+
+export function updateAdminData(updater: (data: AdminData) => AdminData | Promise<AdminData>) {
+  const update = pendingUpdate.then(async () => {
+    const { readContentData } = await import("./content-store");
+    const current = await readContentData();
+    const next = await updater(current);
+    for (const collection of [next.projects, next.gallery, next.vlogs, next.careers, next.team, next.inquiries]) {
+      const seen = new Set<string>();
+      for (let index = 0; index < collection.length;) {
+        if (seen.has(collection[index].id)) collection.splice(index, 1);
+        else { seen.add(collection[index].id); index += 1; }
+      }
+    }
+    await writeAdminData(next);
+    return next;
+  });
+  pendingUpdate = update.catch(() => undefined);
+  return update;
 }
 
 export function nowIso() {

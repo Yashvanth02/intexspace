@@ -12,6 +12,10 @@ export function getSupabaseStorageBucket() {
   return process.env.SUPABASE_STORAGE_BUCKET?.trim() || "Gallery";
 }
 
+export function hasSupabaseConfig() {
+  return Boolean(getSupabaseUrl() && getSupabaseKey());
+}
+
 export function createSupabaseAdmin() {
   const supabaseUrl = getSupabaseUrl();
   const supabaseKey = getSupabaseKey();
@@ -22,5 +26,8 @@ export function createSupabaseAdmin() {
 
   return createClient(supabaseUrl, supabaseKey, {
     auth: { persistSession: false },
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    },
   });
 }

@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { readAdminData, updateAdminData, writeAdminData } from "@/lib/admin-store";
+import { updateAdminData } from "@/lib/admin-store";
+import { readContentData } from "@/lib/content-store";
 import { isImageFile, uploadImageToStorage } from "@/lib/image-upload";
 import { createSupabaseAdmin } from "@/lib/supabase-server";
 
@@ -19,7 +20,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     if (!title || !details || !youtubeUrl) throw new Error("Title, project details and YouTube link are required.");
     if (!/^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(youtubeUrl)) throw new Error("Please enter a valid YouTube link.");
 
-    const current = await readAdminData();
+    const current = await readContentData();
     let existingVlog = current.vlogs.find((vlog) => vlog.id === id);
 
     if (!existingVlog) throw new Error("Vlog not found.");
@@ -56,14 +57,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
       return NextResponse.json({ message: (err as Error).message || "Failed to update vlog in database." }, { status: 500 });
     }
 
-    const next = {
-      ...current,
-      vlogs: current.vlogs.some((vlog) => vlog.id === id)
-        ? current.vlogs.map((vlog) => (vlog.id === id ? updatedVlog : vlog))
-        : [updatedVlog, ...current.vlogs],
-    };
-
-    await writeAdminData(next);
+    const next = await updateAdminData((data) => ({
+      ...data,
+      vlogs: data.vlogs.some((vlog) => vlog.id === id)
+        ? data.vlogs.map((vlog) => vlog.id === id ? updatedVlog : vlog)
+        : [updatedVlog, ...data.vlogs],
+    }));
     revalidatePath("/vlog");
     revalidatePath("/vlog.html");
     return NextResponse.json(next);

@@ -1,11 +1,13 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./AdminDashboard.module.css";
+import { publishContentChange, useContentUpdates } from "@/lib/live-content";
+import type { SiteSettings } from "@/lib/site-settings";
 
 type ProjectStatus = "ongoing" | "completed";
 type InquiryStatus = "new" | "contacted" | "closed";
-type Tab = "projects" | "gallery" | "vlogs" | "careers" | "team" | "inquiries" | "menu";
+type Tab = "projects" | "gallery" | "vlogs" | "careers" | "team" | "inquiries" | "menu" | "maintenance";
 
 type Project = {
   id: string;
@@ -80,6 +82,7 @@ type AdminData = {
   menu?: Record<string, boolean>;
   // detected menu sections available on user dashboard
   menuSections?: string[];
+  settings?: SiteSettings;
 };
 
 const emptyProject: Omit<Project, "id" | "updatedAt"> = {
@@ -122,16 +125,18 @@ const tabs: Array<{ id: Tab; label: string }> = [
   { id: "careers", label: "Careers" },
   { id: "team", label: "Team Members" },
   { id: "inquiries", label: "Inquiries" },
+  { id: "maintenance", label: "Site Maintenance" },
 ];
 
 const defaultMenuSections = ["about", "projects", "ongoing", "careers", "gallery", "vlog", "team", "contact"];
 
-async function readResponse(response: Response) {
+async function readResponse(response: Response, publish = true) {
   const body = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     throw new Error(body.message || "Request failed.");
   }
+  if (publish) publishContentChange();
 
   // Most mutation endpoints return the stored admin data, while only the
   // state endpoint adds menuSections. Keep this derived UI field stable after
@@ -203,6 +208,7 @@ export function AdminDashboard() {
       careers: data?.careers.length ?? 0,
       team: data?.team?.length ?? 0,
       inquiries: data?.inquiries.filter((inquiry) => inquiry.status === "new").length ?? 0,
+      maintenance: data?.settings?.maintenanceEnabled ? "On" : "Off",
     }),
     [data],
   );
@@ -261,23 +267,38 @@ export function AdminDashboard() {
     return () => window.clearTimeout(timeout);
   }, [notice]);
 
-  async function loadState() {
-    setIsLoading(true);
+  async function applyResponse(response: Response) {
+    const next = await readResponse(response);
+    stateRequest.current += 1;
+    setData((current) => ({ ...next, settings: next.settings ?? current?.settings }));
+  }
+
+  const stateRequest = useRef(0);
+
+  async function loadState(background = false) {
+    const requestId = ++stateRequest.current;
+    if (!background) setIsLoading(true);
 
     try {
       const response = await fetch("/api/admin/state", { cache: "no-store" });
+      if (requestId !== stateRequest.current) return;
 
       if (response.status === 401) {
         setIsAuthenticated(false);
         return;
       }
 
-      setData(await readResponse(response));
+      const next = await readResponse(response, false);
+      if (requestId !== stateRequest.current) return;
+      setData(next);
       setIsAuthenticated(true);
     } catch (error) {
-      setNotice((error as Error).message);
+      if (requestId === stateRequest.current) {
+        if (error instanceof Error && error.message === "Unauthorized") setIsAuthenticated(false);
+        else setNotice((error as Error).message);
+      }
     } finally {
-      setIsLoading(false);
+      if (!background) setIsLoading(false);
     }
   }
 
@@ -285,11 +306,16 @@ export function AdminDashboard() {
     void loadState();
   }, []);
 
+  useContentUpdates({ scope: "admin", enabled: isAuthenticated, onChange: () => { void loadState(true); } });
+
   // Listen for menu updates dispatched from MenuControlsPanel so UI updates immediately without a full refresh
   useEffect(() => {
     function onUpdated(event: Event) {
       const detail = (event as CustomEvent).detail as AdminData | undefined;
-      if (detail) setData(detail);
+      if (detail) {
+        stateRequest.current += 1;
+        setData((current) => current ? { ...current, menu: detail.menu } : detail);
+      }
     }
 
     function onNotice(event: Event) {
@@ -373,8 +399,7 @@ export function AdminDashboard() {
         body: formData,
       });
 
-      const nextData = await readResponse(uploadResponse);
-      setData(nextData);
+      await applyResponse(uploadResponse);
       setProjectForm(emptyProject);
       setEditingProjectId(null);
       setNotice("Project saved.");
@@ -387,7 +412,7 @@ export function AdminDashboard() {
       body: JSON.stringify(projectForm),
     });
 
-    setData(await readResponse(response));
+    await applyResponse(response);
     setProjectForm(emptyProject);
     setEditingProjectId(null);
     setNotice("Project saved.");
@@ -396,7 +421,7 @@ export function AdminDashboard() {
 
   async function deleteProject(id: string) {
     const response = await fetch(`/api/admin/projects/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Project deleted.");
   }
 
@@ -407,7 +432,7 @@ export function AdminDashboard() {
       body: JSON.stringify({ status }),
     });
 
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Project status updated.");
   }
 
@@ -421,7 +446,7 @@ export function AdminDashboard() {
       body: JSON.stringify(careerForm),
     });
 
-    setData(await readResponse(response));
+    await applyResponse(response);
     setCareerForm(emptyCareer);
     setEditingCareerId(null);
     setNotice("Career opening saved.");
@@ -429,7 +454,7 @@ export function AdminDashboard() {
 
   async function deleteCareer(id: string) {
     const response = await fetch(`/api/admin/careers/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Career opening deleted.");
   }
 
@@ -443,8 +468,7 @@ export function AdminDashboard() {
       body: formData,
     });
 
-    const nextData = await readResponse(response);
-    setData(nextData);
+    await applyResponse(response);
     setTeamForm(emptyTeamMember);
     setEditingTeamId(null);
     setNotice(editingTeamId ? "Team member updated." : "Team member added.");
@@ -452,7 +476,7 @@ export function AdminDashboard() {
 
   async function deleteTeamMember(id: string) {
     const response = await fetch(`/api/admin/team/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Team member deleted.");
   }
 
@@ -462,7 +486,7 @@ export function AdminDashboard() {
     const formData = new FormData(form);
     const response = await fetch("/api/admin/gallery", { method: "POST", body: formData });
 
-    setData(await readResponse(response));
+    await applyResponse(response);
     form.reset();
     setNotice("Gallery images uploaded.");
   }
@@ -472,7 +496,7 @@ export function AdminDashboard() {
 
     try {
       const response = await fetch(`/api/admin/gallery/${id}`, { method: "DELETE" });
-      setData(await readResponse(response));
+      await applyResponse(response);
       setNotice("Gallery image deleted from the dashboard and public gallery.");
     } catch (error) {
       setNotice((error as Error).message);
@@ -507,8 +531,7 @@ export function AdminDashboard() {
       body: formData,
     });
 
-    const nextData = await readResponse(response);
-    setData(nextData);
+    await applyResponse(response);
     setVlogForm({ title: "", details: "", youtubeUrl: "", thumbnailUrl: "" });
     setEditingVlogId(null);
     formElement.reset();
@@ -522,7 +545,7 @@ export function AdminDashboard() {
 
   async function deleteVlog(id: string) {
     const response = await fetch(`/api/admin/vlogs/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Vlog deleted.");
   }
 
@@ -533,12 +556,12 @@ export function AdminDashboard() {
       body: JSON.stringify({ status }),
     });
 
-    setData(await readResponse(response));
+    await applyResponse(response);
   }
 
   async function deleteInquiry(id: string) {
     const response = await fetch(`/api/admin/inquiries/${id}`, { method: "DELETE" });
-    setData(await readResponse(response));
+    await applyResponse(response);
     setNotice("Inquiry deleted.");
   }
 
@@ -588,7 +611,7 @@ export function AdminDashboard() {
           <a className={`${styles.secondaryButton} ${styles.headerSiteButton}`} href="/" rel="noopener noreferrer" target="_blank">
             View Site
           </a>
-          <button className={`${styles.secondaryButton} ${styles.headerRefreshButton}`} onClick={loadState} type="button">
+          <button className={`${styles.secondaryButton} ${styles.headerRefreshButton}`} onClick={() => void loadState()} type="button">
             Refresh
           </button>
           <button className={`${styles.button} ${styles.headerLogoutButton}`} onClick={logout} type="button">
@@ -691,6 +714,13 @@ export function AdminDashboard() {
           {activeTab === "menu" && data ? (
             <MenuControlsPanel data={data} />
           ) : null}
+          {activeTab === "maintenance" && data ? (
+            <MaintenancePanel settings={data.settings} onSaved={(settings) => {
+              stateRequest.current += 1;
+              setData((current) => current ? { ...current, settings } : current);
+              setNotice(settings.maintenanceEnabled ? "Maintenance mode enabled." : "The public site is live.");
+            }} />
+          ) : null}
           {activeTab === "careers" && data ? (
             <CareersPanel
               data={data.careers}
@@ -722,6 +752,73 @@ export function AdminDashboard() {
   );
 }
 
+function MaintenancePanel({ settings, onSaved }: { settings?: SiteSettings; onSaved: (settings: SiteSettings) => void }) {
+  const [pending, setPending] = useState<boolean | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const dialog = useRef<HTMLDialogElement>(null);
+  const enabled = settings?.maintenanceEnabled ?? false;
+
+  useEffect(() => {
+    if (pending !== null) dialog.current?.showModal();
+    else dialog.current?.close();
+  }, [pending]);
+
+  async function confirm() {
+    if (pending === null) return;
+    setSaving(true);
+    setError("");
+    try {
+      const response = await fetch("/api/admin/settings", {
+        method: "PUT", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ maintenanceEnabled: pending, confirmed: true }),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.message || "Unable to update maintenance mode.");
+      onSaved(body as SiteSettings);
+      publishContentChange();
+      setPending(null);
+    } catch (error) {
+      setError((error as Error).message);
+    } finally { setSaving(false); }
+  }
+
+  return (
+    <section className={styles.panel}>
+      <div className={styles.panelTitle}>
+        <div><span>Site Status</span><h2>Site Maintenance</h2></div>
+        <span className={enabled ? styles.menuStatusDisabled : styles.menuStatusEnabled}>{enabled ? "Under maintenance" : "Live"}</span>
+      </div>
+      <div className={styles.maintenanceRow}>
+        <div><h3>Maintenance mode</h3><p>{enabled ? "Visitors see the maintenance page. Admin access remains available." : "Visitors can browse the public website."}</p></div>
+        <button type="button" role="switch" aria-checked={enabled} aria-label="Maintenance mode"
+          disabled={!settings || saving}
+          className={`${styles.menuToggle} ${enabled ? styles.menuToggleEnabled : ""}`}
+          onClick={() => { setError(""); setPending(!enabled); }}>
+          <span className={styles.menuToggleKnob} />
+        </button>
+      </div>
+      <div className={styles.maintenanceWarning} role="note">
+        <strong>Warning</strong>
+        <p>Enabling maintenance hides all public pages, including pages already open by visitors. Your content is kept, and the admin dashboard stays accessible.</p>
+      </div>
+      {settings?.updatedAt ? <p className={styles.maintenanceUpdated}>Last changed: {new Date(settings.updatedAt).toLocaleString()}</p> : null}
+      <dialog ref={dialog} className={styles.maintenanceDialog} aria-labelledby="maintenance-confirm-title"
+        onCancel={(event) => { if (saving) event.preventDefault(); else setPending(null); }}>
+        <h2 id="maintenance-confirm-title">{pending ? "Enable maintenance mode?" : "Make the site live?"}</h2>
+        <p>{pending ? "Visitors will immediately see the maintenance page. Admin access and saved content will remain available." : "All enabled public pages will be available to visitors immediately."}</p>
+        {error ? <p className={styles.notice} role="alert">{error}</p> : null}
+        <div className={styles.rowActions}>
+          <button type="button" className={styles.secondaryButton} disabled={saving} onClick={() => setPending(null)}>Cancel</button>
+          <button type="button" className={styles.button} disabled={saving} onClick={() => void confirm()}>
+            {saving ? "Saving..." : pending ? "Enable Maintenance" : "Make Site Live"}
+          </button>
+        </div>
+      </dialog>
+    </section>
+  );
+}
+
 function MenuControlsPanel({ data }: { data: AdminData }) {
   // Keep the control list visible if an older deployment, or a temporary
   // state-endpoint failure, does not provide the computed section list.
@@ -733,7 +830,7 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
 
   useEffect(() => {
     setDraftMenu(Object.fromEntries(sections.map((slug) => [slug, data.menu?.[slug] !== false])));
-  }, [data.menu, sections]);
+  }, [JSON.stringify(data.menu), JSON.stringify(sections)]);
 
   const enabledCount = sections.filter((slug) => draftMenu[slug] !== false).length;
   const hasChanges = sections.some((slug) => (data.menu?.[slug] !== false) !== (draftMenu[slug] !== false));
@@ -757,6 +854,7 @@ function MenuControlsPanel({ data }: { data: AdminData }) {
       // into the existing data so that menuSections and other fields are preserved.
       const body = await response.json().catch(() => ({})) as { menu?: Record<string, boolean> };
       const updatedMenu: Record<string, boolean> = body.menu ?? draftMenu;
+      publishContentChange();
       const merged: AdminData = { ...data, menu: updatedMenu };
 
       const event = new CustomEvent('admin-data-updated', { detail: merged });

@@ -41,7 +41,7 @@
                     'background-position': local_options.pos_x + ' ' + pos_y + 'px',
                 });
 
-                $(window).scroll( function(){
+                $(window).on('scroll.intexParallax', function(){
                         //var pos_y = - ( $(window).scrollTop() - $el.offset().top ) * ( 1 + local_options.speed ) - ( $el.offset().top * local_options.speed );
                         var pos_y =  local_options.offset + ($el.offset().top - $(window).scrollTop()) * (1 - local_options.speed );
                         $el.data( 'pos_y', pos_y );

@@ -66,7 +66,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
     }
 
     const extension = extensionFor(file);
-    const fileName = `${id}${extension}`;
+    const fileName = `${id}-${Date.now()}${extension}`;
     const nextStoragePath = `team/${fileName}`;
     const fileBuffer = Buffer.from(await file.arrayBuffer());
 

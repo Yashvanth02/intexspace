@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
+import { headers } from "next/headers";
+import { readSiteSnapshot } from "@/lib/content-store";
+import { LiveSiteUpdates } from "@/components/LiveSiteUpdates";
+import { LegacyScripts } from "@/components/LegacyScripts";
 
 export const metadata: Metadata = {
   title: "Intex Space Solutions Pvt Ltd",
@@ -39,17 +42,15 @@ const legacyStyles = [
   "/css/custom.css",
 ];
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // While the gate is up the only routes rendered are the under-construction
-  // page and /admin. The construction page must not load the legacy theme —
-  // custom.css would override its background and magiccursor.js would fight
-  // its cursor. /admin is styled entirely by AdminDashboard.module.css and
-  // uses no bootstrap or legacy classes, so it is unaffected.
-  const underConstruction = process.env.SITE_UNDER_CONSTRUCTION === "true";
+  const { settings, publicRevision } = await readSiteSnapshot();
+  const pathname = (await headers()).get("x-intex-pathname") || "/";
+  const admin = pathname === "/admin" || pathname.startsWith("/admin/");
+  const underConstruction = !admin && (settings.maintenanceEnabled || pathname === "/under-construction");
 
   return (
     <html lang="en">
@@ -77,10 +78,8 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        {!underConstruction &&
-          legacyScripts.map((src) => (
-            <Script key={src} src={src} strategy="afterInteractive" />
-          ))}
+        <LiveSiteUpdates revision={publicRevision} maintenanceEnabled={settings.maintenanceEnabled} />
+        {!underConstruction && <LegacyScripts sources={legacyScripts} />}
       </body>
     </html>
   );
